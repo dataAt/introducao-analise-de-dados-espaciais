@@ -1,1 +1,15 @@
 # Python `r emo::ji("rocket")`
+
+## Pandas
+
+## GeoPandas
+
+### Leitura e escrita de dados
+
+### Manipulação geométrica
+
+### Manipulação de projeções
+
+### Seleção e filtro de dados
+
+### Visualização dos resultados
