@@ -1,15 +1,95 @@
-# Python `r emo::ji("rocket")`
+# Python `r emo::ji("sparkles")`
+
+Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. Um ponto forte da linguagem é a maturidade de seu ecossitema, que através de milhares de pacotes disponiblizados por uma comunidade incrível, faz com que a linguagem possa ser fácilmente aplicada nos mais variados contextos.
+
+Nesta seção do material de introdução à análise de dados espaciais vamos discutir uma das várias soluções existentes para a manipulação de dados espaciais, o `GeoPandas`.
+
+Para começarmos, vamos falar um pouco sobre o `Pandas` a biblioteca utilizada como base para a criação do `GeoPandas`.
 
 ## Pandas
 
+Como citado anteriormente, Python é uma linguagem de programação que não foi criada com nenhum propósito específico, assim como acontece com linguagens como R e Julia, que desde sua criação tiveram o foco em uma área específica.
+
+Desta forma, não podemos esperar que por padrão a linguagem disponibilize funcionalidades para a leitura e escrita de dados, nos mais variados formatos, ou mesmo diferentes métodos para análise de tais dados. É neste contexto que o pandas é inserido.
+
+> Pandas é uma biblioteca open source, licenciada pelo BSD, que fornece estruturas de dados de alto desempenho, fáceis de usar e ferramentas de análise de dados para a linguagem de programação Python.
+
+Com o pandas é possível criar todo um ciclo de análise de dados, indo desde a leitura, passando pelo processamento e análise e chegando até a exportação dos resultados. Para realizar tais atividades, o pandas disponibiliza diversas estruturas de dados, tendo como principais `Series` e `DataFrames`.
+
+No Pandas as `Series` e os `DataFrames` são utilizados para representar os dados que estão sendo manipulados, por conta desta característica, boa parte das funções de tratamento de dados da biblioteca aceita tais estruturas como entrada, sendo que as `Series` representam dados unidimensionais, e os `DataFrames` representam dados N-dimensionais. Para entender melhor como isto funciona, veja a Figura abaixo.
+
+<center>
+<div style="width:500px; height:400px">
+![](res/3_python/series_vs_dataframe.svg)
+</div>
+</center>
+
+A característica inicial que deve ser percebida na Figura acima é que, enquanto as `Series` possuem apenas uma coluna para o armazenamento de dados, os `DataFrames` possuem vários, podendo ir de 1 a N colunas, enquanto as `Series` obrigatoriamente possuem apenas 1 coluna. Além disso, nas `Series` é possível buscar dados apenas através de um índice, sendo que nos `DataFrames` busca-se não só pelo índice, mas também por colunas.
+
+Boa parte dos métodos de manipulação do `Pandas` aceita como entrada as duas estruturas de dados, fazendo com que a escolha por utilizar uma dessas estruturas fique a cargo das características de seus dados e de qual das estruturas melhor os representa.
+
+Para mais informações para a utilização do Pandas, consulte o [material do curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao-ao-python.html)
+
 ## GeoPandas
+
+<!--O início da explicação da biblioteca aqui deve ser igual o Pandas no minicurso anterior
+  GeoPandas é uma biblioteca ... criada sob o pandas para prover a facilidade de manipulação de dados
+  do pandas em dados espaciais...
+  
+  A biblioteca é criada sob duas estruturas de dados principais: GeoSeries e GeoDataFrames que são
+  especializações diretas das classes Series e DataFrame. O diagrama de classe abaixo apresenta esta   relação. (Colocar as especializações e também a especialização da classe GeoPandasBase)
+  
+  Com estas classes é possível fazer a representação de geodados facilmente, além de sua manipulação 
+  (Esta parte ficou repetida mas é só o exemplo base).
+  
+  As funcionalidades apresentadas pelo GeoPandas serão apresentadas nas subseções abaixo.
+-->
 
 ### Leitura e escrita de dados
 
+<!--
+  Aqui deixar claro que, a ideia do pandas é trabalhar com dados vetoriais, ou, em caso de dados
+  matriciais, que sua representação seja simplificada em tabelas, o que pode trazer certo desempenho... (Deixar claro para o pessoal não achar que a leitura de imagens por exemplo possa ser feito nessa lib.)
+-->
+
+<!-- Explicar aqui que além da manipulação o GeoPandas ajuda na leitura e escrita
+da mesma forma como é feito pelo pandas (Inclusive com a mesma facilidade).
+
+  O geopandas pode fazer a leitura dos seguintes formados de dados: A, B, C.
+  
+  Para entendermos melhor como funciona cada um destes dados, veja:
+  
+   - Exemplo de consumo de dados Shapefile A
+   - Exemplo de consumo de dados Shapefile B;
+   - Exemplo de consumo de dados Shapefile C;
+-->
+
 ### Manipulação geométrica
+
+<!--
+  Aqui cite tudo o que o pandas pode fazer, porém mostre exemplos apenas do Buffer e do envelope.
+  Pq o resto acaba sendo bem específico e pode não ter tanta aplicação para os alunos do curso em um
+  primeiro momento.
+-->
 
 ### Manipulação de projeções
 
+<!--
+  Falar brevemente como o GeoPandas faz estas manipulações.
+-->
+
+
 ### Seleção e filtro de dados
 
+<!--
+  Na seção do Pandas explique os filtro convencionais de busca de dados, pq nesta parte conseguimos fazer um gancho e dizer: "Veja, além de toda a forma de busca do pandas, o geopandas ainda consegue fazer indexação levando em consideração a localização no espaço dos dados que estão salvos".
+-->
+
 ### Visualização dos resultados
+
+<!--
+  Para fazer a visualização dos resultados, mostra que o próprio geopandas permite os plots, aqui utilize os dados já carregado nos exemplos anteriores.
+  
+- Citar que, para facilitar a visualização a biblioteca GeoPlot pode ser empregada.
+-->
+
