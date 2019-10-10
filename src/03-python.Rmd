@@ -1,5 +1,11 @@
 # Python `r emo::ji("sparkles")`
 
+```{r, echo=FALSE}
+# Estes comandos não devem ser executados em seu terminal
+library(reticulate) 
+use_python("venv/bin/python3")
+```
+
 Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. Um ponto forte da linguagem é a maturidade de seu ecossitema, que através de milhares de pacotes disponiblizados por uma comunidade incrível, faz com que a linguagem possa ser fácilmente aplicada nos mais variados contextos.
 
 Nesta seção do material de introdução à análise de dados espaciais vamos discutir uma das várias soluções existentes para a manipulação de dados espaciais, o `GeoPandas`.
@@ -35,9 +41,14 @@ Para mais informações para a utilização do Pandas, consulte o [material do c
 
 ## GeoPandas
 
+```{python, echo = FALSE}
+import pandas as pd
+import geopandas as gpd
+```
+
 Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Da mesma forma que foi feito com o Pandas, vejamos a definição do site oficial do projeto.
 
-> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas 
+> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas
 
 Desta forma a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais no Pandas, e com isto prover manipulação simples e direta aos dados espaciais.
 
@@ -53,6 +64,16 @@ Desta forma a ideia básica por trás do GeoPandas é adicionar o suporte a mani
   
   As funcionalidades apresentadas pelo GeoPandas serão apresentadas nas subseções abaixo.
 -->
+
+
+![](res/3_python/geopandas_classes.svg)
+
+
+### GeoSeries
+
+
+### GeoDataFrames
+
 
 ### Leitura e escrita de dados
 
