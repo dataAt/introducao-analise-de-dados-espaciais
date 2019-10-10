@@ -18,7 +18,7 @@ Com o pandas é possível criar todo um ciclo de análise de dados, indo desde a
 
 No Pandas as `Series` e os `DataFrames` são utilizados para representar os dados que estão sendo manipulados, por conta desta característica, boa parte das funções de tratamento de dados da biblioteca aceita tais estruturas como entrada, sendo que as `Series` representam dados unidimensionais, e os `DataFrames` representam dados N-dimensionais. Para entender melhor como isto funciona, veja a Figura abaixo.
 
-<center>
+<center> <!-- ToDo: Trocar os valores após o `...`, evitando ambiguidade no entendimento -->
 <div style="width:500px; height:400px">
 ![](res/3_python/series_vs_dataframe.svg)
 </div>
@@ -28,9 +28,18 @@ A característica inicial que deve ser percebida na Figura acima é que, enquant
 
 Boa parte dos métodos de manipulação do `Pandas` aceita como entrada as duas estruturas de dados, fazendo com que a escolha por utilizar uma dessas estruturas fique a cargo das características de seus dados e de qual das estruturas melhor os representa.
 
+### Manipulação básica de dados
+<!-- Inserir seleção de dados -->
+
 Para mais informações para a utilização do Pandas, consulte o [material do curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao-ao-python.html)
 
 ## GeoPandas
+
+Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Da mesma forma que foi feito com o Pandas, vejamos a definição do site oficial do projeto.
+
+> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas 
+
+Desta forma a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais no Pandas, e com isto prover manipulação simples e direta aos dados espaciais.
 
 <!--O início da explicação da biblioteca aqui deve ser igual o Pandas no minicurso anterior
   GeoPandas é uma biblioteca ... criada sob o pandas para prover a facilidade de manipulação de dados
@@ -92,4 +101,3 @@ da mesma forma como é feito pelo pandas (Inclusive com a mesma facilidade).
   
 - Citar que, para facilitar a visualização a biblioteca GeoPlot pode ser empregada.
 -->
-
