@@ -22,12 +22,24 @@ Desta forma, não podemos esperar que por padrão a linguagem disponibilize func
 
 Com o pandas é possível criar todo um ciclo de análise de dados, indo desde a leitura, passando pelo processamento e análise e chegando até a exportação dos resultados. Para realizar tais atividades, o pandas disponibiliza diversas estruturas de dados, tendo como principais `Series` e `DataFrames`.
 
+<!--
+Series = Vetores
+DataFrames = Conjunto de vetores
+
+Criar uma forma de explicar esta relação
+-->
+
 No Pandas as `Series` e os `DataFrames` são utilizados para representar os dados que estão sendo manipulados, por conta desta característica, boa parte das funções de tratamento de dados da biblioteca aceita tais estruturas como entrada, sendo que as `Series` representam dados unidimensionais, e os `DataFrames` representam dados N-dimensionais. Para entender melhor como isto funciona, veja a Figura abaixo.
 
 <center> <!-- ToDo: Trocar os valores após o `...`, evitando ambiguidade no entendimento -->
 <div style="width:500px; height:400px">
 ![](res/3_python/series_vs_dataframe.svg)
 </div>
+</center>
+
+<!-- ToDo: Facilitar a explicação acima com a seguinte figura -->
+<center>
+![](res/3_python/relacoes_pandas.svg)
 </center>
 
 A característica inicial que deve ser percebida na Figura acima é que, enquanto as `Series` possuem apenas uma coluna para o armazenamento de dados, os `DataFrames` possuem vários, podendo ir de 1 a N colunas, enquanto as `Series` obrigatoriamente possuem apenas 1 coluna. Além disso, nas `Series` é possível buscar dados apenas através de um índice, sendo que nos `DataFrames` busca-se não só pelo índice, mas também por colunas.
@@ -65,9 +77,16 @@ Desta forma a ideia básica por trás do GeoPandas é adicionar o suporte a mani
   As funcionalidades apresentadas pelo GeoPandas serão apresentadas nas subseções abaixo.
 -->
 
+<!-- Antes de falar das classes que são herdades pelo tipo, inserir a seguinte figura -->
+<!-- A mesma facilita a explicação da relação entre o pandas e o geopandas -->
+<center>
+![](res/3_python/relacoes_pandas_e_geopandas.svg)
+</center>
 
+
+<center>
 ![](res/3_python/geopandas_classes.svg)
-
+</center>
 
 ### GeoSeries
 
