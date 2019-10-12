@@ -301,8 +301,6 @@ Para realizar essas operações o GeoPandas utiliza como base a biblioteca [Fion
 
 Além destes formatos a biblioteca aceita vários outros, para a lista completa de formatos suportados, consulte a [documentação](https://fiona.readthedocs.io/en/latest/manual.html) do Fiona.
 
-#### Leitura de dados
-
 Para fazer alguns testes utilizando as funcionalidades de leitura dos dados, vamos carregar um dado vetorial, dos estados do Brasil que estão armazenados em um `shapefile`.
 
 ```{python}
@@ -412,20 +410,291 @@ Não deixe de consultar a documentação do Pandas e do GeoPandas, por conta das
 
 ### Manipulação geométrica
 
-<!--
-  Aqui cite tudo o que o pandas pode fazer, porém mostre exemplos apenas do Buffer e do envelope.
-  Pq o resto acaba sendo bem específico e pode não ter tanta aplicação para os alunos do curso em um
-  primeiro momento.
--->
+O GeoPandas oferece diferentes métodos para a manipulação dos dados espaciais carregados, esta seção fará a apresentação de alguns destes métodos.
+
+> É importante lembrar que, todos estes métodos estão orientados a coluna de geometria padrão, vista na subseção anterior.
+
+As operações apresentadas nas subseções a seguir, são representadas por métodos e atributos das `GeoSeries` e dos `GeoDataFrames`.
+
+#### area
+
+Vamos começar com as operações de área, que de forma análoga ao nome, cálcula a área da geometria em questão. Vejamos a Figura abaixo que faz uma representação desta operação em diferentes formas geométricas.
+
+![](res/3_python/opgeom_area.svg)
+
+O resultado da operação, devolve o cálculo da área, representado em vermelho na Figura acima. Para exemplificar, vamos utilizar o conjunto de dados dos estados do Brasil
+
+```{python}
+estados_do_brasil = gpd.read_file("../data/1_estados_do_brasil_shape/Brasil.shp")
+```
+
+> Lembre-se, este conjunto de dados está disponível no [repositório](https://github.com/dataAt/introducao-analise-de-dados-espaciais/tree/master/data) do curso
+
+Depois de carregar os dados, vamos utilizar o atributo `area`, que realiza a operação e devolve a àrea para cada uma das linhas do conjunto de dados
+
+```{python}
+print(estados_do_brasil.area.head(5)) # Exibindo somente as 5 primeiras
+```
+
+A área é devolvida na unidade de medida da projeção espacial utilizada no conjunto de dados, estes detalhes serão apresentados nas seções seguintes.
+
+#### bounds
+
+O atributo `bounds` devolve as coordenadas mínimas e máximas da região coberta pela geometria. Sua representação é feita na Figura abaixo.
+
+![](res/3_python/opgeom_bounds.svg)
+
+Perceba que, para cada figura é criado um retângulo que a envolve (Também chamado de retângulo envolvente) e as coordenadas mínimas e máximas são retiradas desses. Vejamos um exemplo
+
+```{python}
+print(estados_do_brasil.bounds.head(5))
+```
+
+#### centroid
+
+O atributo `centroid` devolve o ponto central da geometria. Sua representação é feita na Figura abaixo.
+
+![](res/3_python/opgeom_centroid.svg)
+
+O ponto retornado para cada geometria é apresentado em vermelho. Vejamos um exemplo com o GeoPandas.
+
+```{python}
+centroids_dos_estados = estados_do_brasil.centroid
+```
+
+Se olharmos para o resultado teremos uma `GeoSeries` com um ponto para cada um dos estados, vamos visualizar estes pontos rapidamente.
+
+```
+centroids_dos_estados.plot()
+```
+
+```{python, echo=FALSE}
+centroids_dos_estados.plot()
+
+plt.show()
+```
+
+Para fazermos um pequeno experimento, famos pegar a figura com os estados e fazer seu plot junto com os centroids.
+
+```
+base = estados_do_brasil.plot()
+centroids_dos_estados.plot(ax=base, marker="o", color="red")
+```
+
+```{python, echo=FALSE}
+base = estados_do_brasil.plot()
+centroids_dos_estados.plot(ax=base, marker="o", color="red")
+plt.show()
+```
+
+#### buffer
+
+O método `buffer` cria um circulo entorno de um ponto, e pode ser aplicado em diferentes tipos de análises espaciais. Sua representação é feita na Figura abaixo.
+
+<center>
+![](res/3_python/opgeom_buffer.svg)
+</center>
+
+Para testar esta operação, vamos utilizar os `centroids` extraídos na seção anterior.
+
+```{python}
+buffers = centroids_dos_estados.buffer(2)
+```
+
+Da mesma forma que outros métodos que trabalham com distâncias, os valores dependem diretamente das projeções espaciais utilizadas. Vamos fazer um plot do resultado gerado sob o mapa dos estados do Brasil.
+
+```
+base = estados_do_brasil.plot()
+base = buffers.plot(ax = base, color = 'yellow')
+
+# Adicionando os centroids também, para testar =D
+centroids_dos_estados.plot(ax = base, color = 'red')
+```
+
+```{python, echo=FALSE}
+base = estados_do_brasil.plot()
+base = buffers.plot(ax = base, color = 'yellow')
+# Adicionando os centroids também, para testar =D
+centroids_dos_estados.plot(ax = base, color = 'red')
+
+plt.show()
+```
+
+#### envelope
+
+Por fim, o método `envelope` cria o mesmo retângulo envolve utilizado no atributo `bounds`, com a diferença que, neste caso a geometria é devolvida. A representação desta operação é feita na Figura abaixo.
+
+<center>
+![](res/3_python/opgeom_envelope.svg)
+</center>
+
+Para testar, vamos pegar os buffers gerados anteriormente e então gerar seu retângulo envolvente.
+
+```{python}
+envelopes = buffers.envelope
+```
+
+Da mesma forma que nos demais, vamos visualizar o resultado.
+
+```
+base = estados_do_brasil.plot()
+
+envelopes.plot(ax = base, color = 'green')
+```
+
+```{python, echo = FALSE}
+base = estados_do_brasil.plot()
+
+envelopes.plot(ax = base, color = 'green')
+plt.show()
+```
 
 ### Seleção e filtro de dados
 
-<!--
-  Na seção do Pandas explique os filtro convencionais de busca de dados, pq nesta parte conseguimos fazer um gancho e dizer: "Veja, além de toda a forma de busca do pandas, o geopandas ainda consegue fazer indexação levando em consideração a localização no espaço dos dados que estão salvos".
--->
+O GeoPandas ainda fornece métodos para a seleção e filtros de dados baseados na posição espacial. Nesta seção veremos dois desses, que podem ser muito úteis nas mais diversas análises.
+
+#### distance
+
+Vamos começar com o método `distance`, que calcula a distância entre duas geometrias. Sua operação é representada na Figura abaixo.
+
+<center>
+![](res/3_python/opgeom_distance.svg)
+</center>
+
+Para testar esta operação, vamos carregar dois dados vetoriais, cada um represetando um estado do Brasil.
+
+```{python}
+estado_maranhao = gpd.read_file("../data/2_estado_sp_shape/shape_estado-sp.shp")
+estado_saopaulo = gpd.read_file("../data/3_estado_ma_shape/shape_estado-ma.shp")
+```
+
+Vamos visualizar os dois juntos. Nesta visualização, para ela ter sentido, abaixo dos estados foi fazer o plot do mapa do Brasil.
+
+```
+base = estados_do_brasil.plot()
+
+base = estado_maranhao.plot(ax = base, color = 'green')
+estado_saopaulo.plot(ax = base, color = 'yellow')
+```
+
+```{python, echo = FALSE}
+base = estados_do_brasil.plot()
+
+base = estado_maranhao.plot(ax = base, color = 'green')
+estado_saopaulo.plot(ax = base, color = 'yellow')
+
+plt.show()
+```
+
+Certo, vamos calcular a distância entre cada um deles.
+
+```{python}
+distancia = estado_saopaulo.distance(estado_maranhao)
+
+print(distancia)
+```
+
+Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo.
+
+#### contains
+
+O método `contains` verifica se uma geometria está contida em outra, sua representação visual é apresentada abaixo .
+
+<center>
+![](res/3_python/opgeom_contains.svg)
+</center>
+
+Vamos fazer um teste da operação com o estado do Amazonas, verificando se sua geometria está contida nas nos dados de estados do Brasil.
+
+Primeiro, vamos retirar do `GeoDataFrame` as informações do estado do Amazonas, para isto aplicaremos um filtro booleano, herdado do Pandas.
+
+
+```{python}
+estado_amazonas = estados_do_brasil[estados_do_brasil["ESTADOS"] == "Amazonas"] # Indexação booleana
+```
+
+Agora vamos verificar se o estado está contido em alguma geometria dos estados do Brasil.
+
+```{python}
+amazonas_esta_presente = estados_do_brasil.contains(estado_amazonas)
+
+print(amazonas_esta_presente.head(10))
+```
+
+Veja que em uma das linhas apareceu `True`, isto indica que a geometria do estado do Amazonas está contida nesta, que se formos olhar a linha do `GeoDataFrame` com os dados do estado, indica exatamente a linha do estado do Amazonas.
+
+```{python}
+print(estados_do_brasil[amazonas_esta_presente])
+```
+
+#### intersects
+
+Por fim, na parte de seleção através dos dados espaciais, vamos testar o método `intersects`, que verifica se uma geometria faz intersecção com outra. Vale lembrar que, é tido como uma intersecção, quando um objeto cruza de alguma maneira, seu limite e seu interior com outro objeto. A operação pode ser vista abaixo.
+
+<center>
+![](res/3_python/opgeom_intersects.svg)
+</center>
+
+Para realizar este teste, vamos carregar um arquivo que contém todos rios do nosso país. E então verificar quais desses fazem intersecção com o estado do Pará.
+
+```{python}
+rios_brasil = gpd.read_file("../data/4_rios_brasil/Brasil_rios.shp")
+```
+
+Antes de continuar, vamos visualizar os dados, junto aos estados do Brasil.
+
+```
+base = estados_do_brasil.plot(color = "gray")
+rios_brasil.plot(ax = base, color = 'red')
+```
+
+```{python}
+base = estados_do_brasil.plot(color = "gray")
+rios_brasil.plot(ax = base, color = 'red')
+
+plt.show()
+```
+
+Agora vamos pegar somente o estado do Pará do conjunto de estados e verificar quais rios fazem intersecção com ele.
+
+```{python}
+estado_para = estados_do_brasil[estados_do_brasil["ESTADOS"] == "Pará"]
+rios_intersect_para = rios_brasil.intersects(estado_para)
+
+print(rios_intersect_para.head(5))
+```
+
+O resultado é uma lista booleana, desta forma, vamos filtrar o conjunto de dados de rios com este índice, e então verificar quais deles fazem intersecção com o estado do Pará.
+
+```{python}
+rios_para = rios_brasil[rios_intersect_para]
+```
+
+Com os dados separados, vamos fazer um plot para melhor visualizar o resultado. Neste plot vamos utilizar o `matplotlib`, para criar vários subplots.
+
+```{python}
+import matplotlib.pyplot as plt
+
+# Criando figura e os subplots
+fig, (ax1, ax2) = plt.subplots(ncols=2)
+
+base = estados_do_brasil.plot(ax = ax1, color = 'blue')
+rios_para.plot(ax = base, color = 'red')
+
+base = estado_para.plot(ax = ax2, color = 'gray')
+rios_para.plot(ax = base, color = 'red')
+
+plt.show()
+```
+
+Veja que esta operação verificou somente aqueles que fazem intersecção com as fronteiras, não indicando que está contido ou próximo ao estado.
 
 ### Manipulação de projeções
 
-<!--
-  Falar brevemente como o GeoPandas faz estas manipulações.
--->
+Uma operação muito importante quando se está trabalhando dados espaciais é a manipulação de suas projeções, estas que como explicado no capítulo anterior, fazem as representações das geometrias no espaço, o GeoPandas fornece um método muito simples para tal operação, o `to_crs`, que altera a projeção dos dados sem grandes problemas.
+
+<center>
+![](res/3_python/opgeom_tocrs.svg)
+</center>
+
+Este foi o capítulo sobre GeoPandas e suas facilidades de uso `r emo::ji("star2")`, não deixe de consultar a documentação oficial e fazer seus testes `r emo::ji("dizzy")`.
