@@ -15,27 +15,9 @@ import matplotlib.pyplot as plt
 
 Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. 
 
-Por ser uma linguagem de aplicações gerais, 
+Tais características fizem Python alcançar os mais variados nixos de aplicação. Por ser uma linguagem geral para atingir tais nixos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.
 
-
-Essas características trouxeram para Python uma comunidade extremamente ativa e acolhedora, o que gerou uma infinidade de bibliotecas para a 
-
-Um ponto forte da linguagem é a maturidade de seu ecossitema, que através de milhares de pacotes disponiblizados por uma comunidade incrível, faz com que a linguagem possa ser fácilmente aplicada nos mais variados contextos.
-
-Nesta seção do material de introdução à análise de dados espaciais vamos discutir uma das várias soluções existentes para a manipulação de dados espaciais, o `GeoPandas`.
-
-Para começarmos, vamos falar um pouco sobre o `Pandas` a biblioteca utilizada como base para a criação do `GeoPandas`.
-
-Como citado anteriormente, Python é uma linguagem de programação que não foi criada com nenhum propósito específico, assim como acontece com linguagens como R e Julia, que desde sua criação tiveram o foco em uma área específica.
-
-Desta forma, não podemos esperar que por padrão a linguagem disponibilize funcionalidades para a leitura e escrita de dados, nos mais variados formatos, ou mesmo diferentes métodos para análise de tais dados. É neste contexto que o pandas é inserido.
-
-<!-- Citar aqui em cima que, as bibliotecas foram criadas por conta da característica geral da linguagem, e que sua facilidade atraiu utilizados das mais variadas áreas -->
-
-<!-- Nesta seção, primeiro será feito a introdução ao pandas, biblioteca base utilizada pelo GeoPandas para a realização de toda a manipulação dos dados  -->
-
-<!-- ToDo: Inserir isto aqui na intro para ajudar que está começando -->
-<!-- Para mais informações para a utilização do Pandas, consulte o [material do curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao-ao-python.html) -->
+Desta forma, este capítulo busca explicar as principais formas de utilização do GeoPandas. Por ser baseada no Pandas, há uma pequena seção que trata sobre o uso básico da linguagem, mas é recomendado que o leitor também conheça tal biblioteca, para isto, existe o [curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao.html), que explica os principais conceitos de utilização do Pandas, não deixe de conferir!
 
 ## Pandas `r emo::ji("panda")`
 
@@ -55,7 +37,7 @@ Estas características, na prática, indicam que, as `Series` apenas representar
 </div>
 </center>
 
-Perceba que, as `Series` possuem o campo para o armazenamento dos dados (Representado em Azul), e o índice (Represetnado em roxo), não podendendo ser adicionado nenhum outro campo, isto faz com que, todos os dados tenham de ser armazenados em apenas uma coluna, em várias linhas.
+Perceba que, as `Series` possuem o campo para o armazenamento dos dados (Representado em Azul), e o índice (Representado em roxo), não podendendo ser adicionado nenhum outro campo, isto faz com que, todos os dados tenham de ser armazenados em apenas uma coluna, em várias linhas.
 
 Para o `DataFrame` o cenário apresentado na Figura é diferente, além dos índices, há também as colunas (Representada em vermelho), o que permite que dentro desta estrutura existam não só um conjunto de linhas, como as `Series` mas sim um conjunto de colunas, onde cada uma dessas possuem várias linhas. Na prática o que fica subentendido é que, os `DataFrames` são um conjunto de `Series`.
 
@@ -594,7 +576,7 @@ distancia = estado_saopaulo.distance(estado_maranhao)
 print(distancia)
 ```
 
-Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo.
+Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo. Esta mesma operação pode ser utilizada como uma forma de consulta aos dados, por exemplo, buscar estados que estejam a X de distância de outro.
 
 #### contains
 
