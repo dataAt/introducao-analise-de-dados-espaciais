@@ -160,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="python" class="section level1">
 <h1><span class="header-section-number">3</span> Python ✨</h1>
 <p>Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem.</p>
-<p>Tais características fizem Python alcançar os mais variados nixos de aplicação. Por ser uma linguagem geral para atingir tais nixos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.</p>
+<p>Tais características fizem Python alcançar os mais variados nichos de aplicação. Por ser uma linguagem geral para atingir tais nichos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.</p>
 <p>Desta forma, este capítulo busca explicar as principais formas de utilização do GeoPandas. Por ser baseada no Pandas, há uma pequena seção que trata sobre o uso básico da linguagem, mas é recomendado que o leitor também conheça tal biblioteca, para isto, existe o <a href="https://dataat.github.io/introducao-analise-de-dados/introducao.html">curso de introdução à análise de dados</a>, que explica os principais conceitos de utilização do Pandas, não deixe de conferir!</p>
 <div id="pandas" class="section level2">
 <h2><span class="header-section-number">3.1</span> Pandas 🐼</h2>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Caso eu queira visualizar não só a tabela, mas sim a representação das geometrias criadas no espaço, é possível utilizar o método <code>plot</code>.</p>
 <pre><code>gsr.plot()</code></pre>
 <center>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C395E4B00&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000028127D5D0B8&gt;</code></pre>
 <img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-21-1.png" width="576" />
 </center>
 <p>Mas as <code>GeoSeries</code> podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os <code>GeoDataFrames</code> que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas. Vamos criar um para fazer testes.</p>
@@ -430,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Por fim, vamos visualizar a disposição destes dados em uma figura, para isto, utilizamos o método <code>plot</code>.</p>
 <pre><code>gdf.plot()</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C395C64E0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000028127D8C160&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <p>O ponto a ser entendido do método <code>plot</code> é que, ele utiliza a coluna de geometrias padrão para gerar a figura, então, caso haja alguma inconsistência neste coluna este método terá problemas. Esta lógica se aplica a todos os outros métodos do GeoPandas que utilizam a representação espacial para fazer as operações.</p>
 <p>Vamos salvar os resultados em um arquivo <code>shapefile</code>, para isto, façamos a utilização do método <code>to_file</code>.</p>
@@ -486,12 +486,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" title="1">centroids_dos_estados <span class="op">=</span> estados_do_brasil.centroid</a></code></pre></div>
 <p>Se olharmos para o resultado teremos uma <code>GeoSeries</code> com um ponto para cada um dos estados, vamos visualizar estes pontos rapidamente.</p>
 <pre><code>centroids_dos_estados.plot()</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39D9B8D0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000028127FE7048&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p>Para fazermos um pequeno experimento, famos pegar a figura com os estados e fazer seu plot junto com os centroids.</p>
 <pre><code>base = estados_do_brasil.plot()
 centroids_dos_estados.plot(ax=base, marker=&quot;o&quot;, color=&quot;red&quot;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39AE8438&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000281280A92E8&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 </div>
 <div id="buffer" class="section level4">
@@ -508,7 +508,7 @@ base = buffers.plot(ax = base, color = &#39;yellow&#39;)
 
 # Adicionando os centroids também, para testar =D
 centroids_dos_estados.plot(ax = base, color = &#39;red&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39AE48D0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002812925A4A8&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 </div>
 <div id="envelope" class="section level4">
@@ -523,7 +523,7 @@ centroids_dos_estados.plot(ax = base, color = &#39;red&#39;)</code></pre>
 <pre><code>base = estados_do_brasil.plot()
 
 envelopes.plot(ax = base, color = &#39;green&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C3993CB00&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000281291E05C0&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 </div>
 </div>
@@ -544,7 +544,7 @@ envelopes.plot(ax = base, color = &#39;green&#39;)</code></pre>
 
 base = estado_maranhao.plot(ax = base, color = &#39;green&#39;)
 estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C398A6470&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000281291A66A0&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>Certo, vamos calcular a distância entre cada um deles.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb81-1" title="1">distancia <span class="op">=</span> estado_saopaulo.distance(estado_maranhao)</a>
@@ -598,7 +598,7 @@ estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
 rios_brasil.plot(ax = base, color = &#39;red&#39;)</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb90-1" title="1">base <span class="op">=</span> estados_do_brasil.plot(color <span class="op">=</span> <span class="st">&quot;gray&quot;</span>)</a>
 <a class="sourceLine" id="cb90-2" title="2">rios_brasil.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39AB29B0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002812508DB38&gt;</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb92-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>Agora vamos pegar somente o estado do Pará do conjunto de estados e verificar quais rios fazem intersecção com ele.</p>
@@ -622,10 +622,10 @@ rios_brasil.plot(ax = base, color = &#39;red&#39;)</code></pre>
 <a class="sourceLine" id="cb96-5" title="5"></a>
 <a class="sourceLine" id="cb96-6" title="6">base <span class="op">=</span> estados_do_brasil.plot(ax <span class="op">=</span> ax1, color <span class="op">=</span> <span class="st">&#39;blue&#39;</span>)</a>
 <a class="sourceLine" id="cb96-7" title="7">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39D3F278&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000028124DAF240&gt;</code></pre>
 <div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb98-1" title="1">base <span class="op">=</span> estado_para.plot(ax <span class="op">=</span> ax2, color <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)</a>
 <a class="sourceLine" id="cb98-2" title="2">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025C39F86F60&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000281252F0A20&gt;</code></pre>
 <div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb100-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>Veja que esta operação verificou somente aqueles que fazem intersecção com as fronteiras, não indicando que está contido ou próximo ao estado.</p>
