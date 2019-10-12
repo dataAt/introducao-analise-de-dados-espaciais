@@ -119,15 +119,15 @@ print(sr.iloc[1]) # Lembre-se, o Python começa a contar no zero =D
 
 Percebeu? Temos o mesmo resultado, muito interessante não ? Além disso ainda posso aplicar filtros sob os dados,utilizando o conceito de `indexação booleana`, onde através de um vetor de `VERDADEIRO` e `FALSO` é possível selecionar as linhas.
 
-Vamos buscar somente os valores que são acima de cinco.
+Vamos buscar somente os valores que são acima de três.
 
 ```{python}
-print(sr[sr > 5])
+print(sr[sr > 3])
 ```
 
-> Dica: O que ocorre nesta parte é, dentro das chaves de `sr` (sr[]) é passado a expressão `sr > 5` que devolve uma lista de verdadeiros e falsos, fazendo assim o filtro.
+> Dica: O que ocorre nesta parte é, dentro das chaves de `sr` (sr[]) é passado a expressão `sr > 3` que devolve uma lista de verdadeiros e falsos, fazendo assim o filtro.
 
-Muito interessante! Mas até aqui trabalhamos com apenas uma dimesão, vamos tentar acrescentar mais uma dimesão a estes dados.
+Muito interessante! Mas até aqui trabalhamos com apenas uma dimensão, vamos tentar acrescentar mais, para isto, primeiro vamos criar uma matriz.
 
 ```{python}
 matriz = [
@@ -135,7 +135,7 @@ matriz = [
 ]
 ```
 
-Criei uma matriz, esta que é representada por uma lista de listas. Vamos tentar criar uma `Series` com esta matriz.
+A matriz criada é representada por uma lista de listas. Vamos tentar criar uma `Series` com esta matriz.
 
 ```{python}
 sr = pd.Series(matriz)
@@ -193,11 +193,11 @@ Bom, agora que já entendemos toda a utilização básica do Pandas, vamos come�
 
 Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Mas o que é o GeoPandas ?
 
-> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados vetoriais geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas
+> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados vetoriais em Python, para isto, tem como base as estruturas de dados do Pandas
 
-Desta forma, a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais as estruturas de dados do Pandas, e com isto prover formas de manipulação simples e direta aos dados espaciais.
+Desta forma, a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais as estruturas de dados do Pandas, e com isto prover formas de manipulação simples e direta a tais dados.
 
-Para fazer isto, o GeoPandas utiliza estruturas de dados geométricas implementadas pela biblioteca [Shapely](https://shapely.readthedocs.io/en/stable/manual.html) dentro das `Series` e dos `DataFrames`. Ao fazer esta adição duas estruturas de dados básicas do GeoPandas são disponibilizadas, as `GeoSeries` e os `GeoDataFrames`.
+Para fazer isto, o GeoPandas utiliza estruturas de dados geométricas implementadas pela biblioteca [Shapely](https://shapely.readthedocs.io/en/stable/manual.html) dentro das `Series` e dos `DataFrames`. Com esta adição, duas estruturas de dados surgem, as `GeoSeries` e os `GeoDataFrames`. 
 
 Este conceito pode ser melhor entendido com a observação da Figura abaixo.
 
@@ -266,7 +266,7 @@ plt.show()
 ```
 </center>
 
-Mas as `GeoSeries` podem ser limitadas em alguns casos, porque digo isto ? Vamos supor que para a realização de um estudo seja necessário não só a geolocalização, ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas, vamos criar um objeto para fazer testes.
+Mas as `GeoSeries` podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas. Vamos criar um para fazer testes.
 
 ```{python}
 gdf = gpd.GeoDataFrame({
@@ -279,34 +279,136 @@ gdf = gpd.GeoDataFrame({
 })
 ```
 
-Vamos visualizar como ficou o resultado.
+Visualizando o resultado
 
 ```{python}
 print(gdf)
 ```
 
-Agora as geometrias passam a ser vinculadas com outros valores, o que pode ser muito útil em vários cenários. Até aqui criamos nossas próprias geometrias, sem uma representação do mundo real ou algo assim, vamos agora começar com dados que possuam esta representação, para isto, vamos aprender a realizar a manipulação de leitura e escrita de dados com o GeoPandas.
+Agora as geometrias passam a ser vinculadas com outros valores, o que pode ser muito útil em vários cenários. Até aqui foram criadas geometrias sem nenhum tipo de ligação com o mundo real, então, vamos agora trabalhar um pouco com dados que façam esta representação, para isto, vejamos como carregar dados espaciais com o GeoPandas.
 
 ### Leitura e escrita de dados
 
-<!--
-  Falar do Fiona
-  
-  Aqui deixar claro que, a ideia do pandas é trabalhar com dados vetoriais, ou, em caso de dados
-  matriciais, que sua representação seja simplificada em tabelas, o que pode trazer certo desempenho... (Deixar claro para o pessoal não achar que a leitura de imagens por exemplo possa ser feito nessa lib.)
--->
+Além de todas as características citadas até aqui, o GeoPandas ainda ajuda na leitura e na escrita de dados vetoriais, tudo seguindo o padrão de facilidade de uso do Pandas.
 
-<!-- Explicar aqui que além da manipulação o GeoPandas ajuda na leitura e escrita
-da mesma forma como é feito pelo pandas (Inclusive com a mesma facilidade).
+Para realizar essas operações o GeoPandas utiliza como base a biblioteca [Fiona](https://fiona.readthedocs.io/en/latest/manual.html), que traz suporte a leitura e escrita de uma enorme variedade de formatos vetoriais, sendo alguns deles:
 
-  O geopandas pode fazer a leitura dos seguintes formados de dados: A, B, C.
-  
-  Para entendermos melhor como funciona cada um destes dados, veja:
-  
-   - Exemplo de consumo de dados Shapefile A
-   - Exemplo de consumo de dados Shapefile B;
-   - Exemplo de consumo de dados Shapefile C;
--->
+- GeoJSON;
+- GPSTrackMaker;
+- ESRI Shapefile;
+- FileGDB;
+- OpenFileGDB.
+
+Além destes formatos a biblioteca aceita vários outros, para a lista completa de formatos suportados, consulte a [documentação](https://fiona.readthedocs.io/en/latest/manual.html) do Fiona.
+
+#### Leitura de dados
+
+Para fazer alguns testes utilizando as funcionalidades de leitura dos dados, vamos carregar um dado vetorial, dos estados do Brasil que estão armazenados em um `shapefile`.
+
+```{python}
+gdf = gpd.read_file("../data/1_estados_do_brasil_shape/Brasil.shp")
+```
+
+> Estes dados estão disponíveis no [repositório](https://github.com/dataAt/introducao-analise-de-dados-espaciais/tree/master/data) do curso.
+
+Com os dados carregados, vamos visualizar qual foi a estrutura gerada ao carregar os dados.
+
+```{python}
+print(type(gdf))
+```
+
+Um `GeoDataFrame`! Isto é feito por padrão pela biblioteca, assim, independente do formato de entrada, o GeoPandas busca inserir os dados dentro de um `GeoDataFrame`. Certo, vamos olhar então o que está dentro deste objeto.
+
+```{python}
+print(gdf.head(5))
+```
+
+É possível perceber neste resultado que, ao carregar os dados, as representações espaciais presentes no arquivo, foram inseridas em uma coluna chamada `geometry` e que, além dessa coluna, existem outras que vinculam múltiplas informações a cada uma das representações espaciais presentes no arquivo.
+
+> Lembre-se, o método `head` é herdado do Pandas, ele possibilita a visualização das linhas iniciais da tabela de dados.
+
+A representação acima não nos mostra todas as colunas de informações que temos no conjunto de dados carregados, para saber quais são todas elas, utilizaremos o atributo `columns`.
+
+```{python}
+print(gdf.columns)
+```
+
+Olha que interessante! Para cada estado, há seu nome, a região a que pertence, sua Unidade da Federação (UF) e o código desta UF. Agora que já sabemos como estão nossos dados, vamos voltar um pouco na coluna `geometry`.
+
+```{python}
+print(gdf["geometry"].head(5))
+```
+
+Entenda, a geometria escolhida para representar cada um dos estados do Brasil foi o poligono, e isto é possível de visualizar na coluna `geometry`. Outro fato importante sobre esta coluna é que, ela não precisa ter este nome, ele é definido automaticamente pelo GeoPandas para que as coisas sejam padronizadas e fiquem mais simples, mas, caso eu queira alterar, posso fazer isto facilmente da seguinte forma.
+
+```{python}
+gdf = gdf.rename_geometry("geometria")
+```
+
+Ao fazer isto, vamos visualizar as colunas do `GeoDataFrame` alterado.
+
+```{python}
+print(gdf.columns)
+```
+
+Mas, e se nos dados que eu estiver carregando existirem mais de uma coluna de representações espaciais, como o GeoPandas entende qual deve ser utilizada? Bem, por padrão ele escolhera a primeira delas e a tratará como a coluna `geometry` do conjunto de dados, porém se eu quiser fazer a alteração, também é possível.
+
+Primeiro, vamos aprender a identificar como o GeoPandas mostra a coluna que ele está utilizando como padrão, para isto o atributo `geometry` é utilizado.
+
+```{python}
+print(gdf.geometry.head(5))
+```
+
+Este atributo devolve os dados da coluna padrão de geometrias. Vamos ver qual é o nome da coluna de onde ele retira tais dados.
+
+```{python}
+print(gdf.geometry.name)
+```
+
+O nome é exatamente o mesmo da coluna que renomeamos! Vamos trocar esta coluna padrão, para fazer este teste, vou duplicar a coluna que contém as geometrias, porém cada uma terá um nome.
+
+```{python}
+gdf["geometria_dois"] = gdf["geometria"]
+
+print(gdf.columns)
+```
+
+Feito isto, vamos alterar a coluna padrão de geometrias
+
+```{python}
+gdf = gdf.set_geometry("geometria_dois")
+```
+
+Ao visualizar o resultado, percebemos que a mudança foi realizada com sucesso.
+
+```{python}
+print(gdf.geometry.name)
+```
+
+> A diferença entre o método `rename_geometry` e `set_geometry` está no ponto em que, a `set_geometry` altera a coluna que está sendo considerada como padrão para geometrias, equanto a `rename_geometry` altera o nome da coluna padrão de geometrias.
+
+Por fim, vamos visualizar a disposição destes dados em uma figura, para isto, utilizamos o método `plot`.
+
+```
+gdf.plot()
+```
+
+```{python, echo = FALSE}
+gdf.plot()
+plt.show()
+```
+
+O ponto a ser entendido do método `plot` é que, ele utiliza a coluna de geometrias padrão para gerar a figura, então, caso haja alguma inconsistência neste coluna este método terá problemas. Esta lógica se aplica a todos os outros métodos do GeoPandas que utilizam a representação espacial para fazer as operações.
+
+Vamos salvar os resultados em um arquivo `shapefile`, para isto, façamos a utilização do método `to_file`.
+
+```{python}
+del gdf["geometria"] # Removendo coluna extra de geometrias
+
+gdf.to_file('tmp/estados_do_brasil_editado.shp')
+```
+
+Não deixe de consultar a documentação do Pandas e do GeoPandas, por conta das bibliotecas trabalharem juntas, muitos formas de dados podem ser escritos e tratados, no GeoPandas é possível até mesmo ler dados diretamente de um banco de dados espacial (PostGres com PostGIS). 
 
 ### Manipulação geométrica
 
