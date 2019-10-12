@@ -10,6 +10,7 @@ use_python("venv/bin/python3")
 # Carrega por padrão, mesmo repetindo no código =D
 import pandas as pd
 import geopandas as gpd
+import matplotlib.pyplot as plt
 ```
 
 Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. 
@@ -162,7 +163,7 @@ print(df[0])
 
 Viu! Estamos acessando a primeira coluna, se fizermos a mesma coisa, com a segunda também vai funcionar (Tenta inserir o número 1, para você ver o que acontece).
 
-> Dica: Aqui estamos buscando o "nome" da coluna, e não sua posição
+> Dica: Ao fazer df[0], estamos buscando o "nome" da coluna, e não sua posição
 
 Da mesma forma que eu podemos recuperar o índice com o atributo `index` podemos recuperar as colunas com o atributo `columns`
 
@@ -212,13 +213,13 @@ Na prática o que ocorre é, todas as formas de manipulação geométricas, que 
 ![](res/3_python/geopandas_classes.svg)
 </center>
 
-Como a `GeoSeries` e os `GeoDataFrames` são especializações diretas das `Series` e dos `DataFrames` as mesmas características são mantidas, onde, respectivamente um armazena apenas uma coluna de valores, tendo uma dimensão de manipulação e o outro armazena diversas colunas com duas dimensões de manipulação, da mesma forma como apresentado na seção anterior.
+Como a `GeoSeries` e os `GeoDataFrames` são especializações diretas das `Series` e dos `DataFrames` as mesmas características são mantidas, onde, respectivamente, um armazena apenas uma coluna de valores, tendo uma dimensão de manipulação e o outro armazena diversas colunas com duas dimensões de manipulação, da mesma forma como apresentado na seção anterior.
 
 Para fixar o funcionamento de cada uma dessas estruturas, vamos fazer alguns testes com a API do GeoPandas. 
 
 ### GeoSeries e GeoDataFrames
 
-Vamos começar importando a biblioteca
+Para começar os testes, vamos importar a biblioteca de geometrias, `Shapely` e o GeoPandas.
 
 ```{python}
 import shapely
@@ -258,13 +259,11 @@ Caso eu queira visualizar não só a tabela, mas sim a representação das geome
 ```
 gsr.plot()
 ```
-
 <center>
-<div style="width:500px; height:400px">
-```{python, echo=FALSE}
-gsr.plot()
+```{python, echo = FALSE}
+gsr.plot(figsize=(6, 6))
+plt.show()
 ```
-</div>
 </center>
 
 Mas as `GeoSeries` podem ser limitadas em alguns casos, porque digo isto ? Vamos supor que para a realização de um estudo seja necessário não só a geolocalização, ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas, vamos criar um objeto para fazer testes.
