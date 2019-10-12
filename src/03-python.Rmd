@@ -36,7 +36,7 @@ Desta forma, não podemos esperar que por padrão a linguagem disponibilize func
 <!-- ToDo: Inserir isto aqui na intro para ajudar que está começando -->
 <!-- Para mais informações para a utilização do Pandas, consulte o [material do curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao-ao-python.html) -->
 
-## Pandas
+## Pandas `r emo::ji("panda")`
 
 Com a necessidade de facilitar todo o processo de análise de dados, através de uma linguagem simples e amigável, a comunidade Python criou o Pandas, uma biblioteca que disponibiliza métodos de alto nível para a manipulação, processamento e análise dos mais variados tipos de dados.
 
@@ -188,47 +188,111 @@ Assim, fica mais fácil entender que, quando se trata de colunas, estamos buscan
 
 Bom, agora que já entendemos toda a utilização básica do Pandas, vamos começar a falar um pouco sobre o GeoPandas `r emo::ji("purple_heart")`
 
-## GeoPandas
+## GeoPandas `r emo::ji("earth")``r emo::ji("panda")`
 
-Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Da mesma forma que foi feito com o Pandas, vejamos a definição do site oficial do projeto.
+Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Mas o que é o GeoPandas ?
 
-> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas
+> GeoPandas é um projeto open-source que busca facilitar o trabalho com dados vetoriais geoespaciais em Python, para isto, tem como base as estruturas de dados do Pandas
 
-Desta forma a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais no Pandas, e com isto prover manipulação simples e direta aos dados espaciais.
+Desta forma, a ideia básica por trás do GeoPandas é adicionar o suporte a manipulação de dados espaciais as estruturas de dados do Pandas, e com isto prover formas de manipulação simples e direta aos dados espaciais.
 
-<!--O início da explicação da biblioteca aqui deve ser igual o Pandas no minicurso anterior
-  GeoPandas é uma biblioteca ... criada sob o pandas para prover a facilidade de manipulação de dados
-  do pandas em dados espaciais...
-  
-  A biblioteca é criada sob duas estruturas de dados principais: GeoSeries e GeoDataFrames que são
-  especializações diretas das classes Series e DataFrame. O diagrama de classe abaixo apresenta esta   relação. (Colocar as especializações e também a especialização da classe GeoPandasBase)
-  
-  Com estas classes é possível fazer a representação de geodados facilmente, além de sua manipulação 
-  (Esta parte ficou repetida mas é só o exemplo base).
-  
-  As funcionalidades apresentadas pelo GeoPandas serão apresentadas nas subseções abaixo.
--->
+Para fazer isto, o GeoPandas utiliza estruturas de dados geométricas implementadas pela biblioteca [Shapely](https://shapely.readthedocs.io/en/stable/manual.html) dentro das `Series` e dos `DataFrames`. Ao fazer esta adição duas estruturas de dados básicas do GeoPandas são disponibilizadas, as `GeoSeries` e os `GeoDataFrames`.
 
-<!-- Antes de falar das classes que são herdades pelo tipo, inserir a seguinte figura -->
-<!-- A mesma facilita a explicação da relação entre o pandas e o geopandas -->
+Este conceito pode ser melhor entendido com a observação da Figura abaixo.
+
 <center>
 ![](res/3_python/relacoes_pandas_e_geopandas.svg)
 </center>
 
+Perceba que, há a mesma estrutura que foi apresentada na seção anterior, com as geometrias sendo o diferencial nas estruturas de dados.
+
+Na prática o que ocorre é, todas as formas de manipulação geométricas, que como citadas são implementadas com o Shapely, são implementadas em uma classe `GeoPandasBase` que é extendida pelas `GeoSeries` e `GeoDataFrames`, da mesma forma, essas também extendem as estruturas de dados equivalentes do Pandas, veja a Figura abaixo.
 
 <center>
 ![](res/3_python/geopandas_classes.svg)
 </center>
 
-### GeoSeries
+Como a `GeoSeries` e os `GeoDataFrames` são especializações diretas das `Series` e dos `DataFrames` as mesmas características são mantidas, onde, respectivamente um armazena apenas uma coluna de valores, tendo uma dimensão de manipulação e o outro armazena diversas colunas com duas dimensões de manipulação, da mesma forma como apresentado na seção anterior.
 
+Para fixar o funcionamento de cada uma dessas estruturas, vamos fazer alguns testes com a API do GeoPandas. 
 
-### GeoDataFrames
+### GeoSeries e GeoDataFrames
 
+Vamos começar importando a biblioteca
+
+```{python}
+import shapely
+import geopandas as gpd
+```
+
+Agora, vamos criar uma `GeoSeries`.
+
+```{python}
+gsr = gpd.GeoSeries([
+  shapely.geometry.Point(1, 1)
+])
+```
+
+> Dica: A geometria criada não possui qualquer tipo de referência espacial, portanto representa apenas um ponto no plano cartesiano.
+
+Veja que acabamos de criar uma `GeoSeries` que armazena uma geometria de ponto, vamos visualizar o objeto criado.
+
+```{python}
+print(gsr)
+```
+
+A forma é exatamente a mesma de uma `Series`. Vamos criar um novo objeto com mais geometrias inseridas.
+
+```{python}
+gsr = gpd.GeoSeries([
+  shapely.geometry.Point(1, 1),
+  shapely.geometry.Point(2, 2),
+  shapely.geometry.Point(4, 3)
+])
+
+print(gsr)
+```
+
+Caso eu queira visualizar não só a tabela, mas sim a representação das geometrias criadas no espaço, é possível utilizar o método `plot`.
+
+```
+gsr.plot()
+```
+
+<center>
+<div style="width:500px; height:400px">
+```{python, echo=FALSE}
+gsr.plot()
+```
+</div>
+</center>
+
+Mas as `GeoSeries` podem ser limitadas em alguns casos, porque digo isto ? Vamos supor que para a realização de um estudo seja necessário não só a geolocalização, ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas, vamos criar um objeto para fazer testes.
+
+```{python}
+gdf = gpd.GeoDataFrame({
+  'atributo_a': [10, 11, 12],
+  'geometria': [
+    shapely.geometry.Point(1, 1),
+    shapely.geometry.Point(2, 2),
+    shapely.geometry.Point(4, 3)
+  ]
+})
+```
+
+Vamos visualizar como ficou o resultado.
+
+```{python}
+print(gdf)
+```
+
+Agora as geometrias passam a ser vinculadas com outros valores, o que pode ser muito útil em vários cenários. Até aqui criamos nossas próprias geometrias, sem uma representação do mundo real ou algo assim, vamos agora começar com dados que possuam esta representação, para isto, vamos aprender a realizar a manipulação de leitura e escrita de dados com o GeoPandas.
 
 ### Leitura e escrita de dados
 
 <!--
+  Falar do Fiona
+  
   Aqui deixar claro que, a ideia do pandas é trabalhar com dados vetoriais, ou, em caso de dados
   matriciais, que sua representação seja simplificada em tabelas, o que pode trazer certo desempenho... (Deixar claro para o pessoal não achar que a leitura de imagens por exemplo possa ser feito nessa lib.)
 -->
@@ -253,23 +317,14 @@ da mesma forma como é feito pelo pandas (Inclusive com a mesma facilidade).
   primeiro momento.
 -->
 
-### Manipulação de projeções
-
-<!--
-  Falar brevemente como o GeoPandas faz estas manipulações.
--->
-
-
 ### Seleção e filtro de dados
 
 <!--
   Na seção do Pandas explique os filtro convencionais de busca de dados, pq nesta parte conseguimos fazer um gancho e dizer: "Veja, além de toda a forma de busca do pandas, o geopandas ainda consegue fazer indexação levando em consideração a localização no espaço dos dados que estão salvos".
 -->
 
-### Visualização dos resultados
+### Manipulação de projeções
 
 <!--
-  Para fazer a visualização dos resultados, mostra que o próprio geopandas permite os plots, aqui utilize os dados já carregado nos exemplos anteriores.
-  
-- Citar que, para facilitar a visualização a biblioteca GeoPlot pode ser empregada.
+  Falar brevemente como o GeoPandas faz estas manipulações.
 -->
