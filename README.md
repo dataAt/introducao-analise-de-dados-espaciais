@@ -10,3 +10,23 @@ O [CIMATech](http://www.cimatech.com.br) é um congresso tecnológico e de inova
 O minicurso **Introdução à Análise de Dados Espaciais** será uma das 30 atividades que acontecerá no evento. O minicurso acontecerá no dia 23 de outubro na sala 302 da FATEC (Faculdade Tecnológica) de São José dos Campos, o curso será ministrado por [Adriano Almeida](https://github.com/AdrianoPereira), [Felipe Menino](https://github.com/M3nin0), [Felipe Carvalho](https://github.com/OldLipe) e [Hélvecio Neto](https://github.com/helvecioneto). O material completo do minicurso pode ser consultado em [https://dataat.github.io/introducao-analise-de-dados-espaciais/introducao.html](https://dataat.github.io/introducao-analise-de-dados-espaciais/introducao.html).
 
 ## :notebook: Ementa do Minicurso
+- **Introdução**
+- **Revisão Bibliográfica**
+	- Representações de dados espaciais
+	- Sistema de referência espacial
+	- Projeções cartográficas
+	- Sistema de Coordenadas
+	- Códigos EPSG
+	- Open Geospatial Consortium (OGC)
+	- Tipos e operações espaciais
+	-  Matriz de 9-intersecções Estendida dimensionalmente
+	- Relacionamentos espaciais nomeados
+- **Introdução ao R**
+- **Introdução ao PostGIS**
+	- Instalação
+	- Breve revisão sobre o SQL
+	- Well-Known Text (WKT)
+	- Consultas espaciais básicas
+	- Relacionamentos espaciais
+	- Visualização em Sistema de Informações Geograáficas (SIG)
+- **Referências Bibliográficas**
