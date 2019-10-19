@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
+  <title>5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta property="og:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta name="twitter:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="python.html"/>
-
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -126,20 +126,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
-<li class="chapter" data-level="2" data-path="introducao-ao-r.html"><a href="introducao-ao-r.html"><i class="fa fa-check"></i><b>2</b> Introdução ao R 💎</a></li>
-<li class="chapter" data-level="3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>3</b> Python ✨</a><ul>
-<li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
+<li class="chapter" data-level="2" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html"><i class="fa fa-check"></i><b>2</b> Revisão bibliográfica</a><ul>
+<li class="chapter" data-level="2.1" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#representacoes-de-dados-espaciais"><i class="fa fa-check"></i><b>2.1</b> Representações de dados espaciais</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#vetoriais"><i class="fa fa-check"></i><b>2.1.1</b> Vetoriais</a></li>
+<li class="chapter" data-level="2.1.2" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#matriciais"><i class="fa fa-check"></i><b>2.1.2</b> Matriciais</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌎🐼</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
-<li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
-<li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
-<li class="chapter" data-level="3.2.4" data-path="python.html"><a href="python.html#selecao-e-filtro-de-dados"><i class="fa fa-check"></i><b>3.2.4</b> Seleção e filtro de dados</a></li>
-<li class="chapter" data-level="3.2.5" data-path="python.html"><a href="python.html#manipulacao-de-projecoes"><i class="fa fa-check"></i><b>3.2.5</b> Manipulação de projeções</a></li>
+<li class="chapter" data-level="2.2" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#sistema-de-referencia-espacial"><i class="fa fa-check"></i><b>2.2</b> Sistema de referência espacial</a></li>
+<li class="chapter" data-level="2.3" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#projecoes-cartograficas"><i class="fa fa-check"></i><b>2.3</b> Projeções cartográficas</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#tipos-de-projecao"><i class="fa fa-check"></i><b>2.3.1</b> Tipos de projeção</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>2.4</b> Sistema de Coordenadas</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#sistemas-de-coordenadas-geograficas"><i class="fa fa-check"></i><b>2.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
+<li class="chapter" data-level="2.4.2" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#coordenadas-planas"><i class="fa fa-check"></i><b>2.4.2</b> Coordenadas planas</a></li>
+<li class="chapter" data-level="2.4.3" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#codigos-epsg"><i class="fa fa-check"></i><b>2.4.3</b> Códigos EPSG</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>2.5</b> Open Geospatial Consortium (OGC)</a></li>
+<li class="chapter" data-level="2.6" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#tipos-e-operacoes-espaciais"><i class="fa fa-check"></i><b>2.6</b> Tipos e operações espaciais</a></li>
+<li class="chapter" data-level="2.7" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#matriz-de-9-interseccoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>2.7</b> Matriz de 9-intersecções Estendida dimensionalmente</a></li>
+<li class="chapter" data-level="2.8" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>2.8</b> Relacionamentos espaciais nomeados</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introducao-ao-r.html"><a href="introducao-ao-r.html"><i class="fa fa-check"></i><b>3</b> Introdução ao R 💎</a></li>
+<li class="chapter" data-level="4" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>4</b> Python ✨</a><ul>
+<li class="chapter" data-level="4.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>4.1</b> Pandas 🐼</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados"><i class="fa fa-check"></i><b>4.1.1</b> Manipulação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>4.2</b> GeoPandas 🌎🐼</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>4.2.1</b> GeoSeries e GeoDataFrames</a></li>
+<li class="chapter" data-level="4.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Leitura e escrita de dados</a></li>
+<li class="chapter" data-level="4.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>4.2.3</b> Manipulação geométrica</a></li>
+<li class="chapter" data-level="4.2.4" data-path="python.html"><a href="python.html#selecao-e-filtro-de-dados"><i class="fa fa-check"></i><b>4.2.4</b> Seleção e filtro de dados</a></li>
+<li class="chapter" data-level="4.2.5" data-path="python.html"><a href="python.html#manipulacao-de-projecoes"><i class="fa fa-check"></i><b>4.2.5</b> Manipulação de projeções</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>4</b> Introdução ao postgis 🐘</a></li>
+<li class="chapter" data-level="5" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>5</b> Introdução ao postgis 🐘</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 </ul>
 
       </nav>
@@ -158,16 +178,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="introducao-ao-postgis" class="section level1">
-<h1><span class="header-section-number">4</span> Introdução ao postgis 🐘</h1>
-
+<h1><span class="header-section-number">5</span> Introdução ao postgis 🐘</h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="python.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

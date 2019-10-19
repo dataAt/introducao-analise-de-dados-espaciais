@@ -1,1 +1,3 @@
 # Introdução ao postgis `r emo::ji("elephant")`
+
+# References
