@@ -1,5 +1,5 @@
 '
-Script de configuração do bookdown
+Script de configuraÃ§Ã£o do bookdown
 '
 
 install.packages(c('bookdown', 'glue', 'devtools'))
