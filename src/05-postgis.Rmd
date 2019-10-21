@@ -1,0 +1,109 @@
+# Introdução ao postgis `r emo::ji("elephant")`
+Uma das principais características que diferenciam os bancos de dados 
+geográficos dos demais bancos de dados convencionais, é a presença de uma coluna 
+com a finalidade de armazenar uma propriedade geográfica do registro. Além disso
+, os bancos de dados geográficos também devem oferecer de forma otimizada 
+suporte à operações espaciais. Diferente de um passado não muito distante, 
+atualmente existem muitas alternativas de bancos de dados geográficos, como: 
+[SQL Server Spatial][1], [ESRI ArcSDE][2], [Oracle Spatial][3], [GeoMesa][4], 
+[PostGIS][5], etc. Cada uma destas opções tem o objetivo em comum trabalhar com 
+dados geográficos e todas estão sendo muito utlizadas em diversos segmentos nos
+dias de hoje, sendo o PostGIS a mais popular de todas.
+
+O PostGIS é uma extensão geográfica *open source* para o SGDB (Sistema 
+Gerenciador de Banco de Dados) [PostgreSQL][6], lançada em 2001 inicialmente por 
+uma empresa canadense chamada Refractions Research. O PostGIS segue a 
+padronização estabelecida pelo OGC (*Open GIS Consortium*), que provê suporte 
+para todos os objetos e funções da especificação [SFS][7] (*Simple Features for* 
+*SQL*). De forma concisa, a especificação SFS foi criada pelo OGC (consórcio 
+formado por empresas, universidades, etc) e trata das questões de representação
+da componente espacial e vetorial dos dados geográficos, garantindo assim, a 
+interoperabilidade entre os sistemas os utilizam. 
+
+Este capítulo tem como objetivo introduzir ao leitor à extensão espacial PostGIS
+. Ao final, o leitor deverá está apto a configurar corretamente o ambiente para 
+a utilização da ferramente, carregar arquivos vetoriais e realizar operações 
+espaciais.
+
+## Instalação 
+Como o PostGIS é uma extensão do PostgreSQL, primeiramente deverá ser feita a 
+instalação do SGBD.
+
+> **Importante**: Não esqueça o nome de usuário e senha que você definir durante
+> a instalação, pois essas informações serão de suma importância, anote se 
+> necessário.
+
+A versão do PostgreSQL utilizada aqui é será a 11.5. A instalação do PostgreSQL 
+e PostGIS no sistema operacional windows, pode ser feita através do instalador 
+disponível [nesse link][8], para isso fique atento durante a instalação e na 
+segunda tela do assistente, no item `Spatial Extensions` marque a opção PostGIS.
+ 
+A instalação do PostgreSQL e PostGIS no sistema Operacional MacOS pode ser feita 
+através do gerenciador de pacotes `brew`, utilizado os seguintes comandos:
+
+```console
+brew install postgres
+```
+```console
+brew install postgis
+```
+
+Para a instalação nos sistemas operacionais linux, utilize os seguintes comandos
+:
+
+```console
+sudo apt install postgresql postgresql-contrib
+```
+
+```console
+sudo apt-get install postgis
+```
+
+Para verificar se a instalação do PostgreSQL foi realizada corretamente, abra o 
+terminal e digite o seguinte comando:
+
+```console
+psql --version
+```
+
+Se tudo ocorreu bem, deverá aparecer uma saída com a versão do PostgreSQL, algo 
+parecido com `psql (PostgreSQL) 11.5`.
+
+Para verificar a instalação do PostGIS, abra o terminal e execute o seguinte 
+comando para abrir o interpretador do PostgreSQL:
+
+```console
+sudo -u <user> psql
+```
+> **Obs**: Substitua o trecho `<user>` para o usuário do PostgreSQL definido na 
+> instalação.
+
+Com o terminal do PostgreSQL aberto, execute o seguinte comando para verificar a 
+versão do PostGIS:
+
+```console
+SELECT PostGIS_version();
+```
+
+Se tudo estiver certo, deverá aparecer como saída a versão do PostGIS. Para sair
+do interpretador psql, basta executar o comando `\q`. E com isso finalizamos as 
+configuração iniciais necessárias iniciar os trabalhos com o PostGIS. Para mais 
+informações, consulte a página oficial do PostGIS em:
+[https://postgis.net/install][9]. 
+
+Na próxima seção iremos criar um banco de dados novo e habilitar nele a extensão
+espacial PostGIS, para que possam ser executadas as nossas primeiras consultas 
+espaciais.
+
+[1]: https://docs.microsoft.com/pt-br/sql/relational-databases/spatial/spatial-data-sql-server?view=sql-server-ver15
+[2]: https://web.archive.org/web/20060316161213/http://www.esri.com/software/arcgis/arcsde/
+[3]: https://www.oracle.com/database/technologies/spatialandgraph.html
+[4]: https://www.geomesa.org/
+[5]: https://postgis.net/
+[6]: https://www.postgresql.org/
+[7]: https://www.opengeospatial.org/standards/sfa
+[8]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+[9]: https://postgis.net/install/
+
+
+## Referências
