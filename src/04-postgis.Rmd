@@ -222,6 +222,3 @@ nossa primeira tabela com atributos geométricos.
 [9]: https://postgis.net/install/
 [10]: https://www.postgresql.org/docs/11/app-psql.html
 [11]: https://www.pgadmin.org/
-
-
-# References
