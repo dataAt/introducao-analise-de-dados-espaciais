@@ -259,7 +259,8 @@ POLYGON ((40 40, 20 45, 45 30, 40 40)))`|
 </span>
 
 Para mais informações a respeito do WKT e WKB, recomenda-se a leitura do manual 
-da *[Simple Feature][12]*.
+da *[Simple Feature][12]*. Agora iremos adicionar alguns registros na tabela 
+criada anteriormente, para isso execute o segundo comando:
 
 ```SQL
 INSERT INTO lightning_network(model, location) 
@@ -268,13 +269,171 @@ VALUES('LINET', 'POINT(-23.55 -46.73)');
 INSERT INTO lightning_network(model, location) 
 VALUES('GLD360', 'POINT(-3.01 -60.05)');
 ```
+Para verificar como ficaram armazendos os registro, execute a seguinte consulta:
 
-Observe que para inserir a geolocalização de cada rede de detecção foi utilizada
-uma síntaxe bem peculiar. Esse formato diz respeito ao  WKT (*Well-known text*),
-uma linguagem de marcação de texto para trabalhar com objetos geometricas. 
+```SQL
+SELECT model, location FROM lightning_network;
+```
+
+Como dito anteriormente, a representação da geometria por padrão é armazenada 
+como WKT no banco de dado, portanto, ao executar a consulta anterior, deverá 
+aparecer na saído algo como:
+
+```output
+ id | model  |                  location                  
+----+--------+--------------------------------------------
+  2 | LINET  | 0101000000CDCCCCCCCC8C37C03D0AD7A3705D47C0
+  3 | GLD360 | 010100000014AE47E17A1408C06666666666064EC0
+(2 rows)
+```
+
+O aprofundamento da estrutura WKB está fora do escopo deste material, caso o 
+leitor deseja se aprofundar mais neste tópico, bem como no WKT, recomanda-se a 
+leitura da [documentação do PostGIS][13], onde é abordado com mais detalhes este 
+assunto. Para exbir na saída a geometria de forma mais agradável, execute:
+
+```SQL
+SELECT model, ST_AsText(location) as location FROM lightning_network;
+```
+
+Usando a função `ST_AsText()`, a geometria será exibida formatada em WKT, como
+mostrado abaixo:
+
+```output
+ model  |       location       
+--------+----------------------
+ LINET  | POINT(-23.55 -46.73)
+ GLD360 | POINT(-3.01 -60.05)
+(2 rows)
+```
+
+Como o estudo aprofundado de banco de dados não faz parte do escopo deste 
+material, e o objetivo é apenas uma introdução a cerca dos conceitos 
+relacionados os PostGIS, a partir de agora, os objetos geometricos não serão 
+armazenados no banco de dados.
+
+## Funções geométricas
+
+O PostGIS oferece mais de 300 funções e operadores espaciais 
+[@regina2011postgis]. Embora possua um grande acervo, normalmente somente 
+algumas dessas funções e operadores são utilizadas com muita frequência. A 
+seguir será apresentadas funções envolvendo alguns tipos geométricos.
+
+**Obtendo centroid**
+
+O centro de uma geometria pode ser obtido através da função `ST_Centroid()`, 
+passando como argumento a geometrica que se deseja obter o centroid. No exemplo
+a seguir, serão calculados os centroids das duas geometrias mostradas na Figura
+\@ref(fig:func1). 
+
+<center>
+```{r func1, fig.cap="Geometrias para calcular o centroid.", fig.scap="Short caption", echo = FALSE}
+knitr::include_graphics('assets/images/func1.png', dpi = NA)
+```
+</center>
+
+```SQL
+SELECT ST_AsText(ST_Centroid('LINESTRING(1 2,3 4)')) as centroid;
+```
+
+A saída deverá ser:
+
+```console
+-[ RECORD 1 ]--------
+centroid | POINT(2 3)
+```
 
 
-sasds
+Agora o centroid de um polígono:
+
+```SQL
+SELECT ST_AsText(ST_Centroid('POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))')) as centroid;
+```
+
+A saída deverá ser:
+
+```console
+-[ RECORD 1 ]--------
+centroid | POINT(6 3)
+```
+
+**Calculando área**
+
+A área de um polígono pode ser calculada utilizando a função `ST_Area`, como 
+mostrado no exemplo a seguir:
+
+```SQL
+SELECT ST_Area('POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))') as area;
+```
+
+A saída deverá ser:
+
+```console
+-[ RECORD 1 ]
+area | 8
+```
+
+**Calculando comprimento**
+
+O comprimento de um segmento pode ser calculada utilizando a função `ST_Length`, 
+como mostrado no exemplo a seguir:
+
+```SQL
+SELECT ST_Length('LINESTRING(1 2,3 4)') as comprimento;
+```
+
+A saída deverá ser:
+
+```console
+-[ RECORD 1 ]--------------
+comprimento | 2.82842712474619
+```
+
+## Relacionamentos espaciais
+
+Os relacionamentos espaciais talvez seja uma das partes mais importantes no 
+contexto de sistemas de informações geográficas. Essas operações são baseadas na
+matriz de 9 interções apresentada em capítulos anteriores deste material. O
+PostGIS provê uma função onde é possível obter o resultado de uma matriz de 9
+interseções, passando como argumento da função `ST_Relate` duas geometrias. Como
+exemplo considere as geometrias que foram utilizadas na seção anterior (segmento
+e polígono), ao aplicar o ST_Relate, será retornado a matriz de 9 intersecções
+como ilustrado na Figura \@ref(fig:matrix) e no código a seguir:
+
+```console
+SELECT ST_Relate('LINESTRING(1 2,3 4)', 'POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))');
+```
+Saída:
+```console
+-[ RECORD 1 ]--------
+st_relate | FF1FF0212
+```
+
+<center>
+```{r matrix, fig.cap="ST_Relate e matriz de 9 intersecções.", fig.scap="Short caption", echo = FALSE}
+knitr::include_graphics('assets/images/matrix.png', dpi = NA)
+```
+</center>
+
+A seguir será aplicado a função `ST_Distance()` para calcular a distância entre 
+as duas geometrias utilizadas no código anterior:
+
+```console
+SELECT ST_Distance('LINESTRING(1 2,3 4)', 'POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))');
+```
+Saída:
+```console
+-[ RECORD 1 ]--
+st_distance | 1
+```
+
+Todas os demais relacionamentos espaciais seguem o mesmo padrão das últimas 
+consultas, ou seja, `ST_Função(geomtria1, geometria2)`. Este capítulo teve como
+objetivo somente introduzir o leitor ao PostGIS, tudo não passa de uma minúscula
+*ponta do iceberg*. A literatura é repleta de conceitos bem consolidados, desde
+materiais bem didáticos até mais técnicos, vale a pena da uma conferida. Uma 
+última recomendação fica sendo o livro *PostGIS in Action* [@regina2011postgis].
+
 
 [1]: https://docs.microsoft.com/pt-br/sql/relational-databases/spatial/spatial-data-sql-server?view=sql-server-ver15
 [2]: https://web.archive.org/web/20060316161213/http://www.esri.com/software/arcgis/arcsde/
@@ -288,5 +447,6 @@ sasds
 [10]: https://www.postgresql.org/docs/11/app-psql.html
 [11]: https://www.pgadmin.org/
 [12]: http://portal.opengeospatial.org/files/?artifact_id=25355
+[13]: https://postgis.net/docs/using_postgis_dbmanagement.html#OpenGISWKBWKT
 
 # References
