@@ -209,7 +209,72 @@ CREATE EXTENSION postgis;
 ```
 
 Após adicionarmos a extensão PostGIS em nosso banco de dados, vamos criar a 
-nossa primeira tabela com atributos geométricos. 
+nossa primeira tabela com atributos geométricos. Para isso, iremos criar como 
+exemplo uma tabela simples onde será armazenado o modelo de rede de detecção de 
+raios, e sua posição geográfica (latitude/longitude), com isso praticaremos os 
+conceitos da geometria do tipo ponto. Sendo assim, execute o seguinte comando em 
+seu terminal:
+
+```SQL
+CREATE TABLE lightning_network(
+    id serial PRIMARY KEY,
+    model VARCHAR(15) NOT NULL,
+    location GEOMETRY NOT NULL
+);
+```
+
+Observe que o atributo `location` da tabela, possui o tipo definido como 
+`GEOMETRY`, esse é um dos recursos que o PostGIS, provê ao banco de dados, e tem 
+como finalidade permitir que seja armazenado nessa coluna objetos geometricos. A
+seguir iremos popular nossa tabela, e realizar algumas operações espaciais. Mas
+antes disso, será abordado brevemente a linguagem de marcação de texto que 
+permite a criação objetos vetoriais, o Well-known text (WKT).
+
+### Well-known text 
+
+O WKT foi originalment proposto pela OGC, e sendo descrita pelo *Simple Feature* 
+*Access* [@in2011opengis]. A forma equivalente do WKT em binário *Well-known* 
+*binary* (WKB), também está descrita no SFA, e é como a geomeria é armazenado 
+nas tabelas. A tabela a seguir mostra os os principais tipos geométricos e suas 
+respectivas representações em WKT. 
+
+|Tipo           |Geometria      |WKT            |
+|:---------------:|:---------------:|---------------|
+|Ponto          |![](./assets/images/g1.png)|`POINT (30 10)`|
+|Segmento          |![](./assets/images/g2.png)|`LINESTRING (30 10, 10 30, 40 40)`|
+|Polígono          |![](./assets/images/g3.png)|`POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))`|
+|Multi-Ponto          |![](./assets/images/g5.png)|`MULTIPOINT (10 40, 40 30, 20 20, 30 10)`|
+|Multi-Segmento          |![](./assets/images/g6.png)|`MULTILINESTRING ((10 10, 20 20, 10 40),
+(40 40, 30 30, 40 20, 30 10))`|
+|Muli-Polígono          |![](./assets/images/g7.png)|`MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)),
+((15 5, 40 10, 10 20, 5 10, 15 5)))`|
+|Coleção          |![](./assets/images/g8.png)|`GEOMETRYCOLLECTION (POINT (40 10),
+LINESTRING (10 10, 20 20, 10 40),
+POLYGON ((40 40, 20 45, 45 30, 40 40)))`|
+<span style="text-align: center; font-size: .9em; display: block;">
+    Princiapais represetações geométricas em WKT. Adaptado 
+<a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">
+    Wikpédia
+</a>.
+</span>
+
+Para mais informações a respeito do WKT e WKB, recomenda-se a leitura do manual 
+da *[Simple Feature][12]*.
+
+```SQL
+INSERT INTO lightning_network(model, location) 
+VALUES('LINET', 'POINT(-23.55 -46.73)');
+
+INSERT INTO lightning_network(model, location) 
+VALUES('GLD360', 'POINT(-3.01 -60.05)');
+```
+
+Observe que para inserir a geolocalização de cada rede de detecção foi utilizada
+uma síntaxe bem peculiar. Esse formato diz respeito ao  WKT (*Well-known text*),
+uma linguagem de marcação de texto para trabalhar com objetos geometricas. 
+
+
+sasds
 
 [1]: https://docs.microsoft.com/pt-br/sql/relational-databases/spatial/spatial-data-sql-server?view=sql-server-ver15
 [2]: https://web.archive.org/web/20060316161213/http://www.esri.com/software/arcgis/arcsde/
@@ -222,6 +287,6 @@ nossa primeira tabela com atributos geométricos.
 [9]: https://postgis.net/install/
 [10]: https://www.postgresql.org/docs/11/app-psql.html
 [11]: https://www.pgadmin.org/
-
+[12]: http://portal.opengeospatial.org/files/?artifact_id=25355
 
 # References
