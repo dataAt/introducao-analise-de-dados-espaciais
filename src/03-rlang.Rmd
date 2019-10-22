@@ -1,0 +1,1011 @@
+---
+output: bookdown::html_document2
+bibliography: bibfile.bib
+fig_caption: yes
+header-includes:
+- \usepackage{float}
+- \floatsetup[table]{capposition=bot}
+---
+
+# R `r emo::ji("gem")`
+
+**R** é uma linguagem de programação de alto nível voltada para visualização e análise de dados. Com base na linguagem de programação **S ** foi criada pelos estatísticos **R**oss Ihaka e **R**obert Gentleman no departamento de estatística da universidade de Auckland na Nova Zelândia. A linguagem R é mantida pelo grupo **R Core Team**. 
+
+O artigo publicado pela @tippmann2015programming, mostra a crescente adesão do uso da linguagem R em diferentes áreas cientificas. A Figura \@ref(fig:fig1) evidência o crescimento mencionado anteriomente.  
+
+
+```{r fig1, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Série temporal de citações dos pacotes feitos em R - Fonte: @tippmann2015programming'}
+  knitr::include_graphics("res/2_r/r_articles.png")
+```
+
+
+Como apresentado no capítulo anterior, o objetivo desta seção é apresentar o uso da linguagem de programação R para análise de dados espaciais, os quais compõem a ciência da geoinformação.
+
+## Tibble
+As estruturas de dados (ED's) do pacote *base* do R, por exemplo, `data.frame` e  `matrix`, oferecem diversos métodos de adição, manipulação e exclusão de dados. No entanto, tais métodos possuem certas limitações impostas pela linguagem, para adicionar quaisquer mudanças nestes métodos é necessário editar o código-fonte dos mesmos. Com o objetivo de abstrair as complexidades e o alta verbosidade das estruturas de dados tradicionais, a comunidade cria diversos pacotes que buscam a integração e a fácil manipulação dos mesmos.
+
+Neste minicurso, optamos por usar o pacote `tibble` do que o método `data.frame` oferecido pelo pacote `base`. No entanto, vamos usar o termo **Data frame** como estruta de dados, a qual é implementada pelo pacote `tibble`.
+
+```{r fig2, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Estrutura de dados: Vetor e Matriz'}
+  knitr::include_graphics("res/2_r/vec_matriz.png")
+```
+
+
+Podemos definir **Data frame** como uma matriz (Figura \@ref(fig:fig2)), composta por linhas e colunas, cujas colunas representam as variáveis (atributos) e as linhas representam observações. A Figura \@ref(fig:fig3) apresenta um **Data frame**, a qual é possível observar as definições mencionadas anteriormente, desta forma, sabemos que o aluno **José** obteve **7.2** na disciplina de Álgebra Linear. 
+
+```{r fig3, echo=FALSE ,fig.align="center", out.width = "80%",fig.cap=' Representação de um Data frame - Fonte: @gk4gk2019'}
+  knitr::include_graphics("res/2_r/df_definicao.png")
+```
+
+O trecho de código a seguir apresenta a implementação do **Data frame** apresentado anteriomente.
+
+```{r}
+  # Importação do pacote 
+  library(tibble)  
+  
+  # Criação do tibble
+  df_escola <- tibble::tibble(Aluno = c("José", "Maria", "Ana", "Carlos"),
+                              `Álgebra Linear` = c(7, 10, 8, 7),
+                              `Cálculo I` = c(8, 9, 10, 5),
+                              `Eng. Software` = c(10, 9, 5, 9),
+                              `PAD` = c(5, 7, 4, 9))
+    
+  # Visualização dos dados 
+  df_escola
+```
+
+O pacote `tibble` possui diversas vantagens em relação ao tradicional `data.frame`, por exemplo, ainda no `tibble` criado anteriormente, é possível observar os tipos de cada atributo. Com o objetivo de facilitar a etapa de análise de dados, o pacote `tibble` não faz a conversão de atributos do tipo `character` para `factor` de forma automática.
+
+Outra grande vantagem do `tibble` é a interação com os métodos criados para o `data.frame`, esses provindos do pacote `base`, por exemplo, o método `mean()`:
+
+```{r}
+  mean(df_escola$`Cálculo I`)
+```
+
+Desta forma, podemos usar quaisquer métodos criados para uso no `data.frame` no `tibble`. O código a seguir mostra que o `tibble` criado possui três classes: `tbl_df`, `tbl` e `data.frame`. É possível observar que o `tibble` possui como classe comum o `data.frame`.
+
+```{r}
+  class(df_escola)
+```
+
+
+Na subseção subsequente, vamos explicar com detalhes como realizar a leitura, escrita e manipulação de dados.
+
+### Tidyverse
+
+Com o intuito de desenvolver um conjunto de ferramentas para realizar a leitura, escrita, manipulação e visualização de dados, o estatístico @wickham2017tidyverse e seus colaboradores criaram o [Tidyverse](https://www.tidyverse.org/), o qual é apresentado na Figura abaixo ao lado esquerdo. Ao lado direito, é apresentado as etapas de um projeto de ciência de dados com aplicação no mundo real @schutt2013. 
+
+```{r fig4, echo=FALSE ,fig.align="center", out.width = "150%",fig.cap='Conjunto de pacotes do kit de ferramentas e etapas de um projeto de ciência de dados'}
+  knitr::include_graphics("res/2_r/ds_process_2.png")
+```
+
+
+Neste minicurso, vamos usar os pacotes `readr`, `tibble`, `dplyr`, `magrittr` e `ggplot2`. O pacote `readr` é utilizado para fazer leitura e escrita de dados. As próximas subseções descrevem com detalhes os pacotes citados.  
+
+#### Leitura e escrita de dados
+
+> No minicurso de [Introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao.html#dados), explicamos com detalhes a diferença entre cada formato de dados e suas respectivas aplicações.
+
+
+Nesta subseção, vamos criar um conjunto de dados, da seguinte forma:
+```{r}
+   # Criação do tibble
+  df_solo <- tibble::tibble(label = c("Soja", "Milho", "Pastagem", "Vegetação"),
+                              plant_agri = c(TRUE, TRUE, FALSE, FALSE),
+                              plat_col = c("2019-09-01", "2019-01-10", "NA", "NA"))
+  
+  
+  # Visualização das observações iniciais do conjunto de dados
+  head(df_solo, 2)
+```
+
+Podemos salvar os dados em diferentes formatos, sendo eles tabulares ou não. Para salvar os dados no formato `json`, pode ser feito desta forma:
+```{r}
+  # Importação do pacote 
+  library(jsonlite)
+  
+  # Transformando o tibble em json
+  df_solo_json <- jsonlite::toJSON(df_solo, pretty = TRUE)
+  
+  # Visualização do json
+  df_solo_json
+```
+
+Agora que o nosso dado está em `json`, podemos salvá-lo, da seguinte maneira:
+```{r, eval=FALSE}
+  # Escrita dos dados em formato json no arquivo dados_do_solo.json
+  jsonlite::write_json(df_solo_json, "../data/5_arquivos_parte_r/dados_do_solo.json")
+```
+
+Para realizar a leitura:
+
+```{r}
+  # Leitura do arquivo em formato .json
+  df_solo <- jsonlite::read_json("../data/5_arquivos_parte_r/dados_do_solo.json", simplifyVector = TRUE)
+  
+  # Visualização dos dados
+  cat(df_solo)
+```
+
+De forma semelhante a leitura e escrita do arquivo em formato `json`, podemos salvar nossos dados de solo em formato tabular, porém, vamos usar o pacote `readr`, da seguinte forma:
+
+```{r, eval=FALSE}
+  # Importação do pacote 
+  library(readr)
+
+  # Escrita dos dados em formato csv no arquivo dados_do_solo.csv
+  readr::write_csv(df_solo, "../data/5_arquivos_parte_r/dados_do_solo.csv")
+```
+
+Para fazer a leitura:
+
+```{r}
+  # Leitura do arquivo em formato .csv
+  df_solo_csv <- readr::read_csv("../data/5_arquivos_parte_r/dados_do_solo.csv")
+
+  # Visualização do conjunto de dados
+  df_solo_csv
+```
+
+No entanto, nem tudo são flores e tão simples quanto mostramos. Os métodos apresentados possuem diversos parametros que ajudam a lidar com dados mal formatados e ruidosos, então, salientamos que nosso exemplo é de cunho acadêmico. Como diz um dos criadores do *Tidyverse*:
+
+> “Os conjuntos de dados arrumados são todos iguais, mas todos os conjuntos de dados desorganizados são desorganizados à sua própria maneira.” - Hadley Wickham
+
+### Manipulação de dados
+
+Nesta subseção, vamos nos basear no nosso livro-texto de [Introdução à Análise de Dados](https://dataat.github.io/introducao-analise-de-dados/introducao-ao-r.html#manipulacao-de-dados), fique à vontade para contribuir com o material deste curso `r emo::ji("face")`.
+
+Para selecionar, filtrar e agrupar nossos dados, vamos usar o pacote `dplyr`, o qual está contido no kit de ferramentas `Tidyverse`. Vamos iniciar criando mais um conjunto de dados:
+
+```{r}
+  # Criação do tibble
+  df_escola <- tibble::tibble(
+    id = c(1, 2, 3, 4, 5, 6),
+    curso = c("Historia", "Historia", "Matemática",
+                    "Estatística", "Matemática", "Estatística"),
+    media = c(2.1, 3.5, 4.0, 1.0, NA, 4.9),
+    conceito = c("C", "B", "A",
+                        "C", "NA", "A"))
+
+  knitr::kable(df_escola)
+```
+
+
+Entre os diversos métodos ofericidos pelo pacote `dplyr`, vamos usar os seguintes:
+
+- `select` - Seleção de atributos de um **data.frame** ou **tibble**
+- `filter` - Filtro de observações de acordo com uma lógica pré-definida 
+- `mutate` - Criação de novos atributos 
+- `group_by` - Criação de grupos para aplicação de funções de agregação
+- `summarize` - Função de agregação aplicada em grupos
+
+
+Vamos manipular nosso `tibble` com base nos métodos apresentados: 
+
+```{r, warning=FALSE}
+  # importação do pacote dplyr
+  suppressMessages(library(dplyr))
+  
+  # Filtro dos alunos com conceito igual a "A"
+  filtro <- dplyr::filter(df_escola, df_escola$conceito == "A")
+   
+  # Seleção dos atributos "curso", "conceito" e "media"
+  selecao <- dplyr::select(filtro, curso, conceito, media)
+    
+  # Criação de grupos por curso
+  grupo <- dplyr::group_by(selecao, curso)
+   
+  # Agregação dos cursos pela média
+  media <- dplyr::summarize(grupo, media_grupo = mean(media))
+    
+  # Visualização dos dados
+  knitr::kable(media)
+```
+
+Basicamente, filtramos pelo atributo `conceito`, selecionamos os atributos `curso`, `conceito` e `media`, agrupamos pelos cursos e tiramos a média dos grupos formados `r emo::ji("bear")`. Mas, ficou muito grande, podemos diminuir a quantidade de atribuições utilizando `pipe`, desta forma:
+
+```{r}
+  # importação do pacote magrittr
+  library(magrittr)
+  
+  # Uso do pipe (%>%) para filtrar, selecionar, agrupar e aplicar função de 
+  # agregação
+  df <- df_escola %>% dplyr::filter(conceito == "A") %>%
+    dplyr::select(curso, conceito, media) %>%
+    dplyr::group_by(curso) %>%
+    dplyr::summarize(media_grupo = mean(media))
+  
+  # Visualização dos dados
+  knitr::kable(df)
+```
+
+A principal função do **pipe** é tornar o código mais limpo e reprodutível. Desta forma,
+encerramos os métodos básicos de manipulação de dados. Na próxima subseção, vamos usar o pacote
+`sf` para a leitura, escrita e manipução de dados espaciais. # Introdução à Geociências `r emo::ji("world")`
+
+## SF
+
+O pacote `sf` @sfpackage implementa as `simple features` explicadas no [capítulo 1]() com base nas estruturas de `data.frame` ou `tibble`, as principais características do pacote pode ser vista na lista abaixo:
+- Representação nativa em R de todos os 17 tipos das `simple features` para todas as dimensões (XY, XYZ, XYM, XYZM).
+- Interface para o GEOS que suporta a DE9-IM.
+- Interface para o [GDAL](https://gdal.org/), a qual fornece suporte para todas opções de drivers, tipo de atributo `Date` e `DateTime` e sistema de coordenadas de referência através do [PROJ](https://proj.org/).
+- Uso de serializações escritas em Rcpp para otimizar o I/O com GDAL e GEOS.
+- Leitura e escrita de bancos de dados com extensões espaciais, por exemplo [PostGIS](https://postgis.net/).
+
+
+> Lista retirada da [página](https://r-spatial.github.io/sf/) de documentação do pacote `sf`
+
+
+### Tipos Geométricos
+
+Como apresentado no capítulo 1, podemos representar os tipos geométricos com pontos, linhas e polígonos. Nesta subseção, vamos apresentar alguns tipos geométricos oferecidos pelo pacote `sf` que segue a implementação padrão da OGC. Para criarmos um simples `POINT`:
+
+```{r}
+  # Impotação do pacote
+  library(sf)
+
+  # Criação de um ponto no plano
+  ponto <- sf::st_point(c(3, 4))
+  
+  ponto
+```
+
+Para criarmos uma `LINESTRING`:
+
+```{r}
+  # Criação dos segmentos de reta
+  linha <- rbind(c(2, 1), c(4, 4), c(8, 2), c(4, 2) )
+
+  # Criação do linestring
+  linestring <- sf::st_linestring(linha)
+  
+  linestring
+```
+
+
+Por fim, para criarmos um polígono sem buracos:
+
+```{r}
+  # Criação dos segmentos de reta
+  poligono <- rbind(c(2, 1), c(1, 2), c(1, 5), c(5, 3), c(2, 1))
+
+  # Criação do poligono
+  polygon <- sf::st_polygon(list(poligono))
+
+  polygon
+```
+
+Os tipos geométricos criados são apresentados abaixo:
+
+```{r, echo=FALSE}
+  old_par = par(mfrow = c(1, 3), pty = "s", mar = c(0, 3, 1, 0.3))  
+  
+
+  plot(ponto, col = 'red', main="POINT", axes=TRUE)
+  plot(linestring, col='red', main = "LINESTRING", axes=TRUE)
+  plot(polygon, border='red', col='grey', main="POLYGON", axes=TRUE)
+
+
+ 
+  par(old_par)
+  
+```
+
+
+
+Como apresentado no capítulo 1, os tipos geométricos podem ser usados em conjunto: `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON` e `GEOMETRYCOLLECTION`. O trecho de código abaixo apresenta a crição dos tipos mencionados:
+
+
+```{r}
+  # Criação de pontos
+  pontos <- rbind(c(2,4), c(1,2), c(3,1), c(4,3), c(3,2))
+
+  # Criação do tipo geométrico multipoint
+  multipoint <- sf::st_multipoint(pontos)
+  
+  # Criação dos segmentos de reta
+  linhas_s1 <- rbind(c(1,3), c(4,4), c(5,2), c(3,0),c(1,1))
+  linhas_s2 <- rbind(c(1,4), c(4,5), c(1,5))
+  
+  # Criação do tipo geométrico multiline
+  multilinestring <- sf::st_multilinestring(list(linhas_s1, linhas_s2))
+  
+  
+  # Crição dos polígonos
+  poligono_p1 <- rbind(c(2,3), c(6,1), c(2,1), c(2,3))
+  poligono_p2 <- rbind(c(6,5), c(4,4), c(6,2), c(8,4), c(6,5))
+  poligono_p2_1 <- rbind(c(5,4), c(6,3), c(6,4), c(5,4))
+  
+  # Criação do tipo geométrico multipolygon
+  multipolygon <- sf::st_multipolygon(list(list(poligono_p1), list(poligono_p2, poligono_p2_1)))
+  
+  # Criação do tipo geométrico 
+  geometrycollection <- sf::st_geometrycollection(list(multipoint, multilinestring, multipolygon))
+```
+
+Os tipos geométricos criados são apresentados abaixo:
+
+```{r, echo=FALSE}
+ old_par = par(mfrow = c(2, 2), pty = "s", mar = c(2, 3, 1, 1))  
+  
+
+  plot(multipoint, col = 'red', main="MULTIPOINT", axes=TRUE)
+  plot(multilinestring, col='red', main = "MULTILINESTRING", axes=TRUE)
+  plot(multipolygon, border='red', col='grey', main="MULTIPOLYGON", axes=TRUE)
+  plot(geometrycollection, border='grey', col='grey', main="GEOMETRYCOLLECTION", axes=TRUE)
+
+
+ 
+  par(old_par)
+
+```
+
+OS tipos geométricos que criamos são objetos da classe `sfg` (*Simple Feature Geometries*), os quis possuem apenas um único atributo, correspondes aos pontos no plano ou espaço. Para verificar a classe dos objetos:
+
+```{r}
+  # Verificação da classe do tipo geométrico criado 
+  class(multipoint)
+```
+
+Podemos representar uma lista de tipos geométricos com a classe `sfc` (*Simple Feature Columns*), a qual cria atributos de objetos `sfg`, por exemplo:
+
+```{r}
+  # Definição dos pontos
+  ponto_1 <- c(2,4)
+  linha_1 <- rbind(c(1,2), c(3,4))
+  
+  # Criação dos objetos sfg
+  point <- sf::st_point(ponto_1)
+  linestring <- sf::st_linestring(linha_1)
+  
+  # Criação de um objeto sfc
+  sfc_obj <- sf::st_sfc(point, linestring)
+  
+  sfc_obj
+```
+
+Observe que, diferentemente dos tipos geométricos da classe `sfg`, a classe `sfc` apresenta diferentes características, como a projeção `proj4string`, ID do sistema de referência geográfica `epsg`, *bolding box* `bbox` e a dimensão `dimension`.
+
+No dia-a-dia vamos trabalhar com dados vetoriais provindos de diversas fontes, como IBGE e INPE. Logo, não vamos precisar criar nossos tipos geométricos e sim realizar a leitura dos arquivos que recebemos. Na subseção seguinte, vamos aprender como fazer a leitura de arquivos vetoriais.
+
+
+### Leitura e escrita de dados vetoriais
+
+Os dados usados nesta subseção se encontram disponíveis em `data` neste diretório. O código abaixo apresenta a leitura do arquivo vetorial que contêm os estados brasileiros:
+
+```{r}
+  
+  # Leitura do arquivos .shp que contêm as unidades federativas  
+  shp_brazil <- sf::read_sf("../data/1_estados_do_brasil_shape/Brasil.shp")  
+  
+  # Visualização dos atributos .shp
+  head(shp_brazil, 4)
+
+```
+
+```{r, echo=FALSE}
+  library(ggplot2)
+   ggplot2::theme_set(ggplot2::theme_bw())
+  ggplot2::ggplot() + 
+    geom_sf(data = shp_brazil) + 
+    labs(x = "Longitude",
+         y = "Latitude",
+         title = "Limites dos estados brasileiros")
+
+```
+
+Verificação da classe do arquivo:
+
+```{r}
+  class(shp_brazil)
+```
+
+
+Diferentemente dos tipos geométricos que criamos anteriormente (`sfg`), objetos da classe `sf` possuem atributos que correspondem ao tipo geométricos e as características do dado vetorial, ou seja, são um junção entre as classes `sfg`e `sfc`. Por exemplo, é possível observar o tipo geométrico dos estados brasileiros (`MULTIPOLYGON`), bem como as regiões de cada estado (`REGIAO`), representadas por um atributo discreto.
+
+O pacote `sf`, utilizando como base o `GDAL`, fornece suporte de leitura e escrita para diversos formatos, tais como: **GeoJSON** e **KML**. O código abaixo mostra como salvar os tipos geométricos de criamos anteriormente:
+
+```{r, eval=FALSE}
+  # Transformando para texto
+  gc_text <- 
+  sf::st_as_text(geometrycollection)
+
+  # Transformando para objeto sfc
+  gc_sfc <- sf::st_as_sfc(gc_text)
+  
+  # Escrita do tipo geométrico geometry collection em .shp
+  sf::write_sf(gc_sfc, "./dados/geometrycollection_curso.shp")
+```
+
+Um breve resumos das classes do pacote **SF**:
+
+- `sfg` Único objeto geométrico, por exemplo, `POINT`.
+- `sfc` Junção de tipos geométricos da classe `sfg`. Possui informações como projeção e sistema de referência geogŕafica.
+- `sf` Junção das classes `sfg` e `sfc`. Contêm atributos correspondes ao tipo geométricos, bem como atributos discretos, categóricos que representam características do objeto.
+
+
+Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-intersecções Estendida Dimensionalmente (DE-9IM).
+
+### Relacionamentos Espaciais
+
+Para realizar a análise de dados espaciais é necessário o uso de diversos métodos espaciais, com a finalidade de verificar se dois objetos possuem alguma relação, por exemplo, para identificar a quantidade de focos de queimada no estado de São Paulo. Assim, o uso de tais métodos se tornam indispensáveis durante a manipulação de dados espaciais.
+
+Os métodos apresentados nesta subseção:
+- `Equals` - Verifica se duas geométrias são iguais
+- `Disjoint` - Verifica se duas geométrias são disjuntas
+- `Touches` - Verifica se duas geométricas se tocam
+- `Crosses` - Verifica se duas geométricas se cruzam
+- `Within`- Verifica se a geométria A está contida em B
+- `Contains` - Verifica se a geométria B contêm A.
+- `Overleaps` - Verifica se duas geométrias se sobrepõem
+- `Intersects` - Verifica se duas geométricas se interseccionam
+
+
+#### Equals
+```{r}
+  # Definição dos pontos
+  poligono_1 <- rbind(c(1,1), c(1,5), c(5,5), c(1,1))
+  poligono_2 <- rbind(c(5,3), c(5,5), c(3,5), c(1,5),
+                      c(1,3), c(1,1), c(3,1), c(5,1),
+                      c(5,3))
+  
+  # Criação dos tipos geométricos
+  polygon_a <- sf::st_polygon(list(poligono_1))
+  polygon_b <- sf::st_polygon(list(poligono_2))
+  
+```
+
+```{r, echo=FALSE}
+
+  library(scales)
+
+   #old_par = par(mfrow = c(1, 2), pty = "s", mar = c(0, 3, 1, 0))  
+  
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_b)), border='blue', col=alpha("grey", 0.5),axes = TRUE, main="Os polígonos 1 e 2 são iguais?", lwd = 2)
+  
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_a)), axes = TRUE, border = 'red',col=alpha("grey", 0.5), main="POLYGON A", add=TRUE, reset=TRUE, lwd = 2, lty = 2)
+  legend(-0.9, 5, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("blue", "red"), lty=1:2, cex=0.8)
+  
+ 
+  #par(old_par)
+```
+
+Para saber se duas geométrias são iguais, usa-se o métodos `st_equals`:
+
+```{r}
+  # Verifica se duas geométrias são iguais
+  sf::st_equals(polygon_a, polygon_b, sparse = FALSE)
+```
+
+O retorno do método é um lista com tamanho 1, com valores binários, **TRUE** ou **FALSE**. Desta forma, os polígonos criados não são iguais, pois o polígono B possui mais pontos. O código abaixo a apresenta a verificação de dois pontos:
+
+```{r}
+  # Criação dos pontos
+  ponto_1 <- sf::st_point(c(1,1))
+  ponto_2 <- sf::st_point(c(1,1))
+```
+
+```{r, echo=FALSE}
+
+  plot(sf::st_as_sfc(sf::st_as_text(ponto_1)), col='blue', axes = TRUE, main="Os pontos 1 e 2 são iguais?", lwd = 2, type="p", cex = 3)
+  
+  plot(sf::st_as_sfc(sf::st_as_text(ponto_2)), axes = TRUE, col = 'red', main="POLYGON A", add=TRUE, reset=TRUE, lwd = 1, lty = 2, type="p")
+  legend(0.6, 1.4, legend=c("POINT 1", "POINT 2"),
+       col=c("blue", "red"), lty=1:1, cex=0.8)
+```
+
+```{r}
+    # Verifica se duas geométrias são iguais
+  sf::st_equals(ponto_1, ponto_2, sparse = FALSE)
+```
+
+> Para verificar se duas geométricas são exatamente iguais, use `st_equals_exact`.
+
+#### Disjoint
+```{r}
+  # Criação dos linestrings
+  segmento_1 <- rbind(c(1.5,5), c(3,5), c(4,6), c(6,5))
+  segmento_2 <- rbind(c(1,6), c(1,4), c(4,4))
+  
+  # Criação dos tipos geométricos linestring
+  linestring_1 <- sf::st_linestring(segmento_1)
+  linestring_2 <- sf::st_linestring(segmento_2)
+```
+
+```{r, echo=FALSE}
+ 
+  xlim <- c(1,6)
+  ylim <- c(4,6)
+
+plot(sf::st_as_sfc(sf::st_as_text(linestring_2)), axes = TRUE, col = 'red', main="Os segmentos 1 e 2 são disjuntos?", lwd = 2, lty = 2,  xlim=xlim ,ylim= ylim )
+    plot(sf::st_as_sfc(sf::st_as_text(linestring_1)), col='blue', axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim=xlim ,ylim= ylim)
+  
+  
+  legend(4.8, 6.3, legend=c("LINESTRING 1", "LINESTRING 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+  
+  
+  
+```
+
+Para saber se duas geométrias são disjuntas, usa-se o métodos `st_disjoint`:
+
+```{r}
+  # Verifica se duas geométrias são disjuntas
+  sf::st_disjoint(linestring_1,linestring_2, sparse = FALSE)
+```
+
+Outro exemplo:
+
+```{r}
+    # Criação dos polígonos
+  poligono_1 <- rbind(c(1,1), c(1,2), c(3,2), c(3,2),
+                      c(3,1), c(1,1))
+  poligono_2 <- rbind(c(3,3), c(5,3), c(5,2),
+                      c(3,2), c(3,3))
+  
+  # Criação dos tipos geométricos polygons
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  polygon_2 <- sf::st_polygon(list(poligono_2))
+```
+
+```{r, echo=FALSE}
+
+  xlim <- c(1,5)
+  ylim <- c(1,3)
+
+    
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",  main="Os polígonos 1 e 2 são disjuntos?", lwd = 2,col=alpha("grey", 0.5), lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  col=alpha("grey", 0.5),add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim )
+  
+  
+  legend(1.1, 3, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.9)
+```
+
+```{r}
+    # Verifica se duas geométrias são disjuntas
+   sf::st_disjoint(polygon_1,polygon_2, sparse = FALSE)
+```
+
+
+#### Touches
+
+```{r}
+  # Criação dos polígonos
+  poligono_1 <- rbind(c(1, 1), c(1, 3), c(4, 3), c(4,1), c(1,1))
+  poligono_2 <- rbind(c(4,2), c(4,4), c(6,4), c(6,2), c(4,2))
+  
+  # Criação dos tipos geométricos
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  polygon_2 <- sf::st_polygon(list(poligono_2))
+```
+
+```{r, echo=FALSE}
+  xlim <- c(1,6)
+  ylim <- c(1,4)
+
+    
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",  main="Os polígonos 1 e 2 se tocam?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim,col=alpha("grey", 0.5))
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim,col=alpha("grey", 0.5))
+  
+  
+  legend(0.7, 4, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.9)
+```
+
+Para verificar se duas geométrias se tocam, usa-se o método `st_touches`:
+
+```{r}
+    # Verifica se duas geométrias se tocam
+    sf::st_touches(polygon_1, polygon_2, sparse = FALSE)
+
+```
+
+Outro exemplo:
+
+```{r}
+  # Criação dos segmentos
+  segmento_1 <- rbind(c(5,6), c(5,8), c(7,8))
+  segmento_2 <- rbind(c(6,6), c(6,9))
+  
+  # Criação dos tipos geométricos
+  linestring_1 <- sf::st_linestring(segmento_1)
+  linestring_2 <- sf::st_linestring(segmento_2)
+```
+
+```{r, echo=FALSE}
+  xlim <- c(5,7)
+  ylim <- c(6,9)
+
+    
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_1)), axes = TRUE, col = "red",  main="Os segmentos 1 e 2 se tocam?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_2)), col = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim)
+  
+  
+  legend(3.1, 9, legend=c("LINESTRING 1", "LINESTRING 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.9)
+```
+
+```{r}
+  # Verifica se duas geométrias se tocam
+  sf::st_touches(linestring_1, linestring_2, sparse = FALSE)
+```
+
+
+#### Crosses
+```{r}
+  # Criação da reta e polígono
+  segmento_1 <- rbind(c(11,5), c(13,5), c(13,6))
+  poligono_1 <- rbind(c(12,4), c(12,7), c(15,4), c(12,4))
+  
+  # Criação dos objetos geométricos
+  linestring_1 <- sf::st_linestring(segmento_1)
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+```
+
+```{r, echo=FALSE}
+ 
+   xlim <- c(11,15)
+  ylim <- c(4,7)
+
+    
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_1)), axes = TRUE, col = "red",  main="As geometrias se cruzam?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), border = 'blue', axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim, col=alpha("grey", 0.4))
+  
+  
+  legend(10.1, 7, legend=c("LINESTRING 1", "POLYGON 1"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+  
+```
+
+Para verificar se duas geométrias se tocam, usa-se o método `st_touches`:
+
+```{r}
+  # Verifica se duas geométrias se cruzam
+  sf::st_crosses(linestring_1, polygon_1, sparse = FALSE)
+```
+
+Outro exemplo:
+
+```{r}
+  # Criação da reta e dos pontos
+  segmento_1 <- rbind(c(8,1), c(8,3), c(10,3))
+  ponto_1 <- rbind(c(9,2), c(9,3), c(10,2))
+  
+  # Criação dos objetos geométricos
+  linestring_1 <- sf::st_linestring(segmento_1)
+  multipoint_1 <- sf::st_multipoint(ponto_1)
+```
+
+```{r, echo=FALSE}
+  xlim <- c(8,10)
+  ylim <- c(1,3)
+
+    
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_1)), axes = TRUE, col = "red",  main="As geometrias se cruzam?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(multipoint_1)), col = 'blue', axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim)
+  
+  
+  legend(9.9, 1.3, legend=c("LINESTRING 1", "POINT 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+  
+```
+
+```{r}
+    # Verifica se duas geométrias se cruzam
+    sf::st_crosses(linestring_1, multipoint_1, sparse = FALSE)
+```
+
+#### Within
+
+```{r}
+  # Criação dos polígonos  
+  poligono_1 <- rbind(c(2,2), c(2,4), c(4,4), c(4,2), c(2,2))
+  poligono_2 <- rbind(c(1,1), c(1,5), c(5,5), c(5,1), c(1,1))
+  
+  # Criação dos objetos geométricos
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  polygon_2 <- sf::st_polygon(list(poligono_2))
+```
+
+```{r}
+   
+  xlim <- c(1,5)
+  ylim <- c(1,5)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",  main="O polígono 1 está dentro do polígono 2?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim, col=alpha("grey", 0.5))
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, col=alpha("grey", 0.4), reset=FALSE, xlim =xlim, ylim = ylim )
+  
+  
+  legend(-0.9, 4.9, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+```
+
+Para verificar se o polígono 1 está dentro do polígono 2, usa-se o método `st_within`:
+
+```{r}
+      # Verifica se o poligono 1 está dentro do polígono 2
+  sf::st_within(polygon_1, polygon_2, sparse=FALSE)
+
+```
+
+#### Contains
+
+
+```{r}
+  # Criação do ponto e do polígono  
+  poligono_1 <- rbind(c(1,6), c(1,9), c(5,9), c(5,6), c(1,6))
+  ponto_1 <- c(3,8)
+  
+  # Criação dos tipos geométricos
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  point_1 <- sf::st_point(ponto_1)
+```
+
+```{r, echo=FALSE}
+      
+  xlim <- c(1,5)
+  ylim <- c(6,9)
+
+  plot(sf::st_as_sfc(sf::st_as_text(point_1)), axes = TRUE, col = "red",  main="O ponto 1 está dentro do polígono 1?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim, col=alpha("grey", 0.5))
+  
+  
+  legend(0, 9, legend=c("POINT 1", "POLYGON 1"),
+       col=c("red", "blue"), lty=2:1, cex=0.5)
+```
+
+Para verificar se o polígono 1 contém o ponto 1, usa-se o método `st_contains`:
+
+```{r}
+   # Verifica se o poligono 1 contém o ponto 1
+  sf::st_contains(polygon_1, point_1, sparse = FALSE)
+```
+
+
+#### Overlaps
+
+```{r}
+  # Criação dos polígonos
+  poligono_1 <- rbind(c(7,1), c(7,3), c(10,3), c(10,1), c(7,1))
+  poligono_2 <- rbind(c(13,1), c(9,2), c(13,4), c(13,1 ))
+  
+  # Criação dos tipos geométricos
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  poligono_2 <- sf::st_polygon(list(poligono_2))
+```
+
+```{r, echo=FALSE}
+  xlim <- c(7,13)
+  ylim <- c(1,4)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",  main="O polígono 1 sobrepõe o polígono 2?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim, col=alpha("grey", 0.5))
+
+  plot(sf::st_as_sfc(sf::st_as_text(poligono_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim,col=alpha("grey", 0.35))
+  
+  
+  legend(7, 4, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+```
+
+Para verificar se o polígono 1 sobrepõe o polígono 2, usa-se o método `st_overlaps`:
+
+```{r}
+  # Verifica se o poligono 1 sobrepõe o poligono 2
+  sf::st_overlaps(polygon_1, polygon_2, sparse = FALSE)
+
+```
+
+Outro exemplo:
+
+```{r}
+  # Criação das retas
+  segmento_1 <- rbind(c(8,8), c(12,8))
+  segmento_2 <- rbind(c(9,6), c(9,8), c(11,8), c(11,9))
+  
+  # Criação dos tipos geométricos
+  linestring_1 <- sf::st_linestring(segmento_1)
+  linestring_2 <- sf::st_linestring(segmento_2)
+```
+
+```{r, echo=FALSE}
+     xlim <- c(8,12)
+  ylim <- c(6,9)
+
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_1)), axes = TRUE, col = "red",  main="O segmento 1 sobrepõe o segmento 2?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(linestring_2)), col = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim )
+  
+  
+  legend(7.2, 9, legend=c("LINESTRING 1", "LINESTRING 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+```
+
+```{r}
+    # Verifica se a linestring 1 sobrepõe a linestring 2
+    sf::st_overlaps(linestring_1, linestring_2, sparse = FALSE )
+```
+
+
+#### Intersects
+
+```{r}
+  # Criação dos polígonos
+  poligono_1 <- rbind(c(1,7), c(1,9), c(5,9), c(5,7), c(1,7))
+  poligono_2 <- rbind(c(4,6), c(4,8), c(8,8), c(8,6), c(4,6))
+  
+  # Criação dos tipos geométricos
+  polygon_1 <- sf::st_polygon(list(poligono_1))
+  polygon_2 <- sf::st_polygon(list(poligono_2))
+```
+
+```{r, echo=FALSE}
+  xlim <- c(1,8)
+  ylim <- c(6,9)
+  
+  library(scales)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",col =alpha("grey", 0.6), main="O polígono 1 intersecta o polígono 2?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim)
+
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_2)), border = "blue",col= alpha("grey", 0.5), axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim )
+  
+  
+  legend(6.5, 9.2, legend=c("POLYGON 1", "POLYGON 2"),
+       col=c("red", "blue"), lty=2:1, cex=0.8)
+  
+  #rgb(200, 214, 229)
+```
+
+
+Para verificar se o polígono 1 intersecta o polígono 2, usa-se o método `st_intersects`:
+```{r}
+  sf::st_intersects(polygon_1, polygon_2, sparse=FALSE)
+```
+
+
+### Operadores Métricos
+
+Os operadores e os dados apresentados nesta subseção, estão presentes na seção de [**Python**]() e [**PostGIS**](). A seção em **Python** cobre com mais detalhes cada operador. Nesta subseção vamos usar tais operadores métricos:
+- `st_area` - Área de um tipo geométrico poligonal
+- `st_length` - Comprimento de tipos geométricos 1D (`LINESTRING`)
+
+#### Área
+
+Vamos calcular a área do estado de estado do Rio de Janeiro, para isso vamos utilizar tudo que aprendemos até agora:
+
+```{r}
+  # Importação do ggplot2 para visualização de dados
+  library(ggplot2)
+  # Leitura do shp que contém os estados brasileiros
+  shp_brazil <- sf::read_sf("../data/1_estados_do_brasil_shape/Brasil.shp")  
+  
+  # Seleção do estado do Rio de Janeiro
+  estado_rj <- shp_brazil %>% dplyr::filter(ESTADOS=="Rio de Janeiro")
+  
+  # Visualização 
+  ggplot2::theme_set(ggplot2::theme_bw())
+  ggplot2::ggplot() + 
+    geom_sf(data = estado_rj) + 
+    labs(x = "Longitude",
+         y = "Latitude",
+         title = "Limites do estado do Rio de Janeiro")
+
+```
+
+```{r}
+  # Cálculo da área em metros quadrados
+  area_rj <- sf::st_area(estado_rj)
+  
+  area_rj
+```
+
+Podemos converter a área para $Km^2$ para facilitar a comparação dos resultados.
+
+```{r}
+  # Conversão para km^2
+  area_rj <- area_rj/1e+6
+  
+  area_rj
+```
+
+Segundo o [IBGE](https://www.ibge.gov.br/home/geociencias/areaterritorial/principal.shtm) (Instituto Brasileiro de Geografia e Estatística), a área do estado do Rio de Janeiro correspnde a $43.781,588 Km^2$ e a área da retornada pela nossa consulta $43.791,83 Km^2$. A diferença foi relativamente baixa, mostrando a eficácia do método no cálculo da área. 
+
+
+#### Comprimento
+
+Assim como a área, vamos utilizar todos os conceitos vistos até agora no minicurso. Vamos medir o comprimento do [Rio Paraíba do Sul](https://pt.wikipedia.org/wiki/Rio_Para%C3%ADba_do_Sul), o trecho de código abaixo apresenta a leitura dos rios de todo o território brasileiro:
+
+> Todos os dados usados neste minicurso estão no diretório `data`
+
+```{r}
+  # Leitura do shapefile   
+  rios_brazil <- sf::read_sf("../data/4_rios_brasil/Brasil_rios.shp")
+  # Visualização dos dados
+  head(rios_brazil, 4)
+```
+
+Vamos filtrar pelo Rio Paraíba do Sul:
+
+```{r}
+  # Filtro do rio paraiba do sul
+  rio_paraiba <- rios_brazil %>% dplyr::filter(NORIOCOMP == "Rio Paraíba do Sul")
+
+  # Comprimeiro do rio paraiba do sul
+  rio_paraiba_comp <- sf::st_length(rio_paraiba)
+  
+  rio_paraiba_comp
+```
+
+Para fazer a conversão vamos utilizar o pacote `units`:
+```{r}
+  # Importação  do pacote units
+  library(units)
+  # Conversão para km
+  rio_paraiba_comp <- units::set_units(rio_paraiba_comp, km)
+
+  rio_paraiba_comp
+```
+
+Segundo a [Wikipedia](https://pt.wikipedia.org/wiki/Listas_de_rios_do_Brasil), o comprimento do Rio Paraíba do Sul correponde a $1.137 Km$ e o nosso método obteve $\approx 868 Km$. 
+
+> Os exercícios apresentados foram retirados do material da disciplina de [Banco de Dados Geográficos](https://github.com/gqueiroz/cap349)
+
+### Sistemas de referências
+Como apresentado no capítulo 1, podemos representar nossos dados espaciais utilizando diversos tipos de projeções. Desta forma, nesta subseção vamos aprender como realizar a conversão e a transformação dos nossos dados. O trecho de código abaixo mostra como verificar qual a projeção dos nossos dados.
+
+```{r}
+  # Verifica o sistema de referencia geográfica
+  sf::st_crs(shp_brazil)
+```
+
+O trecho de código acima mostra que nenhum **EPSG** foi definido, para conveter podemos usar o mesmo método:
+
+```{r}
+  # Conversão do sistema de referência geográfica
+  sf::st_crs(shp_brazil) <- 4326
+
+  sf::st_crs(shp_brazil)
+```
+
+Agora que definimos nosso **ESPG**, vamos visualizar as coordenadas geográficas:
+
+```{r}
+  # Visualização das três primeiras localizações
+  head(shp_brazil$geometry, 3)
+```
+
+É possível observar que as coordenadas estão em graus, no entanto, e se quisermos trabalhar com metros? É só fazer a conversão?
+
+```{r}
+    # Conversão para metros usando WGS 84 na zona 23S
+    sf::st_crs(shp_brazil) <- 32723
+    
+    head(shp_brazil$geometry, 3)
+```
+
+O método de conversão não faz transformação das coordenadas geográficas. Para fazer a transformação, podemos usar o métodod `st_transform`:
+
+```{r}
+
+  # Conversão do sistema de referência geográfica
+  sf::st_crs(shp_brazil) <- 4326
+  
+  # Transformação para metros usando WGS 84 na zona 23S
+  shp_brazil <- sf::st_transform(shp_brazil, 32723)
+  
+  head(shp_brazil$geometry, 3)
+```
+
+###  Materiais recomendados
+[Rafael Santos](!https://github.com/rafaeldcsantos/CAP-394)
+
+[Disciplina de Banco de Dados Geográfico - CAP349](https://github.com/gqueiroz/cap349)
