@@ -1,0 +1,5 @@
+label,plant_agri,plat_col
+Soja,TRUE,2019-09-01
+Milho,TRUE,2019-01-10
+Pastagem,FALSE,"NA"
+Vegetação,FALSE,"NA"
