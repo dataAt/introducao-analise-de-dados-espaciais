@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌍🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
@@ -174,9 +174,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>4.2</b> Um pouco de SQL</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>4.2.1</b> Acessando a interface PostgreSQL</a></li>
 <li class="chapter" data-level="4.2.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Criando uma nova base de dados</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#well-known-text"><i class="fa fa-check"></i><b>4.2.3</b> Well-known text</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#funcoes-geometricas"><i class="fa fa-check"></i><b>4.3</b> Funções geométricas</a></li>
+<li class="chapter" data-level="4.4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#relacionamentos-espaciais-2"><i class="fa fa-check"></i><b>4.4</b> Relacionamentos espaciais</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>5</b> Para saber mais 🔭</a><ul>
+<li class="chapter" data-level="5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>5</b> Para saber mais 🔬</a><ul>
 <li class="chapter" data-level="5.1" data-path="para-saber-mais.html"><a href="para-saber-mais.html#impactos-da-resolucao-espacial-de-modelos-digitais-de-superficie-no-calculo-da-perda-de-solo-atraves-da-eups-em-ambiente-urbano"><i class="fa fa-check"></i><b>5.1</b> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></a></li>
 <li class="chapter" data-level="5.2" data-path="para-saber-mais.html"><a href="para-saber-mais.html#criacao-e-avaliacao-de-mapas-de-suscetibilidade-a-inundacao-para-o-municipio-de-iguape-estado-de-sao-paulo"><i class="fa fa-check"></i><b>5.2</b> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></a></li>
 <li class="chapter" data-level="5.3" data-path="para-saber-mais.html"><a href="para-saber-mais.html#conectividade-demografica-e-aclimatacao-de-peixes-recifais-do-genero-sparisoma-em-cenario-de-mudancas-climaticas"><i class="fa fa-check"></i><b>5.3</b> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></a></li>
@@ -360,9 +363,201 @@ dados espaciais, iremos adicionar a extensão PostGIS. Para isso, execute o
 seguinte comando:</p>
 <div class="sourceCode" id="cb218"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">CREATE</span> EXTENSION postgis;</a></code></pre></div>
 <p>Após adicionarmos a extensão PostGIS em nosso banco de dados, vamos criar a
-nossa primeira tabela com atributos geométricos.</p>
-
+nossa primeira tabela com atributos geométricos. Para isso, iremos criar como
+exemplo uma tabela simples onde será armazenado o modelo de rede de detecção de
+raios, e sua posição geográfica (latitude/longitude), com isso praticaremos os
+conceitos da geometria do tipo ponto. Sendo assim, execute o seguinte comando em
+seu terminal:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> lightning_network(</a>
+<a class="sourceLine" id="cb219-2" data-line-number="2">    <span class="kw">id</span> serial <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</a>
+<a class="sourceLine" id="cb219-3" data-line-number="3">    model <span class="dt">VARCHAR</span>(<span class="dv">15</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</a>
+<a class="sourceLine" id="cb219-4" data-line-number="4">    location GEOMETRY <span class="kw">NOT</span> <span class="kw">NULL</span></a>
+<a class="sourceLine" id="cb219-5" data-line-number="5">);</a></code></pre></div>
+<p>Observe que o atributo <code>location</code> da tabela, possui o tipo definido como
+<code>GEOMETRY</code>, esse é um dos recursos que o PostGIS, provê ao banco de dados, e tem
+como finalidade permitir que seja armazenado nessa coluna objetos geometricos. A
+seguir iremos popular nossa tabela, e realizar algumas operações espaciais. Mas
+antes disso, será abordado brevemente a linguagem de marcação de texto que
+permite a criação objetos vetoriais, o Well-known text (WKT).</p>
 </div>
+<div id="well-known-text" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Well-known text</h3>
+<p>O WKT foi originalment proposto pela OGC, e sendo descrita pelo <em>Simple Feature</em>
+<em>Access</em> <span class="citation">(OGC 2011)</span>. A forma equivalente do WKT em binário <em>Well-known</em>
+<em>binary</em> (WKB), também está descrita no SFA, e é como a geomeria é armazenado
+nas tabelas. A tabela a seguir mostra os os principais tipos geométricos e suas
+respectivas representações em WKT.</p>
+<table>
+<colgroup>
+<col width="34%" />
+<col width="34%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Tipo</th>
+<th align="center">Geometria</th>
+<th>WKT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Ponto</td>
+<td align="center"><img src="assets/images/g1.png" /></td>
+<td><code>POINT (30 10)</code></td>
+</tr>
+<tr class="even">
+<td align="center">Segmento</td>
+<td align="center"><img src="assets/images/g2.png" /></td>
+<td><code>LINESTRING (30 10, 10 30, 40 40)</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Polígono</td>
+<td align="center"><img src="assets/images/g3.png" /></td>
+<td><code>POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))</code></td>
+</tr>
+<tr class="even">
+<td align="center">Multi-Ponto</td>
+<td align="center"><img src="assets/images/g5.png" /></td>
+<td><code>MULTIPOINT (10 40, 40 30, 20 20, 30 10)</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Multi-Segmento</td>
+<td align="center"><img src="assets/images/g6.png" /></td>
+<td><code>MULTILINESTRING ((10 10, 20 20, 10 40), (40 40, 30 30, 40 20, 30 10))</code></td>
+</tr>
+<tr class="even">
+<td align="center">Muli-Polígono</td>
+<td align="center"><img src="assets/images/g7.png" /></td>
+<td><code>MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)), ((15 5, 40 10, 10 20, 5 10, 15 5)))</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Coleção</td>
+<td align="center"><img src="assets/images/g8.png" /></td>
+<td><code>GEOMETRYCOLLECTION (POINT (40 10), LINESTRING (10 10, 20 20, 10 40), POLYGON ((40 40, 20 45, 45 30, 40 40)))</code></td>
+</tr>
+</tbody>
+</table>
+<p><span style="text-align: center; font-size: .9em; display: block;">
+Princiapais represetações geométricas em WKT. Adaptado
+<a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">
+Wikpédia
+</a>.
+</span></p>
+<p>Para mais informações a respeito do WKT e WKB, recomenda-se a leitura do manual
+da <em><a href="http://portal.opengeospatial.org/files/?artifact_id=25355">Simple Feature</a></em>. Agora iremos adicionar alguns registros na tabela
+criada anteriormente, para isso execute o segundo comando:</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">INSERT</span> <span class="kw">INTO</span> lightning_network(model, location) </a>
+<a class="sourceLine" id="cb220-2" data-line-number="2"><span class="kw">VALUES</span>(<span class="st">&#39;LINET&#39;</span>, <span class="st">&#39;POINT(-23.55 -46.73)&#39;</span>);</a>
+<a class="sourceLine" id="cb220-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb220-4" data-line-number="4"><span class="kw">INSERT</span> <span class="kw">INTO</span> lightning_network(model, location) </a>
+<a class="sourceLine" id="cb220-5" data-line-number="5"><span class="kw">VALUES</span>(<span class="st">&#39;GLD360&#39;</span>, <span class="st">&#39;POINT(-3.01 -60.05)&#39;</span>);</a></code></pre></div>
+<p>Para verificar como ficaram armazendos os registro, execute a seguinte consulta:</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">SELECT</span> model, location <span class="kw">FROM</span> lightning_network;</a></code></pre></div>
+<p>Como dito anteriormente, a representação da geometria por padrão é armazenada
+como WKT no banco de dado, portanto, ao executar a consulta anterior, deverá
+aparecer na saído algo como:</p>
+<pre class="output"><code> id | model  |                  location                  
+----+--------+--------------------------------------------
+  2 | LINET  | 0101000000CDCCCCCCCC8C37C03D0AD7A3705D47C0
+  3 | GLD360 | 010100000014AE47E17A1408C06666666666064EC0
+(2 rows)</code></pre>
+<p>O aprofundamento da estrutura WKB está fora do escopo deste material, caso o
+leitor deseja se aprofundar mais neste tópico, bem como no WKT, recomanda-se a
+leitura da <a href="https://postgis.net/docs/using_postgis_dbmanagement.html#OpenGISWKBWKT">documentação do PostGIS</a>, onde é abordado com mais detalhes este
+assunto. Para exbir na saída a geometria de forma mais agradável, execute:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">SELECT</span> model, ST_AsText(location) <span class="kw">as</span> location <span class="kw">FROM</span> lightning_network;</a></code></pre></div>
+<p>Usando a função <code>ST_AsText()</code>, a geometria será exibida formatada em WKT, como
+mostrado abaixo:</p>
+<pre class="output"><code> model  |       location       
+--------+----------------------
+ LINET  | POINT(-23.55 -46.73)
+ GLD360 | POINT(-3.01 -60.05)
+(2 rows)</code></pre>
+<p>Como o estudo aprofundado de banco de dados não faz parte do escopo deste
+material, e o objetivo é apenas uma introdução a cerca dos conceitos
+relacionados os PostGIS, a partir de agora, os objetos geometricos não serão
+armazenados no banco de dados.</p>
+</div>
+</div>
+<div id="funcoes-geometricas" class="section level2">
+<h2><span class="header-section-number">4.3</span> Funções geométricas</h2>
+<p>O PostGIS oferece mais de 300 funções e operadores espaciais
+<span class="citation">(Regina and Hsu 2011)</span>. Embora possua um grande acervo, normalmente somente
+algumas dessas funções e operadores são utilizadas com muita frequência. A
+seguir será apresentadas funções envolvendo alguns tipos geométricos.</p>
+<p><strong>Obtendo centroid</strong></p>
+<p>O centro de uma geometria pode ser obtido através da função <code>ST_Centroid()</code>,
+passando como argumento a geometrica que se deseja obter o centroid. No exemplo
+a seguir, serão calculados os centroids das duas geometrias mostradas na Figura
+<a href="introducao-ao-postgis.html#fig:func1">4.4</a>.</p>
+<center>
+<div class="figure"><span id="fig:func1"></span>
+<img src="assets/images/func1.png" alt="Geometrias para calcular o centroid."  />
+<p class="caption">
+Figure 4.4: Geometrias para calcular o centroid.
+</p>
+</div>
+</center>
+<div class="sourceCode" id="cb225"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">SELECT</span> ST_AsText(ST_Centroid(<span class="st">&#39;LINESTRING(1 2,3 4)&#39;</span>)) <span class="kw">as</span> centroid;</a></code></pre></div>
+<p>A saída deverá ser:</p>
+<pre class="console"><code>-[ RECORD 1 ]--------
+centroid | POINT(2 3)</code></pre>
+<p>Agora o centroid de um polígono:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="kw">SELECT</span> ST_AsText(ST_Centroid(<span class="st">&#39;POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))&#39;</span>)) <span class="kw">as</span> centroid;</a></code></pre></div>
+<p>A saída deverá ser:</p>
+<pre class="console"><code>-[ RECORD 1 ]--------
+centroid | POINT(6 3)</code></pre>
+<p><strong>Calculando área</strong></p>
+<p>A área de um polígono pode ser calculada utilizando a função <code>ST_Area</code>, como
+mostrado no exemplo a seguir:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="kw">SELECT</span> ST_Area(<span class="st">&#39;POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))&#39;</span>) <span class="kw">as</span> area;</a></code></pre></div>
+<p>A saída deverá ser:</p>
+<pre class="console"><code>-[ RECORD 1 ]
+area | 8</code></pre>
+<p><strong>Calculando comprimento</strong></p>
+<p>O comprimento de um segmento pode ser calculada utilizando a função <code>ST_Length</code>,
+como mostrado no exemplo a seguir:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="kw">SELECT</span> ST_Length(<span class="st">&#39;LINESTRING(1 2,3 4)&#39;</span>) <span class="kw">as</span> comprimento;</a></code></pre></div>
+<p>A saída deverá ser:</p>
+<pre class="console"><code>-[ RECORD 1 ]--------------
+comprimento | 2.82842712474619</code></pre>
+</div>
+<div id="relacionamentos-espaciais-2" class="section level2">
+<h2><span class="header-section-number">4.4</span> Relacionamentos espaciais</h2>
+<p>Os relacionamentos espaciais talvez seja uma das partes mais importantes no
+contexto de sistemas de informações geográficas. Essas operações são baseadas na
+matriz de 9 interções apresentada em capítulos anteriores deste material. O
+PostGIS provê uma função onde é possível obter o resultado de uma matriz de 9
+interseções, passando como argumento da função <code>ST_Relate</code> duas geometrias. Como
+exemplo considere as geometrias que foram utilizadas na seção anterior (segmento
+e polígono), ao aplicar o ST_Relate, será retornado a matriz de 9 intersecções
+como ilustrado na Figura <a href="introducao-ao-postgis.html#fig:matrix">4.5</a> e no código a seguir:</p>
+<pre class="console"><code>SELECT ST_Relate(&#39;LINESTRING(1 2,3 4)&#39;, &#39;POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))&#39;);</code></pre>
+<p>Saída:</p>
+<pre class="console"><code>-[ RECORD 1 ]--------
+st_relate | FF1FF0212</code></pre>
+<center>
+<div class="figure"><span id="fig:matrix"></span>
+<img src="assets/images/matrix.png" alt="ST_Relate e matriz de 9 intersecções."  />
+<p class="caption">
+Figure 4.5: ST_Relate e matriz de 9 intersecções.
+</p>
+</div>
+</center>
+<p>A seguir será aplicado a função <code>ST_Distance()</code> para calcular a distância entre
+as duas geometrias utilizadas no código anterior:</p>
+<pre class="console"><code>SELECT ST_Distance(&#39;LINESTRING(1 2,3 4)&#39;, &#39;POLYGON((4 2, 8 2, 8 4, 4 4, 4 2 ))&#39;);</code></pre>
+<p>Saída:</p>
+<pre class="console"><code>-[ RECORD 1 ]--
+st_distance | 1</code></pre>
+<p>Todas os demais relacionamentos espaciais seguem o mesmo padrão das últimas
+consultas, ou seja, <code>ST_Função(geomtria1, geometria2)</code>. Este capítulo teve como
+objetivo somente introduzir o leitor ao PostGIS, tudo não passa de uma minúscula
+<em>ponta do iceberg</em>. A literatura é repleta de conceitos bem consolidados, desde
+materiais bem didáticos até mais técnicos, vale a pena da uma conferida. Uma
+última recomendação fica sendo o livro <em>PostGIS in Action</em> <span class="citation">(Regina and Hsu 2011)</span>.</p>
+
 </div>
 </div>
             </section>
