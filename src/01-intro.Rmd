@@ -9,6 +9,25 @@ header-includes:
 
 # Introdução `r emo::ji("world")`
 
+A aplicação de dados espaciais no entendimento de um fenômeno geográfico data-se muito antes da criação dos computadores como os conhecemos. Um famoso exemplo no estudo de “análises espaciais de dados” foi pioneiro em relacionar variáveis estudadas a sua localização geográfica. Em meados do século XIX, durante uma das epidemias de cólera na cidade de Londres, John Snow foi bem-sucedido em determinar o epicentro da epidemia. Cruzando a localização das casas em que ocorreram óbitos por cólera com pontos de abastecimentos de água para consumo humano da cidade, John Snow foi capaz de determinar a forma de transmissão da doença e identificar a bomba de água localizada em “broad-street” como crítica (Figura \@ref(fig:fig1111)).
+
+```{r fig1111, echo=FALSE ,fig.align="center",fig.cap='Mapa de Londres com óbitos por cólera (pontos) e poços de água (cruzetas)'}
+  knitr::include_graphics("res/1_intro/mapa_londres.png")
+```
+
+
+Como abordado anteriormente, o uso de dados espaciais abrangem diversas aplicações, tais como: estudo de concentração espacial na distribuição de roubos, análise de regiões para fins de zoneamento agrícola e estimativa da extensão de um depósito mineral em uma região a partir de amostras [@monteiro2004analise]. Desta forma, sempre que **onde** aparece no problema a ser estudado, usa-se recursos computacionais e ferramentas voltadas para análise de dados espaciais. A Figura \@ref(fig:fig11112) apresenta alguns equipamentos de coleta de dados espaciais, como satélite, radar e VANT (Veículo aéreo não tripulado).
+
+```{r fig11112, echo=FALSE ,fig.align="center",fig.cap='Fontes de dados espaciais - Fonte: [@waypoint]'}
+  knitr::include_graphics("res/1_intro/data_source_spatial.jpg")
+```
+
+
+Com o avanço do potencial computacional e subsequente desenvolvimento dos SIG (Sistemas de Informação geográficas) permitiu-se um maior desenvolvimento de estudos voltados à fenômenos geográficos, reduzindo assim custos e facilitando a manipulação de dados espaciais. Ainda que com uma defasagem temporal, no Brasil esta área seguiu em forte desenvolvimento, e apresenta-se hoje aplicada tanto no meio corporativo quanto no meio acadêmico. Em relação às produções acadêmicas podemos citar trabalhos realizados no INPE (Instituto Nacional de Pesquisas espaciais), apresentando qualidade Internacional com publicações em revistas altamente conceituadas. Tomando como exemplo trabalhos desenvolvidos atualmente no curso de pós-graduação em sensoriamento remoto do INPE, podemos visualizar a gama de utilização de dados espaciais para o entendimento dos mais diversos fenômenos. Estes estudos vão desde aplicações em macro escala como o monitoramento da Amazônia brasileira, em função do desmatamento, das queimadas e a deterioração dos recursos hídricos, bem como em escalas mais finas como estudos em reservatórios, áreas urbanas e de luzes noturnas. A Seção [Para saber mais](https://dataat.github.io/introducao-analise-de-dados-espaciais/para-saber-mais.html) apresenta alguns estudos desenvolvidos no INPE.
+
+O objetivo deste minicurso é apresentar de forma simples e objetiva os conceitos fundamentais de dados espaciais, bem como métodos para analisá-los. Sinta-se à vontade para contribuir com este material, esperamos que goste deste pequeno material produzido! `r emo::ji("scientist")`
+
+
 ## Representações de dados espaciais
 
 Dentro do universo estrutural dos SIGs (Sistema de Informação Geográficas), a forma de representação dos dados geográficos podem ser divididas em duas grandes classes: vetoriais e matriciais. Sendo que as estruturas de dados vetoriais são representações que denotam as fronteiras de entidades geográficas, ou seja, através de suas características é possível descrever computacionalmente as formas de uma superfície. Já a classe matricial, representa informações estruturadas em forma de matriz (linhas e colunas). Cada elemento dessa matriz é formado por um determinado valor associado a sua localização e formalmente pode ser representado como uma matriz P(m,n) composto de m colunas e n linhas. Contudo a representação dos dados espaciais é composto por uma gama de grupos pertencentes às representações vetoriais e matriciais, de tal forma que cada grupo deve ser explorado e suas  particularidades aprofundadas separadamente.
@@ -205,7 +224,7 @@ Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os m
 
 A organização *Open Geospatial Consortium* (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, **geometry** (geometria) e **geography** (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado *Simple Features*. Para descrever a hierarquia **geometry**  onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para **geometry** e **geography**.
 
-```{r fig142, echo=FALSE ,fig.align="center", out.width = "70%",fig.cap='Matriz de 9-Interseções relacionando duas regiões entre objetos - Fonte: [@egenhofer1991point]'}
+```{r fig142, echo=FALSE ,fig.align="center", out.width = "70%",fig.cap='Principais tipos geométricos (OGC) - Fonte: [@egenhofer1991point]'}
   knitr::include_graphics("res/1_intro/OGC_FEATURES.png")
 ```
 
@@ -225,8 +244,6 @@ Já para o grupo dos **Múltiplos**, os tipos de dados relacionados são baseado
 
 
 Existe uma diferença significativa para os tipos de dados de **geometry** e **geography**, os dois se comportam de maneira semelhante porém algumas diferenças importantes devem ser levadas em consideração. Existem tipos de medidas para dados espaciais, dentre estes tipos de medidas podemos destacar as medidas de sistema planar (terra plana) e os sistemas elipsoidal (terra redonda), onde as medidas de distância e áreas possuem variações que devem ser levadas em consideração para obtenção de medidas mais precisas. Assim como as medidas para os dados espaciais é importante determinar a orientação dos dados espaciais, em sistemas planares a orientação do anel do polígono não é um fator importante, já para sistemas elipsoidais um polígono pode ter valores ambíguos caso a sua orientação não seja definida.
-
-## Tipos e operações espaciais
 
 ## Relacionamentos espaciais nomeados
 
@@ -255,8 +272,8 @@ Perceba que, para cada uma das principais geometrias há um conjunto de três de
 
 Certo, vejamos agora, alguns tipos de relacionamentos espaciais:
 
-- contains - Verifica se a geométria B contêm A;
-- equal - Verifica se duas geométrias são iguais.
+- **contains** - Verifica se a geométria B contêm A;
+- **equal** - Verifica se duas geométrias são iguais.
 
 Porém, somente ao ler a descrição de cada um dos métodos de relacionamentos apresentados acima é possível perceber um problema. O que significa dizer que a geometria B contém A ? Ou mesmo, o que torna as geometrias iguais ?
 
