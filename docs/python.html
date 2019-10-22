@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Python ✨ | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Python ✨ | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
@@ -38,9 +38,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -67,7 +64,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -165,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌏🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
@@ -224,11 +221,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="manipulacao-de-dados-1" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Manipulação de dados</h3>
 <p>Vamos começar criando uma <code>Series</code>.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb121-1" title="1"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
-<a class="sourceLine" id="cb121-2" title="2"></a>
-<a class="sourceLine" id="cb121-3" title="3">sr <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb121-3" data-line-number="3">sr <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a></code></pre></div>
 <p>Pronto! Acabamos de criar uma <code>Series</code> com uma lista de valores, vejamos como ela está sendo representada.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb122-1" title="1"><span class="bu">print</span>(sr)</a></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="bu">print</span>(sr)</a></code></pre></div>
 <pre><code>## 0    1
 ## 1    2
 ## 2    3
@@ -255,23 +252,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Antes de fazermos o teste destes métodos, vamos alterar o índice da nossa <code>Series</code>.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb124-1" title="1"><span class="co"># Vamos visualizar o índice</span></a>
-<a class="sourceLine" id="cb124-2" title="2"><span class="bu">print</span>(sr.index)</a></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># Vamos visualizar o índice</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2"><span class="bu">print</span>(sr.index)</a></code></pre></div>
 <pre><code>## RangeIndex(start=0, stop=5, step=1)</code></pre>
 <p>O atributo <code>index</code> devolve os elementos que estão no índice, para fazer sua mudança, basta realizar uma atribuição, veja.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb126-1" title="1">sr.index <span class="op">=</span> [<span class="st">&quot;um&quot;</span>, <span class="st">&quot;dois&quot;</span>, <span class="st">&quot;tres&quot;</span>, <span class="st">&quot;quatro&quot;</span>, <span class="st">&quot;cinco&quot;</span>]</a>
-<a class="sourceLine" id="cb126-2" title="2"></a>
-<a class="sourceLine" id="cb126-3" title="3"><span class="bu">print</span>(sr.index)</a></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb126-1" data-line-number="1">sr.index <span class="op">=</span> [<span class="st">&quot;um&quot;</span>, <span class="st">&quot;dois&quot;</span>, <span class="st">&quot;tres&quot;</span>, <span class="st">&quot;quatro&quot;</span>, <span class="st">&quot;cinco&quot;</span>]</a>
+<a class="sourceLine" id="cb126-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb126-3" data-line-number="3"><span class="bu">print</span>(sr.index)</a></code></pre></div>
 <pre><code>## Index([&#39;um&#39;, &#39;dois&#39;, &#39;tres&#39;, &#39;quatro&#39;, &#39;cinco&#39;], dtype=&#39;object&#39;)</code></pre>
 <p>Fizemos esta mudança, para que cada um dos métodos <code>loc</code> e <code>iloc</code> seja mais simples de entender. Certo, vamos começar buscando a linha que tenha o nome <code>dois</code>.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb128-1" title="1"><span class="bu">print</span>(sr.loc[<span class="st">&quot;dois&quot;</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="bu">print</span>(sr.loc[<span class="st">&quot;dois&quot;</span>])</a></code></pre></div>
 <pre><code>## 2</code></pre>
 <p>Agora vamos buscar a linha que está na posição dois.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb130-1" title="1"><span class="bu">print</span>(sr.iloc[<span class="dv">1</span>]) <span class="co"># Lembre-se, o Python começa a contar no zero =D</span></a></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="bu">print</span>(sr.iloc[<span class="dv">1</span>]) <span class="co"># Lembre-se, o Python começa a contar no zero =D</span></a></code></pre></div>
 <pre><code>## 2</code></pre>
 <p>Percebeu? Temos o mesmo resultado, muito interessante não ? Além disso ainda posso aplicar filtros sob os dados,utilizando o conceito de <code>indexação booleana</code>, onde através de um vetor de <code>VERDADEIRO</code> e <code>FALSO</code> é possível selecionar as linhas.</p>
 <p>Vamos buscar somente os valores que são acima de três.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb132-1" title="1"><span class="bu">print</span>(sr[sr <span class="op">&gt;</span> <span class="dv">3</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="bu">print</span>(sr[sr <span class="op">&gt;</span> <span class="dv">3</span>])</a></code></pre></div>
 <pre><code>## quatro    4
 ## cinco     5
 ## dtype: int64</code></pre>
@@ -279,27 +276,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dica: O que ocorre nesta parte é, dentro das chaves de <code>sr</code> (sr[]) é passado a expressão <code>sr &gt; 3</code> que devolve uma lista de verdadeiros e falsos, fazendo assim o filtro.</p>
 </blockquote>
 <p>Muito interessante! Mas até aqui trabalhamos com apenas uma dimensão, vamos tentar acrescentar mais, para isto, primeiro vamos criar uma matriz.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb134-1" title="1">matriz <span class="op">=</span> [</a>
-<a class="sourceLine" id="cb134-2" title="2">  [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</a>
-<a class="sourceLine" id="cb134-3" title="3">]</a></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb134-1" data-line-number="1">matriz <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2">  [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</a>
+<a class="sourceLine" id="cb134-3" data-line-number="3">]</a></code></pre></div>
 <p>A matriz criada é representada por uma lista de listas. Vamos tentar criar uma <code>Series</code> com esta matriz.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb135-1" title="1">sr <span class="op">=</span> pd.Series(matriz)</a>
-<a class="sourceLine" id="cb135-2" title="2"></a>
-<a class="sourceLine" id="cb135-3" title="3"><span class="bu">print</span>(sr)</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb135-1" data-line-number="1">sr <span class="op">=</span> pd.Series(matriz)</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="bu">print</span>(sr)</a></code></pre></div>
 <pre><code>## 0    [1, 2, 3]
 ## 1    [4, 5, 6]
 ## dtype: object</code></pre>
 <p>Eita! Perceba que, em cada linha há uma lista de valores, o que é ruim! Já que a manipulação fica difícil (Tenta fazer uma indexação booleana, vai falhar 😢).</p>
 <p>Para este caso, existem os <code>DataFrames</code>! Vamos começar criando um com a mesma matriz gerada anteriormente.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb137-1" title="1">df <span class="op">=</span> pd.DataFrame(matriz)</a>
-<a class="sourceLine" id="cb137-2" title="2"></a>
-<a class="sourceLine" id="cb137-3" title="3"><span class="bu">print</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb137-1" data-line-number="1">df <span class="op">=</span> pd.DataFrame(matriz)</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb137-3" data-line-number="3"><span class="bu">print</span>(df)</a></code></pre></div>
 <pre><code>##    0  1  2
 ## 0  1  2  3
 ## 1  4  5  6</code></pre>
 <p>Opa! Agora o cenário é outro, conseguimos colocar cada um dos valores em seu devido lugar. Perceba que a representação mudou bastante, aqui temos várias colunas de dados, e mesmo assim, todos os métodos já apresentados até aqui funcionam. Vai lá, tenta!</p>
 <p>Uma coisa importante sobre os <code>DataFrames</code> são suas colunas, para acessar elas podemos fazer da seguinte forma.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb139-1" title="1"><span class="bu">print</span>(df[<span class="dv">0</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="bu">print</span>(df[<span class="dv">0</span>])</a></code></pre></div>
 <pre><code>## 0    1
 ## 1    4
 ## Name: 0, dtype: int64</code></pre>
@@ -308,15 +305,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dica: Ao fazer df[0], estamos buscando o “nome” da coluna, e não sua posição</p>
 </blockquote>
 <p>Da mesma forma que eu podemos recuperar o índice com o atributo <code>index</code> podemos recuperar as colunas com o atributo <code>columns</code></p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb141-1" title="1"><span class="bu">print</span>(df.columns)</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="bu">print</span>(df.columns)</a></code></pre></div>
 <pre><code>## RangeIndex(start=0, stop=3, step=1)</code></pre>
 <p>Para fazer a mudança dos nomes de cada coluna a mesma regra do <code>index</code> é válida.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb143-1" title="1">df.columns <span class="op">=</span> [<span class="st">&quot;col1&quot;</span>, <span class="st">&quot;col2&quot;</span>, <span class="st">&quot;col3&quot;</span>]</a>
-<a class="sourceLine" id="cb143-2" title="2"></a>
-<a class="sourceLine" id="cb143-3" title="3"><span class="bu">print</span>(df.columns)</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb143-1" data-line-number="1">df.columns <span class="op">=</span> [<span class="st">&quot;col1&quot;</span>, <span class="st">&quot;col2&quot;</span>, <span class="st">&quot;col3&quot;</span>]</a>
+<a class="sourceLine" id="cb143-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb143-3" data-line-number="3"><span class="bu">print</span>(df.columns)</a></code></pre></div>
 <pre><code>## Index([&#39;col1&#39;, &#39;col2&#39;, &#39;col3&#39;], dtype=&#39;object&#39;)</code></pre>
 <p>Vamos recuperar a primeira coluna novamente</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb145-1" title="1"><span class="bu">print</span>(df[<span class="st">&quot;col1&quot;</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="bu">print</span>(df[<span class="st">&quot;col1&quot;</span>])</a></code></pre></div>
 <pre><code>## 0    1
 ## 1    4
 ## Name: col1, dtype: int64</code></pre>
@@ -325,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="geopandas" class="section level2">
-<h2><span class="header-section-number">3.2</span> GeoPandas 🌏🐼</h2>
+<h2><span class="header-section-number">3.2</span> GeoPandas 🌐🐼</h2>
 <p>Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Mas o que é o GeoPandas ?</p>
 <blockquote>
 <p>GeoPandas é um projeto open-source que busca facilitar o trabalho com dados vetoriais em Python, para isto, tem como base as estruturas de dados do Pandas</p>
@@ -346,27 +343,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="geoseries-e-geodataframes" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> GeoSeries e GeoDataFrames</h3>
 <p>Para começar os testes, vamos importar a biblioteca de geometrias, <code>Shapely</code> e o GeoPandas.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb147-1" title="1"><span class="im">import</span> shapely</a>
-<a class="sourceLine" id="cb147-2" title="2"><span class="im">import</span> geopandas <span class="im">as</span> gpd</a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="im">import</span> shapely</a>
+<a class="sourceLine" id="cb147-2" data-line-number="2"><span class="im">import</span> geopandas <span class="im">as</span> gpd</a></code></pre></div>
 <p>Agora, vamos criar uma <code>GeoSeries</code>.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb148-1" title="1">gsr <span class="op">=</span> gpd.GeoSeries([</a>
-<a class="sourceLine" id="cb148-2" title="2">  shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb148-3" title="3">])</a></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb148-1" data-line-number="1">gsr <span class="op">=</span> gpd.GeoSeries([</a>
+<a class="sourceLine" id="cb148-2" data-line-number="2">  shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb148-3" data-line-number="3">])</a></code></pre></div>
 <blockquote>
 <p>Dica: A geometria criada não possui qualquer tipo de referência espacial, portanto representa apenas um ponto no plano cartesiano.</p>
 </blockquote>
 <p>Veja que acabamos de criar uma <code>GeoSeries</code> que armazena uma geometria de ponto, vamos visualizar o objeto criado.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb149-1" title="1"><span class="bu">print</span>(gsr)</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="bu">print</span>(gsr)</a></code></pre></div>
 <pre><code>## 0    POINT (1.00000 1.00000)
 ## dtype: geometry</code></pre>
 <p>A forma é exatamente a mesma de uma <code>Series</code>. Vamos criar um novo objeto com mais geometrias inseridas.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb151-1" title="1">gsr <span class="op">=</span> gpd.GeoSeries([</a>
-<a class="sourceLine" id="cb151-2" title="2">  shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb151-3" title="3">  shapely.geometry.Point(<span class="dv">2</span>, <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb151-4" title="4">  shapely.geometry.Point(<span class="dv">4</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb151-5" title="5">])</a>
-<a class="sourceLine" id="cb151-6" title="6"></a>
-<a class="sourceLine" id="cb151-7" title="7"><span class="bu">print</span>(gsr)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb151-1" data-line-number="1">gsr <span class="op">=</span> gpd.GeoSeries([</a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">  shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">  shapely.geometry.Point(<span class="dv">2</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">  shapely.geometry.Point(<span class="dv">4</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb151-5" data-line-number="5">])</a>
+<a class="sourceLine" id="cb151-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb151-7" data-line-number="7"><span class="bu">print</span>(gsr)</a></code></pre></div>
 <pre><code>## 0    POINT (1.00000 1.00000)
 ## 1    POINT (2.00000 2.00000)
 ## 2    POINT (4.00000 3.00000)
@@ -374,20 +371,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Caso eu queira visualizar não só a tabela, mas sim a representação das geometrias criadas no espaço, é possível utilizar o método <code>plot</code>.</p>
 <pre><code>gsr.plot()</code></pre>
 <center>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000255548A5E48&gt;</code></pre>
 <img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-95-1.png" width="576" />
 </center>
 <p>Mas as <code>GeoSeries</code> podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os <code>GeoDataFrames</code> que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas. Vamos criar um para fazer testes.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb155-1" title="1">gdf <span class="op">=</span> gpd.GeoDataFrame({</a>
-<a class="sourceLine" id="cb155-2" title="2">  <span class="st">&#39;atributo_a&#39;</span>: [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>],</a>
-<a class="sourceLine" id="cb155-3" title="3">  <span class="st">&#39;geometria&#39;</span>: [</a>
-<a class="sourceLine" id="cb155-4" title="4">    shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb155-5" title="5">    shapely.geometry.Point(<span class="dv">2</span>, <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb155-6" title="6">    shapely.geometry.Point(<span class="dv">4</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb155-7" title="7">  ]</a>
-<a class="sourceLine" id="cb155-8" title="8">})</a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb154-1" data-line-number="1">gdf <span class="op">=</span> gpd.GeoDataFrame({</a>
+<a class="sourceLine" id="cb154-2" data-line-number="2">  <span class="st">&#39;atributo_a&#39;</span>: [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>],</a>
+<a class="sourceLine" id="cb154-3" data-line-number="3">  <span class="st">&#39;geometria&#39;</span>: [</a>
+<a class="sourceLine" id="cb154-4" data-line-number="4">    shapely.geometry.Point(<span class="dv">1</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb154-5" data-line-number="5">    shapely.geometry.Point(<span class="dv">2</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb154-6" data-line-number="6">    shapely.geometry.Point(<span class="dv">4</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb154-7" data-line-number="7">  ]</a>
+<a class="sourceLine" id="cb154-8" data-line-number="8">})</a></code></pre></div>
 <p>Visualizando o resultado</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb156-1" title="1"><span class="bu">print</span>(gdf)</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="bu">print</span>(gdf)</a></code></pre></div>
 <pre><code>##    atributo_a    geometria
 ## 0          10  POINT (1 1)
 ## 1          11  POINT (2 2)
@@ -407,15 +403,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Além destes formatos a biblioteca aceita vários outros, para a lista completa de formatos suportados, consulte a <a href="https://fiona.readthedocs.io/en/latest/manual.html">documentação</a> do Fiona.</p>
 <p>Para fazer alguns testes utilizando as funcionalidades de leitura dos dados, vamos carregar um dado vetorial, dos estados do Brasil que estão armazenados em um <code>shapefile</code>.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb158-1" title="1">gdf <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb157-1" data-line-number="1">gdf <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)</a></code></pre></div>
 <blockquote>
 <p>Estes dados estão disponíveis no <a href="https://github.com/dataAt/introducao-analise-de-dados-espaciais/tree/master/data">repositório</a> do curso.</p>
 </blockquote>
 <p>Com os dados carregados, vamos visualizar qual foi a estrutura gerada ao carregar os dados.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb159-1" title="1"><span class="bu">print</span>(<span class="bu">type</span>(gdf))</a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="bu">print</span>(<span class="bu">type</span>(gdf))</a></code></pre></div>
 <pre><code>## &lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;</code></pre>
 <p>Um <code>GeoDataFrame</code>! Isto é feito por padrão pela biblioteca, assim, independente do formato de entrada, o GeoPandas busca inserir os dados dentro de um <code>GeoDataFrame</code>. Certo, vamos olhar então o que está dentro deste objeto.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb161-1" title="1"><span class="bu">print</span>(gdf.head(<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="bu">print</span>(gdf.head(<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>##     ESTADOS    REGIAO  ...  UF                                           geometry
 ## 0      Acre     Norte  ...  AC  POLYGON ((-73.80098 -7.11145, -73.74084 -7.143...
 ## 1   Alagoas  Nordeste  ...  AL  MULTIPOLYGON (((-36.39119 -10.50082, -36.39864...
@@ -429,10 +425,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Lembre-se, o método <code>head</code> é herdado do Pandas, ele possibilita a visualização das linhas iniciais da tabela de dados.</p>
 </blockquote>
 <p>A representação acima não nos mostra todas as colunas de informações que temos no conjunto de dados carregados, para saber quais são todas elas, utilizaremos o atributo <code>columns</code>.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb163-1" title="1"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
 <pre><code>## Index([&#39;ESTADOS&#39;, &#39;REGIAO&#39;, &#39;COD_UF&#39;, &#39;UF&#39;, &#39;geometry&#39;], dtype=&#39;object&#39;)</code></pre>
 <p>Olha que interessante! Para cada estado, há seu nome, a região a que pertence, sua Unidade da Federação (UF) e o código desta UF. Agora que já sabemos como estão nossos dados, vamos voltar um pouco na coluna <code>geometry</code>.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb165-1" title="1"><span class="bu">print</span>(gdf[<span class="st">&quot;geometry&quot;</span>].head(<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="bu">print</span>(gdf[<span class="st">&quot;geometry&quot;</span>].head(<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## 0    POLYGON ((-73.80098 -7.11145, -73.74084 -7.143...
 ## 1    MULTIPOLYGON (((-36.39119 -10.50082, -36.39864...
 ## 2    MULTIPOLYGON (((-51.37380 -0.37053, -51.37337 ...
@@ -440,13 +436,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4    MULTIPOLYGON (((-46.32975 -13.25248, -46.33072...
 ## Name: geometry, dtype: geometry</code></pre>
 <p>Entenda, a geometria escolhida para representar cada um dos estados do Brasil foi o poligono, e isto é possível de visualizar na coluna <code>geometry</code>. Outro fato importante sobre esta coluna é que, ela não precisa ter este nome, ele é definido automaticamente pelo GeoPandas para que as coisas sejam padronizadas e fiquem mais simples, mas, caso eu queira alterar, posso fazer isto facilmente da seguinte forma.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb167-1" title="1">gdf <span class="op">=</span> gdf.rename_geometry(<span class="st">&quot;geometria&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb166-1" data-line-number="1">gdf <span class="op">=</span> gdf.rename_geometry(<span class="st">&quot;geometria&quot;</span>)</a></code></pre></div>
 <p>Ao fazer isto, vamos visualizar as colunas do <code>GeoDataFrame</code> alterado.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb168-1" title="1"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
 <pre><code>## Index([&#39;ESTADOS&#39;, &#39;REGIAO&#39;, &#39;COD_UF&#39;, &#39;UF&#39;, &#39;geometria&#39;], dtype=&#39;object&#39;)</code></pre>
 <p>Mas, e se nos dados que eu estiver carregando existirem mais de uma coluna de representações espaciais, como o GeoPandas entende qual deve ser utilizada? Bem, por padrão ele escolhera a primeira delas e a tratará como a coluna <code>geometry</code> do conjunto de dados, porém se eu quiser fazer a alteração, também é possível.</p>
 <p>Primeiro, vamos aprender a identificar como o GeoPandas mostra a coluna que ele está utilizando como padrão, para isto o atributo <code>geometry</code> é utilizado.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb170-1" title="1"><span class="bu">print</span>(gdf.geometry.head(<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="bu">print</span>(gdf.geometry.head(<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## 0    POLYGON ((-73.80098 -7.11145, -73.74084 -7.143...
 ## 1    MULTIPOLYGON (((-36.39119 -10.50082, -36.39864...
 ## 2    MULTIPOLYGON (((-51.37380 -0.37053, -51.37337 ...
@@ -454,30 +450,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4    MULTIPOLYGON (((-46.32975 -13.25248, -46.33072...
 ## Name: geometria, dtype: geometry</code></pre>
 <p>Este atributo devolve os dados da coluna padrão de geometrias. Vamos ver qual é o nome da coluna de onde ele retira tais dados.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb172-1" title="1"><span class="bu">print</span>(gdf.geometry.name)</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="bu">print</span>(gdf.geometry.name)</a></code></pre></div>
 <pre><code>## geometria</code></pre>
 <p>O nome é exatamente o mesmo da coluna que renomeamos! Vamos trocar esta coluna padrão, para fazer este teste, vou duplicar a coluna que contém as geometrias, porém cada uma terá um nome.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb174-1" title="1">gdf[<span class="st">&quot;geometria_dois&quot;</span>] <span class="op">=</span> gdf[<span class="st">&quot;geometria&quot;</span>]</a>
-<a class="sourceLine" id="cb174-2" title="2"></a>
-<a class="sourceLine" id="cb174-3" title="3"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb173-1" data-line-number="1">gdf[<span class="st">&quot;geometria_dois&quot;</span>] <span class="op">=</span> gdf[<span class="st">&quot;geometria&quot;</span>]</a>
+<a class="sourceLine" id="cb173-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"><span class="bu">print</span>(gdf.columns)</a></code></pre></div>
 <pre><code>## Index([&#39;ESTADOS&#39;, &#39;REGIAO&#39;, &#39;COD_UF&#39;, &#39;UF&#39;, &#39;geometria&#39;, &#39;geometria_dois&#39;], dtype=&#39;object&#39;)</code></pre>
 <p>Feito isto, vamos alterar a coluna padrão de geometrias</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb176-1" title="1">gdf <span class="op">=</span> gdf.set_geometry(<span class="st">&quot;geometria_dois&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb175-1" data-line-number="1">gdf <span class="op">=</span> gdf.set_geometry(<span class="st">&quot;geometria_dois&quot;</span>)</a></code></pre></div>
 <p>Ao visualizar o resultado, percebemos que a mudança foi realizada com sucesso.</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb177-1" title="1"><span class="bu">print</span>(gdf.geometry.name)</a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="bu">print</span>(gdf.geometry.name)</a></code></pre></div>
 <pre><code>## geometria_dois</code></pre>
 <blockquote>
 <p>A diferença entre o método <code>rename_geometry</code> e <code>set_geometry</code> está no ponto em que, a <code>set_geometry</code> altera a coluna que está sendo considerada como padrão para geometrias, equanto a <code>rename_geometry</code> altera o nome da coluna padrão de geometrias.</p>
 </blockquote>
 <p>Por fim, vamos visualizar a disposição destes dados em uma figura, para isto, utilizamos o método <code>plot</code>.</p>
 <pre><code>gdf.plot()</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025554850240&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 <p>O ponto a ser entendido do método <code>plot</code> é que, ele utiliza a coluna de geometrias padrão para gerar a figura, então, caso haja alguma inconsistência neste coluna este método terá problemas. Esta lógica se aplica a todos os outros métodos do GeoPandas que utilizam a representação espacial para fazer as operações.</p>
 <p>Vamos salvar os resultados em um arquivo <code>shapefile</code>, para isto, façamos a utilização do método <code>to_file</code>.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb181-1" title="1"><span class="kw">del</span> gdf[<span class="st">&quot;geometria&quot;</span>] <span class="co"># Removendo coluna extra de geometrias</span></a>
-<a class="sourceLine" id="cb181-2" title="2"></a>
-<a class="sourceLine" id="cb181-3" title="3">gdf.to_file(<span class="st">&#39;tmp/estados_do_brasil_editado.shp&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">del</span> gdf[<span class="st">&quot;geometria&quot;</span>] <span class="co"># Removendo coluna extra de geometrias</span></a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb179-3" data-line-number="3">gdf.to_file(<span class="st">&#39;tmp/estados_do_brasil_editado.shp&#39;</span>)</a></code></pre></div>
 <p>Não deixe de consultar a documentação do Pandas e do GeoPandas, por conta das bibliotecas trabalharem juntas, muitos formas de dados podem ser escritos e tratados, no GeoPandas é possível até mesmo ler dados diretamente de um banco de dados espacial (PostGres com PostGIS).</p>
 </div>
 <div id="manipulacao-geometrica" class="section level3">
@@ -492,12 +487,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vamos começar com as operações de área, que de forma análoga ao nome, cálcula a área da geometria em questão. Vejamos a Figura abaixo que faz uma representação desta operação em diferentes formas geométricas.</p>
 <p><img src="res/3_python/opgeom_area.svg" /></p>
 <p>O resultado da operação, devolve o cálculo da área, representado em vermelho na Figura acima. Para exemplificar, vamos utilizar o conjunto de dados dos estados do Brasil</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb182-1" title="1">estados_do_brasil <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb180-1" data-line-number="1">estados_do_brasil <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)</a></code></pre></div>
 <blockquote>
 <p>Lembre-se, este conjunto de dados está disponível no <a href="https://github.com/dataAt/introducao-analise-de-dados-espaciais/tree/master/data">repositório</a> do curso</p>
 </blockquote>
 <p>Depois de carregar os dados, vamos utilizar o atributo <code>area</code>, que realiza a operação e devolve a àrea para cada uma das linhas do conjunto de dados</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb183-1" title="1"><span class="bu">print</span>(estados_do_brasil.area.head(<span class="dv">5</span>)) <span class="co"># Exibindo somente as 5 primeiras</span></a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="bu">print</span>(estados_do_brasil.area.head(<span class="dv">5</span>)) <span class="co"># Exibindo somente as 5 primeiras</span></a></code></pre></div>
 <pre><code>## 0     12.553132
 ## 1      2.285972
 ## 2     11.424936
@@ -511,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>O atributo <code>bounds</code> devolve as coordenadas mínimas e máximas da região coberta pela geometria. Sua representação é feita na Figura abaixo.</p>
 <p><img src="res/3_python/opgeom_bounds.svg" /></p>
 <p>Perceba que, para cada figura é criado um retângulo que a envolve (Também chamado de retângulo envolvente) e as coordenadas mínimas e máximas são retiradas desses. Vejamos um exemplo</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb185-1" title="1"><span class="bu">print</span>(estados_do_brasil.bounds.head(<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="bu">print</span>(estados_do_brasil.bounds.head(<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>##         minx       miny       maxx      maxy
 ## 0 -73.990943 -11.144489 -66.619331 -7.111453
 ## 1 -38.237442 -10.500822 -35.151669 -8.812208
@@ -524,15 +519,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>O atributo <code>centroid</code> devolve o ponto central da geometria. Sua representação é feita na Figura abaixo.</p>
 <p><img src="res/3_python/opgeom_centroid.svg" /></p>
 <p>O ponto retornado para cada geometria é apresentado em vermelho. Vejamos um exemplo com o GeoPandas.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb187-1" title="1">centroids_dos_estados <span class="op">=</span> estados_do_brasil.centroid</a></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb185-1" data-line-number="1">centroids_dos_estados <span class="op">=</span> estados_do_brasil.centroid</a></code></pre></div>
 <p>Se olharmos para o resultado teremos uma <code>GeoSeries</code> com um ponto para cada um dos estados, vamos visualizar estes pontos rapidamente.</p>
 <pre><code>centroids_dos_estados.plot()</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000255550B7208&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 <p>Para fazermos um pequeno experimento, famos pegar a figura com os estados e fazer seu plot junto com os centroids.</p>
 <pre><code>base = estados_do_brasil.plot()
 centroids_dos_estados.plot(ax=base, marker=&quot;o&quot;, color=&quot;red&quot;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025554C6D710&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 </div>
 <div id="buffer" class="section level4">
@@ -542,14 +535,13 @@ centroids_dos_estados.plot(ax=base, marker=&quot;o&quot;, color=&quot;red&quot;)
 <img src="res/3_python/opgeom_buffer.svg" />
 </center>
 <p>Para testar esta operação, vamos utilizar os <code>centroids</code> extraídos na seção anterior.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb192-1" title="1">buffers <span class="op">=</span> centroids_dos_estados.<span class="bu">buffer</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb188-1" data-line-number="1">buffers <span class="op">=</span> centroids_dos_estados.<span class="bu">buffer</span>(<span class="dv">2</span>)</a></code></pre></div>
 <p>Da mesma forma que outros métodos que trabalham com distâncias, os valores dependem diretamente das projeções espaciais utilizadas. Vamos fazer um plot do resultado gerado sob o mapa dos estados do Brasil.</p>
 <pre><code>base = estados_do_brasil.plot()
 base = buffers.plot(ax = base, color = &#39;yellow&#39;)
 
 # Adicionando os centroids também, para testar =D
 centroids_dos_estados.plot(ax = base, color = &#39;red&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002555505FB00&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 </div>
 <div id="envelope" class="section level4">
@@ -559,12 +551,11 @@ centroids_dos_estados.plot(ax = base, color = &#39;red&#39;)</code></pre>
 <img src="res/3_python/opgeom_envelope.svg" />
 </center>
 <p>Para testar, vamos pegar os buffers gerados anteriormente e então gerar seu retângulo envolvente.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb195-1" title="1">envelopes <span class="op">=</span> buffers.envelope</a></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb190-1" data-line-number="1">envelopes <span class="op">=</span> buffers.envelope</a></code></pre></div>
 <p>Da mesma forma que nos demais, vamos visualizar o resultado.</p>
 <pre><code>base = estados_do_brasil.plot()
 
 envelopes.plot(ax = base, color = &#39;green&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002555505BC18&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 </div>
 </div>
@@ -578,19 +569,18 @@ envelopes.plot(ax = base, color = &#39;green&#39;)</code></pre>
 <img src="res/3_python/opgeom_distance.svg" />
 </center>
 <p>Para testar esta operação, vamos carregar dois dados vetoriais, cada um represetando um estado do Brasil.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb198-1" title="1">estado_maranhao <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/2_estado_sp_shape/shape_estado-sp.shp&quot;</span>)</a>
-<a class="sourceLine" id="cb198-2" title="2">estado_saopaulo <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/3_estado_ma_shape/shape_estado-ma.shp&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb192-1" data-line-number="1">estado_maranhao <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/2_estado_sp_shape/shape_estado-sp.shp&quot;</span>)</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2">estado_saopaulo <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/3_estado_ma_shape/shape_estado-ma.shp&quot;</span>)</a></code></pre></div>
 <p>Vamos visualizar os dois juntos. Nesta visualização, para ela ter sentido, abaixo dos estados foi fazer o plot do mapa do Brasil.</p>
 <pre><code>base = estados_do_brasil.plot()
 
 base = estado_maranhao.plot(ax = base, color = &#39;green&#39;)
 estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025554C78C18&gt;</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>Certo, vamos calcular a distância entre cada um deles.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb201-1" title="1">distancia <span class="op">=</span> estado_saopaulo.distance(estado_maranhao)</a>
-<a class="sourceLine" id="cb201-2" title="2"></a>
-<a class="sourceLine" id="cb201-3" title="3"><span class="bu">print</span>(distancia)</a></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb194-1" data-line-number="1">distancia <span class="op">=</span> estado_saopaulo.distance(estado_maranhao)</a>
+<a class="sourceLine" id="cb194-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb194-3" data-line-number="3"><span class="bu">print</span>(distancia)</a></code></pre></div>
 <pre><code>## 0    9.809695
 ## dtype: float64</code></pre>
 <p>Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo. Esta mesma operação pode ser utilizada como uma forma de consulta aos dados, por exemplo, buscar estados que estejam a X de distância de outro.</p>
@@ -603,11 +593,11 @@ estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
 </center>
 <p>Vamos fazer um teste da operação com o estado do Amazonas, verificando se sua geometria está contida nas nos dados de estados do Brasil.</p>
 <p>Primeiro, vamos retirar do <code>GeoDataFrame</code> as informações do estado do Amazonas, para isto aplicaremos um filtro booleano, herdado do Pandas.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb203-1" title="1">estado_amazonas <span class="op">=</span> estados_do_brasil[estados_do_brasil[<span class="st">&quot;ESTADOS&quot;</span>] <span class="op">==</span> <span class="st">&quot;Amazonas&quot;</span>] <span class="co"># Indexação booleana</span></a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb196-1" data-line-number="1">estado_amazonas <span class="op">=</span> estados_do_brasil[estados_do_brasil[<span class="st">&quot;ESTADOS&quot;</span>] <span class="op">==</span> <span class="st">&quot;Amazonas&quot;</span>] <span class="co"># Indexação booleana</span></a></code></pre></div>
 <p>Agora vamos verificar se o estado está contido em alguma geometria dos estados do Brasil.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb204-1" title="1">amazonas_esta_presente <span class="op">=</span> estados_do_brasil.contains(estado_amazonas)</a>
-<a class="sourceLine" id="cb204-2" title="2"></a>
-<a class="sourceLine" id="cb204-3" title="3"><span class="bu">print</span>(amazonas_esta_presente.head(<span class="dv">10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb197-1" data-line-number="1">amazonas_esta_presente <span class="op">=</span> estados_do_brasil.contains(estado_amazonas)</a>
+<a class="sourceLine" id="cb197-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb197-3" data-line-number="3"><span class="bu">print</span>(amazonas_esta_presente.head(<span class="dv">10</span>))</a></code></pre></div>
 <pre><code>## 0    False
 ## 1    False
 ## 2    False
@@ -620,7 +610,7 @@ estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
 ## 9    False
 ## dtype: bool</code></pre>
 <p>Veja que em uma das linhas apareceu <code>True</code>, isto indica que a geometria do estado do Amazonas está contida nesta, que se formos olhar a linha do <code>GeoDataFrame</code> com os dados do estado, indica exatamente a linha do estado do Amazonas.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb206-1" title="1"><span class="bu">print</span>(estados_do_brasil[amazonas_esta_presente])</a></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="bu">print</span>(estados_do_brasil[amazonas_esta_presente])</a></code></pre></div>
 <pre><code>##     ESTADOS REGIAO  ...  UF                                           geometry
 ## 3  Amazonas  Norte  ...  AM  POLYGON ((-73.80098 -7.11145, -73.80106 -7.111...
 ## 
@@ -633,20 +623,20 @@ estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
 <img src="res/3_python/opgeom_intersects.svg" />
 </center>
 <p>Para realizar este teste, vamos carregar um arquivo que contém todos rios do nosso país. E então verificar quais desses fazem intersecção com o estado do Pará.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb208-1" title="1">rios_brasil <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/4_rios_brasil/Brasil_rios.shp&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb201-1" data-line-number="1">rios_brasil <span class="op">=</span> gpd.read_file(<span class="st">&quot;../data/4_rios_brasil/Brasil_rios.shp&quot;</span>)</a></code></pre></div>
 <p>Antes de continuar, vamos visualizar os dados, junto aos estados do Brasil.</p>
 <pre><code>base = estados_do_brasil.plot(color = &quot;gray&quot;)
 rios_brasil.plot(ax = base, color = &#39;red&#39;)</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb210-1" title="1">base <span class="op">=</span> estados_do_brasil.plot(color <span class="op">=</span> <span class="st">&quot;gray&quot;</span>)</a>
-<a class="sourceLine" id="cb210-2" title="2">rios_brasil.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025554BB1C88&gt;</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb212-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb203-1" data-line-number="1">base <span class="op">=</span> estados_do_brasil.plot(color <span class="op">=</span> <span class="st">&quot;gray&quot;</span>)</a>
+<a class="sourceLine" id="cb203-2" data-line-number="2">rios_brasil.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb203-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb203-4" data-line-number="4">plt.show()</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 <p>Agora vamos pegar somente o estado do Pará do conjunto de estados e verificar quais rios fazem intersecção com ele.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb213-1" title="1">estado_para <span class="op">=</span> estados_do_brasil[estados_do_brasil[<span class="st">&quot;ESTADOS&quot;</span>] <span class="op">==</span> <span class="st">&quot;Pará&quot;</span>]</a>
-<a class="sourceLine" id="cb213-2" title="2">rios_intersect_para <span class="op">=</span> rios_brasil.intersects(estado_para)</a>
-<a class="sourceLine" id="cb213-3" title="3"></a>
-<a class="sourceLine" id="cb213-4" title="4"><span class="bu">print</span>(rios_intersect_para.head(<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb204-1" data-line-number="1">estado_para <span class="op">=</span> estados_do_brasil[estados_do_brasil[<span class="st">&quot;ESTADOS&quot;</span>] <span class="op">==</span> <span class="st">&quot;Pará&quot;</span>]</a>
+<a class="sourceLine" id="cb204-2" data-line-number="2">rios_intersect_para <span class="op">=</span> rios_brasil.intersects(estado_para)</a>
+<a class="sourceLine" id="cb204-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb204-4" data-line-number="4"><span class="bu">print</span>(rios_intersect_para.head(<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## 0    False
 ## 1    False
 ## 2    False
@@ -654,20 +644,20 @@ rios_brasil.plot(ax = base, color = &#39;red&#39;)</code></pre>
 ## 4    False
 ## dtype: bool</code></pre>
 <p>O resultado é uma lista booleana, desta forma, vamos filtrar o conjunto de dados de rios com este índice, e então verificar quais deles fazem intersecção com o estado do Pará.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb215-1" title="1">rios_para <span class="op">=</span> rios_brasil[rios_intersect_para]</a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb206-1" data-line-number="1">rios_para <span class="op">=</span> rios_brasil[rios_intersect_para]</a></code></pre></div>
 <p>Com os dados separados, vamos fazer um plot para melhor visualizar o resultado. Neste plot vamos utilizar o <code>matplotlib</code>, para criar vários subplots.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb216-1" title="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb216-2" title="2"></a>
-<a class="sourceLine" id="cb216-3" title="3"><span class="co"># Criando figura e os subplots</span></a>
-<a class="sourceLine" id="cb216-4" title="4">fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb216-5" title="5"></a>
-<a class="sourceLine" id="cb216-6" title="6">base <span class="op">=</span> estados_do_brasil.plot(ax <span class="op">=</span> ax1, color <span class="op">=</span> <span class="st">&#39;blue&#39;</span>)</a>
-<a class="sourceLine" id="cb216-7" title="7">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000025554CA95F8&gt;</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb218-1" title="1">base <span class="op">=</span> estado_para.plot(ax <span class="op">=</span> ax2, color <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)</a>
-<a class="sourceLine" id="cb218-2" title="2">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002555687F4A8&gt;</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb220-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb207-3" data-line-number="3"><span class="co"># Criando figura e os subplots</span></a>
+<a class="sourceLine" id="cb207-4" data-line-number="4">fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb207-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb207-6" data-line-number="6">base <span class="op">=</span> estados_do_brasil.plot(ax <span class="op">=</span> ax1, color <span class="op">=</span> <span class="st">&#39;blue&#39;</span>)</a>
+<a class="sourceLine" id="cb207-7" data-line-number="7">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb207-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb207-9" data-line-number="9">base <span class="op">=</span> estado_para.plot(ax <span class="op">=</span> ax2, color <span class="op">=</span> <span class="st">&#39;gray&#39;</span>)</a>
+<a class="sourceLine" id="cb207-10" data-line-number="10">rios_para.plot(ax <span class="op">=</span> base, color <span class="op">=</span> <span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb207-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb207-12" data-line-number="12">plt.show()</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>Veja que esta operação verificou somente aqueles que fazem intersecção com as fronteiras, não indicando que está contido ou próximo ao estado.</p>
 </div>
@@ -694,13 +684,11 @@ rios_brasil.plot(ax = base, color = &#39;red&#39;)</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

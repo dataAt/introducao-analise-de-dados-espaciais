@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
@@ -38,9 +38,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -67,7 +64,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -165,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌏🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
@@ -336,13 +333,13 @@ organização da linguagem SQL, recomenda-se a leitura do trabalho de
 <span class="citation">(Kumar, Raheja, and Sachdeva 2012)</span>, o qual aborada com mais aprofundamento estes tópicos.</p>
 <p>Agora iremos criar um banco de dados para trabalharmos com os recursos espacias
 do PostGIS, para isso execute o comando a seguir:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb229-1" title="1"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> dbgeo;</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> dbgeo;</a></code></pre></div>
 <p>O comando acima cria um novo banco de dados chamado <code>dbgeo</code>. Caso queira o criar
 um banco de dados com o nome diferente, utilize o mesmo comando substituindo o
 trecho <code>dbgeo</code> pelo nome desejado. Após receber a mensagem de confirmação, será
 necessário mudar o interpretador psql para o novo banco de dados criado, para
 isso utilize o seguinte comando:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb230-1" title="1">\l dbgeo;</a></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb217-1" data-line-number="1">\l dbgeo;</a></code></pre></div>
 <p>Note que o trecho <code>dbgeo</code> é o nome da base de dados que foi criada no passo
 anterior. Se tudo estiver ocorrido bem, deverá aparecer a confirmação conforme a
 Figura <a href="introducao-ao-postgis.html#fig:change-database">4.3</a>.</p>
@@ -355,7 +352,7 @@ Figure 4.3: Criando e alterando base dados.
 <p>Por fim, para habilitarmos a nova base de dados para suportar operações com
 dados espaciais, iremos adicionar a extensão PostGIS. Para isso, execute o
 seguinte comando:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">CREATE</span> EXTENSION postgis;</a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">CREATE</span> EXTENSION postgis;</a></code></pre></div>
 <p>Após adicionarmos a extensão PostGIS em nosso banco de dados, vamos criar a
 nossa primeira tabela com atributos geométricos.</p>
 </div>
@@ -372,13 +369,11 @@ nossa primeira tabela com atributos geométricos.</p>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
