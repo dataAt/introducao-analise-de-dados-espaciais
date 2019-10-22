@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introdução | intro-analise-de-dados-espaciais.utf8.md</title>
+  <title>5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introdução | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta property="og:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introdução | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta name="twitter:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="python.html"/>
 
-<link rel="next" href="revisao-bibliografica.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -189,19 +189,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="introducao" class="section level1">
-<h1><span class="header-section-number">1</span> Introdução</h1>
+<div id="introducao-ao-postgis" class="section level1">
+<h1><span class="header-section-number">5</span> Introdução ao postgis 🐘</h1>
+<p>Uma das principais características que diferenciam os bancos de dados
+geográficos dos demais bancos de dados convencionais, é a presença de uma coluna
+com a finalidade de armazenar uma propriedade geográfica do registro. Além disso
+, os bancos de dados geográficos também devem oferecer de forma otimizada
+suporte à operações espaciais. Diferente de um passado não muito distante,
+atualmente existem muitas alternativas de bancos de dados geográficos, como:
+<a href="https://docs.microsoft.com/pt-br/sql/relational-databases/spatial/spatial-data-sql-server?view=sql-server-ver15">SQL Server Spatial</a>, <a href="https://web.archive.org/web/20060316161213/http://www.esri.com/software/arcgis/arcsde/">ESRI ArcSDE</a>, <a href="https://www.oracle.com/database/technologies/spatialandgraph.html">Oracle Spatial</a>, <a href="https://www.geomesa.org/">GeoMesa</a>,
+<a href="https://postgis.net/">PostGIS</a>, etc. Cada uma destas opções tem o objetivo em comum trabalhar com
+dados geográficos e todas estão sendo muito utlizadas em diversos segmentos nos
+dias de hoje, sendo o PostGIS a mais popular de todas.</p>
+<p>O PostGIS é uma extensão geográfica <em>open source</em> para o SGDB (Sistema
+Gerenciador de Banco de Dados) <a href="https://www.postgresql.org/">PostgreSQL</a>, lançada em 2001 inicialmente por
+uma empresa canadense chamada Refractions Research. O PostGIS segue a
+padronização estabelecida pelo OGC (<em>Open GIS Consortium</em>), que provê suporte
+para todos os objetos e funções da especificação <a href="https://www.opengeospatial.org/standards/sfa">SFS</a> (<em>Simple Features for</em>
+<em>SQL</em>). De forma concisa, a especificação SFS foi criada pelo OGC (consórcio
+formado por empresas, universidades, etc) e trata das questões de representação
+da componente espacial e vetorial dos dados geográficos, garantindo assim, a
+interoperabilidade entre os sistemas os utilizam.</p>
+<p>Este capítulo tem como objetivo introduzir ao leitor à extensão espacial PostGIS
+. Ao final, o leitor deverá está apto a configurar corretamente o ambiente para
+a utilização da ferramente, carregar arquivos vetoriais e realizar operações
+espaciais.</p>
+<div id="instalacao" class="section level2">
+<h2><span class="header-section-number">5.1</span> Instalação</h2>
+<p>Como o PostGIS é uma extensão do PostgreSQL, primeiramente deverá ser feita a
+instalação do SGBD.</p>
+<blockquote>
+<p><strong>Importante</strong>: Não esqueça o nome de usuário e senha que você definir durante
+a instalação, pois essas informações serão de suma importância, anote se
+necessário.</p>
+</blockquote>
+<p>A versão do PostgreSQL utilizada aqui é será a 11.5. A instalação do PostgreSQL
+e PostGIS no sistema operacional windows, pode ser feita através do instalador
+disponível <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">nesse link</a>, para isso fique atento durante a instalação e na
+segunda tela do assistente, no item <code>Spatial Extensions</code> marque a opção PostGIS.</p>
+<p>A instalação do PostgreSQL e PostGIS no sistema Operacional MacOS pode ser feita
+através do gerenciador de pacotes <code>brew</code>, utilizado os seguintes comandos:</p>
+<pre class="console"><code>brew install postgres</code></pre>
+<pre class="console"><code>brew install postgis</code></pre>
+<p>Para a instalação nos sistemas operacionais linux, utilize os seguintes comandos
+:</p>
+<pre class="console"><code>sudo apt install postgresql postgresql-contrib</code></pre>
+<pre class="console"><code>sudo apt-get install postgis</code></pre>
+<p>Para verificar se a instalação do PostgreSQL foi realizada corretamente, abra o
+terminal e digite o seguinte comando:</p>
+<pre class="console"><code>psql --version</code></pre>
+<p>Se tudo ocorreu bem, deverá aparecer uma saída com a versão do PostgreSQL, algo
+parecido com <code>psql (PostgreSQL) 11.5</code>.</p>
+<p>Para verificar a instalação do PostGIS, abra o terminal e execute o seguinte
+comando para abrir o interpretador do PostgreSQL:</p>
+<pre class="console"><code>sudo -u &lt;user&gt; psql</code></pre>
+<blockquote>
+<p><strong>Obs</strong>: Substitua o trecho <code>&lt;user&gt;</code> para o usuário do PostgreSQL definido na
+instalação.</p>
+</blockquote>
+<p>Com o terminal do PostgreSQL aberto, execute o seguinte comando para verificar a
+versão do PostGIS:</p>
+<pre class="console"><code>SELECT PostGIS_version();</code></pre>
+<p>Se tudo estiver certo, deverá aparecer como saída a versão do PostGIS. Para sair
+do interpretador psql, basta executar o comando <code>\q</code>. E com isso finalizamos as
+configuração iniciais necessárias iniciar os trabalhos com o PostGIS. Para mais
+informações, consulte a página oficial do PostGIS em:
+<a href="https://postgis.net/install/">https://postgis.net/install</a>.</p>
+<p>Na próxima seção iremos criar um banco de dados novo e habilitar nele a extensão
+espacial PostGIS, para que possam ser executadas as nossas primeiras consultas
+espaciais.</p>
+</div>
+<div id="referencias" class="section level2">
+<h2><span class="header-section-number">5.2</span> Referências</h2>
 
+<div id="refs" class="references">
+<div>
+<p>GeeksforGeeks. 2018. “Python | Pandas Dataframe.” <a href="https://www.geeksforgeeks.org/python-pandas-dataframe/" class="uri">https://www.geeksforgeeks.org/python-pandas-dataframe/</a>.</p>
+</div>
+<div>
+<p>IBGE. 2016a. “As Projeções Cartográficas.” 2016. <a href="https://atlasescolar.ibge.gov.br/conceitos-gerais/o-que-e-cartografia/as-projec-o-es-cartogra-ficas.html" class="uri">https://atlasescolar.ibge.gov.br/conceitos-gerais/o-que-e-cartografia/as-projec-o-es-cartogra-ficas.html</a>.</p>
+</div>
+<div>
+<p>———. 2016b. “Introdução à Cartografia.” 2016. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf</a>.</p>
+</div>
+<div>
+<p>Montanari, Rafael. 2014. “Superfícies E Sistemas de Referência.”</p>
+</div>
+<div>
+<p>Pebesma, Edzer. 2018. “Simple Features for R: Standardized Support for Spatial Vector Data.” <em>The R Journal</em> 10 (1): 439–46. <a href="https://doi.org/10.32614/RJ-2018-009" class="uri">https://doi.org/10.32614/RJ-2018-009</a>.</p>
+</div>
+<div>
+<p>Santos, Alexandre, Kaíse Barbosa, and Rosane Gomes. 2016. “FUNDAMENTOS Teóricos de Geotecnologias.” August 2016. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf</a>.</p>
+</div>
+<div>
+<p>Schutt, Rachel, and Cathy OŃeil. 2013. <em>Doing Data Science: Straight Talk from the Frontline</em>. O’Reilly Media, Inc.</p>
+</div>
+<div>
+<p>Tippmann, Sylvia. 2015. “Programming Tools: Adventures with R.” <em>Nature News</em> 517 (7532): 109.</p>
+</div>
+<div>
+<p>Wickham, Hadley. 2017. “The Tidyverse.” <em>R Package Ver. 1.1</em> 1.</p>
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="python.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="revisao-bibliografica.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
