@@ -182,11 +182,62 @@ Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os m
 |    22522    |    GCS WGS84   |
 |    22523    |     Corrego    |
 
-
 ## Open Geospatial Consortium (OGC)
 
 ## Tipos e operações espaciais
 
-## Matriz de 9-intersecções Estendida dimensionalmente
-
 ## Relacionamentos espaciais nomeados
+
+Realizar a caracterização do relacionamento entre os objetos espaciais permite a criação de contextos semânticos sobre estes [@Camara2005] e assim seja possível a extração de informações relevantes [@Ferreira2010].
+
+É tido que, existem alguns tipos de relacionamentos entre os objetos que podem ser utilizados para tal caracterização, sendo eles, topológicos, métricos e de ordem [@Camara2005]. Os relacionamentos métricos representam relações que tratam especificamente de área de distância entre objetos. Já os de ordem representam a forma com que um objeto está disposto ao outro. Os topográficos consideram os relacionamentos de interseção entre os objetos.
+
+Todos os tipos citados anteriormente serão tratados em algum momento durante esta documentação, porém nesta seção as relações topográficas terão uma enfase especial, isto já que, diferente das demais, apresenta uma estrutura própria para seus relacionamentos e ainda, segundo @Bogorny2001, representa a forma de relação espacial mais utilizada, já que esta faz analogias diretas a como percebemos a espacialidade do mundo real.
+
+<!-- 
+http://sertie.fct.unesp.br/wp-content/uploads/2017/10/17-Relacionamentos-topol%C3%B3gicos.pdf
+-->
+Desta forma, as subseções abaixo apresentam um pouco mais sobre os relacionamentos topográficos, também denominados de relacionamentos espaciais nomeados, uma vez que, possuem uma definição formal, que vai desde sua nomenclatura até as formas de representação.
+
+### Relacionamentos espaciais
+
+Esta subseção busca de forma simples, apresentar a definição formal dos relacionamentos espaciais nomeados. Em um segundo momento, na documentação do Python, R e PostGIS deste material há exemplos de aplicações de tais relacionamentos.
+
+Para o entendimento destes relacionamentos, vamos começar fazendo a definição das regiões das geometrias, assunto base para o entendimento das formas de relação, para isto, veja a Figura abaixo.
+
+<center>
+![](res/1_intro/regioes_geometricas.svg)
+</center>
+
+Perceba que, para cada uma das principais geometrias há um conjunto de três definições. O interior refere-se diretamente a área interna da geometria, enquanto que a fronteira representa somente o contorno da área e o exterior sendo toda área que não é preenchida pela geometria.
+
+Certo, vejamos agora, alguns tipos de relacionamentos espaciais:
+
+- contains - Verifica se a geométria B contêm A;
+- equal - Verifica se duas geométrias são iguais.
+
+Porém, somente ao ler a descrição de cada um dos métodos de relacionamentos apresentados acima é possível perceber um problema. O que significa dizer que a geometria B contém A ? Ou mesmo, o que torna as geometrias iguais ?
+
+Por conta destas questões que cada um destes métodos possui uma definição formal, que como citado anteriormente, evita qualquer tipo de múltiplas interpretações, mas como esta definição pode ser feita ? Para este problema @Bogorny2001 indica que diversas abordagens podem ser aplicadas, porém é comum a aplicação de matrizes de interseção, descrevendo o comportamento de cada região da geometria nos métodos de relacionamento.
+
+@Camara2005 define que para casos simples pode ser utilizada a chamada Matriz de 4-Interseções, que define 8 relações espaciais nomeadas e descreve o que cada uma dessas operações leva em consideração. A Matriz de operações é apresentada abaixo.
+
+```{r figm4, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Matriz 4-Interseções Fronteira (∂); interior (°); exterior (-); vazio (∅); não vazio (¬∅)  - Fonte: @egenhofermdifelicepclementinie1994'}
+  knitr::include_graphics("res/1_intro/matriz_4.PNG")
+```
+
+O ponto importante da Figura apresentada acima é que, para cada um dos métodos que estão sendo apresentados, há exatamente o que ele considera, por exemplo, vejamos o método **contains**, que indica se uma geometria está ou não contida em outra. Neste método existem quatro cenários possíveis. No primeiro, é considerado se as fronteiras (∂) estão se cruzando, e caso estejam não é considerado que uma contém a outra. O segundo caso verifica se o interior (°) de uma geometria está em outro, e caso esteja é considerado que uma está contida em outra. 
+
+Veja que interessante! Através de uma definição simples e direta já foi possível perceber os possíveis casos de cada método.
+
+Há casos em que a Matriz de 4-Interseções não é o suficiente para fazer as representações [@Camara2005], para estes casos outros modelos podem ser utilizados, como é o caso da Matriz de 9-Interseções Dimensionalmente estendidas, apresentada na seção seguinte a esta.
+
+### Restrições espaciais
+
+Em certos casos, o fenômeno que está sendo representado pelos dados espaciais faz com que sejam necessários a aplicação de regras e restrições específicas sobre os mesmos [@Bogorny2001]. Esta regra também é aplicável no contexto dos relacionamentos espaciais.
+
+Por exemplo, o método **disjoint** pode ser aplicado considerando qualquer par de geometrias, enquanto que o método **overleap** só pode ser aplicado a pares do mesmo tipo, como por exemplo geometrias de linhas com outras linhas [@Camara2005].
+
+Caso você fique interessado e deseja uma descrição completa de todas estas restrições, não deixe de consultar o material de `Banco de dados geográficos`, disponibilizado pelo INPE.
+
+## Matriz de 9-intersecções Estendida dimensionalmente

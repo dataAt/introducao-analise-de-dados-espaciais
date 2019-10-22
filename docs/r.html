@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 R 💎 | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 R 💎 | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -64,7 +67,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -139,8 +142,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>2.5</b> Open Geospatial Consortium (OGC)</a></li>
 <li class="chapter" data-level="2.6" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#tipos-e-operacoes-espaciais"><i class="fa fa-check"></i><b>2.6</b> Tipos e operações espaciais</a></li>
-<li class="chapter" data-level="2.7" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#matriz-de-9-interseccoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>2.7</b> Matriz de 9-intersecções Estendida dimensionalmente</a></li>
-<li class="chapter" data-level="2.8" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>2.8</b> Relacionamentos espaciais nomeados</a></li>
+<li class="chapter" data-level="2.7" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>2.7</b> Relacionamentos espaciais nomeados</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>2.7.1</b> Relacionamentos espaciais</a></li>
+<li class="chapter" data-level="2.7.2" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#restricoes-espaciais"><i class="fa fa-check"></i><b>2.7.2</b> Restrições espaciais</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="revisao-bibliografica.html"><a href="revisao-bibliografica.html#matriz-de-9-interseccoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>2.8</b> Matriz de 9-intersecções Estendida dimensionalmente</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3</b> R 💎</a><ul>
 <li class="chapter" data-level="3.1" data-path="r.html"><a href="r.html#tibble"><i class="fa fa-check"></i><b>3.1</b> Tibble</a><ul>
@@ -150,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="r.html"><a href="r.html#sf"><i class="fa fa-check"></i><b>3.2</b> SF</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="r.html"><a href="r.html#tipos-geometricos"><i class="fa fa-check"></i><b>3.2.1</b> Tipos Geométricos</a></li>
 <li class="chapter" data-level="3.2.2" data-path="r.html"><a href="r.html#leitura-e-escrita-de-dados-vetoriais"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados vetoriais</a></li>
-<li class="chapter" data-level="3.2.3" data-path="r.html"><a href="r.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>3.2.3</b> Relacionamentos Espaciais</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r.html"><a href="r.html#relacionamentos-espaciais-1"><i class="fa fa-check"></i><b>3.2.3</b> Relacionamentos Espaciais</a></li>
 <li class="chapter" data-level="3.2.4" data-path="r.html"><a href="r.html#operadores-metricos"><i class="fa fa-check"></i><b>3.2.4</b> Operadores Métricos</a></li>
 <li class="chapter" data-level="3.2.5" data-path="r.html"><a href="r.html#sistemas-de-referencias"><i class="fa fa-check"></i><b>3.2.5</b> Sistemas de referências</a></li>
 <li class="chapter" data-level="3.2.6" data-path="r.html"><a href="r.html#materiais-recomendados"><i class="fa fa-check"></i><b>3.2.6</b> Materiais recomendados</a></li>
@@ -160,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>4.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>4.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>4.2</b> GeoPandas 🌎🐼</a><ul>
+<li class="chapter" data-level="4.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>4.2</b> GeoPandas 🌐🐼</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>4.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="4.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>4.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="4.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>4.2.3</b> Manipulação geométrica</a></li>
@@ -170,8 +176,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>5</b> Introdução ao postgis 🐘</a><ul>
 <li class="chapter" data-level="5.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#instalacao"><i class="fa fa-check"></i><b>5.1</b> Instalação</a></li>
-<li class="chapter" data-level="5.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#referencias"><i class="fa fa-check"></i><b>5.2</b> Referências</a></li>
+<li class="chapter" data-level="5.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>5.2</b> Um pouco de SQL</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>5.2.1</b> Acessando a interface PostgreSQL</a></li>
+<li class="chapter" data-level="5.2.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>5.2.2</b> Criando uma nova base de dados</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 </ul>
 
       </nav>
@@ -218,18 +228,18 @@ Figure 3.3:  Representação de um Data frame - Fonte: <span class="citation">Ge
 </p>
 </div>
 <p>O trecho de código a seguir apresenta a implementação do <strong>Data frame</strong> apresentado anteriomente.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">  <span class="co"># Importação do pacote </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">library</span>(tibble)  </a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="co"># Criação do tibble</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  df_escola &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="dt">Aluno =</span> <span class="kw">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>),</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">                              <span class="st">`</span><span class="dt">Álgebra Linear</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">                              <span class="st">`</span><span class="dt">Cálculo I</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">                              <span class="st">`</span><span class="dt">Eng. Software</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">9</span>),</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">                              <span class="st">`</span><span class="dt">PAD</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">9</span>))</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    </a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="co"># Visualização dos dados </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  df_escola</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">  <span class="co"># Importação do pacote </span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">library</span>(tibble)  </a>
+<a class="sourceLine" id="cb1-3" title="3">  </a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="co"># Criação do tibble</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  df_escola &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="dt">Aluno =</span> <span class="kw">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>),</a>
+<a class="sourceLine" id="cb1-6" title="6">                              <span class="st">`</span><span class="dt">Álgebra Linear</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">7</span>),</a>
+<a class="sourceLine" id="cb1-7" title="7">                              <span class="st">`</span><span class="dt">Cálculo I</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb1-8" title="8">                              <span class="st">`</span><span class="dt">Eng. Software</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">9</span>),</a>
+<a class="sourceLine" id="cb1-9" title="9">                              <span class="st">`</span><span class="dt">PAD</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb1-10" title="10">    </a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="co"># Visualização dos dados </span></a>
+<a class="sourceLine" id="cb1-12" title="12">  df_escola</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 5
 ##   Aluno  `Álgebra Linear` `Cálculo I` `Eng. Software`   PAD
 ##   &lt;chr&gt;             &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
@@ -239,10 +249,10 @@ Figure 3.3:  Representação de um Data frame - Fonte: <span class="citation">Ge
 ## 4 Carlos                7           5               9     9</code></pre>
 <p>O pacote <code>tibble</code> possui diversas vantagens em relação ao tradicional <code>data.frame</code>, por exemplo, ainda no <code>tibble</code> criado anteriormente, é possível observar os tipos de cada atributo. Com o objetivo de facilitar a etapa de análise de dados, o pacote <code>tibble</code> não faz a conversão de atributos do tipo <code>character</code> para <code>factor</code> de forma automática.</p>
 <p>Outra grande vantagem do <code>tibble</code> é a interação com os métodos criados para o <code>data.frame</code>, esses provindos do pacote <code>base</code>, por exemplo, o método <code>mean()</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">  <span class="kw">mean</span>(df_escola<span class="op">$</span><span class="st">`</span><span class="dt">Cálculo I</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">  <span class="kw">mean</span>(df_escola<span class="op">$</span><span class="st">`</span><span class="dt">Cálculo I</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>Desta forma, podemos usar quaisquer métodos criados para uso no <code>data.frame</code> no <code>tibble</code>. O código a seguir mostra que o <code>tibble</code> criado possui três classes: <code>tbl_df</code>, <code>tbl</code> e <code>data.frame</code>. É possível observar que o <code>tibble</code> possui como classe comum o <code>data.frame</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">  <span class="kw">class</span>(df_escola)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">  <span class="kw">class</span>(df_escola)</a></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p>Na subseção subsequente, vamos explicar com detalhes como realizar a leitura, escrita e manipulação de dados.</p>
 <div id="tidyverse" class="section level3">
@@ -261,28 +271,28 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 <p>No minicurso de <a href="https://dataat.github.io/introducao-analise-de-dados/introducao.html#dados">Introdução à análise de dados</a>, explicamos com detalhes a diferença entre cada formato de dados e suas respectivas aplicações.</p>
 </blockquote>
 <p>Nesta subseção, vamos criar um conjunto de dados, da seguinte forma:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">   <span class="co"># Criação do tibble</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  df_solo &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Soja&quot;</span>, <span class="st">&quot;Milho&quot;</span>, <span class="st">&quot;Pastagem&quot;</span>, <span class="st">&quot;Vegetação&quot;</span>),</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">                              <span class="dt">plant_agri =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>),</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">                              <span class="dt">plat_col =</span> <span class="kw">c</span>(<span class="st">&quot;2019-09-01&quot;</span>, <span class="st">&quot;2019-01-10&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>))</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="co"># Visualização das observações iniciais do conjunto de dados</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="kw">head</span>(df_solo, <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">   <span class="co"># Criação do tibble</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  df_solo &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Soja&quot;</span>, <span class="st">&quot;Milho&quot;</span>, <span class="st">&quot;Pastagem&quot;</span>, <span class="st">&quot;Vegetação&quot;</span>),</a>
+<a class="sourceLine" id="cb7-3" title="3">                              <span class="dt">plant_agri =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>),</a>
+<a class="sourceLine" id="cb7-4" title="4">                              <span class="dt">plat_col =</span> <span class="kw">c</span>(<span class="st">&quot;2019-09-01&quot;</span>, <span class="st">&quot;2019-01-10&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>))</a>
+<a class="sourceLine" id="cb7-5" title="5">  </a>
+<a class="sourceLine" id="cb7-6" title="6">  </a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="co"># Visualização das observações iniciais do conjunto de dados</span></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="kw">head</span>(df_solo, <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 3
 ##   label plant_agri plat_col  
 ##   &lt;chr&gt; &lt;lgl&gt;      &lt;chr&gt;     
 ## 1 Soja  TRUE       2019-09-01
 ## 2 Milho TRUE       2019-01-10</code></pre>
 <p>Podemos salvar os dados em diferentes formatos, sendo eles tabulares ou não. Para salvar os dados no formato <code>json</code>, pode ser feito desta forma:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">  <span class="co"># Importação do pacote </span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="kw">library</span>(jsonlite)</a></code></pre></div>
-<pre><code>## Loading required package: methods</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">  <span class="co"># Transformando o tibble em json</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  df_solo_json &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">toJSON</span>(df_solo, <span class="dt">pretty =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="co"># Visualização do json</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  df_solo_json</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">  <span class="co"># Importação do pacote </span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">library</span>(jsonlite)</a>
+<a class="sourceLine" id="cb9-3" title="3">  </a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="co"># Transformando o tibble em json</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  df_solo_json &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">toJSON</span>(df_solo, <span class="dt">pretty =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-6" title="6">  </a>
+<a class="sourceLine" id="cb9-7" title="7">  <span class="co"># Visualização do json</span></a>
+<a class="sourceLine" id="cb9-8" title="8">  df_solo_json</a></code></pre></div>
 <pre><code>## [
 ##   {
 ##     &quot;label&quot;: &quot;Soja&quot;,
@@ -306,14 +316,14 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 ##   }
 ## ]</code></pre>
 <p>Agora que o nosso dado está em <code>json</code>, podemos salvá-lo, da seguinte maneira:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">  <span class="co"># Escrita dos dados em formato json no arquivo dados_do_solo.json</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  jsonlite<span class="op">::</span><span class="kw">write_json</span>(df_solo_json, <span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.json&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">  <span class="co"># Escrita dos dados em formato json no arquivo dados_do_solo.json</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  jsonlite<span class="op">::</span><span class="kw">write_json</span>(df_solo_json, <span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.json&quot;</span>)</a></code></pre></div>
 <p>Para realizar a leitura:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">  <span class="co"># Leitura do arquivo em formato .json</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  df_solo &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">read_json</span>(<span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.json&quot;</span>, <span class="dt">simplifyVector =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="co"># Visualização dos dados</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="kw">cat</span>(df_solo)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">  <span class="co"># Leitura do arquivo em formato .json</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  df_solo &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">read_json</span>(<span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.json&quot;</span>, <span class="dt">simplifyVector =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3">  </a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="co"># Visualização dos dados</span></a>
+<a class="sourceLine" id="cb12-5" title="5">  <span class="kw">cat</span>(df_solo)</a></code></pre></div>
 <pre><code>## [
 ##   {
 ##     &quot;label&quot;: &quot;Soja&quot;,
@@ -337,22 +347,22 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 ##   }
 ## ]</code></pre>
 <p>De forma semelhante a leitura e escrita do arquivo em formato <code>json</code>, podemos salvar nossos dados de solo em formato tabular, porém, vamos usar o pacote <code>readr</code>, da seguinte forma:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">  <span class="co"># Importação do pacote </span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="kw">library</span>(readr)</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">  <span class="co"># Escrita dos dados em formato csv no arquivo dados_do_solo.csv</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">  readr<span class="op">::</span><span class="kw">write_csv</span>(df_solo, <span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">  <span class="co"># Importação do pacote </span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb14-3" title="3"></a>
+<a class="sourceLine" id="cb14-4" title="4">  <span class="co"># Escrita dos dados em formato csv no arquivo dados_do_solo.csv</span></a>
+<a class="sourceLine" id="cb14-5" title="5">  readr<span class="op">::</span><span class="kw">write_csv</span>(df_solo, <span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.csv&quot;</span>)</a></code></pre></div>
 <p>Para fazer a leitura:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">  <span class="co"># Leitura do arquivo em formato .csv</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">  df_solo_csv &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">  <span class="co"># Leitura do arquivo em formato .csv</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  df_solo_csv &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;../data/5_arquivos_parte_r/dados_do_solo.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   label = col_character(),
 ##   plant_agri = col_logical(),
 ##   plat_col = col_date(format = &quot;&quot;)
 ## )</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">  <span class="co"># Visualização do conjunto de dados</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">  df_solo_csv</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">  <span class="co"># Visualização do conjunto de dados</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  df_solo_csv</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ##   label     plant_agri plat_col  
 ##   &lt;chr&gt;     &lt;lgl&gt;      &lt;date&gt;    
@@ -368,18 +378,18 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 </div>
 <div id="manipulacao-de-dados" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Manipulação de dados</h3>
-<p>Nesta subseção, vamos nos basear no nosso livro-texto de <a href="https://dataat.github.io/introducao-analise-de-dados/introducao-ao-r.html#manipulacao-de-dados">Introdução à Análise de Dados</a>, fique à vontade para contribuir com o material deste curso 🐽.</p>
+<p>Nesta subseção, vamos nos basear no nosso livro-texto de <a href="https://dataat.github.io/introducao-analise-de-dados/introducao-ao-r.html#manipulacao-de-dados">Introdução à Análise de Dados</a>, fique à vontade para contribuir com o material deste curso 🐸.</p>
 <p>Para selecionar, filtrar e agrupar nossos dados, vamos usar o pacote <code>dplyr</code>, o qual está contido no kit de ferramentas <code>Tidyverse</code>. Vamos iniciar criando mais um conjunto de dados:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">  <span class="co"># Criação do tibble</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">  df_escola &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">    <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">    <span class="dt">curso =</span> <span class="kw">c</span>(<span class="st">&quot;Historia&quot;</span>, <span class="st">&quot;Historia&quot;</span>, <span class="st">&quot;Matemática&quot;</span>,</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">                    <span class="st">&quot;Estatística&quot;</span>, <span class="st">&quot;Matemática&quot;</span>, <span class="st">&quot;Estatística&quot;</span>),</a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">    <span class="dt">media =</span> <span class="kw">c</span>(<span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="ot">NA</span>, <span class="fl">4.9</span>),</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7">    <span class="dt">conceito =</span> <span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>,</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8">                        <span class="st">&quot;C&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb21-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10">  knitr<span class="op">::</span><span class="kw">kable</span>(df_escola)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">  <span class="co"># Criação do tibble</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  df_escola &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb19-3" title="3">    <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb19-4" title="4">    <span class="dt">curso =</span> <span class="kw">c</span>(<span class="st">&quot;Historia&quot;</span>, <span class="st">&quot;Historia&quot;</span>, <span class="st">&quot;Matemática&quot;</span>,</a>
+<a class="sourceLine" id="cb19-5" title="5">                    <span class="st">&quot;Estatística&quot;</span>, <span class="st">&quot;Matemática&quot;</span>, <span class="st">&quot;Estatística&quot;</span>),</a>
+<a class="sourceLine" id="cb19-6" title="6">    <span class="dt">media =</span> <span class="kw">c</span>(<span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="ot">NA</span>, <span class="fl">4.9</span>),</a>
+<a class="sourceLine" id="cb19-7" title="7">    <span class="dt">conceito =</span> <span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>,</a>
+<a class="sourceLine" id="cb19-8" title="8">                        <span class="st">&quot;C&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;A&quot;</span>))</a>
+<a class="sourceLine" id="cb19-9" title="9"></a>
+<a class="sourceLine" id="cb19-10" title="10">  knitr<span class="op">::</span><span class="kw">kable</span>(df_escola)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -437,23 +447,23 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 <li><code>summarize</code> - Função de agregação aplicada em grupos</li>
 </ul>
 <p>Vamos manipular nosso <code>tibble</code> com base nos métodos apresentados:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">  <span class="co"># importação do pacote dplyr</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="kw">suppressMessages</span>(<span class="kw">library</span>(dplyr))</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">  <span class="co"># Filtro dos alunos com conceito igual a &quot;A&quot;</span></a>
-<a class="sourceLine" id="cb22-5" data-line-number="5">  filtro &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(df_escola, df_escola<span class="op">$</span>conceito <span class="op">==</span><span class="st"> &quot;A&quot;</span>)</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">   </a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">  <span class="co"># Seleção dos atributos &quot;curso&quot;, &quot;conceito&quot; e &quot;media&quot;</span></a>
-<a class="sourceLine" id="cb22-8" data-line-number="8">  selecao &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(filtro, curso, conceito, media)</a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">    </a>
-<a class="sourceLine" id="cb22-10" data-line-number="10">  <span class="co"># Criação de grupos por curso</span></a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">  grupo &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(selecao, curso)</a>
-<a class="sourceLine" id="cb22-12" data-line-number="12">   </a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">  <span class="co"># Agregação dos cursos pela média</span></a>
-<a class="sourceLine" id="cb22-14" data-line-number="14">  media &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(grupo, <span class="dt">media_grupo =</span> <span class="kw">mean</span>(media))</a>
-<a class="sourceLine" id="cb22-15" data-line-number="15">    </a>
-<a class="sourceLine" id="cb22-16" data-line-number="16">  <span class="co"># Visualização dos dados</span></a>
-<a class="sourceLine" id="cb22-17" data-line-number="17">  knitr<span class="op">::</span><span class="kw">kable</span>(media)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">  <span class="co"># importação do pacote dplyr</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="kw">suppressMessages</span>(<span class="kw">library</span>(dplyr))</a>
+<a class="sourceLine" id="cb20-3" title="3">  </a>
+<a class="sourceLine" id="cb20-4" title="4">  <span class="co"># Filtro dos alunos com conceito igual a &quot;A&quot;</span></a>
+<a class="sourceLine" id="cb20-5" title="5">  filtro &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(df_escola, df_escola<span class="op">$</span>conceito <span class="op">==</span><span class="st"> &quot;A&quot;</span>)</a>
+<a class="sourceLine" id="cb20-6" title="6">   </a>
+<a class="sourceLine" id="cb20-7" title="7">  <span class="co"># Seleção dos atributos &quot;curso&quot;, &quot;conceito&quot; e &quot;media&quot;</span></a>
+<a class="sourceLine" id="cb20-8" title="8">  selecao &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(filtro, curso, conceito, media)</a>
+<a class="sourceLine" id="cb20-9" title="9">    </a>
+<a class="sourceLine" id="cb20-10" title="10">  <span class="co"># Criação de grupos por curso</span></a>
+<a class="sourceLine" id="cb20-11" title="11">  grupo &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(selecao, curso)</a>
+<a class="sourceLine" id="cb20-12" title="12">   </a>
+<a class="sourceLine" id="cb20-13" title="13">  <span class="co"># Agregação dos cursos pela média</span></a>
+<a class="sourceLine" id="cb20-14" title="14">  media &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(grupo, <span class="dt">media_grupo =</span> <span class="kw">mean</span>(media))</a>
+<a class="sourceLine" id="cb20-15" title="15">    </a>
+<a class="sourceLine" id="cb20-16" title="16">  <span class="co"># Visualização dos dados</span></a>
+<a class="sourceLine" id="cb20-17" title="17">  knitr<span class="op">::</span><span class="kw">kable</span>(media)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -473,18 +483,18 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 </tbody>
 </table>
 <p>Basicamente, filtramos pelo atributo <code>conceito</code>, selecionamos os atributos <code>curso</code>, <code>conceito</code> e <code>media</code>, agrupamos pelos cursos e tiramos a média dos grupos formados 🐻. Mas, ficou muito grande, podemos diminuir a quantidade de atribuições utilizando <code>pipe</code>, desta forma:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">  <span class="co"># importação do pacote magrittr</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="kw">library</span>(magrittr)</a>
-<a class="sourceLine" id="cb23-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb23-4" data-line-number="4">  <span class="co"># Uso do pipe (%&gt;%) para filtrar, selecionar, agrupar e aplicar função de </span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5">  <span class="co"># agregação</span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6">  df &lt;-<span class="st"> </span>df_escola <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(conceito <span class="op">==</span><span class="st"> &quot;A&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(curso, conceito, media) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(curso) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">media_grupo =</span> <span class="kw">mean</span>(media))</a>
-<a class="sourceLine" id="cb23-10" data-line-number="10">  </a>
-<a class="sourceLine" id="cb23-11" data-line-number="11">  <span class="co"># Visualização dos dados</span></a>
-<a class="sourceLine" id="cb23-12" data-line-number="12">  knitr<span class="op">::</span><span class="kw">kable</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">  <span class="co"># importação do pacote magrittr</span></a>
+<a class="sourceLine" id="cb21-2" title="2">  <span class="kw">library</span>(magrittr)</a>
+<a class="sourceLine" id="cb21-3" title="3">  </a>
+<a class="sourceLine" id="cb21-4" title="4">  <span class="co"># Uso do pipe (%&gt;%) para filtrar, selecionar, agrupar e aplicar função de </span></a>
+<a class="sourceLine" id="cb21-5" title="5">  <span class="co"># agregação</span></a>
+<a class="sourceLine" id="cb21-6" title="6">  df &lt;-<span class="st"> </span>df_escola <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(conceito <span class="op">==</span><span class="st"> &quot;A&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(curso, conceito, media) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-8" title="8"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(curso) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-9" title="9"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">media_grupo =</span> <span class="kw">mean</span>(media))</a>
+<a class="sourceLine" id="cb21-10" title="10">  </a>
+<a class="sourceLine" id="cb21-11" title="11">  <span class="co"># Visualização dos dados</span></a>
+<a class="sourceLine" id="cb21-12" title="12">  knitr<span class="op">::</span><span class="kw">kable</span>(df)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -505,7 +515,7 @@ Figure 3.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 </table>
 <p>A principal função do <strong>pipe</strong> é tornar o código mais limpo e reprodutível. Desta forma,
 encerramos os métodos básicos de manipulação de dados. Na próxima subseção, vamos usar o pacote
-<code>sf</code> para a leitura, escrita e manipução de dados espaciais. # Introdução à Geociências 🌏</p>
+<code>sf</code> para a leitura, escrita e manipução de dados espaciais. # Introdução à Geociências 🌎</p>
 </div>
 </div>
 <div id="sf" class="section level2">
@@ -522,78 +532,78 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <div id="tipos-geometricos" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Tipos Geométricos</h3>
 <p>Como apresentado no capítulo 1, podemos representar os tipos geométricos com pontos, linhas e polígonos. Nesta subseção, vamos apresentar alguns tipos geométricos oferecidos pelo pacote <code>sf</code> que segue a implementação padrão da OGC. Para criarmos um simples <code>POINT</code>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">  <span class="co"># Impotação do pacote</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="kw">library</span>(sf)</a></code></pre></div>
-<pre><code>## Linking to GEOS 3.5.1, GDAL 2.1.3, PROJ 4.9.3</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">  <span class="co"># Criação de um ponto no plano</span></a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">  ponto &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb26-4" data-line-number="4">  ponto</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">  <span class="co"># Impotação do pacote</span></a>
+<a class="sourceLine" id="cb22-2" title="2">  <span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4">  <span class="co"># Criação de um ponto no plano</span></a>
+<a class="sourceLine" id="cb22-5" title="5">  ponto &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb22-6" title="6">  </a>
+<a class="sourceLine" id="cb22-7" title="7">  ponto</a></code></pre></div>
 <pre><code>## POINT (3 4)</code></pre>
 <p>Para criarmos uma <code>LINESTRING</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">  <span class="co"># Criação dos segmentos de reta</span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">  linha &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">2</span>) )</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">  <span class="co"># Criação do linestring</span></a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">  linestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(linha)</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb28-7" data-line-number="7">  linestring</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">  <span class="co"># Criação dos segmentos de reta</span></a>
+<a class="sourceLine" id="cb24-2" title="2">  linha &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">2</span>) )</a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4">  <span class="co"># Criação do linestring</span></a>
+<a class="sourceLine" id="cb24-5" title="5">  linestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(linha)</a>
+<a class="sourceLine" id="cb24-6" title="6">  </a>
+<a class="sourceLine" id="cb24-7" title="7">  linestring</a></code></pre></div>
 <pre><code>## LINESTRING (2 1, 4 4, 8 2, 4 2)</code></pre>
 <p>Por fim, para criarmos um polígono sem buracos:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">  <span class="co"># Criação dos segmentos de reta</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">  poligono &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4">  <span class="co"># Criação do poligono</span></a>
-<a class="sourceLine" id="cb30-5" data-line-number="5">  polygon &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono))</a>
-<a class="sourceLine" id="cb30-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb30-7" data-line-number="7">  polygon</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">  <span class="co"># Criação dos segmentos de reta</span></a>
+<a class="sourceLine" id="cb26-2" title="2">  poligono &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4">  <span class="co"># Criação do poligono</span></a>
+<a class="sourceLine" id="cb26-5" title="5">  polygon &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono))</a>
+<a class="sourceLine" id="cb26-6" title="6"></a>
+<a class="sourceLine" id="cb26-7" title="7">  polygon</a></code></pre></div>
 <pre><code>## POLYGON ((2 1, 1 2, 1 5, 5 3, 2 1))</code></pre>
 <p>Os tipos geométricos criados são apresentados abaixo:</p>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Como apresentado no capítulo 1, os tipos geométricos podem ser usados em conjunto: <code>MULTIPOINT</code>, <code>MULTILINESTRING</code>, <code>MULTIPOLYGON</code> e <code>GEOMETRYCOLLECTION</code>. O trecho de código abaixo apresenta a crição dos tipos mencionados:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">  <span class="co"># Criação de pontos</span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">  pontos &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">  <span class="co"># Criação do tipo geométrico multipoint</span></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5">  multipoint &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipoint</span>(pontos)</a>
-<a class="sourceLine" id="cb32-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb32-7" data-line-number="7">  <span class="co"># Criação dos segmentos de reta</span></a>
-<a class="sourceLine" id="cb32-8" data-line-number="8">  linhas_s1 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb32-9" data-line-number="9">  linhas_s2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb32-10" data-line-number="10">  </a>
-<a class="sourceLine" id="cb32-11" data-line-number="11">  <span class="co"># Criação do tipo geométrico multiline</span></a>
-<a class="sourceLine" id="cb32-12" data-line-number="12">  multilinestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multilinestring</span>(<span class="kw">list</span>(linhas_s1, linhas_s2))</a>
-<a class="sourceLine" id="cb32-13" data-line-number="13">  </a>
-<a class="sourceLine" id="cb32-14" data-line-number="14">  </a>
-<a class="sourceLine" id="cb32-15" data-line-number="15">  <span class="co"># Crição dos polígonos</span></a>
-<a class="sourceLine" id="cb32-16" data-line-number="16">  poligono_p1 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb32-17" data-line-number="17">  poligono_p2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb32-18" data-line-number="18">  poligono_p2_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb32-19" data-line-number="19">  </a>
-<a class="sourceLine" id="cb32-20" data-line-number="20">  <span class="co"># Criação do tipo geométrico multipolygon</span></a>
-<a class="sourceLine" id="cb32-21" data-line-number="21">  multipolygon &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipolygon</span>(<span class="kw">list</span>(<span class="kw">list</span>(poligono_p1), <span class="kw">list</span>(poligono_p2, poligono_p2_<span class="dv">1</span>)))</a>
-<a class="sourceLine" id="cb32-22" data-line-number="22">  </a>
-<a class="sourceLine" id="cb32-23" data-line-number="23">  <span class="co"># Criação do tipo geométrico </span></a>
-<a class="sourceLine" id="cb32-24" data-line-number="24">  geometrycollection &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_geometrycollection</span>(<span class="kw">list</span>(multipoint, multilinestring, multipolygon))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">  <span class="co"># Criação de pontos</span></a>
+<a class="sourceLine" id="cb28-2" title="2">  pontos &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb28-3" title="3"></a>
+<a class="sourceLine" id="cb28-4" title="4">  <span class="co"># Criação do tipo geométrico multipoint</span></a>
+<a class="sourceLine" id="cb28-5" title="5">  multipoint &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipoint</span>(pontos)</a>
+<a class="sourceLine" id="cb28-6" title="6">  </a>
+<a class="sourceLine" id="cb28-7" title="7">  <span class="co"># Criação dos segmentos de reta</span></a>
+<a class="sourceLine" id="cb28-8" title="8">  linhas_s1 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb28-9" title="9">  linhas_s2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb28-10" title="10">  </a>
+<a class="sourceLine" id="cb28-11" title="11">  <span class="co"># Criação do tipo geométrico multiline</span></a>
+<a class="sourceLine" id="cb28-12" title="12">  multilinestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multilinestring</span>(<span class="kw">list</span>(linhas_s1, linhas_s2))</a>
+<a class="sourceLine" id="cb28-13" title="13">  </a>
+<a class="sourceLine" id="cb28-14" title="14">  </a>
+<a class="sourceLine" id="cb28-15" title="15">  <span class="co"># Crição dos polígonos</span></a>
+<a class="sourceLine" id="cb28-16" title="16">  poligono_p1 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb28-17" title="17">  poligono_p2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb28-18" title="18">  poligono_p2_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb28-19" title="19">  </a>
+<a class="sourceLine" id="cb28-20" title="20">  <span class="co"># Criação do tipo geométrico multipolygon</span></a>
+<a class="sourceLine" id="cb28-21" title="21">  multipolygon &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipolygon</span>(<span class="kw">list</span>(<span class="kw">list</span>(poligono_p1), <span class="kw">list</span>(poligono_p2, poligono_p2_<span class="dv">1</span>)))</a>
+<a class="sourceLine" id="cb28-22" title="22">  </a>
+<a class="sourceLine" id="cb28-23" title="23">  <span class="co"># Criação do tipo geométrico </span></a>
+<a class="sourceLine" id="cb28-24" title="24">  geometrycollection &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_geometrycollection</span>(<span class="kw">list</span>(multipoint, multilinestring, multipolygon))</a></code></pre></div>
 <p>Os tipos geométricos criados são apresentados abaixo:</p>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>OS tipos geométricos que criamos são objetos da classe <code>sfg</code> (<em>Simple Feature Geometries</em>), os quis possuem apenas um único atributo, correspondes aos pontos no plano ou espaço. Para verificar a classe dos objetos:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">  <span class="co"># Verificação da classe do tipo geométrico criado </span></a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">  <span class="kw">class</span>(multipoint)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">  <span class="co"># Verificação da classe do tipo geométrico criado </span></a>
+<a class="sourceLine" id="cb29-2" title="2">  <span class="kw">class</span>(multipoint)</a></code></pre></div>
 <pre><code>## [1] &quot;XY&quot;         &quot;MULTIPOINT&quot; &quot;sfg&quot;</code></pre>
 <p>Podemos representar uma lista de tipos geométricos com a classe <code>sfc</code> (<em>Simple Feature Columns</em>), a qual cria atributos de objetos <code>sfg</code>, por exemplo:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">  <span class="co"># Definição dos pontos</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3">  linha_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb35-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb35-5" data-line-number="5">  <span class="co"># Criação dos objetos sfg</span></a>
-<a class="sourceLine" id="cb35-6" data-line-number="6">  point &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(ponto_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb35-7" data-line-number="7">  linestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(linha_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb35-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb35-9" data-line-number="9">  <span class="co"># Criação de um objeto sfc</span></a>
-<a class="sourceLine" id="cb35-10" data-line-number="10">  sfc_obj &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_sfc</span>(point, linestring)</a>
-<a class="sourceLine" id="cb35-11" data-line-number="11">  </a>
-<a class="sourceLine" id="cb35-12" data-line-number="12">  sfc_obj</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">  <span class="co"># Definição dos pontos</span></a>
+<a class="sourceLine" id="cb31-2" title="2">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb31-3" title="3">  linha_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb31-4" title="4">  </a>
+<a class="sourceLine" id="cb31-5" title="5">  <span class="co"># Criação dos objetos sfg</span></a>
+<a class="sourceLine" id="cb31-6" title="6">  point &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(ponto_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb31-7" title="7">  linestring &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(linha_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb31-8" title="8">  </a>
+<a class="sourceLine" id="cb31-9" title="9">  <span class="co"># Criação de um objeto sfc</span></a>
+<a class="sourceLine" id="cb31-10" title="10">  sfc_obj &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_sfc</span>(point, linestring)</a>
+<a class="sourceLine" id="cb31-11" title="11">  </a>
+<a class="sourceLine" id="cb31-12" title="12">  sfc_obj</a></code></pre></div>
 <pre><code>## Geometry set for 2 features 
 ## geometry type:  GEOMETRY
 ## dimension:      XY
@@ -608,11 +618,11 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <div id="leitura-e-escrita-de-dados-vetoriais" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Leitura e escrita de dados vetoriais</h3>
 <p>Os dados usados nesta subseção se encontram disponíveis em <code>data</code> neste diretório. O código abaixo apresenta a leitura do arquivo vetorial que contêm os estados brasileiros:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">  <span class="co"># Leitura do arquivos .shp que contêm as unidades federativas  </span></a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)  </a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">  <span class="co"># Visualização dos atributos .shp</span></a>
-<a class="sourceLine" id="cb39-5" data-line-number="5">  <span class="kw">head</span>(shp_brazil, <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">  <span class="co"># Leitura do arquivos .shp que contêm as unidades federativas  </span></a>
+<a class="sourceLine" id="cb35-2" title="2">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)  </a>
+<a class="sourceLine" id="cb35-3" title="3">  </a>
+<a class="sourceLine" id="cb35-4" title="4">  <span class="co"># Visualização dos atributos .shp</span></a>
+<a class="sourceLine" id="cb35-5" title="5">  <span class="kw">head</span>(shp_brazil, <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## Simple feature collection with 4 features and 4 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -622,25 +632,25 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 ## # A tibble: 4 x 5
 ##   ESTADOS   REGIAO COD_UF UF                                       geometry
 ##   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;                          &lt;MULTIPOLYGON [°]&gt;
-## 1 Acre      Norte      12 AC    (((-73.80098 -7.111453, -73.74084 -7.14318…
-## 2 Alagoas   Norde…     27 AL    (((-36.39119 -10.50082, -36.39864 -10.4978…
-## 3 &quot;Amap\xe… Norte      16 AP    (((-51.3738 -0.3705301, -51.37337 -0.36712…
-## 4 Amazonas  Norte      13 AM    (((-73.80098 -7.111453, -73.80106 -7.11128…</code></pre>
+## 1 Acre      Norte      12 AC    (((-73.80098 -7.111453, -73.74084 -7.14318~
+## 2 Alagoas   Norde~     27 AL    (((-36.39119 -10.50082, -36.39864 -10.4978~
+## 3 &quot;Amap\xe~ Norte      16 AP    (((-51.3738 -0.3705301, -51.37337 -0.36712~
+## 4 Amazonas  Norte      13 AM    (((-73.80098 -7.111453, -73.80106 -7.11128~</code></pre>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>Verificação da classe do arquivo:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">  <span class="kw">class</span>(shp_brazil)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">  <span class="kw">class</span>(shp_brazil)</a></code></pre></div>
 <pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p>Diferentemente dos tipos geométricos que criamos anteriormente (<code>sfg</code>), objetos da classe <code>sf</code> possuem atributos que correspondem ao tipo geométricos e as características do dado vetorial, ou seja, são um junção entre as classes <code>sfg</code>e <code>sfc</code>. Por exemplo, é possível observar o tipo geométrico dos estados brasileiros (<code>MULTIPOLYGON</code>), bem como as regiões de cada estado (<code>REGIAO</code>), representadas por um atributo discreto.</p>
 <p>O pacote <code>sf</code>, utilizando como base o <code>GDAL</code>, fornece suporte de leitura e escrita para diversos formatos, tais como: <strong>GeoJSON</strong> e <strong>KML</strong>. O código abaixo mostra como salvar os tipos geométricos de criamos anteriormente:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">  <span class="co"># Transformando para texto</span></a>
-<a class="sourceLine" id="cb43-2" data-line-number="2">  gc_text &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="st">  </span>sf<span class="op">::</span><span class="kw">st_as_text</span>(geometrycollection)</a>
-<a class="sourceLine" id="cb43-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb43-5" data-line-number="5">  <span class="co"># Transformando para objeto sfc</span></a>
-<a class="sourceLine" id="cb43-6" data-line-number="6">  gc_sfc &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_as_sfc</span>(gc_text)</a>
-<a class="sourceLine" id="cb43-7" data-line-number="7">  </a>
-<a class="sourceLine" id="cb43-8" data-line-number="8">  <span class="co"># Escrita do tipo geométrico geometry collection em .shp</span></a>
-<a class="sourceLine" id="cb43-9" data-line-number="9">  sf<span class="op">::</span><span class="kw">write_sf</span>(gc_sfc, <span class="st">&quot;./dados/geometrycollection_curso.shp&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">  <span class="co"># Transformando para texto</span></a>
+<a class="sourceLine" id="cb39-2" title="2">  gc_text &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="st">  </span>sf<span class="op">::</span><span class="kw">st_as_text</span>(geometrycollection)</a>
+<a class="sourceLine" id="cb39-4" title="4"></a>
+<a class="sourceLine" id="cb39-5" title="5">  <span class="co"># Transformando para objeto sfc</span></a>
+<a class="sourceLine" id="cb39-6" title="6">  gc_sfc &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_as_sfc</span>(gc_text)</a>
+<a class="sourceLine" id="cb39-7" title="7">  </a>
+<a class="sourceLine" id="cb39-8" title="8">  <span class="co"># Escrita do tipo geométrico geometry collection em .shp</span></a>
+<a class="sourceLine" id="cb39-9" title="9">  sf<span class="op">::</span><span class="kw">write_sf</span>(gc_sfc, <span class="st">&quot;./dados/geometrycollection_curso.shp&quot;</span>)</a></code></pre></div>
 <p>Um breve resumos das classes do pacote <strong>SF</strong>:</p>
 <ul>
 <li><code>sfg</code> Único objeto geométrico, por exemplo, <code>POINT</code>.</li>
@@ -649,7 +659,7 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 </ul>
 <p>Agora que aprendemos a diferença entre cada classe do pacote <code>sf</code> e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-intersecções Estendida Dimensionalmente (DE-9IM).</p>
 </div>
-<div id="relacionamentos-espaciais" class="section level3">
+<div id="relacionamentos-espaciais-1" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Relacionamentos Espaciais</h3>
 <p>Para realizar a análise de dados espaciais é necessário o uso de diversos métodos espaciais, com a finalidade de verificar se dois objetos possuem alguma relação, por exemplo, para identificar a quantidade de focos de queimada no estado de São Paulo. Assim, o uso de tais métodos se tornam indispensáveis durante a manipulação de dados espaciais.</p>
 <p>Os métodos apresentados nesta subseção:
@@ -663,28 +673,28 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 - <code>Intersects</code> - Verifica se duas geométricas se interseccionam</p>
 <div id="equals" class="section level4">
 <h4><span class="header-section-number">3.2.3.1</span> Equals</h4>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">  <span class="co"># Definição dos pontos</span></a>
-<a class="sourceLine" id="cb44-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb44-3" data-line-number="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb44-4" data-line-number="4">                      <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb44-5" data-line-number="5">                      <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb44-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb44-7" data-line-number="7">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb44-8" data-line-number="8">  polygon_a &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb44-9" data-line-number="9">  polygon_b &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">  <span class="co"># Definição dos pontos</span></a>
+<a class="sourceLine" id="cb40-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb40-3" title="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb40-4" title="4">                      <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb40-5" title="5">                      <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb40-6" title="6">  </a>
+<a class="sourceLine" id="cb40-7" title="7">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb40-8" title="8">  polygon_a &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb40-9" title="9">  polygon_b &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>Para saber se duas geométrias são iguais, usa-se o métodos <code>st_equals</code>:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">  <span class="co"># Verifica se duas geométrias são iguais</span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_equals</span>(polygon_a, polygon_b, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">  <span class="co"># Verifica se duas geométrias são iguais</span></a>
+<a class="sourceLine" id="cb41-2" title="2">  sf<span class="op">::</span><span class="kw">st_equals</span>(polygon_a, polygon_b, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##       [,1]
 ## [1,] FALSE</code></pre>
 <p>O retorno do método é um lista com tamanho 1, com valores binários, <strong>TRUE</strong> ou <strong>FALSE</strong>. Desta forma, os polígonos criados não são iguais, pois o polígono B possui mais pontos. O código abaixo a apresenta a verificação de dois pontos:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">  <span class="co"># Criação dos pontos</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb47-3" data-line-number="3">  ponto_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">  <span class="co"># Criação dos pontos</span></a>
+<a class="sourceLine" id="cb43-2" title="2">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb43-3" title="3">  ponto_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">    <span class="co"># Verifica se duas geométrias são iguais</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_equals</span>(ponto_<span class="dv">1</span>, ponto_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">    <span class="co"># Verifica se duas geométrias são iguais</span></a>
+<a class="sourceLine" id="cb44-2" title="2">  sf<span class="op">::</span><span class="kw">st_equals</span>(ponto_<span class="dv">1</span>, ponto_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 <blockquote>
@@ -693,176 +703,176 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 </div>
 <div id="disjoint" class="section level4">
 <h4><span class="header-section-number">3.2.3.2</span> Disjoint</h4>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">  <span class="co"># Criação dos linestrings</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="fl">1.5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb50-3" data-line-number="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb50-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb50-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos linestring</span></a>
-<a class="sourceLine" id="cb50-6" data-line-number="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb50-7" data-line-number="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">  <span class="co"># Criação dos linestrings</span></a>
+<a class="sourceLine" id="cb46-2" title="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="fl">1.5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb46-3" title="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb46-4" title="4">  </a>
+<a class="sourceLine" id="cb46-5" title="5">  <span class="co"># Criação dos tipos geométricos linestring</span></a>
+<a class="sourceLine" id="cb46-6" title="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb46-7" title="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Para saber se duas geométrias são disjuntas, usa-se o métodos <code>st_disjoint</code>:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">  <span class="co"># Verifica se duas geométrias são disjuntas</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_disjoint</span>(linestring_<span class="dv">1</span>,linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1">  <span class="co"># Verifica se duas geométrias são disjuntas</span></a>
+<a class="sourceLine" id="cb47-2" title="2">  sf<span class="op">::</span><span class="kw">st_disjoint</span>(linestring_<span class="dv">1</span>,linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 <p>Outro exemplo:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">    <span class="co"># Criação dos polígonos</span></a>
-<a class="sourceLine" id="cb53-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb53-3" data-line-number="3">                      <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb53-4" data-line-number="4">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb53-5" data-line-number="5">                      <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb53-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb53-7" data-line-number="7">  <span class="co"># Criação dos tipos geométricos polygons</span></a>
-<a class="sourceLine" id="cb53-8" data-line-number="8">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb53-9" data-line-number="9">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">    <span class="co"># Criação dos polígonos</span></a>
+<a class="sourceLine" id="cb49-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb49-3" title="3">                      <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb49-4" title="4">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb49-5" title="5">                      <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb49-6" title="6">  </a>
+<a class="sourceLine" id="cb49-7" title="7">  <span class="co"># Criação dos tipos geométricos polygons</span></a>
+<a class="sourceLine" id="cb49-8" title="8">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb49-9" title="9">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">    <span class="co"># Verifica se duas geométrias são disjuntas</span></a>
-<a class="sourceLine" id="cb54-2" data-line-number="2">   sf<span class="op">::</span><span class="kw">st_disjoint</span>(polygon_<span class="dv">1</span>,polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">    <span class="co"># Verifica se duas geométrias são disjuntas</span></a>
+<a class="sourceLine" id="cb50-2" title="2">   sf<span class="op">::</span><span class="kw">st_disjoint</span>(polygon_<span class="dv">1</span>,polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##       [,1]
 ## [1,] FALSE</code></pre>
 </div>
 <div id="touches" class="section level4">
 <h4><span class="header-section-number">3.2.3.3</span> Touches</h4>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">  <span class="co"># Criação dos polígonos</span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb56-3" data-line-number="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb56-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb56-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb56-6" data-line-number="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb56-7" data-line-number="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">  <span class="co"># Criação dos polígonos</span></a>
+<a class="sourceLine" id="cb52-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb52-3" title="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb52-4" title="4">  </a>
+<a class="sourceLine" id="cb52-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb52-6" title="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb52-7" title="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>Para verificar se duas geométrias se tocam, usa-se o método <code>st_touches</code>:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">    <span class="co"># Verifica se duas geométrias se tocam</span></a>
-<a class="sourceLine" id="cb57-2" data-line-number="2">    sf<span class="op">::</span><span class="kw">st_touches</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">    <span class="co"># Verifica se duas geométrias se tocam</span></a>
+<a class="sourceLine" id="cb53-2" title="2">    sf<span class="op">::</span><span class="kw">st_touches</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 <p>Outro exemplo:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">  <span class="co"># Criação dos segmentos</span></a>
-<a class="sourceLine" id="cb59-2" data-line-number="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>))</a>
-<a class="sourceLine" id="cb59-3" data-line-number="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">9</span>))</a>
-<a class="sourceLine" id="cb59-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb59-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb59-6" data-line-number="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb59-7" data-line-number="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">  <span class="co"># Criação dos segmentos</span></a>
+<a class="sourceLine" id="cb55-2" title="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>))</a>
+<a class="sourceLine" id="cb55-3" title="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb55-4" title="4">  </a>
+<a class="sourceLine" id="cb55-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb55-6" title="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb55-7" title="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">  <span class="co"># Verifica se duas geométrias se tocam</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_touches</span>(linestring_<span class="dv">1</span>, linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">  <span class="co"># Verifica se duas geométrias se tocam</span></a>
+<a class="sourceLine" id="cb56-2" title="2">  sf<span class="op">::</span><span class="kw">st_touches</span>(linestring_<span class="dv">1</span>, linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##       [,1]
 ## [1,] FALSE</code></pre>
 </div>
 <div id="crosses" class="section level4">
 <h4><span class="header-section-number">3.2.3.4</span> Crosses</h4>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">  <span class="co"># Criação da reta e polígono</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb62-3" data-line-number="3">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb62-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb62-5" data-line-number="5">  <span class="co"># Criação dos objetos geométricos</span></a>
-<a class="sourceLine" id="cb62-6" data-line-number="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb62-7" data-line-number="7">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">  <span class="co"># Criação da reta e polígono</span></a>
+<a class="sourceLine" id="cb58-2" title="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb58-3" title="3">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb58-4" title="4">  </a>
+<a class="sourceLine" id="cb58-5" title="5">  <span class="co"># Criação dos objetos geométricos</span></a>
+<a class="sourceLine" id="cb58-6" title="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb58-7" title="7">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Para verificar se duas geométrias se tocam, usa-se o método <code>st_touches</code>:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">  <span class="co"># Verifica se duas geométrias se cruzam</span></a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_crosses</span>(linestring_<span class="dv">1</span>, polygon_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">  <span class="co"># Verifica se duas geométrias se cruzam</span></a>
+<a class="sourceLine" id="cb59-2" title="2">  sf<span class="op">::</span><span class="kw">st_crosses</span>(linestring_<span class="dv">1</span>, polygon_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 <p>Outro exemplo:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">  <span class="co"># Criação da reta e dos pontos</span></a>
-<a class="sourceLine" id="cb65-2" data-line-number="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb65-3" data-line-number="3">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb65-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb65-5" data-line-number="5">  <span class="co"># Criação dos objetos geométricos</span></a>
-<a class="sourceLine" id="cb65-6" data-line-number="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb65-7" data-line-number="7">  multipoint_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipoint</span>(ponto_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">  <span class="co"># Criação da reta e dos pontos</span></a>
+<a class="sourceLine" id="cb61-2" title="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb61-3" title="3">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb61-4" title="4">  </a>
+<a class="sourceLine" id="cb61-5" title="5">  <span class="co"># Criação dos objetos geométricos</span></a>
+<a class="sourceLine" id="cb61-6" title="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb61-7" title="7">  multipoint_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_multipoint</span>(ponto_<span class="dv">1</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">    <span class="co"># Verifica se duas geométrias se cruzam</span></a>
-<a class="sourceLine" id="cb66-2" data-line-number="2">    sf<span class="op">::</span><span class="kw">st_crosses</span>(linestring_<span class="dv">1</span>, multipoint_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">    <span class="co"># Verifica se duas geométrias se cruzam</span></a>
+<a class="sourceLine" id="cb62-2" title="2">    sf<span class="op">::</span><span class="kw">st_crosses</span>(linestring_<span class="dv">1</span>, multipoint_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 </div>
 <div id="within" class="section level4">
 <h4><span class="header-section-number">3.2.3.5</span> Within</h4>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">  <span class="co"># Criação dos polígonos  </span></a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb68-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb68-5" data-line-number="5">  <span class="co"># Criação dos objetos geométricos</span></a>
-<a class="sourceLine" id="cb68-6" data-line-number="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb68-7" data-line-number="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">  xlim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb69-2" data-line-number="2">  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb69-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb69-4" data-line-number="4">  <span class="kw">plot</span>(sf<span class="op">::</span><span class="kw">st_as_sfc</span>(sf<span class="op">::</span><span class="kw">st_as_text</span>(polygon_<span class="dv">1</span>)), <span class="dt">axes =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>,  <span class="dt">main=</span><span class="st">&quot;O polígono 1 está dentro do polígono 2?&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">xlim =</span>xlim, <span class="dt">ylim =</span> ylim, <span class="dt">col=</span><span class="kw">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.5</span>))</a>
-<a class="sourceLine" id="cb69-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb69-6" data-line-number="6">  <span class="kw">plot</span>(sf<span class="op">::</span><span class="kw">st_as_sfc</span>(sf<span class="op">::</span><span class="kw">st_as_text</span>(polygon_<span class="dv">2</span>)), <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;LINESTRING&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.4</span>), <span class="dt">reset=</span><span class="ot">FALSE</span>, <span class="dt">xlim =</span>xlim, <span class="dt">ylim =</span> ylim )</a>
-<a class="sourceLine" id="cb69-7" data-line-number="7">  </a>
-<a class="sourceLine" id="cb69-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb69-9" data-line-number="9">  <span class="kw">legend</span>(<span class="op">-</span><span class="fl">0.9</span>, <span class="fl">4.9</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;POLYGON 1&quot;</span>, <span class="st">&quot;POLYGON 2&quot;</span>),</a>
-<a class="sourceLine" id="cb69-10" data-line-number="10">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">lty=</span><span class="dv">2</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">  <span class="co"># Criação dos polígonos  </span></a>
+<a class="sourceLine" id="cb64-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb64-3" title="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb64-4" title="4">  </a>
+<a class="sourceLine" id="cb64-5" title="5">  <span class="co"># Criação dos objetos geométricos</span></a>
+<a class="sourceLine" id="cb64-6" title="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb64-7" title="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">  xlim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb65-2" title="2">  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb65-3" title="3"></a>
+<a class="sourceLine" id="cb65-4" title="4">  <span class="kw">plot</span>(sf<span class="op">::</span><span class="kw">st_as_sfc</span>(sf<span class="op">::</span><span class="kw">st_as_text</span>(polygon_<span class="dv">1</span>)), <span class="dt">axes =</span> <span class="ot">TRUE</span>, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>,  <span class="dt">main=</span><span class="st">&quot;O polígono 1 está dentro do polígono 2?&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">xlim =</span>xlim, <span class="dt">ylim =</span> ylim, <span class="dt">col=</span><span class="kw">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.5</span>))</a>
+<a class="sourceLine" id="cb65-5" title="5"></a>
+<a class="sourceLine" id="cb65-6" title="6">  <span class="kw">plot</span>(sf<span class="op">::</span><span class="kw">st_as_sfc</span>(sf<span class="op">::</span><span class="kw">st_as_text</span>(polygon_<span class="dv">2</span>)), <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;LINESTRING&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.4</span>), <span class="dt">reset=</span><span class="ot">FALSE</span>, <span class="dt">xlim =</span>xlim, <span class="dt">ylim =</span> ylim )</a>
+<a class="sourceLine" id="cb65-7" title="7">  </a>
+<a class="sourceLine" id="cb65-8" title="8">  </a>
+<a class="sourceLine" id="cb65-9" title="9">  <span class="kw">legend</span>(<span class="op">-</span><span class="fl">0.9</span>, <span class="fl">4.9</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;POLYGON 1&quot;</span>, <span class="st">&quot;POLYGON 2&quot;</span>),</a>
+<a class="sourceLine" id="cb65-10" title="10">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">lty=</span><span class="dv">2</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <p>Para verificar se o polígono 1 está dentro do polígono 2, usa-se o método <code>st_within</code>:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">      <span class="co"># Verifica se o poligono 1 está dentro do polígono 2</span></a>
-<a class="sourceLine" id="cb70-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_within</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">      <span class="co"># Verifica se o poligono 1 está dentro do polígono 2</span></a>
+<a class="sourceLine" id="cb66-2" title="2">  sf<span class="op">::</span><span class="kw">st_within</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 </div>
 <div id="contains" class="section level4">
 <h4><span class="header-section-number">3.2.3.6</span> Contains</h4>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">  <span class="co"># Criação do ponto e do polígono  </span></a>
-<a class="sourceLine" id="cb72-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb72-3" data-line-number="3">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb72-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb72-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb72-6" data-line-number="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb72-7" data-line-number="7">  point_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(ponto_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">  <span class="co"># Criação do ponto e do polígono  </span></a>
+<a class="sourceLine" id="cb68-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb68-3" title="3">  ponto_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb68-4" title="4">  </a>
+<a class="sourceLine" id="cb68-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb68-6" title="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb68-7" title="7">  point_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_point</span>(ponto_<span class="dv">1</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Para verificar se o polígono 1 contém o ponto 1, usa-se o método <code>st_contains</code>:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">   <span class="co"># Verifica se o poligono 1 contém o ponto 1</span></a>
-<a class="sourceLine" id="cb73-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_contains</span>(polygon_<span class="dv">1</span>, point_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">   <span class="co"># Verifica se o poligono 1 contém o ponto 1</span></a>
+<a class="sourceLine" id="cb69-2" title="2">  sf<span class="op">::</span><span class="kw">st_contains</span>(polygon_<span class="dv">1</span>, point_<span class="dv">1</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 </div>
 <div id="overlaps" class="section level4">
 <h4><span class="header-section-number">3.2.3.7</span> Overlaps</h4>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">  <span class="co"># Criação dos polígonos</span></a>
-<a class="sourceLine" id="cb75-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb75-3" data-line-number="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">1</span> ))</a>
-<a class="sourceLine" id="cb75-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb75-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb75-6" data-line-number="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb75-7" data-line-number="7">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">  <span class="co"># Criação dos polígonos</span></a>
+<a class="sourceLine" id="cb71-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb71-3" title="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">1</span> ))</a>
+<a class="sourceLine" id="cb71-4" title="4">  </a>
+<a class="sourceLine" id="cb71-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb71-6" title="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb71-7" title="7">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>Para verificar se o polígono 1 sobrepõe o polígono 2, usa-se o método <code>st_overlaps</code>:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">  <span class="co"># Verifica se o poligono 1 sobrepõe o poligono 2</span></a>
-<a class="sourceLine" id="cb76-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_overlaps</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">  <span class="co"># Verifica se o poligono 1 sobrepõe o poligono 2</span></a>
+<a class="sourceLine" id="cb72-2" title="2">  sf<span class="op">::</span><span class="kw">st_overlaps</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##       [,1]
 ## [1,] FALSE</code></pre>
 <p>Outro exemplo:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">  <span class="co"># Criação das retas</span></a>
-<a class="sourceLine" id="cb78-2" data-line-number="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">8</span>))</a>
-<a class="sourceLine" id="cb78-3" data-line-number="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">9</span>))</a>
-<a class="sourceLine" id="cb78-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb78-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb78-6" data-line-number="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb78-7" data-line-number="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">  <span class="co"># Criação das retas</span></a>
+<a class="sourceLine" id="cb74-2" title="2">  segmento_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">8</span>))</a>
+<a class="sourceLine" id="cb74-3" title="3">  segmento_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb74-4" title="4">  </a>
+<a class="sourceLine" id="cb74-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb74-6" title="6">  linestring_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb74-7" title="7">  linestring_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_linestring</span>(segmento_<span class="dv">2</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">    <span class="co"># Verifica se a linestring 1 sobrepõe a linestring 2</span></a>
-<a class="sourceLine" id="cb79-2" data-line-number="2">    sf<span class="op">::</span><span class="kw">st_overlaps</span>(linestring_<span class="dv">1</span>, linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span> )</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1">    <span class="co"># Verifica se a linestring 1 sobrepõe a linestring 2</span></a>
+<a class="sourceLine" id="cb75-2" title="2">    sf<span class="op">::</span><span class="kw">st_overlaps</span>(linestring_<span class="dv">1</span>, linestring_<span class="dv">2</span>, <span class="dt">sparse =</span> <span class="ot">FALSE</span> )</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 </div>
 <div id="intersects" class="section level4">
 <h4><span class="header-section-number">3.2.3.8</span> Intersects</h4>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">  <span class="co"># Criação dos polígonos</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>))</a>
-<a class="sourceLine" id="cb81-3" data-line-number="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb81-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb81-5" data-line-number="5">  <span class="co"># Criação dos tipos geométricos</span></a>
-<a class="sourceLine" id="cb81-6" data-line-number="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb81-7" data-line-number="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">  <span class="co"># Criação dos polígonos</span></a>
+<a class="sourceLine" id="cb77-2" title="2">  poligono_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>))</a>
+<a class="sourceLine" id="cb77-3" title="3">  poligono_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">8</span>), <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">6</span>), <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb77-4" title="4">  </a>
+<a class="sourceLine" id="cb77-5" title="5">  <span class="co"># Criação dos tipos geométricos</span></a>
+<a class="sourceLine" id="cb77-6" title="6">  polygon_<span class="dv">1</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb77-7" title="7">  polygon_<span class="dv">2</span> &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_polygon</span>(<span class="kw">list</span>(poligono_<span class="dv">2</span>))</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <p>Para verificar se o polígono 1 intersecta o polígono 2, usa-se o método <code>st_intersects</code>:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">  sf<span class="op">::</span><span class="kw">st_intersects</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">  sf<span class="op">::</span><span class="kw">st_intersects</span>(polygon_<span class="dv">1</span>, polygon_<span class="dv">2</span>, <span class="dt">sparse=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,] TRUE</code></pre>
 </div>
@@ -875,32 +885,32 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <div id="area" class="section level4">
 <h4><span class="header-section-number">3.2.4.1</span> Área</h4>
 <p>Vamos calcular a área do estado de estado do Rio de Janeiro, para isso vamos utilizar tudo que aprendemos até agora:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">  <span class="co"># Importação do ggplot2 para visualização de dados</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2">  <span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb84-3" data-line-number="3">  <span class="co"># Leitura do shp que contém os estados brasileiros</span></a>
-<a class="sourceLine" id="cb84-4" data-line-number="4">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)  </a>
-<a class="sourceLine" id="cb84-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb84-6" data-line-number="6">  <span class="co"># Seleção do estado do Rio de Janeiro</span></a>
-<a class="sourceLine" id="cb84-7" data-line-number="7">  estado_rj &lt;-<span class="st"> </span>shp_brazil <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(ESTADOS<span class="op">==</span><span class="st">&quot;Rio de Janeiro&quot;</span>)</a>
-<a class="sourceLine" id="cb84-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb84-9" data-line-number="9">  <span class="co"># Visualização </span></a>
-<a class="sourceLine" id="cb84-10" data-line-number="10">  ggplot2<span class="op">::</span><span class="kw">theme_set</span>(ggplot2<span class="op">::</span><span class="kw">theme_bw</span>())</a>
-<a class="sourceLine" id="cb84-11" data-line-number="11">  ggplot2<span class="op">::</span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb84-12" data-line-number="12"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> estado_rj) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb84-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Longitude&quot;</span>,</a>
-<a class="sourceLine" id="cb84-14" data-line-number="14">         <span class="dt">y =</span> <span class="st">&quot;Latitude&quot;</span>,</a>
-<a class="sourceLine" id="cb84-15" data-line-number="15">         <span class="dt">title =</span> <span class="st">&quot;Limites do estado do Rio de Janeiro&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">  <span class="co"># Importação do ggplot2 para visualização de dados</span></a>
+<a class="sourceLine" id="cb80-2" title="2">  <span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb80-3" title="3">  <span class="co"># Leitura do shp que contém os estados brasileiros</span></a>
+<a class="sourceLine" id="cb80-4" title="4">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/1_estados_do_brasil_shape/Brasil.shp&quot;</span>)  </a>
+<a class="sourceLine" id="cb80-5" title="5">  </a>
+<a class="sourceLine" id="cb80-6" title="6">  <span class="co"># Seleção do estado do Rio de Janeiro</span></a>
+<a class="sourceLine" id="cb80-7" title="7">  estado_rj &lt;-<span class="st"> </span>shp_brazil <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(ESTADOS<span class="op">==</span><span class="st">&quot;Rio de Janeiro&quot;</span>)</a>
+<a class="sourceLine" id="cb80-8" title="8">  </a>
+<a class="sourceLine" id="cb80-9" title="9">  <span class="co"># Visualização </span></a>
+<a class="sourceLine" id="cb80-10" title="10">  ggplot2<span class="op">::</span><span class="kw">theme_set</span>(ggplot2<span class="op">::</span><span class="kw">theme_bw</span>())</a>
+<a class="sourceLine" id="cb80-11" title="11">  ggplot2<span class="op">::</span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb80-12" title="12"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> estado_rj) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb80-13" title="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Longitude&quot;</span>,</a>
+<a class="sourceLine" id="cb80-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Latitude&quot;</span>,</a>
+<a class="sourceLine" id="cb80-15" title="15">         <span class="dt">title =</span> <span class="st">&quot;Limites do estado do Rio de Janeiro&quot;</span>)</a></code></pre></div>
 <p><img src="intro-analise-de-dados-espaciais_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">  <span class="co"># Cálculo da área em metros quadrados</span></a>
-<a class="sourceLine" id="cb85-2" data-line-number="2">  area_rj &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_area</span>(estado_rj)</a>
-<a class="sourceLine" id="cb85-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb85-4" data-line-number="4">  area_rj</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">  <span class="co"># Cálculo da área em metros quadrados</span></a>
+<a class="sourceLine" id="cb81-2" title="2">  area_rj &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_area</span>(estado_rj)</a>
+<a class="sourceLine" id="cb81-3" title="3">  </a>
+<a class="sourceLine" id="cb81-4" title="4">  area_rj</a></code></pre></div>
 <pre><code>## 43791834545 [m^2]</code></pre>
 <p>Podemos converter a área para <span class="math inline">\(Km^2\)</span> para facilitar a comparação dos resultados.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">  <span class="co"># Conversão para km^2</span></a>
-<a class="sourceLine" id="cb87-2" data-line-number="2">  area_rj &lt;-<span class="st"> </span>area_rj<span class="op">/</span><span class="fl">1e+6</span></a>
-<a class="sourceLine" id="cb87-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb87-4" data-line-number="4">  area_rj</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">  <span class="co"># Conversão para km^2</span></a>
+<a class="sourceLine" id="cb83-2" title="2">  area_rj &lt;-<span class="st"> </span>area_rj<span class="op">/</span><span class="fl">1e+6</span></a>
+<a class="sourceLine" id="cb83-3" title="3">  </a>
+<a class="sourceLine" id="cb83-4" title="4">  area_rj</a></code></pre></div>
 <pre><code>## 43791.83 [m^2]</code></pre>
 <p>Segundo o <a href="https://www.ibge.gov.br/home/geociencias/areaterritorial/principal.shtm">IBGE</a> (Instituto Brasileiro de Geografia e Estatística), a área do estado do Rio de Janeiro correspnde a <span class="math inline">\(43.781,588 Km^2\)</span> e a área da retornada pela nossa consulta <span class="math inline">\(43.791,83 Km^2\)</span>. A diferença foi relativamente baixa, mostrando a eficácia do método no cálculo da área.</p>
 </div>
@@ -910,10 +920,10 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <blockquote>
 <p>Todos os dados usados neste minicurso estão no diretório <code>data</code></p>
 </blockquote>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">  <span class="co"># Leitura do shapefile   </span></a>
-<a class="sourceLine" id="cb89-2" data-line-number="2">  rios_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/4_rios_brasil/Brasil_rios.shp&quot;</span>)</a>
-<a class="sourceLine" id="cb89-3" data-line-number="3">  <span class="co"># Visualização dos dados</span></a>
-<a class="sourceLine" id="cb89-4" data-line-number="4">  <span class="kw">head</span>(rios_brazil, <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1">  <span class="co"># Leitura do shapefile   </span></a>
+<a class="sourceLine" id="cb85-2" title="2">  rios_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(<span class="st">&quot;../data/4_rios_brasil/Brasil_rios.shp&quot;</span>)</a>
+<a class="sourceLine" id="cb85-3" title="3">  <span class="co"># Visualização dos dados</span></a>
+<a class="sourceLine" id="cb85-4" title="4">  <span class="kw">head</span>(rios_brazil, <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## Simple feature collection with 4 features and 7 fields
 ## geometry type:  MULTILINESTRING
 ## dimension:      XY
@@ -923,28 +933,27 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 ## # A tibble: 4 x 8
 ##   OBJECTID IDRIO CORIO NORIOCOMP NUDISTBACR NUCOMPRIO DSVERSAO
 ##      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;   
-## 1        1 47715 7516… Rio Cani…       63.8     134.  BHO 201…
-## 2        2 35341 7522… Riacho C…      346.       42.1 BHO 201…
-## 3        3 36318 7561… Riacho C…      116.       45.9 BHO 201…
-## 4        4 50455 48_0  Rio Negro     1430.     1347.  BHO 201…
-## # … with 1 more variable: geometry &lt;MULTILINESTRING [°]&gt;</code></pre>
+## 1        1 47715 7516~ Rio Cani~       63.8     134.  BHO 201~
+## 2        2 35341 7522~ Riacho C~      346.       42.1 BHO 201~
+## 3        3 36318 7561~ Riacho C~      116.       45.9 BHO 201~
+## 4        4 50455 48_0  Rio Negro     1430.     1347.  BHO 201~
+## # ... with 1 more variable: geometry &lt;MULTILINESTRING [°]&gt;</code></pre>
 <p>Vamos filtrar pelo Rio Paraíba do Sul:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">  <span class="co"># Filtro do rio paraiba do sul</span></a>
-<a class="sourceLine" id="cb91-2" data-line-number="2">  rio_paraiba &lt;-<span class="st"> </span>rios_brazil <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(NORIOCOMP <span class="op">==</span><span class="st"> &quot;Rio Paraíba do Sul&quot;</span>)</a>
-<a class="sourceLine" id="cb91-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb91-4" data-line-number="4">  <span class="co"># Comprimeiro do rio paraiba do sul</span></a>
-<a class="sourceLine" id="cb91-5" data-line-number="5">  rio_paraiba_comp &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_length</span>(rio_paraiba)</a>
-<a class="sourceLine" id="cb91-6" data-line-number="6">  </a>
-<a class="sourceLine" id="cb91-7" data-line-number="7">  rio_paraiba_comp</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">  <span class="co"># Filtro do rio paraiba do sul</span></a>
+<a class="sourceLine" id="cb87-2" title="2">  rio_paraiba &lt;-<span class="st"> </span>rios_brazil <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(NORIOCOMP <span class="op">==</span><span class="st"> &quot;Rio Paraíba do Sul&quot;</span>)</a>
+<a class="sourceLine" id="cb87-3" title="3"></a>
+<a class="sourceLine" id="cb87-4" title="4">  <span class="co"># Comprimeiro do rio paraiba do sul</span></a>
+<a class="sourceLine" id="cb87-5" title="5">  rio_paraiba_comp &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_length</span>(rio_paraiba)</a>
+<a class="sourceLine" id="cb87-6" title="6">  </a>
+<a class="sourceLine" id="cb87-7" title="7">  rio_paraiba_comp</a></code></pre></div>
 <pre><code>## 868441.2 [m]</code></pre>
 <p>Para fazer a conversão vamos utilizar o pacote <code>units</code>:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">  <span class="co"># Importação  do pacote units</span></a>
-<a class="sourceLine" id="cb93-2" data-line-number="2">  <span class="kw">library</span>(units)</a></code></pre></div>
-<pre><code>## udunits system database from /usr/share/xml/udunits</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">  <span class="co"># Conversão para km</span></a>
-<a class="sourceLine" id="cb95-2" data-line-number="2">  rio_paraiba_comp &lt;-<span class="st"> </span>units<span class="op">::</span><span class="kw">set_units</span>(rio_paraiba_comp, km)</a>
-<a class="sourceLine" id="cb95-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb95-4" data-line-number="4">  rio_paraiba_comp</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">  <span class="co"># Importação  do pacote units</span></a>
+<a class="sourceLine" id="cb89-2" title="2">  <span class="kw">library</span>(units)</a>
+<a class="sourceLine" id="cb89-3" title="3">  <span class="co"># Conversão para km</span></a>
+<a class="sourceLine" id="cb89-4" title="4">  rio_paraiba_comp &lt;-<span class="st"> </span>units<span class="op">::</span><span class="kw">set_units</span>(rio_paraiba_comp, km)</a>
+<a class="sourceLine" id="cb89-5" title="5"></a>
+<a class="sourceLine" id="cb89-6" title="6">  rio_paraiba_comp</a></code></pre></div>
 <pre><code>## 868.4412 [km]</code></pre>
 <p>Segundo a <a href="https://pt.wikipedia.org/wiki/Listas_de_rios_do_Brasil">Wikipedia</a>, o comprimento do Rio Paraíba do Sul correponde a <span class="math inline">\(1.137 Km\)</span> e o nosso método obteve <span class="math inline">\(\approx 868 Km\)</span>.</p>
 <blockquote>
@@ -955,23 +964,23 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <div id="sistemas-de-referencias" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Sistemas de referências</h3>
 <p>Como apresentado no capítulo 1, podemos representar nossos dados espaciais utilizando diversos tipos de projeções. Desta forma, nesta subseção vamos aprender como realizar a conversão e a transformação dos nossos dados. O trecho de código abaixo mostra como verificar qual a projeção dos nossos dados.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">  <span class="co"># Verifica o sistema de referencia geográfica</span></a>
-<a class="sourceLine" id="cb97-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1">  <span class="co"># Verifica o sistema de referencia geográfica</span></a>
+<a class="sourceLine" id="cb91-2" title="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil)</a></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   No EPSG code
 ##   proj4string: &quot;+proj=longlat +ellps=aust_SA +no_defs&quot;</code></pre>
 <p>O trecho de código acima mostra que nenhum <strong>EPSG</strong> foi definido, para conveter podemos usar o mesmo método:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">  <span class="co"># Conversão do sistema de referência geográfica</span></a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">4326</span></a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">  <span class="co"># Conversão do sistema de referência geográfica</span></a>
+<a class="sourceLine" id="cb93-2" title="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">4326</span></a></code></pre></div>
 <pre><code>## Warning: st_crs&lt;- : replacing crs does not reproject data; use st_transform
 ## for that</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil)</a></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   EPSG: 4326 
 ##   proj4string: &quot;+proj=longlat +datum=WGS84 +no_defs&quot;</code></pre>
 <p>Agora que definimos nosso <strong>ESPG</strong>, vamos visualizar as coordenadas geográficas:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">  <span class="co"># Visualização das três primeiras localizações</span></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2">  <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">  <span class="co"># Visualização das três primeiras localizações</span></a>
+<a class="sourceLine" id="cb97-2" title="2">  <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Geometry set for 3 features 
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -982,11 +991,11 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <pre><code>## MULTIPOLYGON (((-36.39119 -10.50082, -36.39864 ...</code></pre>
 <pre><code>## MULTIPOLYGON (((-51.3738 -0.3705301, -51.37337 ...</code></pre>
 <p>É possível observar que as coordenadas estão em graus, no entanto, e se quisermos trabalhar com metros? É só fazer a conversão?</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">    <span class="co"># Conversão para metros usando WGS 84 na zona 23S</span></a>
-<a class="sourceLine" id="cb108-2" data-line-number="2">    sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">32723</span></a></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1">    <span class="co"># Conversão para metros usando WGS 84 na zona 23S</span></a>
+<a class="sourceLine" id="cb102-2" title="2">    sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">32723</span></a></code></pre></div>
 <pre><code>## Warning: st_crs&lt;- : replacing crs does not reproject data; use st_transform
 ## for that</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">    <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1">    <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Geometry set for 3 features 
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -997,14 +1006,14 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
 <pre><code>## MULTIPOLYGON (((-36.39119 -10.50082, -36.39864 ...</code></pre>
 <pre><code>## MULTIPOLYGON (((-51.3738 -0.3705301, -51.37337 ...</code></pre>
 <p>O método de conversão não faz transformação das coordenadas geográficas. Para fazer a transformação, podemos usar o métodod <code>st_transform</code>:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">  <span class="co"># Conversão do sistema de referência geográfica</span></a>
-<a class="sourceLine" id="cb115-2" data-line-number="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">4326</span></a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1">  <span class="co"># Conversão do sistema de referência geográfica</span></a>
+<a class="sourceLine" id="cb109-2" title="2">  sf<span class="op">::</span><span class="kw">st_crs</span>(shp_brazil) &lt;-<span class="st"> </span><span class="dv">4326</span></a></code></pre></div>
 <pre><code>## Warning: st_crs&lt;- : replacing crs does not reproject data; use st_transform
 ## for that</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">  <span class="co"># Transformação para metros usando WGS 84 na zona 23S</span></a>
-<a class="sourceLine" id="cb117-2" data-line-number="2">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_transform</span>(shp_brazil, <span class="dv">32723</span>)</a>
-<a class="sourceLine" id="cb117-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb117-4" data-line-number="4">  <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">  <span class="co"># Transformação para metros usando WGS 84 na zona 23S</span></a>
+<a class="sourceLine" id="cb111-2" title="2">  shp_brazil &lt;-<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_transform</span>(shp_brazil, <span class="dv">32723</span>)</a>
+<a class="sourceLine" id="cb111-3" title="3">  </a>
+<a class="sourceLine" id="cb111-4" title="4">  <span class="kw">head</span>(shp_brazil<span class="op">$</span>geometry, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Geometry set for 3 features 
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -1034,11 +1043,13 @@ encerramos os métodos básicos de manipulação de dados. Na próxima subseçã
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
