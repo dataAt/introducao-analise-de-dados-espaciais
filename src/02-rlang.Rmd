@@ -13,7 +13,6 @@ header-includes:
 
 O artigo publicado pela @tippmann2015programming, mostra a crescente adesão do uso da linguagem R em diferentes áreas cientificas. A Figura \@ref(fig:fig1) evidência o crescimento mencionado anteriomente.  
 
-
 ```{r fig1, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Série temporal de citações dos pacotes feitos em R - Fonte: @tippmann2015programming'}
   knitr::include_graphics("res/2_r/r_articles.png")
 ```
@@ -424,21 +423,29 @@ Um breve resumos das classes do pacote **SF**:
 - `sf` Junção das classes `sfg` e `sfc`. Contêm atributos correspondes ao tipo geométricos, bem como atributos discretos, categóricos que representam características do objeto.
 
 
-Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-intersecções Estendida Dimensionalmente (DE-9IM).
+Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-interseções Estendida Dimensionalmente (DE-9IM).
 
 ### Relacionamentos Espaciais
 
 Para realizar a análise de dados espaciais é necessário o uso de diversos métodos espaciais, com a finalidade de verificar se dois objetos possuem alguma relação, por exemplo, para identificar a quantidade de focos de queimada no estado de São Paulo. Assim, o uso de tais métodos se tornam indispensáveis durante a manipulação de dados espaciais.
 
 Os métodos apresentados nesta subseção:
-- `Equals` - Verifica se duas geométrias são iguais
-- `Disjoint` - Verifica se duas geométrias são disjuntas
-- `Touches` - Verifica se duas geométricas se tocam
-- `Crosses` - Verifica se duas geométricas se cruzam
-- `Within`- Verifica se a geométria A está contida em B
-- `Contains` - Verifica se a geométria B contêm A.
-- `Overleaps` - Verifica se duas geométrias se sobrepõem
-- `Intersects` - Verifica se duas geométricas se interseccionam
+
+- `Equals` - Verifica se duas geométrias são iguais;
+
+- `Disjoint` - Verifica se duas geométrias são disjuntas;
+
+- `Touches` - Verifica se duas geométricas se tocam;
+
+- `Crosses` - Verifica se duas geométricas se cruzam;
+
+- `Within`- Verifica se a geométria A está contida em B;
+
+- `Contains` - Verifica se a geométria B contêm;
+
+- `Overleaps` - Verifica se duas geométrias se sobrepõem;
+
+- `Intersects` - Verifica se duas geométricas se interseccionam.
 
 
 #### Equals

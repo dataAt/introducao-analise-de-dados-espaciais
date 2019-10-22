@@ -13,9 +13,30 @@ Nesta seção os principais conceitos necessários para a realização de análi
 
 ## Representações de dados espaciais
 
+Dentro do universo estrutural dos SIGs (Sistema de Informação Geográfica), a forma de representação dos dados geográficos podem ser divididas em duas grandes classes: vetoriais e matriciais. Sendo que as estruturas de dados vetoriais são representações que denotam as fronteiras de entidades geográficas, ou seja, através de suas características é possível descrever computacionalmente as formas de uma superfície. Já a classe matricial, representa informações estruturadas em forma de matriz (linhas e colunas). Cada elemento dessa matriz é formado por um determinado valor associado a sua localização e formalmente pode ser representado como uma matriz P(m,n) composto de m colunas e n linhas. Contudo a representação dos dados espaciais é composto por uma gama de grupos pertencentes às representações vetoriais e matriciais, de tal forma que cada grupo deve ser explorado e suas  particularidades aprofundadas separadamente.
+
 ### Vetoriais
 
+A estrutura de dados espaciais no formato vetorial é utilizada para representar a fronteira de uma entidade geográfica, sendo que suas coordenadas espaciais são os pontos que descrevem a posição e direção de um objeto.  Para a classe de estruturas vetoriais suas entidades básicas (Figura \@ref(fig:fig1h1)) são representadas nas formas de pontos, linhas e polígonos.
+
+```{r fig1h1, echo=FALSE ,fig.align="center",fig.cap='Representação no plano unidimensional das formas vetoriais.'}
+  knitr::include_graphics("res/1_intro/rep_dados.png")
+```
+
+Um **ponto** tem como finalidade a identificação ou localização de uma ocorrência no espaço, onde um par ordenado (x,y) de coordenadas é utilizado para identificar sua posição geográfica, um dos exemplos para representação de pontos pode ser exemplificado como a  localização do ponto central de uma cidade ou localidade. Uma **linha** é composta por um conjunto de pontos e representa uma estrutura unidimensional no espaço, é bastante utilizada para representação de rios e estradas. Um **polígono** *“é a região do plano limitada por uma ou mais linhas poligonais conectadas de tal forma que o último ponto de uma linha seja idêntico ao primeiro da próxima”* @casanova2005banco.
+
+
 ### Matriciais
+
+Diferente das representações vetoriais, onde cada fenômeno é apresentado como um objeto espacial, nas estruturas matriciais (**raster**) os atributos presentes nos fenômenos estão associados a elementos em uma matriz. Cada valor armazenado na estrutura matricial têm suas características relacionadas a uma posição, essa posição também é chamada de célula, e é responsável por armazenar um valores que representam uma área específica da superfície.
+
+Uma das características presentes nas estruturas matriciais é a resolução espacial, que corresponde a um valor que corresponde a dimensionalidade linear em um espaço geográfico. *“Quanto menor a dimensão das células, maior a resolução da imagem matricial e, consequente, maior a quantidade de memória necessária para armazená-la”* @lisboa2001modelagem.
+
+```{r fig2h2, echo=FALSE ,fig.align="center",fig.cap='Estrutura para representação matricial onde cada célula tem um valor de atributo (UM ou ZERO)'}
+  knitr::include_graphics("res/1_intro/rep_matriciais.png")
+```
+
+A representação matricial pressupõe que o espaço amostral dos elementos que compõem uma superfície plana tenham um valor de atributo associado, ou seja, cada célula está contém um valor e uma localização (linha e coluna) da matriz. Além da representação simples, é possível generalizar que os espaços celulares podem estar associados a mais de um atributo, ou seja, uma quantidade maior de fenômenos está associada a uma localização da matriz, essa associação pode ser do tipo espaço-temporal para retratar fenômenos dentro de uma série temporal, esta forma de representação é muito conveniente para armazenar os dados no formato de bancos de dados do tipo objeto-relação.
 
 ## Sistema de referência espacial
 
@@ -183,6 +204,20 @@ Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os m
 |    22523    |     Corrego    |
 
 ## Open Geospatial Consortium (OGC)
+
+A organização *Open Geospatial Consortium* (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, **geometry** (geometria) e **geography** (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado *Simple Features*. Para descrever a hierarquia **geometry**  onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para **geometry** e **geography**.  
+
+Os tipos de dados espaciais dentro do OGC *Simple Features* estão divididos em dezesseis tipos de diferentes instâncias, podendo ser divididos em outros três grupos: **Primitivos**, **Múltiplos** e **Coleções**.  No tipo **primitivo** temos os seguintes objetos:
+
+- Ponto (POINT): Um ponto é um objeto 0-dimensional que representa uma localização simples para coordenadas espaciais, sendo composto por um par ordenado de coordenadas (x,y) associados a um sistema de referências espaciais.
+
+- Linha (LINESTRING): É composto por um conjunto de pontos interpolados linearmente onde cada par consecutivo de pontos define um segmento de linha, ou seja um LINESTRING é exatamente a interpolação entre dois pontos ou um conjunto de pontos.
+
+- Polígono (POLYGON): O polígono é definido como uma superfície planar  com fronteira exterior e zero ou mais superfícies interiores. Para compor um polígono é necessário que um conjunto de 3 ou mais pontos distintos para formar os vértices do mesmo. 
+
+Já para o grupo dos **Múltiplos**, os tipos de dados relacionados são baseados na coleção dos tipos simples, ou seja, para um MULTIPOINT basta que um conjunto de pontos esteja associado com zero o mais instâncias; Já para MULTILINESTRING o mesmo é aplicado, sendo que o conceito de MULTICURVE múltiplas curvas entre pontos é o que define a coleção de objetos associados, além disso o MultiLineString pode ser do tipo simples, fechada ou não fechada; Já o MULTIPOLYGON pode ser definido como parte de uma superfície bi-dimensional dentro do GeomCollection, onde os elementos são formados por um conjunto de polígonos adjacentes. 
+
+Existe uma diferença significativa para os tipos de dados de **geometry** e **geography**, os dois se comportam de maneira semelhante porém algumas diferenças importantes devem ser levadas em consideração. Existem tipos de medidas para dados espaciais, dentre estes tipos de medidas podemos destacar as medidas de sistema planar (terra plana) e os sistemas elipsoidal (terra redonda), onde as medidas de distância e áreas possuem variações que devem ser levadas em consideração para obtenção de medidas mais precisas. Assim como as medidas para os dados espaciais é importante determinar a orientação dos dados espaciais, em sistemas planares a orientação do anel do polígono não é um fator importante, já para sistemas elipsoidais um polígono pode ter valores ambíguos caso a sua orientação não seja definida.
 
 ## Tipos e operações espaciais
 
