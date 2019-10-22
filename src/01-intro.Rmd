@@ -7,7 +7,7 @@ header-includes:
 - \floatsetup[table]{capposition=bot}
 ---
 
-# Introdução
+# Introdução `r emo::ji("world")`
 
 ## Representações de dados espaciais
 
@@ -282,7 +282,7 @@ Por exemplo, o método **disjoint** pode ser aplicado considerando qualquer par 
 
 Caso você fique interessado e deseja uma descrição completa de todas estas restrições, não deixe de consultar o material de `Banco de dados geográficos`, disponibilizado pelo INPE.
 
-## Matriz de 9-intersecções Estendida dimensionalmente
+## Matriz de 9-Interseções Estendida dimensionalmente
 
 O modelo de novo intersecções dimensionalmente estendido (**DE9IM**) tem como objetivo apresentar um método para os relacionamentos topológicos entre objetos geométricos, este modelo considera o resultado da interseção entre as fronteiras, interiores e exteriores de duas geometrias [@queiroz2005banco]. A DE9IM é uma extensão da matriz de 4-interseções onde oito relações topológicas binárias são consideradas, estas operações representam a interseção entre as fronteiras e o interior de duas geometrias [@egenhofer1990categorizing].
 

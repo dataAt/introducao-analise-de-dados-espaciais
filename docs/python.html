@@ -122,7 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução 🗺</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#representacoes-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="introducao.html"><a href="introducao.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introducao.html"><a href="introducao.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="introducao.html"><a href="introducao.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>1.7.1</b> Relacionamentos espaciais</a></li>
 <li class="chapter" data-level="1.7.2" data-path="introducao.html"><a href="introducao.html#restricoes-espaciais"><i class="fa fa-check"></i><b>1.7.2</b> Restrições espaciais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introducao.html"><a href="introducao.html#matriz-de-9-interseccoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.8</b> Matriz de 9-intersecções Estendida dimensionalmente</a></li>
+<li class="chapter" data-level="1.8" data-path="introducao.html"><a href="introducao.html#matriz-de-9-intersecoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.8</b> Matriz de 9-Interseções Estendida dimensionalmente</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R 💎</a><ul>
 <li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#tibble"><i class="fa fa-check"></i><b>2.1</b> Tibble</a><ul>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌎🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
@@ -322,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="geopandas" class="section level2">
-<h2><span class="header-section-number">3.2</span> GeoPandas 🌐🐼</h2>
+<h2><span class="header-section-number">3.2</span> GeoPandas 🌎🐼</h2>
 <p>Com o entendimento do que é a biblioteca Pandas, suas estruturas de dados e principais características, o estudo do GeoPandas pode ser iniciado. Mas o que é o GeoPandas ?</p>
 <blockquote>
 <p>GeoPandas é um projeto open-source que busca facilitar o trabalho com dados vetoriais em Python, para isto, tem como base as estruturas de dados do Pandas</p>
@@ -412,14 +412,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## &lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;</code></pre>
 <p>Um <code>GeoDataFrame</code>! Isto é feito por padrão pela biblioteca, assim, independente do formato de entrada, o GeoPandas busca inserir os dados dentro de um <code>GeoDataFrame</code>. Certo, vamos olhar então o que está dentro deste objeto.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="bu">print</span>(gdf.head(<span class="dv">5</span>))</a></code></pre></div>
-<pre><code>##     ESTADOS    REGIAO  ...  UF                                           geometry
-## 0      Acre     Norte  ...  AC  POLYGON ((-73.80098 -7.11145, -73.74084 -7.143...
-## 1   Alagoas  Nordeste  ...  AL  MULTIPOLYGON (((-36.39119 -10.50082, -36.39864...
-## 2     Amapá     Norte  ...  AP  MULTIPOLYGON (((-51.37380 -0.37053, -51.37337 ...
-## 3  Amazonas     Norte  ...  AM  POLYGON ((-73.80098 -7.11145, -73.80106 -7.111...
-## 4     Bahia  Nordeste  ...  BA  MULTIPOLYGON (((-46.32975 -13.25248, -46.33072...
-## 
-## [5 rows x 5 columns]</code></pre>
+<pre><code>##     ESTADOS    REGIAO  COD_UF  UF                                           geometry
+## 0      Acre     Norte    12.0  AC  POLYGON ((-73.80098 -7.11145, -73.74084 -7.143...
+## 1   Alagoas  Nordeste    27.0  AL  MULTIPOLYGON (((-36.39119 -10.50082, -36.39864...
+## 2     Amapá     Norte    16.0  AP  MULTIPOLYGON (((-51.37380 -0.37053, -51.37337 ...
+## 3  Amazonas     Norte    13.0  AM  POLYGON ((-73.80098 -7.11145, -73.80106 -7.111...
+## 4     Bahia  Nordeste    29.0  BA  MULTIPOLYGON (((-46.32975 -13.25248, -46.33072...</code></pre>
 <p>É possível perceber neste resultado que, ao carregar os dados, as representações espaciais presentes no arquivo, foram inseridas em uma coluna chamada <code>geometry</code> e que, além dessa coluna, existem outras que vinculam múltiplas informações a cada uma das representações espaciais presentes no arquivo.</p>
 <blockquote>
 <p>Lembre-se, o método <code>head</code> é herdado do Pandas, ele possibilita a visualização das linhas iniciais da tabela de dados.</p>
@@ -611,10 +609,8 @@ estado_saopaulo.plot(ax = base, color = &#39;yellow&#39;)</code></pre>
 ## dtype: bool</code></pre>
 <p>Veja que em uma das linhas apareceu <code>True</code>, isto indica que a geometria do estado do Amazonas está contida nesta, que se formos olhar a linha do <code>GeoDataFrame</code> com os dados do estado, indica exatamente a linha do estado do Amazonas.</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="bu">print</span>(estados_do_brasil[amazonas_esta_presente])</a></code></pre></div>
-<pre><code>##     ESTADOS REGIAO  ...  UF                                           geometry
-## 3  Amazonas  Norte  ...  AM  POLYGON ((-73.80098 -7.11145, -73.80106 -7.111...
-## 
-## [1 rows x 5 columns]</code></pre>
+<pre><code>##     ESTADOS REGIAO  COD_UF  UF                                           geometry
+## 3  Amazonas  Norte    13.0  AM  POLYGON ((-73.80098 -7.11145, -73.80106 -7.111...</code></pre>
 </div>
 <div id="intersects-1" class="section level4">
 <h4><span class="header-section-number">3.2.4.3</span> intersects</h4>
