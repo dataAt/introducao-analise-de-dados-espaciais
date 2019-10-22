@@ -1,3 +1,12 @@
+---
+output: bookdown::html_document2
+bibliography: bibfile.bib
+fig_caption: yes
+header-includes:
+- \usepackage{float}
+- \floatsetup[table]{capposition=bot}
+---
+
 # Introdução ao postgis `r emo::ji("elephant")`
 Uma das principais características que diferenciam os bancos de dados 
 geográficos dos demais bancos de dados convencionais, é a presença de uma coluna 
@@ -95,6 +104,113 @@ Na próxima seção iremos criar um banco de dados novo e habilitar nele a exten
 espacial PostGIS, para que possam ser executadas as nossas primeiras consultas 
 espaciais.
 
+## Um pouco de SQL
+
+SQL (*Structured Query Language*) é linguagem padrão de consultas declarativas 
+dos bancos de dados relacionais. Ela foi concebida na década de 1970, como 
+resultado de um estudo feito por Edgar Frank Codd, que na 
+época era funcionário da IBM, e propôs o modelo de banco de dados relacional 
+[@codd1970relational] que em sua essência é utilizado até os dias de hoje. Como 
+dito anteriormente, o PostGIS é uma extensão espacial que funciona sobre o SGBD
+PosgreSQL, que utiliza o modelo de banco de dados relacional. Sendo assim, antes
+de iniciarmos de fato as consultas espaciais como o PostGIS, iremos executar 
+alguns comandos SQL básicos para preparação do ambiente.
+
+### Acessando a interface PostgreSQL
+O [`psql`][10] é uma interface padrão que funciona por linha de comando, e permite 
+interagir rapidamente com o PostgreSQL. Como o foco deste material é a apenas
+apresentar alguns recursos do PostGIS, iremos executar as consultas SQL usando o
+psql, o que não é muito recomendado se trabalhar com esquemas mais complexos de 
+bancos de dados, para isso, podem ser utilizado outras interfaces mais 
+agradávies e eficienes como o [pgAdmin][11].
+
+Para acessar o psql execute o comando abaixo, substituindo o trecho `<user>`, 
+pelo nome de usuário postgres que foi definido durante a instalação:
+
+```console
+sudo -u <user> psql
+```
+
+Ao ser solicitado a senha, digite a senha de administrador do seu sistema 
+operacional. O psql possui algumas utilitário para o geraciomento do PostgreSQL,
+use o comando `\l` para listar todos os bancos de dados disponíveis, em sua 
+máquina. Algo parecido com o que mostrado na Figura \@ref(fig:list-database) 
+deverá aparecer.
+
+```{r list-database, fig.cap="Listando todos os banco de dados através do psql.", fig.scap="Short caption", echo = FALSE}
+knitr::include_graphics('assets/images/list-databases.png', dpi = NA)
+```
+Normalmente, a instalação padrão do PostgreSQL cria algumas bases de dados. A 
+seguir, iremos utilizar comandos SQL para criar um novo banco de dados e também
+adicionar a extensão espacial do PostGIS.
+
+### Criando uma nova base de dados
+
+A linguagem SQL é organizada em alguns subconjuntos, cada um deles com comando 
+específicos para determinadas tarefas. A Figura \@ref(fig:schema-sql) mostra a 
+os subconjuntos que compõe a linguagem SQL.
+
+```{r schema-sql, fig.cap="Listando todos os banco de dados através do psql.", fig.scap="Short caption", echo = FALSE}
+knitr::include_graphics('assets/images/schema-sql.png', dpi = NA)
+```
+
+- **DDL - *Data Definition Laguage* (Linguagem de Definição de Dados)**: É o
+subconjunto de instruções da linguagem SQL responsável por manipular diretamente 
+o esquema do banco de dados e estrura das tabelas.
+
+- **DML - *Data Manipulation Language* (Linguagem de Manipulação de Dados)**: É
+o subconjunto de instruções da linguagem SQL responsável por interagir 
+diretamente com os dados das tabelas.
+
+- **DCL - *Data Control Language* (Linguagem de Controle de Dados)**: É o 
+subconjunto de instruções da linguagem SQL responsável por administrar a 
+segurança das bases de dados, adicionando ou removendo permissões.
+
+- **TCL - *Transaction Control Language* (Linguagem de Controle de Transação)**: 
+É o subconjunto de instruções da linguagem SQL responsável por gerenciar as 
+transações das consultas SQL.
+
+Neste material, o escopo abordado será apenas alguns comando do subconjunto DDL
+e DML. Para mais informações a respeito do gerenciamento de banco de dados e a 
+organização da linguagem SQL, recomenda-se a leitura do trabalho de 
+[@kumar2012database], o qual aborada com mais aprofundamento estes tópicos.
+
+Agora iremos criar um banco de dados para trabalharmos com os recursos espacias
+do PostGIS, para isso execute o comando a seguir:
+
+```SQL
+CREATE DATABASE dbgeo;
+```
+
+O comando acima cria um novo banco de dados chamado `dbgeo`. Caso queira o criar
+um banco de dados com o nome diferente, utilize o mesmo comando substituindo o
+trecho `dbgeo` pelo nome desejado. Após receber a mensagem de confirmação, será 
+necessário mudar o interpretador psql para o novo banco de dados criado, para 
+isso utilize o seguinte comando:
+
+```SQL
+\l dbgeo;
+```
+
+Note que o trecho `dbgeo` é o nome da base de dados que foi criada no passo 
+anterior. Se tudo estiver ocorrido bem, deverá aparecer a confirmação conforme a
+Figura \@ref(fig:change-database).
+
+```{r change-database, fig.cap="Criando e alterando base dados.", fig.scap="Short caption", echo = FALSE}
+knitr::include_graphics('assets/images/change-database.png', dpi = NA)
+```
+
+Por fim, para habilitarmos a nova base de dados para suportar operações com 
+dados espaciais, iremos adicionar a extensão PostGIS. Para isso, execute o 
+seguinte comando:
+
+```SQL
+CREATE EXTENSION postgis;
+```
+
+Após adicionarmos a extensão PostGIS em nosso banco de dados, vamos criar a 
+nossa primeira tabela com atributos geométricos. 
+
 [1]: https://docs.microsoft.com/pt-br/sql/relational-databases/spatial/spatial-data-sql-server?view=sql-server-ver15
 [2]: https://web.archive.org/web/20060316161213/http://www.esri.com/software/arcgis/arcsde/
 [3]: https://www.oracle.com/database/technologies/spatialandgraph.html
@@ -104,6 +220,8 @@ espaciais.
 [7]: https://www.opengeospatial.org/standards/sfa
 [8]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 [9]: https://postgis.net/install/
+[10]: https://www.postgresql.org/docs/11/app-psql.html
+[11]: https://www.pgadmin.org/
 
 
-## Referências
+# References

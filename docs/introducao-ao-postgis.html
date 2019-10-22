@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
+  <title>1 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta property="og:title" content="1 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta name="twitter:title" content="1 Introdução ao postgis 🐘 | intro-analise-de-dados-espaciais.utf8.md" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="python.html"/>
 
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -125,43 +125,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
-<li class="chapter" data-level="2" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html"><i class="fa fa-check"></i><b>2</b> Revisão bibliográfica</a><ul>
-<li class="chapter" data-level="2.1" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#representações-de-dados-espaciais"><i class="fa fa-check"></i><b>2.1</b> Representações de dados espaciais</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#vetoriais"><i class="fa fa-check"></i><b>2.1.1</b> Vetoriais</a></li>
-<li class="chapter" data-level="2.1.2" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#matriciais"><i class="fa fa-check"></i><b>2.1.2</b> Matriciais</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#sistema-de-referência-espacial"><i class="fa fa-check"></i><b>2.2</b> Sistema de referência espacial</a></li>
-<li class="chapter" data-level="2.3" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#projeções-cartográficas"><i class="fa fa-check"></i><b>2.3</b> Projeções cartográficas</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#tipos-de-projeção"><i class="fa fa-check"></i><b>2.3.1</b> Tipos de projeção</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>2.4</b> Sistema de Coordenadas</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#sistemas-de-coordenadas-geográficas"><i class="fa fa-check"></i><b>2.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
-<li class="chapter" data-level="2.4.2" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#coordenadas-planas"><i class="fa fa-check"></i><b>2.4.2</b> Coordenadas planas</a></li>
-<li class="chapter" data-level="2.4.3" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#códigos-epsg"><i class="fa fa-check"></i><b>2.4.3</b> Códigos EPSG</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>2.5</b> Open Geospatial Consortium (OGC)</a></li>
-<li class="chapter" data-level="2.6" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#tipos-e-operações-espaciais"><i class="fa fa-check"></i><b>2.6</b> Tipos e operações espaciais</a></li>
-<li class="chapter" data-level="2.7" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#matriz-de-9-intersecções-estendida-dimensionalmente"><i class="fa fa-check"></i><b>2.7</b> Matriz de 9-intersecções Estendida dimensionalmente</a></li>
-<li class="chapter" data-level="2.8" data-path="revisão-bibliográfica.html"><a href="revisão-bibliográfica.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>2.8</b> Relacionamentos espaciais nomeados</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="introdução-ao-r.html"><a href="introdução-ao-r.html"><i class="fa fa-check"></i><b>3</b> Introdução ao R 💎</a></li>
-<li class="chapter" data-level="4" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>4</b> Python ✨</a><ul>
-<li class="chapter" data-level="4.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>4.1</b> Pandas 🐼</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="python.html"><a href="python.html#manipulação-de-dados"><i class="fa fa-check"></i><b>4.1.1</b> Manipulação de dados</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>4.2</b> GeoPandas 🌐🐼</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>4.2.1</b> GeoSeries e GeoDataFrames</a></li>
-<li class="chapter" data-level="4.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Leitura e escrita de dados</a></li>
-<li class="chapter" data-level="4.2.3" data-path="python.html"><a href="python.html#manipulação-geométrica"><i class="fa fa-check"></i><b>4.2.3</b> Manipulação geométrica</a></li>
-<li class="chapter" data-level="4.2.4" data-path="python.html"><a href="python.html#seleção-e-filtro-de-dados"><i class="fa fa-check"></i><b>4.2.4</b> Seleção e filtro de dados</a></li>
-<li class="chapter" data-level="4.2.5" data-path="python.html"><a href="python.html#manipulação-de-projeções"><i class="fa fa-check"></i><b>4.2.5</b> Manipulação de projeções</a></li>
+<li class="chapter" data-level="1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>1</b> Introdução ao postgis 🐘</a><ul>
+<li class="chapter" data-level="1.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#instalacao"><i class="fa fa-check"></i><b>1.1</b> Instalação</a></li>
+<li class="chapter" data-level="1.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#sql-uma-breve-revisao"><i class="fa fa-check"></i><b>1.2</b> SQL uma breve revisão</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>1.2.1</b> Acessando a interface PostgreSQL</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>1.2.2</b> Criando uma nova base de dados</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html"><i class="fa fa-check"></i><b>5</b> Introdução ao postgis 🐘</a><ul>
-<li class="chapter" data-level="5.1" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#instalação"><i class="fa fa-check"></i><b>5.1</b> Instalação</a></li>
-<li class="chapter" data-level="5.2" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#referências"><i class="fa fa-check"></i><b>5.2</b> Referências</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2</b> References</a></li>
 </ul>
 
       </nav>
@@ -179,8 +150,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introdução-ao-postgis" class="section level1">
-<h1><span class="header-section-number">5</span> Introdução ao postgis 🐘</h1>
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="introducao-ao-postgis" class="section level1">
+<h1><span class="header-section-number">1</span> Introdução ao postgis 🐘</h1>
 <p>Uma das principais características que diferenciam os bancos de dados
 geográficos dos demais bancos de dados convencionais, é a presença de uma coluna
 com a finalidade de armazenar uma propriedade geográfica do registro. Além disso
@@ -204,8 +177,8 @@ interoperabilidade entre os sistemas os utilizam.</p>
 . Ao final, o leitor deverá está apto a configurar corretamente o ambiente para
 a utilização da ferramente, carregar arquivos vetoriais e realizar operações
 espaciais.</p>
-<div id="instalação" class="section level2">
-<h2><span class="header-section-number">5.1</span> Instalação</h2>
+<div id="instalacao" class="section level2">
+<h2><span class="header-section-number">1.1</span> Instalação</h2>
 <p>Como o PostGIS é uma extensão do PostgreSQL, primeiramente deverá ser feita a
 instalação do SGBD.</p>
 <blockquote>
@@ -249,21 +222,89 @@ informações, consulte a página oficial do PostGIS em:
 espacial PostGIS, para que possam ser executadas as nossas primeiras consultas
 espaciais.</p>
 </div>
-<div id="referências" class="section level2">
-<h2><span class="header-section-number">5.2</span> Referências</h2>
-
-<div id="refs" class="references">
-<div>
-<p>IBGE. 2016a. “As Projeções Cartográficas.” 2016. <a href="https://atlasescolar.ibge.gov.br/conceitos-gerais/o-que-e-cartografia/as-projec-o-es-cartogra-ficas.html" class="uri">https://atlasescolar.ibge.gov.br/conceitos-gerais/o-que-e-cartografia/as-projec-o-es-cartogra-ficas.html</a>.</p>
+<div id="sql-uma-breve-revisao" class="section level2">
+<h2><span class="header-section-number">1.2</span> SQL uma breve revisão</h2>
+<p>SQL (<em>Structured Query Language</em>) é linguagem padrão de consultas declarativas
+dos bancos de dados relacionais. Ela foi concebida na década de 1970, como
+resultado de um estudo feito por Edgar Frank Codd, que na
+época era funcionário da IBM, e propôs o modelo de banco de dados relacional
+<span class="citation">(Codd 1970)</span> que em sua essência é utilizado até os dias de hoje. Como
+dito anteriormente, o PostGIS é uma extensão espacial que funciona sobre o SGBD
+PosgreSQL, que utiliza o modelo de banco de dados relacional. Sendo assim, antes
+de iniciarmos de fato as consultas espaciais como o PostGIS, iremos executar
+alguns comandos SQL básicos para preparação do ambiente.</p>
+<div id="acessando-a-interface-postgresql" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Acessando a interface PostgreSQL</h3>
+<p>O <a href="https://www.postgresql.org/docs/11/app-psql.html"><code>psql</code></a> é uma interface padrão que funciona por linha de comando, e permite
+interagir rapidamente com o PostgreSQL. Como o foco deste material é a apenas
+apresentar alguns recursos do PostGIS, iremos executar as consultas SQL usando o
+psql, o que não é muito recomendado se trabalhar com esquemas mais complexos de
+bancos de dados, para isso, podem ser utilizado outras interfaces mais
+agradávies e eficienes como o <a href="https://www.pgadmin.org/">pgAdmin</a>.</p>
+<p>Para acessar o psql execute o comando abaixo, substituindo o trecho <code>&lt;user&gt;</code>,
+pelo nome de usuário postgres que foi definido durante a instalação:</p>
+<pre class="console"><code>sudo -u &lt;user&gt; psql</code></pre>
+<p>Ao ser solicitado a senha, digite a senha de administrador do seu sistema
+operacional. O psql possui algumas utilitário para o geraciomento do PostgreSQL,
+use o comando <code>\l</code> para listar todos os bancos de dados disponíveis, em sua
+máquina. Algo parecido com o que mostrado na Figura <a href="introducao-ao-postgis.html#fig:list-database">1.1</a>
+deverá aparecer.</p>
+<div class="figure"><span id="fig:list-database"></span>
+<img src="assets/images/list-databases.png" alt="Listando todos os banco de dados através do psql."  />
+<p class="caption">
+Figure 1.1: Listando todos os banco de dados através do psql.
+</p>
 </div>
-<div>
-<p>———. 2016b. “Introdução à Cartografia.” 2016. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf</a>.</p>
+<p>Normalmente, a instalação padrão do PostgreSQL cria algumas bases de dados. A
+seguir, iremos utilizar comandos SQL para criar um novo banco de dados e também
+adicionar a extensão espacial do PostGIS.</p>
 </div>
-<div>
-<p>Montanari, Rafael. 2014. “Superfícies E Sistemas de Referência.”</p>
+<div id="criando-uma-nova-base-de-dados" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Criando uma nova base de dados</h3>
+<p>A linguagem SQL é organizada em alguns subconjuntos, cada um deles com comando
+específicos para determinadas tarefas. A Figura <a href="introducao-ao-postgis.html#fig:schema-sql">1.2</a> mostra a
+os subconjuntos que compõe a linguagem SQL.</p>
+<div class="figure"><span id="fig:schema-sql"></span>
+<img src="assets/images/schema-sql.png" alt="Listando todos os banco de dados através do psql."  />
+<p class="caption">
+Figure 1.2: Listando todos os banco de dados através do psql.
+</p>
 </div>
-<div>
-<p>Santos, Alexandre, Kaíse Barbosa, and Rosane Gomes. 2016. “FUNDAMENTOS Teóricos de Geotecnologias.” August 2016. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv64669_cap2.pdf</a>.</p>
+<ul>
+<li><p><strong>DDL - <em>Data Definition Laguage</em> (Linguagem de Definição de Dados)</strong>: É o
+subconjunto de instruções da linguagem SQL responsável por manipular diretamente
+o esquema do banco de dados e estrura das tabelas.</p></li>
+<li><p><strong>DML - <em>Data Manipulation Language</em> (Linguagem de Manipulação de Dados)</strong>: É
+o subconjunto de instruções da linguagem SQL responsável por interagir
+diretamente com os dados das tabelas.</p></li>
+<li><p><strong>DCL - <em>Data Control Language</em> (Linguagem de Controle de Dados)</strong>: É o
+subconjunto de instruções da linguagem SQL responsável por administrar a
+segurança das bases de dados, adicionando ou removendo permissões.</p></li>
+<li><p><strong>TCL - <em>Transaction Control Language</em> (Linguagem de Controle de Transação)</strong>:
+É o subconjunto de instruções da linguagem SQL responsável por gerenciar as
+transações das consultas SQL.</p></li>
+</ul>
+<p>Neste material, o escopo abordado será apenas alguns comando do subconjunto DDL
+e DML. Para mais informações a respeito do gerenciamento de banco de dados e a
+organização da linguagem SQL, recomenda-se a leitura do trabalho de
+<span class="citation">(Kumar, Raheja, and Sachdeva 2012)</span>, o qual aborada com mais aprofundamento estes tópicos.</p>
+<p>Agora iremos criar um banco de dados para trabalharmos com os recursos espacias
+do PostGIS, para isso execute o comando a seguir:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> dbgeo;</a></code></pre></div>
+<p>O comando acima cria um novo banco de dados chamado <code>dbgeo</code>. Caso queira o criar
+um banco de dados com o nome diferente, utilize o mesmo comando substituindo o
+trecho <code>dbgeo</code> pelo nome desejado. Após receber a mensagem de confirmação, será
+necessário mudar o interpretador psql para o novo banco de dados criado, para
+isso utilize o seguinte comando:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb10-1" data-line-number="1">\l dbgeo;</a></code></pre></div>
+<p>Note que o trecho <code>dbgeo</code> é o nome da base de dados que foi criada no passo
+anterior. Se tudo estiver ocorrido bem, deverá aparecer a confirmação conforme a
+Figura <a href="introducao-ao-postgis.html#fig:change-database">1.3</a>.</p>
+<div class="figure"><span id="fig:change-database"></span>
+<img src="assets/images/change-database.png" alt="Criando e alterando base dados."  />
+<p class="caption">
+Figure 1.3: Criando e alterando base dados.
+</p>
 </div>
 </div>
 </div>
@@ -273,8 +314,8 @@ espaciais.</p>
           </div>
         </div>
       </div>
-<a href="python.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
+<a href="references.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
