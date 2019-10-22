@@ -13,7 +13,6 @@ header-includes:
 
 O artigo publicado pela @tippmann2015programming, mostra a crescente adesão do uso da linguagem R em diferentes áreas cientificas. A Figura \@ref(fig:fig1) evidência o crescimento mencionado anteriomente.  
 
-
 ```{r fig1, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Série temporal de citações dos pacotes feitos em R - Fonte: @tippmann2015programming'}
   knitr::include_graphics("res/2_r/r_articles.png")
 ```
@@ -424,21 +423,29 @@ Um breve resumos das classes do pacote **SF**:
 - `sf` Junção das classes `sfg` e `sfc`. Contêm atributos correspondes ao tipo geométricos, bem como atributos discretos, categóricos que representam características do objeto.
 
 
-Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-intersecções Estendida Dimensionalmente (DE-9IM).
+Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-interseções Estendida Dimensionalmente (DE-9IM).
 
 ### Relacionamentos Espaciais
 
 Para realizar a análise de dados espaciais é necessário o uso de diversos métodos espaciais, com a finalidade de verificar se dois objetos possuem alguma relação, por exemplo, para identificar a quantidade de focos de queimada no estado de São Paulo. Assim, o uso de tais métodos se tornam indispensáveis durante a manipulação de dados espaciais.
 
 Os métodos apresentados nesta subseção:
-- `Equals` - Verifica se duas geométrias são iguais
-- `Disjoint` - Verifica se duas geométrias são disjuntas
-- `Touches` - Verifica se duas geométricas se tocam
-- `Crosses` - Verifica se duas geométricas se cruzam
-- `Within`- Verifica se a geométria A está contida em B
-- `Contains` - Verifica se a geométria B contêm A.
-- `Overleaps` - Verifica se duas geométrias se sobrepõem
-- `Intersects` - Verifica se duas geométricas se interseccionam
+
+- `Equals` - Verifica se duas geométrias são iguais;
+
+- `Disjoint` - Verifica se duas geométrias são disjuntas;
+
+- `Touches` - Verifica se duas geométricas se tocam;
+
+- `Crosses` - Verifica se duas geométricas se cruzam;
+
+- `Within`- Verifica se a geométria A está contida em B;
+
+- `Contains` - Verifica se a geométria B contêm;
+
+- `Overleaps` - Verifica se duas geométrias se sobrepõem;
+
+- `Intersects` - Verifica se duas geométricas se interseccionam.
 
 
 #### Equals
@@ -715,7 +722,7 @@ Outro exemplo:
   polygon_2 <- sf::st_polygon(list(poligono_2))
 ```
 
-```{r}
+```{r, echo=FALSE}
    
   xlim <- c(1,5)
   ylim <- c(1,5)
@@ -781,7 +788,7 @@ Para verificar se o polígono 1 contém o ponto 1, usa-se o método `st_contains
   
   # Criação dos tipos geométricos
   polygon_1 <- sf::st_polygon(list(poligono_1))
-  poligono_2 <- sf::st_polygon(list(poligono_2))
+  polygon_2 <- sf::st_polygon(list(poligono_2))
 ```
 
 ```{r, echo=FALSE}
@@ -790,7 +797,7 @@ Para verificar se o polígono 1 contém o ponto 1, usa-se o método `st_contains
 
   plot(sf::st_as_sfc(sf::st_as_text(polygon_1)), axes = TRUE, border = "red",  main="O polígono 1 sobrepõe o polígono 2?", lwd = 2, lty = 2, xlim =xlim, ylim = ylim, col=alpha("grey", 0.5))
 
-  plot(sf::st_as_sfc(sf::st_as_text(poligono_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim,col=alpha("grey", 0.35))
+  plot(sf::st_as_sfc(sf::st_as_text(polygon_2)), border = "blue", axes = FALSE, main="LINESTRING", lwd = 2,  add=TRUE, reset=FALSE, xlim =xlim, ylim = ylim,col=alpha("grey", 0.35))
   
   
   legend(7, 4, legend=c("POLYGON 1", "POLYGON 2"),

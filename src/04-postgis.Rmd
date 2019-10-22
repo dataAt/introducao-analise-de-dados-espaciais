@@ -448,5 +448,3 @@ materiais bem didáticos até mais técnicos, vale a pena da uma conferida. Uma
 [11]: https://www.pgadmin.org/
 [12]: http://portal.opengeospatial.org/files/?artifact_id=25355
 [13]: https://postgis.net/docs/using_postgis_dbmanagement.html#OpenGISWKBWKT
-
-# References
