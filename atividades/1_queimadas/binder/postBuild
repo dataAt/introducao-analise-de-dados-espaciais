@@ -1,0 +1,6 @@
+#!/bin/bash
+
+jupyter labextension install @jupyterlab/toc
+
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace descritivo_atividade_queimadas_python.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace descritivo_atividade_queimadas_r.ipynb
