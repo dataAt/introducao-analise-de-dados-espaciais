@@ -6,6 +6,8 @@
 
 Este material foi criado para auxiliar os alunos dos minicurso de Introdução à análise de dados espaciais a aplicar os principais conceitos vistos durante o minicurso.
 
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/v2/gh/dataAt/introducao-analise-de-dados-espaciais/master?urlpath=lab)
+
 ## Monitoramento de queimadas
 
 ![](res/logo_conjugada_hzt_completa_800x190.png)
