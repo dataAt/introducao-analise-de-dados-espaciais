@@ -39,6 +39,9 @@ O minicurso **Introdução à Análise de Dados Espaciais** será uma das 30 ati
 - Apresentações de Python
   - [![Netlify Status](https://api.netlify.com/api/v1/badges/d03583c0-3707-404a-b107-1279556d271a/deploy-status)](https://app.netlify.com/sites/python-ds-sp-2019/deploys) [python-ds-sp-2019.netlify.com](https://python-ds-sp-2019.netlify.com/intro_r_anthropology_2018#1)
   
+- Apresentações de PostGIS
+  - [PostGIS 2019](https://github.com/dataAt/intro-analise-de-dados-espaciais-apresentacao/blob/master/postgis/presentation-introduction-postgis.pdf)
+
 ## Colaboradores :construction_worker: :stars:
 
 - Adriano Pereira (Dev, Art);
