@@ -2,5 +2,5 @@
 
 jupyter labextension install @jupyterlab/toc
 
-jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace descritivo_atividade_queimadas_python.ipynb
-jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace descritivo_atividade_queimadas_r.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace atividades/1_queimadas/descritivo_atividade_queimadas_python.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace atividades/2_desmatamento/descritivo_atividade_queimadas_r.ipynb
