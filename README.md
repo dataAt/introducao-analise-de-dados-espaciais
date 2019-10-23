@@ -17,23 +17,31 @@ O minicurso **Introdução à Análise de Dados Espaciais** será uma das 30 ati
 	- Sistema de Coordenadas
 	- Códigos EPSG
 	- Open Geospatial Consortium (OGC)
-	- Tipos e operações espaciais
-	-  Matriz de 9-intersecções Estendida dimensionalmente
+	- Matriz de 9-intersecções Estendida dimensionalmente
 	- Relacionamentos espaciais nomeados
 - **Introdução ao R**
 - **Introdução ao Python**
 - **Introdução ao PostGIS**
+<!-- 
+	Comentado para padronizar
 	- Instalação
 	- Breve revisão sobre o SQL
 	- Well-Known Text (WKT)
 	- Consultas espaciais básicas
 	- Relacionamentos espaciais
-	- Visualização em Sistema de Informações Geograáficas (SIG)
+	- Visualização em Sistema de Informações Geográficas (SIG) -->
 - **Referências Bibliográficas**
 
 ## Links das apresentações
-Apresentações criadas utilizando o framework `Sharingan` com o template do [Will Chase](https://github.com/will-r-chase/blog/tree/master/static/slides).
 
 - Apresentações de R
 - Apresentações de Python
-  - [![Netlify Status](https://api.netlify.com/api/v1/badges/d03583c0-3707-404a-b107-1279556d271a/deploy-status)](https://app.netlify.com/sites/python-ds-sp-2019/deploys) 2019 (CIMATech) [python-ds-sp-2019.netlify.com](https://python-ds-sp-2019.netlify.com/intro_r_anthropology_2018#1)
+  - [![Netlify Status](https://api.netlify.com/api/v1/badges/d03583c0-3707-404a-b107-1279556d271a/deploy-status)](https://app.netlify.com/sites/python-ds-sp-2019/deploys) [python-ds-sp-2019.netlify.com](https://python-ds-sp-2019.netlify.com/intro_r_anthropology_2018#1)
+  
+## Colaboradores :construction_worker: :stars:
+
+- Adriano Pereira (Dev, Art);
+- Felipe Menino (Dev, Rev);
+- Felipe Carvalho (Dev, Rev);
+- Helvécio Neto (Dev);
+- Rogério Flores (Dev).
