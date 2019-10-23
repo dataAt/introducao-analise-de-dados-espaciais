@@ -34,7 +34,7 @@ O minicurso **Introdução à Análise de Dados Espaciais** será uma das 30 ati
 
 ## Links das apresentações
 
-- Apresentações de R
+- Apresentações de R [![Netlify Status](https://api.netlify.com/api/v1/badges/3cda59ed-79a0-454d-8af1-e7e3ca35619c/deploy-status)](https://app.netlify.com/sites/r-ds-sp-2019/deploys) [r-ds-sp-2019.netlify.com](https://r-ds-sp-2019.netlify.com/#1)
 - Apresentações de Python
   - [![Netlify Status](https://api.netlify.com/api/v1/badges/d03583c0-3707-404a-b107-1279556d271a/deploy-status)](https://app.netlify.com/sites/python-ds-sp-2019/deploys) [python-ds-sp-2019.netlify.com](https://python-ds-sp-2019.netlify.com/intro_r_anthropology_2018#1)
   
