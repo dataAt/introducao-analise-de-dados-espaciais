@@ -87,7 +87,7 @@ Certo! Com os limites definidos podemos agora adicionar um ponto nesta superfíc
 
 Ok, mas, o que é isso tem a ver com sistemas de referência espacial e nossa pergunta inicial? Tudo! Isto já que, para sabermos onde estava o ponto e sua localização precisamos definir os limites da superfície, e a mesma situação é necessária para os dados espaciais e a superfície terrestre.
 
-Então, com a mesma lógica aplicada a superfície quadrada do exemplo anterior podemos mapear todo o planeta Terra, porém alguns problemas surgem para este caso. Primeiro, para começarmos a mapear a superfície terrestre devemos entender:
+Então, com a mesma lógica aplicada à superfície quadrada do exemplo anterior podemos mapear todo o planeta Terra, porém alguns problemas surgem para este caso. Primeiro, para começarmos a mapear a superfície terrestre devemos entender:
 
 * Como é a superfície terrestre; e
 * formas de representação.
@@ -98,9 +98,9 @@ Começando com a superfície terrestre, as ciências geodésicas, que se empenha
 <img src="res/1_intro/tipos_superficies.png" width="500" height="250">
 </center>
 
-Na Figura acima o geóide representa tudo que está no nível do mar, o elipsoide representa a camada abaixo do geóide e o terreno a parte superior ao geóide, além disto, tanto a representação da superfície terrestre quanto o geóide carregam diversas dificuldades quando precisam ser representados, por conta de suas características irregulares, por isto, adota-se como representação da superfície, o elipsoide.
+Na Figura acima o geóide representa tudo que está no nível do mar, o elipsóide representa a camada abaixo do geóide e o terreno a parte superior ao geóide, além disto, tanto a representação da superfície terrestre quanto o geóide carregam diversas dificuldades quando precisam ser representados, por conta de suas características irregulares, por isso, adota-se como representação da superfície, o elipsóide
 
-> Com isto, pode-se concluir que, o geóide é a superfície de medição da Terra, enquanto o elipsoide é a superfície de representação.
+> Com isto, pode-se concluir que, o geóide é a superfície de medição da Terra, enquanto o elipsóide é a superfície de representação.
 
 Certo, com a definição da forma de representação da superfície terrestre já podemos realizar todo o mapeamento, correto? Ainda não, pois além de entendermos como é a superfície precisamos definir como toda esta superfície terrestre será representada. Tal representação pode ser feita de diversas formas, a variar de acordo com a necessidade, algumas dessas formas são apresentadas na Figura abaixo.
 
@@ -141,7 +141,7 @@ As subseções a seguir apresentam alguns tipos de superfícies geométricas uti
 
 #### Projeção cilíndrica
 
-Na projeção cilíndrica o esferoide de representação da Terra é envolvido sobre um cilindro tangente.
+Na projeção cilíndrica o esferóide de representação da Terra é envolvido sobre um cilindro tangente.
 
 <br>
 <center>
@@ -251,7 +251,7 @@ Realizar a caracterização do relacionamento entre os objetos espaciais permite
 
 É tido que, existem alguns tipos de relacionamentos entre os objetos que podem ser utilizados para tal caracterização, sendo eles, topológicos, métricos e de ordem [@Camara2005]. Os relacionamentos métricos representam relações que tratam especificamente de área de distância entre objetos. Já os de ordem representam a forma com que um objeto está disposto ao outro. Os topográficos consideram os relacionamentos de interseção entre os objetos.
 
-Todos os tipos citados anteriormente serão tratados em algum momento durante esta documentação, porém nesta seção as relações topográficas terão uma enfase especial, isto já que, diferente das demais, apresenta uma estrutura própria para seus relacionamentos e ainda, segundo @Bogorny2001, representa a forma de relação espacial mais utilizada, já que esta faz analogias diretas a como percebemos a espacialidade do mundo real.
+Todos os tipos citados anteriormente serão tratados em algum momento durante esta documentação, porém nesta seção as relações topográficas terão uma ênfase especial, isto já que, diferente das demais, apresenta uma estrutura própria para seus relacionamentos e ainda, segundo @Bogorny2001, representa a forma de relação espacial mais utilizada, já que esta faz analogias diretas a como percebemos a espacialidade do mundo real.
 
 <!-- 
 http://sertie.fct.unesp.br/wp-content/uploads/2017/10/17-Relacionamentos-topol%C3%B3gicos.pdf
@@ -272,8 +272,8 @@ Perceba que, para cada uma das principais geometrias há um conjunto de três de
 
 Certo, vejamos agora, alguns tipos de relacionamentos espaciais:
 
-- **contains** - Verifica se a geométria B contêm A;
-- **equal** - Verifica se duas geométrias são iguais.
+- **contains** - Verifica se a geometria B contém A;
+- **equal** - Verifica se duas geometrias são iguais.
 
 Porém, somente ao ler a descrição de cada um dos métodos de relacionamentos apresentados acima é possível perceber um problema. O que significa dizer que a geometria B contém A ? Ou mesmo, o que torna as geometrias iguais ?
 

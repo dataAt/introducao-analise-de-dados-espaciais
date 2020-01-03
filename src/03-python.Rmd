@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. 
 
-Tais características fizem Python alcançar os mais variados nichos de aplicação. Por ser uma linguagem geral para atingir tais nichos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.
+Tais características fazem Python alcançar os mais variados nichos de aplicação. Por ser uma linguagem geral para atingir tais nichos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.
 
 Desta forma, este capítulo busca explicar as principais formas de utilização do GeoPandas. Por ser baseada no Pandas, há uma pequena seção que trata sobre o uso básico da linguagem, mas é recomendado que o leitor também conheça tal biblioteca, para isto, existe o [curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao.html), que explica os principais conceitos de utilização do Pandas, não deixe de conferir!
 
@@ -25,7 +25,7 @@ Com a necessidade de facilitar todo o processo de análise de dados, através de
 
 Através dos métodos desta biblioteca é possível aplicar todo o ciclo de análise de dados, este indo desde a coleta até o processamento e análise. Para realizar tais atividades, o pandas disponibiliza diversas estruturas de dados, sendo as `Series` e os `DataFrames` as principais.
 
-Cada uma dessas estruturas de dados, trata especificamente de uma forma de realizar a abstração do formato dos dados em código, isto faz com que seja necessário o entendimento das principais diferentes entre cada uma delas, para que seja possível realizar sua correta aplicação. Vamos buscar comparar cada uma dessas estruturas para entender suas diferenças.
+Cada uma dessas estruturas de dados, trata especificamente de uma forma de realizar a abstração do formato dos dados em código, isto faz com que seja necessário o entendimento das principais diferenças entre cada uma delas, para que seja possível realizar sua correta aplicação. Vamos buscar comparar cada uma dessas estruturas para entender suas diferenças.
 
 As `Series` são estruturas de dados unidimensionais, possuindo apenas uma dimensão que pode ser manipulada, tal dimensão sendo chamada de índice. Já os `DataFrames` apresentam duas dimensões para a manipulação.
 
@@ -63,7 +63,7 @@ Pronto! Acabamos de criar uma `Series` com uma lista de valores, vejamos como el
 print(sr)
 ```
 
-A representação está da mesma forma que vimos antes. Vamos agora fazer uma pequena manipulação dos dados, para isto, utilizaremos os métodos `loc` e `iloc` disponíveis dentro do objeto `Series` gerado, onde o método `loc` busca o índice com o nome inserido e o `iloc` busca o índice com a posição inserida. A assinatura de cada um dos métodos está descrita abaixo. Lembre-se que este método está presente tanto na classe `Series` como na classe `DataFrame`.
+A representação está da mesma forma que vimos antes. Vamos agora fazer uma pequena manipulação dos dados, para isso, utilizaremos os métodos `loc` e `iloc` disponíveis dentro do objeto `Series` gerado, onde o método `loc` busca o índice com o nome inserido e o `iloc` busca o índice com a posição inserida. A assinatura de cada um dos métodos está descrita abaixo. Lembre-se que este método está presente tanto na classe `Series` como na classe `DataFrame`.
 
 | DataFrame        | Series     |     
 | ------------- |:-------------:|
@@ -248,7 +248,7 @@ plt.show()
 ```
 </center>
 
-Mas as `GeoSeries` podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir multiplas colunas. Vamos criar um para fazer testes.
+Mas as `GeoSeries` podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir múltiplas colunas. Vamos criar um para fazer testes.
 
 ```{python}
 gdf = gpd.GeoDataFrame({
@@ -319,7 +319,7 @@ Olha que interessante! Para cada estado, há seu nome, a região a que pertence,
 print(gdf["geometry"].head(5))
 ```
 
-Entenda, a geometria escolhida para representar cada um dos estados do Brasil foi o poligono, e isto é possível de visualizar na coluna `geometry`. Outro fato importante sobre esta coluna é que, ela não precisa ter este nome, ele é definido automaticamente pelo GeoPandas para que as coisas sejam padronizadas e fiquem mais simples, mas, caso eu queira alterar, posso fazer isto facilmente da seguinte forma.
+Entenda, a geometria escolhida para representar cada um dos estados do Brasil foi o polígono, e isto é possível de visualizar na coluna `geometry`. Outro fato importante sobre esta coluna é que, ela não precisa ter este nome, ele é definido automaticamente pelo GeoPandas para que as coisas sejam padronizadas e fiquem mais simples, mas, caso eu queira alterar, posso fazer isto facilmente da seguinte forma.
 
 ```{python}
 gdf = gdf.rename_geometry("geometria")
@@ -331,7 +331,7 @@ Ao fazer isto, vamos visualizar as colunas do `GeoDataFrame` alterado.
 print(gdf.columns)
 ```
 
-Mas, e se nos dados que eu estiver carregando existirem mais de uma coluna de representações espaciais, como o GeoPandas entende qual deve ser utilizada? Bem, por padrão ele escolhera a primeira delas e a tratará como a coluna `geometry` do conjunto de dados, porém se eu quiser fazer a alteração, também é possível.
+Mas, e se nos dados que eu estiver carregando existirem mais de uma coluna de representações espaciais, como o GeoPandas entende qual deve ser utilizada? Bem, por padrão ele escolherá a primeira delas e a tratará como a coluna `geometry` do conjunto de dados, porém se eu quiser fazer a alteração, também é possível.
 
 Primeiro, vamos aprender a identificar como o GeoPandas mostra a coluna que ele está utilizando como padrão, para isto o atributo `geometry` é utilizado.
 
@@ -365,7 +365,7 @@ Ao visualizar o resultado, percebemos que a mudança foi realizada com sucesso.
 print(gdf.geometry.name)
 ```
 
-> A diferença entre o método `rename_geometry` e `set_geometry` está no ponto em que, a `set_geometry` altera a coluna que está sendo considerada como padrão para geometrias, equanto a `rename_geometry` altera o nome da coluna padrão de geometrias.
+> A diferença entre o método `rename_geometry` e `set_geometry` está no ponto em que, a `set_geometry` altera a coluna que está sendo considerada como padrão para geometrias, enquanto a `rename_geometry` altera o nome da coluna padrão de geometrias.
 
 Por fim, vamos visualizar a disposição destes dados em uma figura, para isto, utilizamos o método `plot`.
 
@@ -543,7 +543,7 @@ Vamos começar com o método `distance`, que calcula a distância entre duas geo
 ![](res/3_python/opgeom_distance.svg)
 </center>
 
-Para testar esta operação, vamos carregar dois dados vetoriais, cada um represetando um estado do Brasil.
+Para testar esta operação, vamos carregar dois dados vetoriais, cada um representando um estado do Brasil.
 
 ```{python}
 estado_maranhao = gpd.read_file("../data/2_estado_sp_shape/shape_estado-sp.shp")
@@ -588,7 +588,7 @@ O método `contains` verifica se uma geometria está contida em outra, sua repre
 
 Vamos fazer um teste da operação com o estado do Amazonas, verificando se sua geometria está contida nas nos dados de estados do Brasil.
 
-Primeiro, vamos retirar do `GeoDataFrame` as informações do estado do Amazonas, para isto aplicaremos um filtro booleano, herdado do Pandas.
+Primeiro, vamos retirar do `GeoDataFrame` as informações do estado do Amazonas, para isto aplicamos um filtro booleano, herdado do Pandas.
 
 
 ```{python}

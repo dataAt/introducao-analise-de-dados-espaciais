@@ -21,9 +21,9 @@ O artigo publicado pela @tippmann2015programming, mostra a crescente adesão do 
 Como apresentado no capítulo anterior, o objetivo desta seção é apresentar o uso da linguagem de programação R para análise de dados espaciais, os quais compõem a ciência da geoinformação.
 
 ## Tibble
-As estruturas de dados (ED's) do pacote *base* do R, por exemplo, `data.frame` e  `matrix`, oferecem diversos métodos de adição, manipulação e exclusão de dados. No entanto, tais métodos possuem certas limitações impostas pela linguagem, para adicionar quaisquer mudanças nestes métodos é necessário editar o código-fonte dos mesmos. Com o objetivo de abstrair as complexidades e o alta verbosidade das estruturas de dados tradicionais, a comunidade cria diversos pacotes que buscam a integração e a fácil manipulação dos mesmos.
+As estruturas de dados (ED's) do pacote *base* do R, por exemplo, `data.frame` e  `matrix`, oferecem diversos métodos de adição, manipulação e exclusão de dados. No entanto, tais métodos possuem certas limitações impostas pela linguagem, para adicionar quaisquer mudanças nesses métodos é necessário editar o código-fonte dos mesmos. Com o objetivo de abstrair as complexidades e o alta verbosidade das estruturas de dados tradicionais, a comunidade cria diversos pacotes que buscam a integração e a fácil manipulação dos mesmos.
 
-Neste minicurso, optamos por usar o pacote `tibble` do que o método `data.frame` oferecido pelo pacote `base`. No entanto, vamos usar o termo **Data frame** como estruta de dados, a qual é implementada pelo pacote `tibble`.
+Neste minicurso, optamos por usar o pacote `tibble` do que o método `data.frame` oferecido pelo pacote `base`. No entanto, vamos usar o termo **Data frame** como estrutura de dados, a qual é implementada pelo pacote `tibble`.
 
 ```{r fig2, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Estrutura de dados: Vetor e Matriz'}
   knitr::include_graphics("res/2_r/vec_matriz.png")
@@ -36,7 +36,7 @@ Podemos definir **Data frame** como uma matriz (Figura \@ref(fig:fig2)), compost
   knitr::include_graphics("res/2_r/df_definicao.png")
 ```
 
-O trecho de código a seguir apresenta a implementação do **Data frame** apresentado anteriomente.
+O trecho de código a seguir apresenta a implementação do **Data frame** apresentado anteriormente.
 
 ```{r}
   # Importação do pacote 
@@ -146,7 +146,7 @@ Para fazer a leitura:
   df_solo_csv
 ```
 
-No entanto, nem tudo são flores e tão simples quanto mostramos. Os métodos apresentados possuem diversos parametros que ajudam a lidar com dados mal formatados e ruidosos, então, salientamos que nosso exemplo é de cunho acadêmico. Como diz um dos criadores do *Tidyverse*:
+No entanto, nem tudo são flores e tão simples quanto mostramos. Os métodos apresentados possuem diversos parâmetros que ajudam a lidar com dados mal formatados e ruidosos, então, salientamos que nosso exemplo é de cunho acadêmico. Como diz um dos criadores do *Tidyverse*:
 
 > “Os conjuntos de dados arrumados são todos iguais, mas todos os conjuntos de dados desorganizados são desorganizados à sua própria maneira.” - Hadley Wickham
 
@@ -170,7 +170,7 @@ Para selecionar, filtrar e agrupar nossos dados, vamos usar o pacote `dplyr`, o 
 ```
 
 
-Entre os diversos métodos ofericidos pelo pacote `dplyr`, vamos usar os seguintes:
+Entre os diversos métodos oferecidos pelo pacote `dplyr`, vamos usar os seguintes:
 
 - `select` - Seleção de atributos de um **data.frame** ou **tibble**
 - `filter` - Filtro de observações de acordo com uma lógica pré-definida 
@@ -220,7 +220,7 @@ Basicamente, filtramos pelo atributo `conceito`, selecionamos os atributos `curs
 
 A principal função do **pipe** é tornar o código mais limpo e reprodutível. Desta forma,
 encerramos os métodos básicos de manipulação de dados. Na próxima subseção, vamos usar o pacote
-`sf` para a leitura, escrita e manipução de dados espaciais. # Introdução à Geociências `r emo::ji("world")`
+`sf` para a leitura, escrita e manipulação de dados espaciais. # Introdução à Geociências `r emo::ji("world")`
 
 ## SF
 
@@ -292,7 +292,7 @@ Os tipos geométricos criados são apresentados abaixo:
 
 
 
-Como apresentado no capítulo 1, os tipos geométricos podem ser usados em conjunto: `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON` e `GEOMETRYCOLLECTION`. O trecho de código abaixo apresenta a crição dos tipos mencionados:
+Como apresentado no capítulo 1, os tipos geométricos podem ser usados em conjunto: `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON` e `GEOMETRYCOLLECTION`. O trecho de código abaixo apresenta a criação dos tipos mencionados:
 
 
 ```{r}
@@ -339,7 +339,7 @@ Os tipos geométricos criados são apresentados abaixo:
 
 ```
 
-OS tipos geométricos que criamos são objetos da classe `sfg` (*Simple Feature Geometries*), os quis possuem apenas um único atributo, correspondes aos pontos no plano ou espaço. Para verificar a classe dos objetos:
+OS tipos geométricos que criamos são objetos da classe `sfg` (*Simple Feature Geometries*), os quais possuem apenas um único atributo, correspondem aos pontos no plano ou espaço. Para verificar a classe dos objetos:
 
 ```{r}
   # Verificação da classe do tipo geométrico criado 
@@ -363,7 +363,7 @@ Podemos representar uma lista de tipos geométricos com a classe `sfc` (*Simple 
   sfc_obj
 ```
 
-Observe que, diferentemente dos tipos geométricos da classe `sfg`, a classe `sfc` apresenta diferentes características, como a projeção `proj4string`, ID do sistema de referência geográfica `epsg`, *bolding box* `bbox` e a dimensão `dimension`.
+Observe que, diferentemente dos tipos geométricos da classe `sfg`, a classe `sfc` apresenta diferentes características, como a projeção `proj4string`, ID do sistema de referência geográfica `epsg`, *bounding box* `bbox` e a dimensão `dimension`.
 
 No dia-a-dia vamos trabalhar com dados vetoriais provindos de diversas fontes, como IBGE e INPE. Logo, não vamos precisar criar nossos tipos geométricos e sim realizar a leitura dos arquivos que recebemos. Na subseção seguinte, vamos aprender como fazer a leitura de arquivos vetoriais.
 
@@ -420,7 +420,7 @@ Um breve resumos das classes do pacote **SF**:
 
 - `sfg` Único objeto geométrico, por exemplo, `POINT`.
 - `sfc` Junção de tipos geométricos da classe `sfg`. Possui informações como projeção e sistema de referência geogŕafica.
-- `sf` Junção das classes `sfg` e `sfc`. Contêm atributos correspondes ao tipo geométricos, bem como atributos discretos, categóricos que representam características do objeto.
+- `sf` Junção das classes `sfg` e `sfc`. Contêm atributos correspondentes ao tipo geométricos, bem como atributos discretos, categóricos que representam características do objeto.
 
 
 Agora que aprendemos a diferença entre cada classe do pacote `sf` e como fazer a leitura e escrita de dados vetoriais, na subseção seguinte vamos aprender sobre os relacionamentos espaciais, de acordo com a Matriz de 9-interseções Estendida Dimensionalmente (DE-9IM).
@@ -431,21 +431,21 @@ Para realizar a análise de dados espaciais é necessário o uso de diversos mé
 
 Os métodos apresentados nesta subseção:
 
-- `Equals` - Verifica se duas geométrias são iguais;
+- `Equals` - Verifica se duas geometrias são iguais;
 
-- `Disjoint` - Verifica se duas geométrias são disjuntas;
+- `Disjoint` - Verifica se duas geometrias são disjuntas;
 
-- `Touches` - Verifica se duas geométricas se tocam;
+- `Touches` - Verifica se duas geometricas se tocam;
 
-- `Crosses` - Verifica se duas geométricas se cruzam;
+- `Crosses` - Verifica se duas geometricas se cruzam;
 
-- `Within`- Verifica se a geométria A está contida em B;
+- `Within`- Verifica se a geometria A está contida em B;
 
-- `Contains` - Verifica se a geométria B contêm;
+- `Contains` - Verifica se a geometria B contêm;
 
-- `Overleaps` - Verifica se duas geométrias se sobrepõem;
+- `Overleaps` - Verifica se duas geometrias se sobrepõem;
 
-- `Intersects` - Verifica se duas geométricas se interseccionam.
+- `Intersects` - Verifica se duas geometricas se interseccionam.
 
 
 #### Equals
@@ -478,10 +478,10 @@ Os métodos apresentados nesta subseção:
   #par(old_par)
 ```
 
-Para saber se duas geométrias são iguais, usa-se o métodos `st_equals`:
+Para saber se duas geometrias são iguais, usa-se o métodos `st_equals`:
 
 ```{r}
-  # Verifica se duas geométrias são iguais
+  # Verifica se duas geometrias são iguais
   sf::st_equals(polygon_a, polygon_b, sparse = FALSE)
 ```
 
@@ -503,11 +503,11 @@ O retorno do método é um lista com tamanho 1, com valores binários, **TRUE** 
 ```
 
 ```{r}
-    # Verifica se duas geométrias são iguais
+    # Verifica se duas geometrias são iguais
   sf::st_equals(ponto_1, ponto_2, sparse = FALSE)
 ```
 
-> Para verificar se duas geométricas são exatamente iguais, use `st_equals_exact`.
+> Para verificar se duas geometricas são exatamente iguais, use `st_equals_exact`.
 
 #### Disjoint
 ```{r}
@@ -536,10 +536,10 @@ plot(sf::st_as_sfc(sf::st_as_text(linestring_2)), axes = TRUE, col = 'red', main
   
 ```
 
-Para saber se duas geométrias são disjuntas, usa-se o métodos `st_disjoint`:
+Para saber se duas geometrias são disjuntas, usa-se o métodos `st_disjoint`:
 
 ```{r}
-  # Verifica se duas geométrias são disjuntas
+  # Verifica se duas geometrias são disjuntas
   sf::st_disjoint(linestring_1,linestring_2, sparse = FALSE)
 ```
 
@@ -573,7 +573,7 @@ Outro exemplo:
 ```
 
 ```{r}
-    # Verifica se duas geométrias são disjuntas
+    # Verifica se duas geometrias são disjuntas
    sf::st_disjoint(polygon_1,polygon_2, sparse = FALSE)
 ```
 
@@ -604,10 +604,10 @@ Outro exemplo:
        col=c("red", "blue"), lty=2:1, cex=0.9)
 ```
 
-Para verificar se duas geométrias se tocam, usa-se o método `st_touches`:
+Para verificar se duas geometrias se tocam, usa-se o método `st_touches`:
 
 ```{r}
-    # Verifica se duas geométrias se tocam
+    # Verifica se duas geometrias se tocam
     sf::st_touches(polygon_1, polygon_2, sparse = FALSE)
 
 ```
@@ -639,7 +639,7 @@ Outro exemplo:
 ```
 
 ```{r}
-  # Verifica se duas geométrias se tocam
+  # Verifica se duas geometrias se tocam
   sf::st_touches(linestring_1, linestring_2, sparse = FALSE)
 ```
 
@@ -671,10 +671,10 @@ Outro exemplo:
   
 ```
 
-Para verificar se duas geométrias se tocam, usa-se o método `st_touches`:
+Para verificar se duas geometrias se tocam, usa-se o método `st_touches`:
 
 ```{r}
-  # Verifica se duas geométrias se cruzam
+  # Verifica se duas geometrias se cruzam
   sf::st_crosses(linestring_1, polygon_1, sparse = FALSE)
 ```
 
@@ -706,7 +706,7 @@ Outro exemplo:
 ```
 
 ```{r}
-    # Verifica se duas geométrias se cruzam
+    # Verifica se duas geometrias se cruzam
     sf::st_crosses(linestring_1, multipoint_1, sparse = FALSE)
 ```
 
@@ -999,7 +999,7 @@ Agora que definimos nosso **ESPG**, vamos visualizar as coordenadas geográficas
     head(shp_brazil$geometry, 3)
 ```
 
-O método de conversão não faz transformação das coordenadas geográficas. Para fazer a transformação, podemos usar o métodod `st_transform`:
+O método de conversão não faz transformação das coordenadas geográficas. Para fazer a transformação, podemos usar o método `st_transform`:
 
 ```{r}
 

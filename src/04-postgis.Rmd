@@ -30,8 +30,8 @@ da componente espacial e vetorial dos dados geográficos, garantindo assim, a
 interoperabilidade entre os sistemas os utilizam. 
 
 Este capítulo tem como objetivo introduzir ao leitor à extensão espacial PostGIS
-. Ao final, o leitor deverá está apto a configurar corretamente o ambiente para 
-a utilização da ferramente, carregar arquivos vetoriais e realizar operações 
+. Ao final, o leitor estará apto a configurar corretamente o ambiente para 
+a utilização da ferramenta, carregar arquivos vetoriais e realizar operações 
 espaciais.
 
 ## Instalação 
@@ -121,8 +121,8 @@ O [`psql`][10] é uma interface padrão que funciona por linha de comando, e per
 interagir rapidamente com o PostgreSQL. Como o foco deste material é a apenas
 apresentar alguns recursos do PostGIS, iremos executar as consultas SQL usando o
 psql, o que não é muito recomendado se trabalhar com esquemas mais complexos de 
-bancos de dados, para isso, podem ser utilizado outras interfaces mais 
-agradávies e eficienes como o [pgAdmin][11].
+bancos de dados, para isso, podem ser utilizadas outras interfaces mais 
+agradáveis e eficientes como o [pgAdmin][11].
 
 Para acessar o psql execute o comando abaixo, substituindo o trecho `<user>`, 
 pelo nome de usuário postgres que foi definido durante a instalação:
@@ -132,7 +132,7 @@ sudo -u <user> psql
 ```
 
 Ao ser solicitado a senha, digite a senha de administrador do seu sistema 
-operacional. O psql possui algumas utilitário para o geraciomento do PostgreSQL,
+operacional. O psql possui algumas utilitário para o gerenciamento do PostgreSQL,
 use o comando `\l` para listar todos os bancos de dados disponíveis, em sua 
 máquina. Algo parecido com o que mostrado na Figura \@ref(fig:list-database) 
 deverá aparecer.
@@ -148,7 +148,7 @@ adicionar a extensão espacial do PostGIS.
 
 A linguagem SQL é organizada em alguns subconjuntos, cada um deles com comando 
 específicos para determinadas tarefas. A Figura \@ref(fig:schema-sql) mostra a 
-os subconjuntos que compõe a linguagem SQL.
+os subconjuntos que compõem a linguagem SQL.
 
 ```{r schema-sql, fig.cap="Listando todos os banco de dados através do psql.", fig.scap="Short caption", echo = FALSE}
 knitr::include_graphics('assets/images/schema-sql.png', dpi = NA)
@@ -156,7 +156,7 @@ knitr::include_graphics('assets/images/schema-sql.png', dpi = NA)
 
 - **DDL - *Data Definition Laguage* (Linguagem de Definição de Dados)**: É o
 subconjunto de instruções da linguagem SQL responsável por manipular diretamente 
-o esquema do banco de dados e estrura das tabelas.
+o esquema do banco de dados e estrutura das tabelas.
 
 - **DML - *Data Manipulation Language* (Linguagem de Manipulação de Dados)**: É
 o subconjunto de instruções da linguagem SQL responsável por interagir 
@@ -173,9 +173,9 @@ transações das consultas SQL.
 Neste material, o escopo abordado será apenas alguns comando do subconjunto DDL
 e DML. Para mais informações a respeito do gerenciamento de banco de dados e a 
 organização da linguagem SQL, recomenda-se a leitura do trabalho de 
-[@kumar2012database], o qual aborada com mais aprofundamento estes tópicos.
+[@kumar2012database], o qual aborda com mais aprofundamento estes tópicos.
 
-Agora iremos criar um banco de dados para trabalharmos com os recursos espacias
+Agora iremos criar um banco de dados para trabalharmos com os recursos espaciais
 do PostGIS, para isso execute o comando a seguir:
 
 ```SQL
@@ -225,16 +225,16 @@ CREATE TABLE lightning_network(
 
 Observe que o atributo `location` da tabela, possui o tipo definido como 
 `GEOMETRY`, esse é um dos recursos que o PostGIS, provê ao banco de dados, e tem 
-como finalidade permitir que seja armazenado nessa coluna objetos geometricos. A
+como finalidade permitir que seja armazenado nessa coluna objetos geométricos. A
 seguir iremos popular nossa tabela, e realizar algumas operações espaciais. Mas
 antes disso, será abordado brevemente a linguagem de marcação de texto que 
 permite a criação objetos vetoriais, o Well-known text (WKT).
 
 ### Well-known text 
 
-O WKT foi originalment proposto pela OGC, e sendo descrita pelo *Simple Feature* 
+O WKT foi originalmente proposto pela OGC, e sendo descrita pelo *Simple Feature* 
 *Access* [@in2011opengis]. A forma equivalente do WKT em binário *Well-known* 
-*binary* (WKB), também está descrita no SFA, e é como a geomeria é armazenado 
+*binary* (WKB), também está descrita no SFA, e é como a geometria é armazenado 
 nas tabelas. A tabela a seguir mostra os os principais tipos geométricos e suas 
 respectivas representações em WKT. 
 
@@ -252,9 +252,9 @@ respectivas representações em WKT.
 LINESTRING (10 10, 20 20, 10 40),
 POLYGON ((40 40, 20 45, 45 30, 40 40)))`|
 <span style="text-align: center; font-size: .9em; display: block;">
-    Princiapais represetações geométricas em WKT. Adaptado 
+    Principais representações geométricas em WKT. Adaptado 
 <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">
-    Wikpédia
+    Wikipédia
 </a>.
 </span>
 
@@ -269,7 +269,7 @@ VALUES('LINET', 'POINT(-23.55 -46.73)');
 INSERT INTO lightning_network(model, location) 
 VALUES('GLD360', 'POINT(-3.01 -60.05)');
 ```
-Para verificar como ficaram armazendos os registro, execute a seguinte consulta:
+Para verificar como ficaram armazenados os registro, execute a seguinte consulta:
 
 ```SQL
 SELECT model, location FROM lightning_network;
@@ -288,9 +288,9 @@ aparecer na saído algo como:
 ```
 
 O aprofundamento da estrutura WKB está fora do escopo deste material, caso o 
-leitor deseja se aprofundar mais neste tópico, bem como no WKT, recomanda-se a 
+leitor deseja se aprofundar mais neste tópico, bem como no WKT, recomenda-se a 
 leitura da [documentação do PostGIS][13], onde é abordado com mais detalhes este 
-assunto. Para exbir na saída a geometria de forma mais agradável, execute:
+assunto. Para exibir na saída a geometria de forma mais agradável, execute:
 
 ```SQL
 SELECT model, ST_AsText(location) as location FROM lightning_network;
@@ -308,8 +308,8 @@ mostrado abaixo:
 ```
 
 Como o estudo aprofundado de banco de dados não faz parte do escopo deste 
-material, e o objetivo é apenas uma introdução a cerca dos conceitos 
-relacionados os PostGIS, a partir de agora, os objetos geometricos não serão 
+material, e o objetivo é apenas uma introdução acerca dos conceitos 
+relacionados os PostGIS, a partir de agora, os objetos geométricos não serão 
 armazenados no banco de dados.
 
 ## Funções geométricas
@@ -317,13 +317,13 @@ armazenados no banco de dados.
 O PostGIS oferece mais de 300 funções e operadores espaciais 
 [@regina2011postgis]. Embora possua um grande acervo, normalmente somente 
 algumas dessas funções e operadores são utilizadas com muita frequência. A 
-seguir será apresentadas funções envolvendo alguns tipos geométricos.
+seguir serão apresentadas funções envolvendo alguns tipos geométricos.
 
 **Obtendo centroid**
 
 O centro de uma geometria pode ser obtido através da função `ST_Centroid()`, 
-passando como argumento a geometrica que se deseja obter o centroid. No exemplo
-a seguir, serão calculados os centroids das duas geometrias mostradas na Figura
+passando como argumento a geométrica que se deseja obter o centroid. No exemplo
+a seguir, serão calculados os centróides das duas geometrias mostradas na Figura
 \@ref(fig:func1). 
 
 <center>
@@ -393,11 +393,11 @@ comprimento | 2.82842712474619
 
 Os relacionamentos espaciais talvez seja uma das partes mais importantes no 
 contexto de sistemas de informações geográficas. Essas operações são baseadas na
-matriz de 9 interções apresentada em capítulos anteriores deste material. O
+matriz de 9 interseções apresentada em capítulos anteriores deste material. O
 PostGIS provê uma função onde é possível obter o resultado de uma matriz de 9
 interseções, passando como argumento da função `ST_Relate` duas geometrias. Como
 exemplo considere as geometrias que foram utilizadas na seção anterior (segmento
-e polígono), ao aplicar o ST_Relate, será retornado a matriz de 9 intersecções
+e polígono), ao aplicar o ST_Relate, será retornado a matriz de 9 interseções
 como ilustrado na Figura \@ref(fig:matrix) e no código a seguir:
 
 ```console
