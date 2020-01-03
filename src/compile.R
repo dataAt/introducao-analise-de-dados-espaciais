@@ -20,8 +20,7 @@ remotes::install_github("rstudio/renv")
 renv::init()
 
 # Restaura o ambiente criado
-renv::restore(
-  lockfile = "../renv.lock")
+renv::restore(lockfile = "./renv.lock")
 
 
 # Talvez seja necess�rio editar o working dir
