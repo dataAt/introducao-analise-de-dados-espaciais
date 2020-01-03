@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Para saber mais 🔬 | intro-analise-de-dados-espaciais.utf8.md</title>
+  <title></title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Para saber mais 🔬 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta property="og:title" content="" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Para saber mais 🔬 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta name="twitter:title" content="" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introducao-ao-postgis.html"/>
+<link rel="prev" href="introdução-ao-postgis.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -48,66 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -122,69 +100,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução 🌐</a><ul>
-<li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#representacoes-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="introducao.html"><a href="introducao.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
-<li class="chapter" data-level="1.1.2" data-path="introducao.html"><a href="introducao.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
+<li class="chapter" data-level="1" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>1</b> Introdução 🌍</a><ul>
+<li class="chapter" data-level="1.1" data-path="introdução.html"><a href="introdução.html#representações-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introdução.html"><a href="introdução.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introdução.html"><a href="introdução.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#sistema-de-referencia-espacial"><i class="fa fa-check"></i><b>1.2</b> Sistema de referência espacial</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#projecoes-cartograficas"><i class="fa fa-check"></i><b>1.3</b> Projeções cartográficas</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="introducao.html"><a href="introducao.html#tipos-de-projecao"><i class="fa fa-check"></i><b>1.3.1</b> Tipos de projeção</a></li>
+<li class="chapter" data-level="1.2" data-path="introdução.html"><a href="introdução.html#sistema-de-referência-espacial"><i class="fa fa-check"></i><b>1.2</b> Sistema de referência espacial</a></li>
+<li class="chapter" data-level="1.3" data-path="introdução.html"><a href="introdução.html#projeções-cartográficas"><i class="fa fa-check"></i><b>1.3</b> Projeções cartográficas</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introdução.html"><a href="introdução.html#tipos-de-projeção"><i class="fa fa-check"></i><b>1.3.1</b> Tipos de projeção</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>1.4</b> Sistema de Coordenadas</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="introducao.html"><a href="introducao.html#sistemas-de-coordenadas-geograficas"><i class="fa fa-check"></i><b>1.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
-<li class="chapter" data-level="1.4.2" data-path="introducao.html"><a href="introducao.html#coordenadas-planas"><i class="fa fa-check"></i><b>1.4.2</b> Coordenadas planas</a></li>
-<li class="chapter" data-level="1.4.3" data-path="introducao.html"><a href="introducao.html#codigos-epsg"><i class="fa fa-check"></i><b>1.4.3</b> Códigos EPSG</a></li>
+<li class="chapter" data-level="1.4" data-path="introdução.html"><a href="introdução.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>1.4</b> Sistema de Coordenadas</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introdução.html"><a href="introdução.html#sistemas-de-coordenadas-geográficas"><i class="fa fa-check"></i><b>1.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introdução.html"><a href="introdução.html#coordenadas-planas"><i class="fa fa-check"></i><b>1.4.2</b> Coordenadas planas</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introdução.html"><a href="introdução.html#códigos-epsg"><i class="fa fa-check"></i><b>1.4.3</b> Códigos EPSG</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="introducao.html"><a href="introducao.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>1.5</b> Open Geospatial Consortium (OGC)</a></li>
-<li class="chapter" data-level="1.6" data-path="introducao.html"><a href="introducao.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>1.6</b> Relacionamentos espaciais nomeados</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="introducao.html"><a href="introducao.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>1.6.1</b> Relacionamentos espaciais</a></li>
-<li class="chapter" data-level="1.6.2" data-path="introducao.html"><a href="introducao.html#restricoes-espaciais"><i class="fa fa-check"></i><b>1.6.2</b> Restrições espaciais</a></li>
+<li class="chapter" data-level="1.5" data-path="introdução.html"><a href="introdução.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>1.5</b> Open Geospatial Consortium (OGC)</a></li>
+<li class="chapter" data-level="1.6" data-path="introdução.html"><a href="introdução.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>1.6</b> Relacionamentos espaciais nomeados</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introdução.html"><a href="introdução.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>1.6.1</b> Relacionamentos espaciais</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introdução.html"><a href="introdução.html#restrições-espaciais"><i class="fa fa-check"></i><b>1.6.2</b> Restrições espaciais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="introducao.html"><a href="introducao.html#matriz-de-9-intersecoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.7</b> Matriz de 9-Interseções Estendida dimensionalmente</a></li>
+<li class="chapter" data-level="1.7" data-path="introdução.html"><a href="introdução.html#matriz-de-9-interseções-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.7</b> Matriz de 9-Interseções Estendida dimensionalmente</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R 💎</a><ul>
 <li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#tibble"><i class="fa fa-check"></i><b>2.1</b> Tibble</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="r.html"><a href="r.html#tidyverse"><i class="fa fa-check"></i><b>2.1.1</b> Tidyverse</a></li>
-<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#manipulacao-de-dados"><i class="fa fa-check"></i><b>2.1.2</b> Manipulação de dados</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#manipulação-de-dados"><i class="fa fa-check"></i><b>2.1.2</b> Manipulação de dados</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="r.html"><a href="r.html#sf"><i class="fa fa-check"></i><b>2.2</b> SF</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r.html"><a href="r.html#tipos-geometricos"><i class="fa fa-check"></i><b>2.2.1</b> Tipos Geométricos</a></li>
+<li class="chapter" data-level="2.2.1" data-path="r.html"><a href="r.html#tipos-geométricos"><i class="fa fa-check"></i><b>2.2.1</b> Tipos Geométricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r.html"><a href="r.html#leitura-e-escrita-de-dados-vetoriais"><i class="fa fa-check"></i><b>2.2.2</b> Leitura e escrita de dados vetoriais</a></li>
 <li class="chapter" data-level="2.2.3" data-path="r.html"><a href="r.html#relacionamentos-espaciais-1"><i class="fa fa-check"></i><b>2.2.3</b> Relacionamentos Espaciais</a></li>
-<li class="chapter" data-level="2.2.4" data-path="r.html"><a href="r.html#operadores-metricos"><i class="fa fa-check"></i><b>2.2.4</b> Operadores Métricos</a></li>
-<li class="chapter" data-level="2.2.5" data-path="r.html"><a href="r.html#sistemas-de-referencias"><i class="fa fa-check"></i><b>2.2.5</b> Sistemas de referências</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r.html"><a href="r.html#operadores-métricos"><i class="fa fa-check"></i><b>2.2.4</b> Operadores Métricos</a></li>
+<li class="chapter" data-level="2.2.5" data-path="r.html"><a href="r.html#sistemas-de-referências"><i class="fa fa-check"></i><b>2.2.5</b> Sistemas de referências</a></li>
 <li class="chapter" data-level="2.2.6" data-path="r.html"><a href="r.html#materiais-recomendados"><i class="fa fa-check"></i><b>2.2.6</b> Materiais recomendados</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>3</b> Python ✨</a><ul>
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
+<li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulação-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
-<li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
-<li class="chapter" data-level="3.2.4" data-path="python.html"><a href="python.html#selecao-e-filtro-de-dados"><i class="fa fa-check"></i><b>3.2.4</b> Seleção e filtro de dados</a></li>
-<li class="chapter" data-level="3.2.5" data-path="python.html"><a href="python.html#manipulacao-de-projecoes"><i class="fa fa-check"></i><b>3.2.5</b> Manipulação de projeções</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulação-geométrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python.html"><a href="python.html#seleção-e-filtro-de-dados"><i class="fa fa-check"></i><b>3.2.4</b> Seleção e filtro de dados</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python.html"><a href="python.html#manipulação-de-projeções"><i class="fa fa-check"></i><b>3.2.5</b> Manipulação de projeções</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>4</b> Introdução ao postgis 🐘</a><ul>
-<li class="chapter" data-level="4.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#instalacao"><i class="fa fa-check"></i><b>4.1</b> Instalação</a></li>
-<li class="chapter" data-level="4.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>4.2</b> Um pouco de SQL</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>4.2.1</b> Acessando a interface PostgreSQL</a></li>
-<li class="chapter" data-level="4.2.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Criando uma nova base de dados</a></li>
-<li class="chapter" data-level="4.2.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#well-known-text"><i class="fa fa-check"></i><b>4.2.3</b> Well-known text</a></li>
+<li class="chapter" data-level="4" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html"><i class="fa fa-check"></i><b>4</b> Introdução ao postgis 🐘</a><ul>
+<li class="chapter" data-level="4.1" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#instalação"><i class="fa fa-check"></i><b>4.1</b> Instalação</a></li>
+<li class="chapter" data-level="4.2" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>4.2</b> Um pouco de SQL</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>4.2.1</b> Acessando a interface PostgreSQL</a></li>
+<li class="chapter" data-level="4.2.2" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Criando uma nova base de dados</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#well-known-text"><i class="fa fa-check"></i><b>4.2.3</b> Well-known text</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#funcoes-geometricas"><i class="fa fa-check"></i><b>4.3</b> Funções geométricas</a></li>
-<li class="chapter" data-level="4.4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#relacionamentos-espaciais-2"><i class="fa fa-check"></i><b>4.4</b> Relacionamentos espaciais</a></li>
+<li class="chapter" data-level="4.3" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#funções-geométricas"><i class="fa fa-check"></i><b>4.3</b> Funções geométricas</a></li>
+<li class="chapter" data-level="4.4" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#relacionamentos-espaciais-2"><i class="fa fa-check"></i><b>4.4</b> Relacionamentos espaciais</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>5</b> Para saber mais 🔬</a><ul>
-<li class="chapter" data-level="5.1" data-path="para-saber-mais.html"><a href="para-saber-mais.html#impactos-da-resolucao-espacial-de-modelos-digitais-de-superficie-no-calculo-da-perda-de-solo-atraves-da-eups-em-ambiente-urbano"><i class="fa fa-check"></i><b>5.1</b> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></a></li>
-<li class="chapter" data-level="5.2" data-path="para-saber-mais.html"><a href="para-saber-mais.html#criacao-e-avaliacao-de-mapas-de-suscetibilidade-a-inundacao-para-o-municipio-de-iguape-estado-de-sao-paulo"><i class="fa fa-check"></i><b>5.2</b> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></a></li>
-<li class="chapter" data-level="5.3" data-path="para-saber-mais.html"><a href="para-saber-mais.html#conectividade-demografica-e-aclimatacao-de-peixes-recifais-do-genero-sparisoma-em-cenario-de-mudancas-climaticas"><i class="fa fa-check"></i><b>5.3</b> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></a></li>
-<li class="chapter" data-level="5.4" data-path="para-saber-mais.html"><a href="para-saber-mais.html#parametrizacao-de-algoritmos-empiricos-e-algoritmo-quasi-analitico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-varzea-do-rio-amazonas"><i class="fa fa-check"></i><b>5.4</b> <strong>PARAMETRIZAÇÃO DE ALGORITMOS EMPÍRICOS E ALGORITMO QUASI-ANALÍTICO QAA PARA ESTIMATIVA DE CLOROFILA-A EM LAGOS DA VÁRZEA DO RIO AMAZONAS</strong></a></li>
-<li class="chapter" data-level="5.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html#quantificacao-remota-da-concentracao-de-solidos-totais-e-inorganicos-em-suspensao-em-lagos-da-planicie-de-inundacao-do-baixo-amazonas---uma-abordagem-multi-sensor"><i class="fa fa-check"></i><b>5.5</b> <strong>QUANTIFICAÇÃO REMOTA DA CONCENTRAÇÃO DE SÓLIDOS TOTAIS E INORGÂNICOS EM SUSPENSÃO EM LAGOS DA PLANÍCIE DE INUNDAÇÃO DO BAIXO AMAZONAS - UMA ABORDAGEM MULTI-SENSOR</strong></a></li>
+<li class="chapter" data-level="5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>5</b> Para saber mais 🔭</a><ul>
+<li class="chapter" data-level="5.1" data-path="para-saber-mais.html"><a href="para-saber-mais.html#impactos-da-resolução-espacial-de-modelos-digitais-de-superfície-no-cálculo-da-perda-de-solo-através-da-eups-em-ambiente-urbano"><i class="fa fa-check"></i><b>5.1</b> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="para-saber-mais.html"><a href="para-saber-mais.html#criação-e-avaliação-de-mapas-de-suscetibilidade-a-inundação-para-o-município-de-iguape-estado-de-são-paulo"><i class="fa fa-check"></i><b>5.2</b> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></a></li>
+<li class="chapter" data-level="5.3" data-path="para-saber-mais.html"><a href="para-saber-mais.html#conectividade-demográfica-e-aclimatação-de-peixes-recifais-do-gênero-sparisoma-em-cenário-de-mudanças-climáticas"><i class="fa fa-check"></i><b>5.3</b> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></a></li>
+<li class="chapter" data-level="5.4" data-path="para-saber-mais.html"><a href="para-saber-mais.html#parametrização-de-algoritmos-empíricos-e-algoritmo-quasi-analítico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-várzea-do-rio-amazonas"><i class="fa fa-check"></i><b>5.4</b> <strong>PARAMETRIZAÇÃO DE ALGORITMOS EMPÍRICOS E ALGORITMO QUASI-ANALÍTICO QAA PARA ESTIMATIVA DE CLOROFILA-A EM LAGOS DA VÁRZEA DO RIO AMAZONAS</strong></a></li>
+<li class="chapter" data-level="5.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html#quantificação-remota-da-concentração-de-sólidos-totais-e-inorgânicos-em-suspensão-em-lagos-da-planície-de-inundação-do-baixo-amazonas---uma-abordagem-multi-sensor"><i class="fa fa-check"></i><b>5.5</b> <strong>QUANTIFICAÇÃO REMOTA DA CONCENTRAÇÃO DE SÓLIDOS TOTAIS E INORGÂNICOS EM SUSPENSÃO EM LAGOS DA PLANÍCIE DE INUNDAÇÃO DO BAIXO AMAZONAS - UMA ABORDAGEM MULTI-SENSOR</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 </ul>
@@ -205,9 +183,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="para-saber-mais" class="section level1">
-<h1><span class="header-section-number">5</span> Para saber mais 🔬</h1>
+<h1><span class="header-section-number">5</span> Para saber mais 🔭</h1>
 <p>A seguir são apresentados alguns estudos desenvolvidos no INPE.</p>
-<div id="impactos-da-resolucao-espacial-de-modelos-digitais-de-superficie-no-calculo-da-perda-de-solo-atraves-da-eups-em-ambiente-urbano" class="section level2">
+<div id="impactos-da-resolução-espacial-de-modelos-digitais-de-superfície-no-cálculo-da-perda-de-solo-através-da-eups-em-ambiente-urbano" class="section level2">
 <h2><span class="header-section-number">5.1</span> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></h2>
 <p>No presente estudo foram comparados os resultados da aplicação da Equação Universal de Perdas de Solo (EUPS) com o uso de modelos digitais de terreno obtidos através de cartas topográficas na escala 1:10.000 integradas com coleta de pontos por GPS; e também pelo levantamento de um modelo digital de superfície (MDS) por VANT. Os resultados obtidos com os dois métodos foram ainda comparados com uma estimativa de movimentação de solo pela inserção de estacas no terreno, com monitoramento de um ano.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig111143"></span>
@@ -219,10 +197,9 @@ Figure 5.1: Mapa de Londres com óbitos por cólera (pontos) e poços de água (
 <p>Figura <a href="para-saber-mais.html#fig:fig111143">5.1</a> - Estimativa da perda de solo anual derivado de carta topográfica e pontos GPS; derivado de levantamento com VANT; e interpolação da perda de solo monitorada por estacas.</p>
 <p>Artigo completo: <a href="http://marte2.sid.inpe.br/col/sid.inpe.br/marte2/2017/09.25.14.55/doc/goto/sid.inpe.br/marte2/2017/10.27.15.55.49">Simpósio Brasileiro de Sensoriamento Remoto - SBSR</a></p>
 </div>
-<div id="criacao-e-avaliacao-de-mapas-de-suscetibilidade-a-inundacao-para-o-municipio-de-iguape-estado-de-sao-paulo" class="section level2">
+<div id="criação-e-avaliação-de-mapas-de-suscetibilidade-a-inundação-para-o-município-de-iguape-estado-de-são-paulo" class="section level2">
 <h2><span class="header-section-number">5.2</span> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></h2>
-<p>As inundações são os desastres naturais mais frequentes e que causam maiores danos econômicos, sociais e ambientais no mundo. Para este trabalho, entende-se inundação como a elevação do nível de água de um corpo hídrico para além do seu nível normal, alagando a planície aluvial deste corpo. As inundações são causadas devido às características ambientais tais como chuvas, formato da bacia hidrográfica, cobertura vegetal, escoamento superficial; e antrópicas; como a impermeabilização dos solos e o descarte de lixo em locais inadequados.
-Para tomar medidas preventivas e planejar possíveis remediações, torna se necessário identificar as áreas do município com maior ou menor possibilidade de inundação. Mapas de suscetibilidade se apresentam como ferramentas fundamentais neste tipo de planejamento. Diferentes métodos podem ser utilizados para elaborar os mapas, trazendo resultados mais ou menos verossímeis. Este trabalho buscou identificar as diferenças ao aplicar o mesmo método de análise de dados em modelos digitais de elevação diferentes, sendo um destes fornecido pelo TopoData (BRASIL, 2011), elaborado a partir de imagens do SRTM (<em>Shuttle Radar Topography Mission</em>), e de um modelo digital de elevação em grade elaborado a partir de curvas de nível disponíveis no Sistema de Informações Geográficas do Ribeira de Iguape e Litoral Sul (SIGRB). Pretendeu se assim analisar o impacto de métodos diferentes ao se representar uma mesma área.</p>
+<p>As inundações são os desastres naturais mais frequentes e que causam maiores danos econômicos, sociais e ambientais no mundo. Para este trabalho, entende-se inundação como a elevação do nível de água de um corpo hídrico para além do seu nível normal, alagando a planície aluvial deste corpo. As inundações são causadas devido às características ambientais tais como chuvas, formato da bacia hidrográfica, cobertura vegetal, escoamento superficial; e antrópicas; como a impermeabilização dos solos e o descarte de lixo em locais inadequados. Para tomar medidas preventivas e planejar possíveis remediações, torna se necessário identificar as áreas do município com maior ou menor possibilidade de inundação. Mapas de suscetibilidade se apresentam como ferramentas fundamentais neste tipo de planejamento. Diferentes métodos podem ser utilizados para elaborar os mapas, trazendo resultados mais ou menos verossímeis. Este trabalho buscou identificar as diferenças ao aplicar o mesmo método de análise de dados em modelos digitais de elevação diferentes, sendo um destes fornecido pelo TopoData (BRASIL, 2011), elaborado a partir de imagens do SRTM (<em>Shuttle Radar Topography Mission</em>), e de um modelo digital de elevação em grade elaborado a partir de curvas de nível disponíveis no Sistema de Informações Geográficas do Ribeira de Iguape e Litoral Sul (SIGRB). Pretendeu se assim analisar o impacto de métodos diferentes ao se representar uma mesma área.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig111144"></span>
 <img src="res/1_intro/image_article_2.png" alt="Mapa de Londres com óbitos por cólera (pontos) e poços de água (cruzetas)" width="100%" />
 <p class="caption">
@@ -232,7 +209,7 @@ Figure 5.2: Mapa de Londres com óbitos por cólera (pontos) e poços de água (
 <p>Figura <a href="para-saber-mais.html#fig:fig111144">5.2</a> - Suscetibilidade à inundação para o município de Iguape – SP utilizando curvas de nível (esquerda) e SRTM (direita) como dado topográfico.</p>
 <p>Artigo completo: <a href="http://www.portaldeperiodicos.unisul.br/index.php/gestao_ambiental/article/view/7276">Revista Gestão &amp; Sustentabilidade Ambiental</a></p>
 </div>
-<div id="conectividade-demografica-e-aclimatacao-de-peixes-recifais-do-genero-sparisoma-em-cenario-de-mudancas-climaticas" class="section level2">
+<div id="conectividade-demográfica-e-aclimatação-de-peixes-recifais-do-gênero-sparisoma-em-cenário-de-mudanças-climáticas" class="section level2">
 <h2><span class="header-section-number">5.3</span> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></h2>
 <p>As mudanças na circulação e na temperatura do oceano afetam diretamente a capacidade de dispersão e assentamento dos organismos marinhos. Esta influência se dá principalmente nas condições de sobrevivência dos ovos e larvas, assim como na trajetória imposta pela circulação superficial. As projeções de cenários futuros de mudanças climáticas podem resultar em alterações na circulação e temperatura dos oceanos, afetando o ciclo de vida dos organismos marinhos. O objetivo deste trabalho foi determinar os padrões de conectividade demográfica das populações de peixes recifais do gênero Sparisoma sp. das ilhas oceânicas e plataforma continental do Brasil localizadas em Unidades de Conservação Marinhas (UCMs), frente às possíveis alterações ambientais em cenários futuros de mudanças climáticas.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig111145"></span>
@@ -245,10 +222,9 @@ Figure 5.3: Mapa de Londres com óbitos por cólera (pontos) e poços de água (
 <p>Observou-se que para o final do século XXI, o cenário de mudanças climáticas (RCP 8.5), apresenta aumento da mortalidade e redução da conectividade entre as Unidades de Conservação Marinhas próximas ao equador. A condição de aclimatação frente a um oceano mais quente, reduz significativamente a mortalidade e consequentemente, aumenta a conectividade entre as UCMs, principalmente no verão.</p>
 <p>Dissertação completa: <a href="http://mtc-m21c.sid.inpe.br/col/urlib.net/www/2017/11.22.19.04.03/doc/mirrorget.cgi?metadatarepository=sid.inpe.br/mtc-m21c/2019/04.05.17.41.55&amp;choice=full&amp;languagebutton=pt-BR">Instituto Nacional de Pesquisas Espaciais (INPE)</a></p>
 </div>
-<div id="parametrizacao-de-algoritmos-empiricos-e-algoritmo-quasi-analitico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-varzea-do-rio-amazonas" class="section level2">
+<div id="parametrização-de-algoritmos-empíricos-e-algoritmo-quasi-analítico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-várzea-do-rio-amazonas" class="section level2">
 <h2><span class="header-section-number">5.4</span> <strong>PARAMETRIZAÇÃO DE ALGORITMOS EMPÍRICOS E ALGORITMO QUASI-ANALÍTICO QAA PARA ESTIMATIVA DE CLOROFILA-A EM LAGOS DA VÁRZEA DO RIO AMAZONAS</strong></h2>
-<p>O monitoramento sistemático, essencial para a manutenção dos serviços ecossistêmicos, visa auxiliar na gestão, manutenção e recuperação de recursos hídricos diante das ações antrópica. Suplementando as metodologias tradicionais, o sensoriamento remoto (SR) de ambientes aquáticos relaciona as propriedades ópticas e biogequímicas do meio, possibilitando uma visão sinóptica de seus padrões de distribuição no tempo e espaço. A determinação do estado trófico e da produtividade primária do ambiente, estimadas por meioda concentração de clorofila-a (Chl-a). podem ser utilizados como índice da qualidade do recurso hídrico. A quantificação de Chl-a por SR embasa-se na aplicação empírica e/ou semi-analítica de algoritmos, geralmente desenvolvidos para águas oceânicas e costeiras, necessitando assim serem calibrados para sua utilização em águas continentais complexas como às da planície de inundação amazônica.
-Portanto este trabalho teve como objetivo Estimar a concentração de Chl-a em águas túrbidas de lagos amazônicos a partir da parametrização de algoritmos bióticos (empíricos e semi-analíticos) utilizando dados in situ e posterior validação e espacialização com sua aplicação a imagens de satélite de média/alta resolução atualmente disponíveis, OLI/Landsat-8, MSI/Sentinel-2 e OLCI/Sentinel-3.</p>
+<p>O monitoramento sistemático, essencial para a manutenção dos serviços ecossistêmicos, visa auxiliar na gestão, manutenção e recuperação de recursos hídricos diante das ações antrópica. Suplementando as metodologias tradicionais, o sensoriamento remoto (SR) de ambientes aquáticos relaciona as propriedades ópticas e biogequímicas do meio, possibilitando uma visão sinóptica de seus padrões de distribuição no tempo e espaço. A determinação do estado trófico e da produtividade primária do ambiente, estimadas por meioda concentração de clorofila-a (Chl-a). podem ser utilizados como índice da qualidade do recurso hídrico. A quantificação de Chl-a por SR embasa-se na aplicação empírica e/ou semi-analítica de algoritmos, geralmente desenvolvidos para águas oceânicas e costeiras, necessitando assim serem calibrados para sua utilização em águas continentais complexas como às da planície de inundação amazônica. Portanto este trabalho teve como objetivo Estimar a concentração de Chl-a em águas túrbidas de lagos amazônicos a partir da parametrização de algoritmos bióticos (empíricos e semi-analíticos) utilizando dados in situ e posterior validação e espacialização com sua aplicação a imagens de satélite de média/alta resolução atualmente disponíveis, OLI/Landsat-8, MSI/Sentinel-2 e OLCI/Sentinel-3.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig111146"></span>
 <img src="res/1_intro/image_article_4.png" alt="Algoritmos calibrados com dados in situ especializados para o sensor MSI. Sendo os algoritmos:  a) NDCI (linear), b) NDCI (quadrático), c) 2B-M (linear), d) 3B-M (linear)." width="100%" />
 <p class="caption">
@@ -257,7 +233,7 @@ Figure 5.4: Algoritmos calibrados com dados in situ especializados para o sensor
 </div>
 <p>Dissertação completa: <a href="http://urlib.net/sid.inpe.br/mtc-m21c/2019/03.22.19.03">Instituto Nacional de Pesquisas Espaciais (INPE)</a></p>
 </div>
-<div id="quantificacao-remota-da-concentracao-de-solidos-totais-e-inorganicos-em-suspensao-em-lagos-da-planicie-de-inundacao-do-baixo-amazonas---uma-abordagem-multi-sensor" class="section level2">
+<div id="quantificação-remota-da-concentração-de-sólidos-totais-e-inorgânicos-em-suspensão-em-lagos-da-planície-de-inundação-do-baixo-amazonas---uma-abordagem-multi-sensor" class="section level2">
 <h2><span class="header-section-number">5.5</span> <strong>QUANTIFICAÇÃO REMOTA DA CONCENTRAÇÃO DE SÓLIDOS TOTAIS E INORGÂNICOS EM SUSPENSÃO EM LAGOS DA PLANÍCIE DE INUNDAÇÃO DO BAIXO AMAZONAS - UMA ABORDAGEM MULTI-SENSOR</strong></h2>
 <p>A utilização de imagens de sensoriamento remoto é de fundamental importância para aumentar o conhecimento sobre a dinâmica da troca de sedimentos entre o Rio Amazonas e as planícies de inundação já que ela pode ajudar a entender como as mudanças climáticas e de uso da terra influenciam esse processo. Neste sentido, este trabalho investigou a acurácia de algoritmos de estimativa de TSS (Total de Sólidos em Suspensão) e TSI (Total de Sólidos Inorgânicos em suspensão) através da utilização de três sensores de média resolução espacial (Landsat-8/OLI, Sentinel-2A/MSI e CBERS-4/WFI) em lagos na planície de inundação do Baixo Amazonas. Através de simulação Monte Carlo, foram calibrados e validados algoritmos.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig111147"></span>
@@ -274,17 +250,19 @@ Figure 5.5: Mapa de TSI obtidos pelos sensores MSI, OLI e WFI através dos algor
           </div>
         </div>
       </div>
-<a href="introducao-ao-postgis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introdução-ao-postgis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -292,12 +270,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -309,6 +286,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -325,7 +306,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
