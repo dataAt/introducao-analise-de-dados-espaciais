@@ -12,7 +12,9 @@
 # }
 
 # Instalação do pacote renv
-install.packages("renv")
+if (!requireNamespace("remotes"))
+  install.packages("remotes")
+remotes::install_github("rstudio/renv")
 
 # inicializa um novo ambiente
 renv::init()
