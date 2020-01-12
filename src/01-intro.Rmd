@@ -30,18 +30,17 @@ O objetivo deste minicurso é apresentar de forma simples e objetiva os conceito
 
 ## Representações de dados espaciais
 
-Dentro do universo estrutural dos SIGs (Sistema de Informação Geográficas), a forma de representação dos dados geográficos podem ser divididas em duas grandes classes: vetoriais e matriciais. Sendo que as estruturas de dados vetoriais são representações que denotam as fronteiras de entidades geográficas, ou seja, através de suas características é possível descrever computacionalmente as formas de uma superfície. Já a classe matricial, representa informações estruturadas em forma de matriz (linhas e colunas). Cada elemento dessa matriz é formado por um determinado valor associado a sua localização e formalmente pode ser representado como uma matriz P(m,n) composto de m colunas e n linhas. Contudo a representação dos dados espaciais é composto por uma gama de grupos pertencentes às representações vetoriais e matriciais, de tal forma que cada grupo deve ser explorado e suas  particularidades aprofundadas separadamente.
+Dentro do universo estrutural dos SIGs (Sistema de Informação Geográficas), a forma de representação dos dados geográficos podem ser divididas em duas grandes classes: vetoriais e matriciais. Sendo que as estruturas de dados vetoriais são representações que denotam as fronteiras de entidades geográficas, ou seja, através de suas características é possível descrever computacionalmente as formas de uma superfície. Já a classe matricial, representa informações estruturadas em forma de matriz (linhas e colunas). Cada elemento dessa matriz é formado por um determinado valor associado a sua localização e formalmente pode ser representado como uma matriz P(m,n) composto de m colunas e n linhas. Contudo a representação dos dados espaciais é composto por uma gama de grupos pertencentes às representações vetoriais e matriciais, de tal forma que cada grupo deve ser explorado e suas particularidades aprofundadas separadamente.
 
 ### Vetoriais
 
-A estrutura de dados espaciais no formato vetorial é utilizada para representar a fronteira de uma entidade geográfica, sendo que suas coordenadas espaciais são os pontos que descrevem a posição e direção de um objeto.  Para a classe de estruturas vetoriais suas entidades básicas (Figura \@ref(fig:fig1h1)) são representadas nas formas de pontos, linhas e polígonos.
+A estrutura de dados espaciais no formato vetorial é utilizada para representar a fronteira de uma entidade geográfica, sendo que suas coordenadas espaciais são os pontos que descrevem a posição e direção de um objeto. Para a classe de estruturas vetoriais, suas entidades básicas (Figura \@ref(fig:fig1h1)) são representadas nas formas de pontos, linhas e polígonos.
 
 ```{r fig1h1, echo=FALSE ,fig.align="center",fig.cap='Representação no plano unidimensional das formas vetoriais.'}
   knitr::include_graphics("res/1_intro/rep_dados.png")
 ```
 
-Um **ponto** tem como finalidade a identificação ou localização de uma ocorrência no espaço, onde um par ordenado (x,y) de coordenadas é utilizado para identificar sua posição geográfica, um dos exemplos para representação de pontos pode ser exemplificado como a  localização do ponto central de uma cidade ou localidade. Uma **linha** é composta por um conjunto de pontos e representa uma estrutura unidimensional no espaço, é bastante utilizada para representação de rios e estradas. Um **polígono** *“é a região do plano limitada por uma ou mais linhas poligonais conectadas de tal forma que o último ponto de uma linha seja idêntico ao primeiro da próxima”* @casanova2005banco.
-
+Um **ponto** tem como finalidade a identificação ou localização de uma ocorrência no espaço, onde um par ordenado (x,y) de coordenadas é utilizado para identificar sua posição geográfica, um dos exemplos para representação de pontos pode ser exemplificado como a localização do ponto central de uma cidade ou localidade. Uma **linha** é composta por um conjunto de pontos e representa uma estrutura unidimensional no espaço, é bastante utilizada para representação de rios e estradas. Um **polígono** *“é a região do plano limitada por uma ou mais linhas poligonais conectadas de tal forma que o último ponto de uma linha seja idêntico ao primeiro da próxima”* @casanova2005banco.
 
 ### Matriciais
 
