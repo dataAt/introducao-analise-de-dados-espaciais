@@ -100,7 +100,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>1</b> Introdução 🌍</a><ul>
+<li class="chapter" data-level="1" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>1</b> Introdução 🌐</a><ul>
 <li class="chapter" data-level="1.1" data-path="introdução.html"><a href="introdução.html#representações-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="introdução.html"><a href="introdução.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introdução.html"><a href="introdução.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
@@ -139,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulação-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌍🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulação-geométrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
@@ -269,9 +269,9 @@ Figure 2.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 ## 2 Milho TRUE       2019-01-10</code></pre>
 <p>Podemos salvar os dados em diferentes formatos, sendo eles tabulares ou não. Para salvar os dados no formato <code>json</code>, pode ser feito desta forma:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Importação do pacote </span>
-  <span class="kw">library</span>(jsonlite)</code></pre></div>
-<pre><code>## Loading required package: methods</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Transformando o tibble em json</span>
+  <span class="kw">library</span>(jsonlite)
+  
+  <span class="co"># Transformando o tibble em json</span>
   df_solo_json &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">toJSON</span>(df_solo, <span class="dt">pretty =</span> <span class="ot">TRUE</span>)
   
   <span class="co"># Visualização do json</span>
@@ -361,7 +361,7 @@ Figure 2.4: Conjunto de pacotes do kit de ferramentas e etapas de um projeto de 
 </div>
 <div id="manipulação-de-dados" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Manipulação de dados</h3>
-<p>Nesta subseção, vamos nos basear no nosso livro-texto de <a href="https://dataat.github.io/introducao-analise-de-dados/introducao-ao-r.html#manipulacao-de-dados">Introdução à Análise de Dados</a>, fique à vontade para contribuir com o material deste curso 😞.</p>
+<p>Nesta subseção, vamos nos basear no nosso livro-texto de <a href="https://dataat.github.io/introducao-analise-de-dados/introducao-ao-r.html#manipulacao-de-dados">Introdução à Análise de Dados</a>, fique à vontade para contribuir com o material deste curso 😿.</p>
 <p>Para selecionar, filtrar e agrupar nossos dados, vamos usar o pacote <code>dplyr</code>, o qual está contido no kit de ferramentas <code>Tidyverse</code>. Vamos iniciar criando mais um conjunto de dados:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Criação do tibble</span>
   df_escola &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(
