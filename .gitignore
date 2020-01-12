@@ -162,5 +162,9 @@ vignettes/*.pdf
 ### R.Bookdown Stack ###
 # R package: bookdown caching files
 /*_files/
+*.Rprofile
+src/.Rprofile
+src/renv/
+/*renv/
 
 # End of https://www.gitignore.io/api/r,python,jupyternotebooks
