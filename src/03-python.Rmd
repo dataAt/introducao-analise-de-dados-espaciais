@@ -3,7 +3,7 @@
 ```{r, echo=FALSE}
 # Estes comandos não devem ser executados em seu terminal
 library(reticulate) 
-use_python("venv/bin/python3")
+use_python("/home/felipe/anaconda3/bin/python")
 ```
 
 ```{python, echo = FALSE}
@@ -13,17 +13,17 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 ```
 
-Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar rápidas soluções para seus problemas sem grandes preocupações com a sintaxe e formas de uso da linguagem. 
+Python é uma linguagem de programação versátil, multiparadigma, que permite aos desenvolvedores criar soluções rápidas para seus problemas sem grandes preocupações com a sintaxe e formas de uso. 
 
-Tais características fazem Python alcançar os mais variados nichos de aplicação. Por ser uma linguagem geral para atingir tais nichos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões de uso espacial para uma biblioteca de análise de dados muito conhecida na comunidade Python, o Pandas.
+Tais características fazem Python alcançar os mais variados nichos de aplicação. Por ser uma linguagem geral para atingir tais nichos, foram criadas pela comunidade de Python diversas bibliotecas, todas seguindo a ideia da simplicidade de aplicação e prototipação da linguagem. É neste contexto que surge o GeoPandas, que fornece extensões espaciais para o Pandas, uma biblioteca de análise de dados muito conhecida na comunidade Python.
 
-Desta forma, este capítulo busca explicar as principais formas de utilização do GeoPandas. Por ser baseada no Pandas, há uma pequena seção que trata sobre o uso básico da linguagem, mas é recomendado que o leitor também conheça tal biblioteca, para isto, existe o [curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao.html), que explica os principais conceitos de utilização do Pandas, não deixe de conferir!
+Desta forma, este capítulo busca explicar as principais formas de utilização do GeoPandas. Por ser criada sob o Pandas, a próxima seção faz uma pequena revisão de uso dessa biblioteca. É recomendado que o leitor tenha ideias gerais sobre a biblioteca Pandas, para que os conceitos apresentados aqui sejam mais facilmente compreendidos, caso necessário, existe o material do  [Curso de introdução à análise de dados](https://dataat.github.io/introducao-analise-de-dados/introducao.html), onde são apresentados os principais conceitos de uso do Pandas e de outras bibliotecas, não deixe de conferir!
 
 ## Pandas `r emo::ji("panda")`
 
 Com a necessidade de facilitar todo o processo de análise de dados, através de uma linguagem simples e amigável, a comunidade Python criou o Pandas, uma biblioteca que disponibiliza métodos de alto nível para a manipulação, processamento e análise dos mais variados tipos de dados.
 
-Através dos métodos desta biblioteca é possível aplicar todo o ciclo de análise de dados, este indo desde a coleta até o processamento e análise. Para realizar tais atividades, o pandas disponibiliza diversas estruturas de dados, sendo as `Series` e os `DataFrames` as principais.
+Através dos métodos desta biblioteca é possível aplicar todo o ciclo de análise de dados, este indo desde a coleta até o processamento e análise. Para realizar tais atividades, o Pandas disponibiliza diversas estruturas de dados, sendo as `Series` e os `DataFrames` as principais.
 
 Cada uma dessas estruturas de dados, trata especificamente de uma forma de realizar a abstração do formato dos dados em código, isto faz com que seja necessário o entendimento das principais diferenças entre cada uma delas, para que seja possível realizar sua correta aplicação. Vamos buscar comparar cada uma dessas estruturas para entender suas diferenças.
 
@@ -37,9 +37,9 @@ Estas características, na prática, indicam que, as `Series` apenas representar
 </div>
 </center>
 
-Perceba que, as `Series` possuem o campo para o armazenamento dos dados (Representado em Azul), e o índice (Representado em roxo), não podendendo ser adicionado nenhum outro campo, isto faz com que, todos os dados tenham de ser armazenados em apenas uma coluna, em várias linhas.
+Perceba que, as `Series` possuem o campo para o armazenamento dos dados (Representado em Azul), e o índice (Representado em roxo), não podendendo ser adicionado nenhum outro campo, isto faz com que, todos os dados tenham de ser armazenados em apenas uma coluna com várias linhas.
 
-Para o `DataFrame` o cenário apresentado na Figura é diferente, além dos índices, há também as colunas (Representada em vermelho), o que permite que dentro desta estrutura existam não só um conjunto de linhas, como as `Series` mas sim um conjunto de colunas, onde cada uma dessas possuem várias linhas. Na prática o que fica subentendido é que, os `DataFrames` são um conjunto de `Series`.
+Para o `DataFrame` o cenário apresentado na Figura é diferente, além dos índices, há também as colunas (Representada em vermelho), o que permite que dentro desta estrutura existam não só um conjunto de linhas, como as `Series` mas sim um conjunto de colunas, onde cada uma dessas possuem várias linhas. Na prática, é tido que um `DataFrame` é um conjunto de `Series`.
 
 <center>
 ![](res/3_python/relacoes_pandas.svg)
@@ -169,7 +169,7 @@ print(df["col1"])
 
 Assim, fica mais fácil entender que, quando se trata de colunas, estamos buscando os nomes, e não simplesmente as posições.
 
-Bom, agora que já entendemos toda a utilização básica do Pandas, vamos começar a falar um pouco sobre o GeoPandas `r emo::ji("purple_heart")`
+Bom, agora que já entendemos a utilização básica do Pandas, vamos começar a falar um pouco sobre o GeoPandas `r emo::ji("purple_heart")`
 
 ## GeoPandas `r emo::ji("earth")``r emo::ji("panda")`
 
@@ -187,21 +187,19 @@ Este conceito pode ser melhor entendido com a observação da Figura abaixo.
 ![](res/3_python/relacoes_pandas_e_geopandas.svg)
 </center>
 
-Perceba que, há a mesma estrutura que foi apresentada na seção anterior, com as geometrias sendo o diferencial nas estruturas de dados.
-
-Na prática o que ocorre é, todas as formas de manipulação geométricas, que como citadas são implementadas com o Shapely, são implementadas em uma classe `GeoPandasBase` que é extendida pelas `GeoSeries` e `GeoDataFrames`, da mesma forma, essas também extendem as estruturas de dados equivalentes do Pandas, veja a Figura abaixo.
+Perceba que, há a mesma estrutura que foi apresentada na seção anterior, com as geometrias sendo o diferencial. Na prática o que ocorre é, todas as formas de manipulação geométricas, feitas com o `Shapely`, são consumidas em uma classe `GeoPandasBase` que é extendida pelas `GeoSeries` e `GeoDataFrames`, da mesma forma, essas também extendem as estruturas de dados equivalentes do Pandas, veja a Figura abaixo.
 
 <center>
 ![](res/3_python/geopandas_classes.svg)
 </center>
 
-Como a `GeoSeries` e os `GeoDataFrames` são especializações diretas das `Series` e dos `DataFrames` as mesmas características são mantidas, onde, respectivamente, um armazena apenas uma coluna de valores, tendo uma dimensão de manipulação e o outro armazena diversas colunas com duas dimensões de manipulação, da mesma forma como apresentado na seção anterior.
+Como a `GeoSeries` e os `GeoDataFrames` são especializações diretas das `Series` e dos `DataFrames` as mesmas características vistas anteriormente são mantidas, onde, respectivamente, um armazena apenas uma coluna de valores, tendo uma dimensão de manipulação e o outro armazena diversas colunas com duas dimensões de manipulação, da mesma forma como apresentado na seção anterior.
 
 Para fixar o funcionamento de cada uma dessas estruturas, vamos fazer alguns testes com a API do GeoPandas. 
 
 ### GeoSeries e GeoDataFrames
 
-Para começar os testes, vamos importar a biblioteca de geometrias, `Shapely` e o GeoPandas.
+Para começar os testes, vamos importar a biblioteca de geometrias, `Shapely` e o `GeoPandas`.
 
 ```{python}
 import shapely
@@ -248,7 +246,7 @@ plt.show()
 ```
 </center>
 
-Mas as `GeoSeries` podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações, isto por permitir múltiplas colunas. Vamos criar um para fazer testes.
+Mas as `GeoSeries` podem ser limitadas em alguns casos, imagine que para a realização de um estudo seja necessário não só a geolocalização ou a representação geométrica no espaço, mas também características do ambiente, qualquer tipo de informação que não a espacial. Nestes casos podemos utilizar os `GeoDataFrames` que além de colunas de geometria permitem o armazenamento de outras informações. Vamos criar um para fazer testes.
 
 ```{python}
 gdf = gpd.GeoDataFrame({
@@ -313,7 +311,7 @@ A representação acima não nos mostra todas as colunas de informações que te
 print(gdf.columns)
 ```
 
-Olha que interessante! Para cada estado, há seu nome, a região a que pertence, sua Unidade da Federação (UF) e o código desta UF. Agora que já sabemos como estão nossos dados, vamos voltar um pouco na coluna `geometry`.
+Olha que interessante! Para cada estado, há seu nome, a região a que pertence e o código desta UF. Agora que já sabemos como estão nossos dados, vamos voltar um pouco na coluna `geometry`.
 
 ```{python}
 print(gdf["geometry"].head(5))
@@ -418,7 +416,7 @@ Depois de carregar os dados, vamos utilizar o atributo `area`, que realiza a ope
 print(estados_do_brasil.area.head(5)) # Exibindo somente as 5 primeiras
 ```
 
-A área é devolvida na unidade de medida da projeção espacial utilizada no conjunto de dados, estes detalhes serão apresentados nas seções seguintes.
+A área é devolvida na unidade de medida da projeção espacial utilizada no conjunto de dados.
 
 #### bounds
 
@@ -434,7 +432,7 @@ print(estados_do_brasil.bounds.head(5))
 
 #### centroid
 
-O atributo `centroid` devolve o ponto central da geometria. Sua representação é feita na Figura abaixo.
+O atributo `centroid` devolve centro geométrico de uma geometria. Sua representação é feita na Figura abaixo.
 
 ![](res/3_python/opgeom_centroid.svg)
 
@@ -456,7 +454,7 @@ centroids_dos_estados.plot()
 plt.show()
 ```
 
-Para fazermos um pequeno experimento, famos pegar a figura com os estados e fazer seu plot junto com os centroids.
+Para fazermos um pequeno experimento, vamos pegar a figura com os estados e fazer seu plot junto com os centroids.
 
 ```
 base = estados_do_brasil.plot()
@@ -471,7 +469,7 @@ plt.show()
 
 #### buffer
 
-O método `buffer` cria um circulo entorno de um ponto, e pode ser aplicado em diferentes tipos de análises espaciais. Sua representação é feita na Figura abaixo.
+O método `buffer` cria um circulo de influência no entorno de uma localização, e pode ser aplicado em diferentes tipos de análises espaciais. Sua representação é feita na Figura abaixo.
 
 <center>
 ![](res/3_python/opgeom_buffer.svg)
@@ -576,17 +574,17 @@ distancia = estado_saopaulo.distance(estado_maranhao)
 print(distancia)
 ```
 
-Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo. Esta mesma operação pode ser utilizada como uma forma de consulta aos dados, por exemplo, buscar estados que estejam a X de distância de outro.
+Feito, com isto tem-se a distância entre as duas geometrias, que neste caso representa os estados do Maranhão e São Paulo. Esta mesma operação pode ser utilizada como uma forma de consulta aos dados, por exemplo, buscar estados que estejam a `X` de distância de outro.
 
 #### contains
 
-O método `contains` verifica se uma geometria está contida em outra, sua representação visual é apresentada abaixo .
+O método `contains` verifica se uma geometria contém outra, sua representação visual é apresentada abaixo .
 
 <center>
 ![](res/3_python/opgeom_contains.svg)
 </center>
 
-Vamos fazer um teste da operação com o estado do Amazonas, verificando se sua geometria está contida nas nos dados de estados do Brasil.
+Vamos fazer um teste da operação com o estado do Amazonas, verificando se sua geometria está contida nos dados de estados do Brasil.
 
 Primeiro, vamos retirar do `GeoDataFrame` as informações do estado do Amazonas, para isto aplicamos um filtro booleano, herdado do Pandas.
 
@@ -608,10 +606,10 @@ Veja que em uma das linhas apareceu `True`, isto indica que a geometria do estad
 ```{python}
 print(estados_do_brasil[amazonas_esta_presente])
 ```
-
+<!--
 #### intersects
 
-Por fim, na parte de seleção através dos dados espaciais, vamos testar o método `intersects`, que verifica se uma geometria faz intersecção com outra. Vale lembrar que, é tido como uma intersecção, quando um objeto cruza de alguma maneira, seu limite e seu interior com outro objeto. A operação pode ser vista abaixo.
+Por fim, na parte de seleção através dos dados espaciais, vamos testar o método `intersects`, que verifica se uma geometria faz intersecção com outra. A operação pode ser vista abaixo.
 
 <center>
 ![](res/3_python/opgeom_intersects.svg)
@@ -670,6 +668,7 @@ plt.show()
 ```
 
 Veja que esta operação verificou somente aqueles que fazem intersecção com as fronteiras, não indicando que está contido ou próximo ao estado.
+-->
 
 ### Manipulação de projeções
 
@@ -679,4 +678,4 @@ Uma operação muito importante quando se está trabalhando dados espaciais é a
 ![](res/3_python/opgeom_tocrs.svg)
 </center>
 
-Este foi o capítulo sobre GeoPandas e suas facilidades de uso `r emo::ji("star2")`, não deixe de consultar a documentação oficial e fazer seus testes `r emo::ji("dizzy")`.
+Este foi o capítulo sobre GeoPandas e suas facilidades de uso `r emo::ji("star2")`. Cabe lembrar que aqui são apresentados apenas os conceitos iniciais, há muito mais para explorar, com uma gama de outros operadores e conceitos a serem vistos, então, não deixe de consultar a documentação oficial e fazer seus testes `r emo::ji("dizzy")`.

@@ -208,7 +208,6 @@ Os códigos **E**uropean **P**etrolem **S**urvey **G**roup (EPSG) representam um
 
 Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os mais variados sistemas de coordenadas, abaixo é apresentado uma tabela com somente alguns dos códigos EPSG mais utilizados no Brasil.
 
-
 | CÓDIGO EPSG | PROJEÇÃO/DATUM |
 |:-----------:|:--------------:|
 |     4225    |       GCS      |
@@ -221,7 +220,7 @@ Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os m
 
 ## Open Geospatial Consortium (OGC)
 
-A organização *Open Geospatial Consortium* (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, **geometry** (geometria) e **geography** (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado *Simple Features*. Para descrever a hierarquia **geometry**  onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para **geometry** e **geography**.
+A organização *Open Geospatial Consortium* (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, **geometry** (geometria) e **geography** (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado *Simple Features*, aqui chamado de OGC-SFS. Para descrever a hierarquia **geometry**  onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para **geometry** e **geography**.
 
 ```{r fig142, echo=FALSE ,fig.align="center", out.width = "70%",fig.cap='Principais tipos geométricos (OGC) - Fonte: [@egenhofer1991point]'}
   knitr::include_graphics("res/1_intro/OGC_FEATURES.png")
@@ -244,73 +243,42 @@ Já para o grupo dos **Múltiplos**, os tipos de dados relacionados são baseado
 
 Existe uma diferença significativa para os tipos de dados de **geometry** e **geography**, os dois se comportam de maneira semelhante porém algumas diferenças importantes devem ser levadas em consideração. Existem tipos de medidas para dados espaciais, dentre estes tipos de medidas podemos destacar as medidas de sistema planar (terra plana) e os sistemas elipsoidal (terra redonda), onde as medidas de distância e áreas possuem variações que devem ser levadas em consideração para obtenção de medidas mais precisas. Assim como as medidas para os dados espaciais é importante determinar a orientação dos dados espaciais, em sistemas planares a orientação do anel do polígono não é um fator importante, já para sistemas elipsoidais um polígono pode ter valores ambíguos caso a sua orientação não seja definida.
 
-## Relacionamentos espaciais nomeados
+## Relacionamentos espaciais
 
-Realizar a caracterização do relacionamento entre os objetos espaciais permite a criação de contextos semânticos sobre estes [@Camara2005] e assim seja possível a extração de informações relevantes [@Ferreira2010].
+Além da definição dos tipos geométricos, o OGC-SFS define também operações para a manipulação e uso desses. Dentre as operações definidas existem um conjunto delas que merece uma atenção especial, os operadores topológicos, com esses é possível realizar testes de relacionamento espacial entre os objetos geométricos. Na especificação da OGC-SFS, esses operadores topológicos utilizam como base a matriz de 9 intersecções estendida dimensionalmente.
 
-É tido que, existem alguns tipos de relacionamentos entre os objetos que podem ser utilizados para tal caracterização, sendo eles, topológicos, métricos e de ordem [@Camara2005]. Os relacionamentos métricos representam relações que tratam especificamente de área de distância entre objetos. Já os de ordem representam a forma com que um objeto está disposto ao outro. Os topográficos consideram os relacionamentos de interseção entre os objetos.
+### Matriz de 9-Interseções Estendida dimensionalmente
 
-Todos os tipos citados anteriormente serão tratados em algum momento durante esta documentação, porém nesta seção as relações topográficas terão uma ênfase especial, isto já que, diferente das demais, apresenta uma estrutura própria para seus relacionamentos e ainda, segundo @Bogorny2001, representa a forma de relação espacial mais utilizada, já que esta faz analogias diretas a como percebemos a espacialidade do mundo real.
+A matriz de nove intersecções extendida dimensionalmente (**DE-9IM**) tem como objetivo apresentar um método para os relacionamentos topológicos entre objetos geométricos, este modelo considera o resultado da interseção entre as fronteiras, interiores e exteriores de duas geometrias [@queiroz2005banco]. A matriz é apresentada abaixo
 
-<!-- 
-http://sertie.fct.unesp.br/wp-content/uploads/2017/10/17-Relacionamentos-topol%C3%B3gicos.pdf
--->
-Desta forma, as subseções abaixo apresentam um pouco mais sobre os relacionamentos topográficos, também denominados de relacionamentos espaciais nomeados, uma vez que, possuem uma definição formal, que vai desde sua nomenclatura até as formas de representação.
+|              	|    Interior(B)    	|    Fronteira(B)   	| Exterior(B)       	|
+|:------------:	|:-----------------:	|:-----------------:	|-------------------	|
+|  Interior(A) 	| $I(A) \cap I(B)$ 	| $I(A) \cap F(B)$ 	| $I(A) \cap E(B)$ 	|
+| Fronteira(A) 	| $F(A) \cap I(B)$ 	| $F(A) \cap F(B)$ 	| $F(A) \cap E(B)$ 	|
+| Exterior(A)  	| $E(A) \cap I(B)$ 	| $E(A) \cap F(B)$ 	| $E(A) \cap E(B)$ 	|
 
-### Relacionamentos espaciais
+Com base nestes testes de intersecção faz-se a construção dos operadores de relacionamento especificados na OGC-SFS.
 
-Esta subseção busca de forma simples, apresentar a definição formal dos relacionamentos espaciais nomeados. Em um segundo momento, na documentação do Python, R e PostGIS deste material há exemplos de aplicações de tais relacionamentos.
+### Relacionamentos espaciais nomeados
 
-Para o entendimento destes relacionamentos, vamos começar fazendo a definição das regiões das geometrias, assunto base para o entendimento das formas de relação, para isto, veja a Figura abaixo.
+Com base na sobrecarga de comportamentos específicos da **DE-9IM**, a OGC-SFS define um conjunto de 8 operadores com nomes bem definidos, de modo que, o comportamento gerado por esses sob a **DE-9IM** já tem um padrão determinado, o que evita ter de trabalhar diretamente com a manipulação da matriz.
 
-<center>
-![](res/1_intro/regioes_geometricas.svg)
-</center>
+Os operadores definidos são:
 
-Perceba que, para cada uma das principais geometrias há um conjunto de três definições. O interior refere-se diretamente a área interna da geometria, enquanto que a fronteira representa somente o contorno da área e o exterior sendo toda área que não é preenchida pela geometria.
+$Equals(Geometry, Geometry) \to bool$: Verifica se duas geometrias são espacialmente iguais
 
-Certo, vejamos agora, alguns tipos de relacionamentos espaciais:
+$Disjoint(Geometry, Geometry) \to bool$: Verifica se duas geometrias não possuem qualquer tipo de relação espacial
 
-- **contains** - Verifica se a geometria B contém A;
-- **equal** - Verifica se duas geometrias são iguais.
+$Touches(Geometry, Geometry) \to bool$: Indica se duas geometrias se tocam
 
-Porém, somente ao ler a descrição de cada um dos métodos de relacionamentos apresentados acima é possível perceber um problema. O que significa dizer que a geometria B contém A ? Ou mesmo, o que torna as geometrias iguais ?
+$Crosses(Geometry, Geometry) \to bool$: Verifica se duas geometrias se cruzam
 
-Por conta destas questões que cada um destes métodos possui uma definição formal, que como citado anteriormente, evita qualquer tipo de múltiplas interpretações, mas como esta definição pode ser feita ? Para este problema @Bogorny2001 indica que diversas abordagens podem ser aplicadas, porém é comum a aplicação de matrizes de interseção, descrevendo o comportamento de cada região da geometria nos métodos de relacionamento.
+$Within(Geometry, Geometry) \to bool$: Verifica se a primeira geometria está dentro da segunda
 
-@Camara2005 define que para casos simples pode ser utilizada a chamada Matriz de 4-Interseções, que define 8 relações espaciais nomeadas e descreve o que cada uma dessas operações leva em consideração. A Matriz de operações é apresentada abaixo.
+$Contains(Geometry, Geometry) \to bool$: Este operador é o inverso do `Within`, verificando se a primeira geometria contém a segunda
 
-```{r figm4, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Matriz 4-Interseções Fronteira (∂); interior (°); exterior (-); vazio (∅); não vazio (¬∅)  - Fonte: @egenhofermdifelicepclementinie1994'}
-  knitr::include_graphics("res/1_intro/matriz_4.PNG")
-```
+$Overlaps(Geometry, Geometry) \to bool$: Verifica se duas geometrias se sobrepõem
 
-O ponto importante da Figura apresentada acima é que, para cada um dos métodos que estão sendo apresentados, há exatamente o que ele considera, por exemplo, vejamos o método **contains**, que indica se uma geometria está ou não contida em outra. Neste método existem quatro cenários possíveis. No primeiro, é considerado se as fronteiras (∂) estão se cruzando, e caso estejam não é considerado que uma contém a outra. O segundo caso verifica se o interior (°) de uma geometria está em outro, e caso esteja é considerado que uma está contida em outra. 
+$Intersects(Geometry, Geometry) \to bool$: Verifica se duas geometrias tem algum tipo de relacionamento espacial
 
-Veja que interessante! Através de uma definição simples e direta já foi possível perceber os possíveis casos de cada método.
-
-Há casos em que a Matriz de 4-Interseções não é o suficiente para fazer as representações [@Camara2005], para estes casos outros modelos podem ser utilizados, como é o caso da Matriz de 9-Interseções Dimensionalmente estendidas, apresentada na seção seguinte a esta.
-
-### Restrições espaciais
-
-Em certos casos, o fenômeno que está sendo representado pelos dados espaciais faz com que sejam necessários a aplicação de regras e restrições específicas sobre os mesmos [@Bogorny2001]. Esta regra também é aplicável no contexto dos relacionamentos espaciais.
-
-Por exemplo, o método **disjoint** pode ser aplicado considerando qualquer par de geometrias, enquanto que o método **overleap** só pode ser aplicado a pares do mesmo tipo, como por exemplo geometrias de linhas com outras linhas [@Camara2005].
-
-Caso você fique interessado e deseja uma descrição completa de todas estas restrições, não deixe de consultar o material de `Banco de dados geográficos`, disponibilizado pelo INPE.
-
-## Matriz de 9-Interseções Estendida dimensionalmente
-
-O modelo de novo intersecções dimensionalmente estendido (**DE9IM**) tem como objetivo apresentar um método para os relacionamentos topológicos entre objetos geométricos, este modelo considera o resultado da interseção entre as fronteiras, interiores e exteriores de duas geometrias [@queiroz2005banco]. A DE9IM é uma extensão da matriz de 4-interseções onde oito relações topológicas binárias são consideradas, estas operações representam a interseção entre as fronteiras e o interior de duas geometrias [@egenhofer1990categorizing].
-
-A definição dos relacionamentos topológicos para a **DE9IM** visa cobrir as operações entre objetos mais complexos, por exemplo, operações entre ilhas e separações. Para isso se faz necessário estender a matriz de 4-Interseções e levar em consideração o exterior das geometrias. Para este novo modelo, o resultado da interseção entre as fronteiras, interiores e exteriores são avaliados e os valores de operações vazias ou não-vazias também é considerado, pois em alguns casos é necessário considerar as dimensões de interseções não vazias, no modelo da Figura x, são consideradas operações entre (Interior, Fronteira e Exterior) de dois objetos A e B onde o resultado das operações contempla um conjunto de 52 relacionamentos topológicos entre os objetos, sendo que que tais relacionamentos podem ser agrupados em cinco operações mais gerais: **touch** (toca), **in** (dentro), **cross** (cruza), **overlap** (sobrepõem) e **disjoint** (disjunto).
-
-
-
-```{r fig112, echo=FALSE ,fig.align="center", out.width = "50%",fig.cap='Matriz de 9-Interseções relacionando duas regiões entre objetos - Fonte: [@egenhofer1991point]'}
-  knitr::include_graphics("res/1_intro/NINE_INTER.png")
-```
-
-
-
-
-
+Com a utilização desses operadores bem definidos, muitas operações em Sistemas de Informação Geográficas são realizadas. Há muito mais para ver, aqui apenas apresentamos os conceitos gerais, para que você tenha uma ideia de tudo que está por trás das operações que são realizadas no curso.  Se quiser se aprofundar, o [material da disciplina de Bancos de Dados Geográficos](https://cap-349.github.io/index.html) é aberto e cobre por completo cada um desses assuntos.

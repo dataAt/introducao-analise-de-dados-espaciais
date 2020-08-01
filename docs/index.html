@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introdução 🌐 | intro-analise-de-dados-espaciais.utf8.md</title>
+  <title></title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introdução 🌐 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta property="og:title" content="" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introdução 🌐 | intro-analise-de-dados-espaciais.utf8.md" />
+  <meta name="twitter:title" content="" />
   
   
   
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -48,66 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -122,69 +100,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução 🌐</a><ul>
-<li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#representacoes-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="introducao.html"><a href="introducao.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
-<li class="chapter" data-level="1.1.2" data-path="introducao.html"><a href="introducao.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
+<li class="chapter" data-level="1" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>1</b> Introdução 🗺</a><ul>
+<li class="chapter" data-level="1.1" data-path="introdução.html"><a href="introdução.html#representações-de-dados-espaciais"><i class="fa fa-check"></i><b>1.1</b> Representações de dados espaciais</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introdução.html"><a href="introdução.html#vetoriais"><i class="fa fa-check"></i><b>1.1.1</b> Vetoriais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introdução.html"><a href="introdução.html#matriciais"><i class="fa fa-check"></i><b>1.1.2</b> Matriciais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#sistema-de-referencia-espacial"><i class="fa fa-check"></i><b>1.2</b> Sistema de referência espacial</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#projecoes-cartograficas"><i class="fa fa-check"></i><b>1.3</b> Projeções cartográficas</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="introducao.html"><a href="introducao.html#tipos-de-projecao"><i class="fa fa-check"></i><b>1.3.1</b> Tipos de projeção</a></li>
+<li class="chapter" data-level="1.2" data-path="introdução.html"><a href="introdução.html#sistema-de-referência-espacial"><i class="fa fa-check"></i><b>1.2</b> Sistema de referência espacial</a></li>
+<li class="chapter" data-level="1.3" data-path="introdução.html"><a href="introdução.html#projeções-cartográficas"><i class="fa fa-check"></i><b>1.3</b> Projeções cartográficas</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introdução.html"><a href="introdução.html#tipos-de-projeção"><i class="fa fa-check"></i><b>1.3.1</b> Tipos de projeção</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>1.4</b> Sistema de Coordenadas</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="introducao.html"><a href="introducao.html#sistemas-de-coordenadas-geograficas"><i class="fa fa-check"></i><b>1.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
-<li class="chapter" data-level="1.4.2" data-path="introducao.html"><a href="introducao.html#coordenadas-planas"><i class="fa fa-check"></i><b>1.4.2</b> Coordenadas planas</a></li>
-<li class="chapter" data-level="1.4.3" data-path="introducao.html"><a href="introducao.html#codigos-epsg"><i class="fa fa-check"></i><b>1.4.3</b> Códigos EPSG</a></li>
+<li class="chapter" data-level="1.4" data-path="introdução.html"><a href="introdução.html#sistema-de-coordenadas"><i class="fa fa-check"></i><b>1.4</b> Sistema de Coordenadas</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introdução.html"><a href="introdução.html#sistemas-de-coordenadas-geográficas"><i class="fa fa-check"></i><b>1.4.1</b> Sistemas de Coordenadas Geográficas</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introdução.html"><a href="introdução.html#coordenadas-planas"><i class="fa fa-check"></i><b>1.4.2</b> Coordenadas planas</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introdução.html"><a href="introdução.html#códigos-epsg"><i class="fa fa-check"></i><b>1.4.3</b> Códigos EPSG</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="introducao.html"><a href="introducao.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>1.5</b> Open Geospatial Consortium (OGC)</a></li>
-<li class="chapter" data-level="1.6" data-path="introducao.html"><a href="introducao.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>1.6</b> Relacionamentos espaciais nomeados</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="introducao.html"><a href="introducao.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>1.6.1</b> Relacionamentos espaciais</a></li>
-<li class="chapter" data-level="1.6.2" data-path="introducao.html"><a href="introducao.html#restricoes-espaciais"><i class="fa fa-check"></i><b>1.6.2</b> Restrições espaciais</a></li>
+<li class="chapter" data-level="1.5" data-path="introdução.html"><a href="introdução.html#open-geospatial-consortium-ogc"><i class="fa fa-check"></i><b>1.5</b> Open Geospatial Consortium (OGC)</a></li>
+<li class="chapter" data-level="1.6" data-path="introdução.html"><a href="introdução.html#relacionamentos-espaciais"><i class="fa fa-check"></i><b>1.6</b> Relacionamentos espaciais</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introdução.html"><a href="introdução.html#matriz-de-9-interseções-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.6.1</b> Matriz de 9-Interseções Estendida dimensionalmente</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introdução.html"><a href="introdução.html#relacionamentos-espaciais-nomeados"><i class="fa fa-check"></i><b>1.6.2</b> Relacionamentos espaciais nomeados</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="introducao.html"><a href="introducao.html#matriz-de-9-intersecoes-estendida-dimensionalmente"><i class="fa fa-check"></i><b>1.7</b> Matriz de 9-Interseções Estendida dimensionalmente</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R 💎</a><ul>
 <li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#tibble"><i class="fa fa-check"></i><b>2.1</b> Tibble</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="r.html"><a href="r.html#tidyverse"><i class="fa fa-check"></i><b>2.1.1</b> Tidyverse</a></li>
-<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#manipulacao-de-dados"><i class="fa fa-check"></i><b>2.1.2</b> Manipulação de dados</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#manipulação-de-dados"><i class="fa fa-check"></i><b>2.1.2</b> Manipulação de dados</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="r.html"><a href="r.html#sf"><i class="fa fa-check"></i><b>2.2</b> SF</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r.html"><a href="r.html#tipos-geometricos"><i class="fa fa-check"></i><b>2.2.1</b> Tipos Geométricos</a></li>
+<li class="chapter" data-level="2.2.1" data-path="r.html"><a href="r.html#tipos-geométricos"><i class="fa fa-check"></i><b>2.2.1</b> Tipos Geométricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r.html"><a href="r.html#leitura-e-escrita-de-dados-vetoriais"><i class="fa fa-check"></i><b>2.2.2</b> Leitura e escrita de dados vetoriais</a></li>
 <li class="chapter" data-level="2.2.3" data-path="r.html"><a href="r.html#relacionamentos-espaciais-1"><i class="fa fa-check"></i><b>2.2.3</b> Relacionamentos Espaciais</a></li>
-<li class="chapter" data-level="2.2.4" data-path="r.html"><a href="r.html#operadores-metricos"><i class="fa fa-check"></i><b>2.2.4</b> Operadores Métricos</a></li>
-<li class="chapter" data-level="2.2.5" data-path="r.html"><a href="r.html#sistemas-de-referencias"><i class="fa fa-check"></i><b>2.2.5</b> Sistemas de referências</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r.html"><a href="r.html#operadores-métricos"><i class="fa fa-check"></i><b>2.2.4</b> Operadores Métricos</a></li>
+<li class="chapter" data-level="2.2.5" data-path="r.html"><a href="r.html#sistemas-de-referências"><i class="fa fa-check"></i><b>2.2.5</b> Sistemas de referências</a></li>
 <li class="chapter" data-level="2.2.6" data-path="r.html"><a href="r.html#materiais-recomendados"><i class="fa fa-check"></i><b>2.2.6</b> Materiais recomendados</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>3</b> Python ✨</a><ul>
 <li class="chapter" data-level="3.1" data-path="python.html"><a href="python.html#pandas"><i class="fa fa-check"></i><b>3.1</b> Pandas 🐼</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulacao-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
+<li class="chapter" data-level="3.1.1" data-path="python.html"><a href="python.html#manipulação-de-dados-1"><i class="fa fa-check"></i><b>3.1.1</b> Manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌐🐼</a><ul>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#geopandas"><i class="fa fa-check"></i><b>3.2</b> GeoPandas 🌍🐼</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python.html"><a href="python.html#geoseries-e-geodataframes"><i class="fa fa-check"></i><b>3.2.1</b> GeoSeries e GeoDataFrames</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python.html"><a href="python.html#leitura-e-escrita-de-dados-1"><i class="fa fa-check"></i><b>3.2.2</b> Leitura e escrita de dados</a></li>
-<li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulacao-geometrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
-<li class="chapter" data-level="3.2.4" data-path="python.html"><a href="python.html#selecao-e-filtro-de-dados"><i class="fa fa-check"></i><b>3.2.4</b> Seleção e filtro de dados</a></li>
-<li class="chapter" data-level="3.2.5" data-path="python.html"><a href="python.html#manipulacao-de-projecoes"><i class="fa fa-check"></i><b>3.2.5</b> Manipulação de projeções</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python.html"><a href="python.html#manipulação-geométrica"><i class="fa fa-check"></i><b>3.2.3</b> Manipulação geométrica</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python.html"><a href="python.html#seleção-e-filtro-de-dados"><i class="fa fa-check"></i><b>3.2.4</b> Seleção e filtro de dados</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python.html"><a href="python.html#manipulação-de-projeções"><i class="fa fa-check"></i><b>3.2.5</b> Manipulação de projeções</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html"><i class="fa fa-check"></i><b>4</b> Introdução ao postgis 🐘</a><ul>
-<li class="chapter" data-level="4.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#instalacao"><i class="fa fa-check"></i><b>4.1</b> Instalação</a></li>
-<li class="chapter" data-level="4.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>4.2</b> Um pouco de SQL</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>4.2.1</b> Acessando a interface PostgreSQL</a></li>
-<li class="chapter" data-level="4.2.2" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Criando uma nova base de dados</a></li>
-<li class="chapter" data-level="4.2.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#well-known-text"><i class="fa fa-check"></i><b>4.2.3</b> Well-known text</a></li>
+<li class="chapter" data-level="4" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html"><i class="fa fa-check"></i><b>4</b> Introdução ao postgis 🐘</a><ul>
+<li class="chapter" data-level="4.1" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#instalação"><i class="fa fa-check"></i><b>4.1</b> Instalação</a></li>
+<li class="chapter" data-level="4.2" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#um-pouco-de-sql"><i class="fa fa-check"></i><b>4.2</b> Um pouco de SQL</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#acessando-a-interface-postgresql"><i class="fa fa-check"></i><b>4.2.1</b> Acessando a interface PostgreSQL</a></li>
+<li class="chapter" data-level="4.2.2" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#criando-uma-nova-base-de-dados"><i class="fa fa-check"></i><b>4.2.2</b> Criando uma nova base de dados</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#well-known-text"><i class="fa fa-check"></i><b>4.2.3</b> Well-known text</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#funcoes-geometricas"><i class="fa fa-check"></i><b>4.3</b> Funções geométricas</a></li>
-<li class="chapter" data-level="4.4" data-path="introducao-ao-postgis.html"><a href="introducao-ao-postgis.html#relacionamentos-espaciais-2"><i class="fa fa-check"></i><b>4.4</b> Relacionamentos espaciais</a></li>
+<li class="chapter" data-level="4.3" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#funções-geométricas"><i class="fa fa-check"></i><b>4.3</b> Funções geométricas</a></li>
+<li class="chapter" data-level="4.4" data-path="introdução-ao-postgis.html"><a href="introdução-ao-postgis.html#relacionamentos-espaciais-2"><i class="fa fa-check"></i><b>4.4</b> Relacionamentos espaciais</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>5</b> Para saber mais 🔬</a><ul>
-<li class="chapter" data-level="5.1" data-path="para-saber-mais.html"><a href="para-saber-mais.html#impactos-da-resolucao-espacial-de-modelos-digitais-de-superficie-no-calculo-da-perda-de-solo-atraves-da-eups-em-ambiente-urbano"><i class="fa fa-check"></i><b>5.1</b> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></a></li>
-<li class="chapter" data-level="5.2" data-path="para-saber-mais.html"><a href="para-saber-mais.html#criacao-e-avaliacao-de-mapas-de-suscetibilidade-a-inundacao-para-o-municipio-de-iguape-estado-de-sao-paulo"><i class="fa fa-check"></i><b>5.2</b> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></a></li>
-<li class="chapter" data-level="5.3" data-path="para-saber-mais.html"><a href="para-saber-mais.html#conectividade-demografica-e-aclimatacao-de-peixes-recifais-do-genero-sparisoma-em-cenario-de-mudancas-climaticas"><i class="fa fa-check"></i><b>5.3</b> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></a></li>
-<li class="chapter" data-level="5.4" data-path="para-saber-mais.html"><a href="para-saber-mais.html#parametrizacao-de-algoritmos-empiricos-e-algoritmo-quasi-analitico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-varzea-do-rio-amazonas"><i class="fa fa-check"></i><b>5.4</b> <strong>PARAMETRIZAÇÃO DE ALGORITMOS EMPÍRICOS E ALGORITMO QUASI-ANALÍTICO QAA PARA ESTIMATIVA DE CLOROFILA-A EM LAGOS DA VÁRZEA DO RIO AMAZONAS</strong></a></li>
-<li class="chapter" data-level="5.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html#quantificacao-remota-da-concentracao-de-solidos-totais-e-inorganicos-em-suspensao-em-lagos-da-planicie-de-inundacao-do-baixo-amazonas---uma-abordagem-multi-sensor"><i class="fa fa-check"></i><b>5.5</b> <strong>QUANTIFICAÇÃO REMOTA DA CONCENTRAÇÃO DE SÓLIDOS TOTAIS E INORGÂNICOS EM SUSPENSÃO EM LAGOS DA PLANÍCIE DE INUNDAÇÃO DO BAIXO AMAZONAS - UMA ABORDAGEM MULTI-SENSOR</strong></a></li>
+<li class="chapter" data-level="5.1" data-path="para-saber-mais.html"><a href="para-saber-mais.html#impactos-da-resolução-espacial-de-modelos-digitais-de-superfície-no-cálculo-da-perda-de-solo-através-da-eups-em-ambiente-urbano"><i class="fa fa-check"></i><b>5.1</b> <strong>IMPACTOS DA RESOLUÇÃO ESPACIAL DE MODELOS DIGITAIS DE SUPERFÍCIE NO CÁLCULO DA PERDA DE SOLO ATRAVÉS DA EUPS EM AMBIENTE URBANO</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="para-saber-mais.html"><a href="para-saber-mais.html#criação-e-avaliação-de-mapas-de-suscetibilidade-a-inundação-para-o-município-de-iguape-estado-de-são-paulo"><i class="fa fa-check"></i><b>5.2</b> <strong>CRIAÇÃO E AVALIAÇÃO DE MAPAS DE SUSCETIBILIDADE A INUNDAÇÃO PARA O MUNICÍPIO DE IGUAPE, ESTADO DE SÃO PAULO</strong></a></li>
+<li class="chapter" data-level="5.3" data-path="para-saber-mais.html"><a href="para-saber-mais.html#conectividade-demográfica-e-aclimatação-de-peixes-recifais-do-gênero-sparisoma-em-cenário-de-mudanças-climáticas"><i class="fa fa-check"></i><b>5.3</b> <strong>CONECTIVIDADE DEMOGRÁFICA E ACLIMATAÇÃO DE PEIXES RECIFAIS DO GÊNERO SPARISOMA EM CENÁRIO DE MUDANÇAS CLIMÁTICAS</strong></a></li>
+<li class="chapter" data-level="5.4" data-path="para-saber-mais.html"><a href="para-saber-mais.html#parametrização-de-algoritmos-empíricos-e-algoritmo-quasi-analítico-qaa-para-estimativa-de-clorofila-a-em-lagos-da-várzea-do-rio-amazonas"><i class="fa fa-check"></i><b>5.4</b> <strong>PARAMETRIZAÇÃO DE ALGORITMOS EMPÍRICOS E ALGORITMO QUASI-ANALÍTICO QAA PARA ESTIMATIVA DE CLOROFILA-A EM LAGOS DA VÁRZEA DO RIO AMAZONAS</strong></a></li>
+<li class="chapter" data-level="5.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html#quantificação-remota-da-concentração-de-sólidos-totais-e-inorgânicos-em-suspensão-em-lagos-da-planície-de-inundação-do-baixo-amazonas---uma-abordagem-multi-sensor"><i class="fa fa-check"></i><b>5.5</b> <strong>QUANTIFICAÇÃO REMOTA DA CONCENTRAÇÃO DE SÓLIDOS TOTAIS E INORGÂNICOS EM SUSPENSÃO EM LAGOS DA PLANÍCIE DE INUNDAÇÃO DO BAIXO AMAZONAS - UMA ABORDAGEM MULTI-SENSOR</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 </ul>
@@ -206,32 +183,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <!--bookdown:title:end-->
 <!--bookdown:title:start-->
-<div id="introducao" class="section level1">
-<h1><span class="header-section-number">1</span> Introdução 🌐</h1>
-<p>A aplicação de dados espaciais no entendimento de um fenômeno geográfico data-se muito antes da criação dos computadores como os conhecemos. Um famoso exemplo no estudo de “análises espaciais de dados” foi pioneiro em relacionar variáveis estudadas a sua localização geográfica. Em meados do século XIX, durante uma das epidemias de cólera na cidade de Londres, John Snow foi bem-sucedido em determinar o epicentro da epidemia. Cruzando a localização das casas em que ocorreram óbitos por cólera com pontos de abastecimentos de água para consumo humano da cidade, John Snow foi capaz de determinar a forma de transmissão da doença e identificar a bomba de água localizada em “broad-street” como crítica (Figura <a href="introducao.html#fig:fig1111">1.1</a>).</p>
+<div id="introdução" class="section level1">
+<h1><span class="header-section-number">1</span> Introdução 🗺</h1>
+<p>A aplicação de dados espaciais no entendimento de um fenômeno geográfico data-se muito antes da criação dos computadores como os conhecemos. Um famoso exemplo no estudo de “análises espaciais de dados” foi pioneiro em relacionar variáveis estudadas a sua localização geográfica. Em meados do século XIX, durante uma das epidemias de cólera na cidade de Londres, John Snow foi bem-sucedido em determinar o epicentro da epidemia. Cruzando a localização das casas em que ocorreram óbitos por cólera com pontos de abastecimentos de água para consumo humano da cidade, John Snow foi capaz de determinar a forma de transmissão da doença e identificar a bomba de água localizada em “broad-street” como crítica (Figura <a href="introdução.html#fig:fig1111">1.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:fig1111"></span>
-<img src="res/1_intro/mapa_londres.png" alt="Mapa de Londres com óbitos por cólera (pontos) e poços de água (cruzetas)" width="280" />
+<img src="res/1_intro/mapa_londres.png" alt="Mapa de Londres com óbitos por cólera (pontos) e poços de água (cruzetas)"  />
 <p class="caption">
 Figure 1.1: Mapa de Londres com óbitos por cólera (pontos) e poços de água (cruzetas)
 </p>
 </div>
-<p>Como abordado anteriormente, o uso de dados espaciais abrangem diversas aplicações, tais como: estudo de concentração espacial na distribuição de roubos, análise de regiões para fins de zoneamento agrícola e estimativa da extensão de um depósito mineral em uma região a partir de amostras <span class="citation">(Monteiro et al. 2004)</span>. Desta forma, sempre que <strong>onde</strong> aparece no problema a ser estudado, usa-se recursos computacionais e ferramentas voltadas para análise de dados espaciais. A Figura <a href="introducao.html#fig:fig11112">1.2</a> apresenta alguns equipamentos de coleta de dados espaciais, como satélite, radar e VANT (Veículo aéreo não tripulado).</p>
+<p>Como abordado anteriormente, o uso de dados espaciais abrangem diversas aplicações, tais como: estudo de concentração espacial na distribuição de roubos, análise de regiões para fins de zoneamento agrícola e estimativa da extensão de um depósito mineral em uma região a partir de amostras <span class="citation">(Monteiro et al. 2004)</span>. Desta forma, sempre que <strong>onde</strong> aparece no problema a ser estudado, usa-se recursos computacionais e ferramentas voltadas para análise de dados espaciais. A Figura <a href="introdução.html#fig:fig11112">1.2</a> apresenta alguns equipamentos de coleta de dados espaciais, como satélite, radar e VANT (Veículo aéreo não tripulado).</p>
 <div class="figure" style="text-align: center"><span id="fig:fig11112"></span>
-<img src="res/1_intro/data_source_spatial.jpg" alt="Fontes de dados espaciais - Fonte: [@waypoint]" width="585" />
+<img src="res/1_intro/data_source_spatial.jpg" alt="Fontes de dados espaciais - Fonte: [@waypoint]"  />
 <p class="caption">
 Figure 1.2: Fontes de dados espaciais - Fonte: <span class="citation">(waypoint 2015)</span>
 </p>
 </div>
 <p>Com o avanço do potencial computacional e subsequente desenvolvimento dos SIG (Sistemas de Informação geográficas) permitiu-se um maior desenvolvimento de estudos voltados à fenômenos geográficos, reduzindo assim custos e facilitando a manipulação de dados espaciais. Ainda que com uma defasagem temporal, no Brasil esta área seguiu em forte desenvolvimento, e apresenta-se hoje aplicada tanto no meio corporativo quanto no meio acadêmico. Em relação às produções acadêmicas podemos citar trabalhos realizados no INPE (Instituto Nacional de Pesquisas espaciais), apresentando qualidade Internacional com publicações em revistas altamente conceituadas. Tomando como exemplo trabalhos desenvolvidos atualmente no curso de pós-graduação em sensoriamento remoto do INPE, podemos visualizar a gama de utilização de dados espaciais para o entendimento dos mais diversos fenômenos. Estes estudos vão desde aplicações em macro escala como o monitoramento da Amazônia brasileira, em função do desmatamento, das queimadas e a deterioração dos recursos hídricos, bem como em escalas mais finas como estudos em reservatórios, áreas urbanas e de luzes noturnas. A Seção <a href="https://dataat.github.io/introducao-analise-de-dados-espaciais/para-saber-mais.html">Para saber mais</a> apresenta alguns estudos desenvolvidos no INPE.</p>
 <p>O objetivo deste minicurso é apresentar de forma simples e objetiva os conceitos fundamentais de dados espaciais, bem como métodos para analisá-los. Sinta-se à vontade para contribuir com este material, esperamos que goste deste pequeno material produzido! 🥼</p>
-<div id="representacoes-de-dados-espaciais" class="section level2">
+<div id="representações-de-dados-espaciais" class="section level2">
 <h2><span class="header-section-number">1.1</span> Representações de dados espaciais</h2>
 <p>Dentro do universo estrutural dos SIGs (Sistema de Informação Geográficas), a forma de representação dos dados geográficos podem ser divididas em duas grandes classes: vetoriais e matriciais. Sendo que as estruturas de dados vetoriais são representações que denotam as fronteiras de entidades geográficas, ou seja, através de suas características é possível descrever computacionalmente as formas de uma superfície. Já a classe matricial, representa informações estruturadas em forma de matriz (linhas e colunas). Cada elemento dessa matriz é formado por um determinado valor associado a sua localização e formalmente pode ser representado como uma matriz P(m,n) composto de m colunas e n linhas. Contudo a representação dos dados espaciais é composto por uma gama de grupos pertencentes às representações vetoriais e matriciais, de tal forma que cada grupo deve ser explorado e suas particularidades aprofundadas separadamente.</p>
 <div id="vetoriais" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Vetoriais</h3>
-<p>A estrutura de dados espaciais no formato vetorial é utilizada para representar a fronteira de uma entidade geográfica, sendo que suas coordenadas espaciais são os pontos que descrevem a posição e direção de um objeto. Para a classe de estruturas vetoriais suas entidades básicas (Figura <a href="introducao.html#fig:fig1h1">1.3</a>) são representadas nas formas de pontos, linhas e polígonos.</p>
+<p>A estrutura de dados espaciais no formato vetorial é utilizada para representar a fronteira de uma entidade geográfica, sendo que suas coordenadas espaciais são os pontos que descrevem a posição e direção de um objeto. Para a classe de estruturas vetoriais, suas entidades básicas (Figura <a href="introdução.html#fig:fig1h1">1.3</a>) são representadas nas formas de pontos, linhas e polígonos.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig1h1"></span>
-<img src="res/1_intro/rep_dados.png" alt="Representação no plano unidimensional das formas vetoriais." width="512" />
+<img src="res/1_intro/rep_dados.png" alt="Representação no plano unidimensional das formas vetoriais."  />
 <p class="caption">
 Figure 1.3: Representação no plano unidimensional das formas vetoriais.
 </p>
@@ -243,7 +220,7 @@ Figure 1.3: Representação no plano unidimensional das formas vetoriais.
 <p>Diferente das representações vetoriais, onde cada fenômeno é apresentado como um objeto espacial, nas estruturas matriciais (<strong>raster</strong>) os atributos presentes nos fenômenos estão associados a elementos em uma matriz. Cada valor armazenado na estrutura matricial têm suas características relacionadas a uma posição, essa posição também é chamada de célula, e é responsável por armazenar um valores que representam uma área específica da superfície.</p>
 <p>Uma das características presentes nas estruturas matriciais é a resolução espacial que corresponde a um valor relacionado a dimensionalidade linear em um espaço geográfico. <em>“Quanto menor a dimensão das células, maior a resolução da imagem matricial e, consequente, maior a quantidade de memória necessária para armazená-la”</em> <span class="citation">Lisboa Filho and IOCHPE (2001)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig2h2"></span>
-<img src="res/1_intro/rep_matriciais.png" alt="Estrutura para representação matricial onde cada célula tem um valor de atributo (UM ou ZERO)" width="576" />
+<img src="res/1_intro/rep_matriciais.png" alt="Estrutura para representação matricial onde cada célula tem um valor de atributo (UM ou ZERO)"  />
 <p class="caption">
 Figure 1.4: Estrutura para representação matricial onde cada célula tem um valor de atributo (UM ou ZERO)
 </p>
@@ -251,7 +228,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <p>A representação matricial pressupõe que o espaço amostral dos elementos que compõem uma superfície plana tenham um valor de atributo associado, ou seja, cada célula está contém um valor e uma localização (linha e coluna) da matriz. Além da representação simples, é possível generalizar que os espaços celulares podem estar associados a mais de um atributo, ou seja, uma quantidade maior de fenômenos está associada a uma localização da matriz, essa associação pode ser do tipo espaço-temporal para retratar fenômenos dentro de uma série temporal, esta forma de representação é muito conveniente para armazenar os dados no formato de bancos de dados do tipo objeto-relação.</p>
 </div>
 </div>
-<div id="sistema-de-referencia-espacial" class="section level2">
+<div id="sistema-de-referência-espacial" class="section level2">
 <h2><span class="header-section-number">1.2</span> Sistema de referência espacial</h2>
 <p>Bem, como vimos até aqui, dados espaciais possuem duas características fundamentais, o registro de diferentes fenômenos e sua localização. Mas como esta localização é vinculada a uma posição da superfície terrestre?</p>
 <p>Para conseguirmos responder a esta pergunta devemos ir por partes. Vamos começar imaginando uma superfície plana, como a apresentada abaixo.</p>
@@ -274,7 +251,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <img src="res/1_intro/rectangle_localizacoes_limites_ponto.svg" />
 </center>
 <p>Ok, mas, o que é isso tem a ver com sistemas de referência espacial e nossa pergunta inicial? Tudo! Isto já que, para sabermos onde estava o ponto e sua localização precisamos definir os limites da superfície, e a mesma situação é necessária para os dados espaciais e a superfície terrestre.</p>
-<p>Então, com a mesma lógica aplicada a superfície quadrada do exemplo anterior podemos mapear todo o planeta Terra, porém alguns problemas surgem para este caso. Primeiro, para começarmos a mapear a superfície terrestre devemos entender:</p>
+<p>Então, com a mesma lógica aplicada à superfície quadrada do exemplo anterior podemos mapear todo o planeta Terra, porém alguns problemas surgem para este caso. Primeiro, para começarmos a mapear a superfície terrestre devemos entender:</p>
 <ul>
 <li>Como é a superfície terrestre; e</li>
 <li>formas de representação.</li>
@@ -283,12 +260,15 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <center>
 <img src="res/1_intro/tipos_superficies.png" width="500" height="250">
 </center>
-<p>Na Figura acima o geóide representa tudo que está no nível do mar, o elipsoide representa a camada abaixo do geóide e o terreno a parte superior ao geóide, além disto, tanto a representação da superfície terrestre quanto o geóide carregam diversas dificuldades quando precisam ser representados, por conta de suas características irregulares, por isto, adota-se como representação da superfície, o elipsoide.</p>
+<p>Na Figura acima o geóide representa tudo que está no nível do mar, o elipsóide representa a camada abaixo do geóide e o terreno a parte superior ao geóide, além disto, tanto a representação da superfície terrestre quanto o geóide carregam diversas dificuldades quando precisam ser representados, por conta de suas características irregulares, por isso, adota-se como representação da superfície, o elipsóide</p>
 <blockquote>
-<p>Com isto, pode-se concluir que, o geóide é a superfície de medição da Terra, enquanto o elipsoide é a superfície de representação.</p>
+<p>Com isto, pode-se concluir que, o geóide é a superfície de medição da Terra, enquanto o elipsóide é a superfície de representação.</p>
 </blockquote>
 <p>Certo, com a definição da forma de representação da superfície terrestre já podemos realizar todo o mapeamento, correto? Ainda não, pois além de entendermos como é a superfície precisamos definir como toda esta superfície terrestre será representada. Tal representação pode ser feita de diversas formas, a variar de acordo com a necessidade, algumas dessas formas são apresentadas na Figura abaixo.</p>
-<p><img src="res/1_intro/sistemas_de_referencia.PNG" /></p>
+<div class="figure">
+<img src="res/1_intro/sistemas_de_referencia.PNG" />
+
+</div>
 <p>Onde, a superfície esférica normalmente é utilizada como representação da Terra quando há grandes quantidades de área a serem representadas, como por exemplo, diversos continentes ou mesmo o planeta todo <span class="citation">(Montanari 2014)</span> . Já para os casos, onde é necessário a representação de uma quantidade de Terra considerável, porém, não tão grande como o planeta todo, utiliza-se a representação elipsóidica <span class="citation">(Montanari 2014)</span>, esta que inclusive é a mais utilizada nas aplicações espaciais atuais. Por fim, tem-se o modelo geoidal, que como já citado, é o que mais se aproxima da superfície terrestre, porém sua representação pode ser muito complexa para o mapeamento da superfície terrestre e a geração das localizações.</p>
 <p>Beleza! Agora entendemos todo o fluxo necessário para realizar do mapeamento, partindo da definição da superfície e indo até suas formas de representação. Com isto, conseguimos fazer uma definição de sistemas de referência espacial que seja clara e concisa.</p>
 <blockquote>
@@ -301,7 +281,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 </ul>
 <p>Muito interessante, porém, mesmo com este entendimento ficou uma dúvida, como é que os pontos vão ser representados, da mesma forma que havíamos feito no exemplo? Bem, esta pergunta é respondida nas seções seguintes.</p>
 </div>
-<div id="projecoes-cartograficas" class="section level2">
+<div id="projeções-cartográficas" class="section level2">
 <h2><span class="header-section-number">1.3</span> Projeções cartográficas</h2>
 <p>Até esta seção, todas as informações passadas de representações da superfície terrestre utilizaram modelos tridimensionais para tal feito, porém, se estas representações possuem três dimensões, como mapas bidimensionais, com o apresentado abaixo são gerados?</p>
 <p><br></p>
@@ -310,13 +290,13 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 </center>
 <p><br></p>
 <p>A resposta é simples! <code>Projeções cartográficas</code>, estas que através de transformações geométricas realizam a conversão das representações tridimensionais para bidimensionais, mantendo a correspondência entre ambas <span class="citation">IBGE (2016a)</span>.</p>
-<div id="tipos-de-projecao" class="section level3">
+<div id="tipos-de-projeção" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Tipos de projeção</h3>
 <p>Por se tratar de operações geométricas é esperado que nessas existam distorções <span class="citation">(IBGE 2016a)</span>, por conta disto existem diferentes tipos de superfícies geométricas de projeção que são utilizadas <span class="citation">(IBGE 2016b)</span>, para que as superfícies no momento da projeção foram a menor quantidade possível de distorções nas áreas de interesse.</p>
 <p>As subseções a seguir apresentam alguns tipos de superfícies geométricas utilizadas para as projeções.</p>
-<div id="projecao-cilindrica" class="section level4">
+<div id="projeção-cilíndrica" class="section level4">
 <h4><span class="header-section-number">1.3.1.1</span> Projeção cilíndrica</h4>
-<p>Na projeção cilíndrica o esferoide de representação da Terra é envolvido sobre um cilindro tangente.</p>
+<p>Na projeção cilíndrica o esferóide de representação da Terra é envolvido sobre um cilindro tangente.</p>
 <br>
 <center>
 <img src="res/1_intro/projecoes_3_cilindrica.jpg" width="550" height="300">
@@ -324,7 +304,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <p><br></p>
 <p>Neste tipo de projeção há muitas distorções dos polos, sul e norte, o que faz com que estes pareçam ter tamanhos bem maiores do que deveriam.</p>
 </div>
-<div id="projecao-conica" class="section level4">
+<div id="projeção-cônica" class="section level4">
 <h4><span class="header-section-number">1.3.1.2</span> Projeção Cônica</h4>
 <p>As projeções cônicas são geradas através da utilização de um cone, que favorece a redução de distorções nos meridianos e aumenta a distorção nos polos.</p>
 <br>
@@ -333,7 +313,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 </center>
 <p><br></p>
 </div>
-<div id="projecao-plana" class="section level4">
+<div id="projeção-plana" class="section level4">
 <h4><span class="header-section-number">1.3.1.3</span> Projeção plana</h4>
 <p>Projeção que é gerada com base em um plano, que toca em um ponto específico da representação da esfera terrestre.</p>
 <br>
@@ -348,7 +328,7 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <div id="sistema-de-coordenadas" class="section level2">
 <h2><span class="header-section-number">1.4</span> Sistema de Coordenadas</h2>
 <p>Bem, mesmo com as várias formas de representação e projeção, é mais que necessário utilizamos de alguma técnica que nos permita, dentro de cada uma das representações, apontar sem nenhum tipo de ambiguidade as posições nas quais diferentes objetos estão na superfície terrestre.</p>
-<div id="sistemas-de-coordenadas-geograficas" class="section level3">
+<div id="sistemas-de-coordenadas-geográficas" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Sistemas de Coordenadas Geográficas</h3>
 <p>Então, para que cada objeto na superfície da Terra fosse facilmente identificado, sem nenhum tipo de ambiguidade, um sistema de linhas imaginárias, nomeado de Sistemas de Coordenadas Geográficas foi criado. Neste sistema existem dois tipos de linhas, os meridianos e os paralelos. Para os meridianos tem-se que são linhas imaginárias que cortam a Terra no sentido norte-sul e para os paralelos, tem-se linhas que circulam a Terra no sentido leste-oeste <span class="citation">(IBGE 2016b)</span>.</p>
 <p>Vale acrescentar também que, os paralelos nos representam as latitudes, que são a distância em graus da linha do Equador até um determinado paralelo. Os valores da latitude podem variar de 0° (Sob a linha do Equador) a 90° (Sob as extremidades), sendo que, para os hemisférios norte são considerados valores positivos e para o hemisfério sul valores negativos. Já as longitudes representam a distância, em graus, entre o meridiano de Greenwich até um outro meridiano qualquer. Seus valores variam de 0° (Sob o meridiano de Greenwich) a 180° (Nas extremidades leste e oeste a Greenwich), onde, para o leste consideram-se valores positivos e ao oeste valores negativos <span class="citation">(IBGE 2016b)</span>.</p>
@@ -365,9 +345,12 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 <p>O sistema de coordenadas planas é baseado no sistema cartesiano de representação, onde em um plano bidimensional o cruzamento de duas linhas faz a representação da localização de um ponto <span class="citation">(Santos, Barbosa, and Gomes 2016)</span>, sendo que o eixo X representa a Latitude e o eixo Y a longitude.</p>
 <p>Espere um pouco, representação em um plano? Até aqui vimos a representação geográfica que é feita sobre a representação esferoidal da superfície terrestre e só vimos a superfície plana nas projeções. Pois bem, para a utilização do sistema de coordenadas planas é assumido que alguma projeção seja aplicada, normalmente utiliza-se a superfície cônica na projeção dos dados para a utilização deste sistema <span class="citation">(Santos, Barbosa, and Gomes 2016)</span>.</p>
 <p>Lembra do mercator que citamos anteriormente, a forma de representação para coordenadas planas comumente utilizada também é dele, e possui o nome de <code>Sistema Universal Transversa de Mercator</code>.</p>
-<p><img src="res/1_intro/utm_coordenadas3.jpg" /></p>
+<div class="figure">
+<img src="res/1_intro/utm_coordenadas3.jpg" />
+
 </div>
-<div id="codigos-epsg" class="section level3">
+</div>
+<div id="códigos-epsg" class="section level3">
 <h3><span class="header-section-number">1.4.3</span> Códigos EPSG</h3>
 <p>Os códigos <strong>E</strong>uropean <strong>P</strong>etrolem <strong>S</strong>urvey <strong>G</strong>roup (EPSG) representam uma forma de organização dos mais diversos sistemas de referências e seus sistemas de coordenadas, desta forma os códigos EPSG criam uma forma rápida e simples para a busca e identificação de qual sistema de referência e sistema de coordenadas está sendo utilizado.</p>
 <p>Como estes códigos abrangem todos os sistemas de coordenadas do mundo, com os mais variados sistemas de coordenadas, abaixo é apresentado uma tabela com somente alguns dos códigos EPSG mais utilizados no Brasil.</p>
@@ -413,14 +396,14 @@ Figure 1.4: Estrutura para representação matricial onde cada célula tem um va
 </div>
 <div id="open-geospatial-consortium-ogc" class="section level2">
 <h2><span class="header-section-number">1.5</span> Open Geospatial Consortium (OGC)</h2>
-<p>A organização <em>Open Geospatial Consortium</em> (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, <strong>geometry</strong> (geometria) e <strong>geography</strong> (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado <em>Simple Features</em>. Para descrever a hierarquia <strong>geometry</strong> onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para <strong>geometry</strong> e <strong>geography</strong>.</p>
+<p>A organização <em>Open Geospatial Consortium</em> (Consórcio Geoespacial Aberto, OGC) é responsável por reunir organizações voluntárias que trabalham no desenvolvimento e implementação de padrões geométricos para o processamento de dados em um SIG. O OGC propõem dentro de suas normas que para dados espaciais existem dois tipos a serem descritos na sua forma simples, <strong>geometry</strong> (geometria) e <strong>geography</strong> (geografia) que oferecem suporte a outros dezesseis objetos (ou instâncias) derivados, porém apenas onze podem ser instanciados diretamente. Os modelos de objetos geométricos do OGC possuem características que podem ser descritas dentro do seu conjunto de normas e implementações, essas características fazem parte da arquitetura que descreve objetos comuns chamado <em>Simple Features</em>, aqui chamado de OGC-SFS. Para descrever a hierarquia <strong>geometry</strong> onde os tipos de dados são baseados, é possível criar instâncias que representam os tipos de dados geográficos, para isso a figura ilustra os principais tipos de dados para <strong>geometry</strong> e <strong>geography</strong>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig142"></span>
 <img src="res/1_intro/OGC_FEATURES.png" alt="Principais tipos geométricos (OGC) - Fonte: [@egenhofer1991point]" width="70%" />
 <p class="caption">
 Figure 1.5: Principais tipos geométricos (OGC) - Fonte: <span class="citation">(Egenhofer and Franzosa 1991)</span>
 </p>
 </div>
-<p>Os tipos de dados espaciais dentro do OGC <em>Simple Features</em> (Figura <a href="introducao.html#fig:fig142">1.5</a>) estão divididos em dezesseis tipos de diferentes instâncias, podendo ser divididos em outros três grupos: <strong>Primitivos</strong>, <strong>Múltiplos</strong> e <strong>Coleções</strong>. No tipo <strong>primitivo</strong> temos os seguintes objetos:</p>
+<p>Os tipos de dados espaciais dentro do OGC <em>Simple Features</em> (Figura <a href="introdução.html#fig:fig142">1.5</a>) estão divididos em dezesseis tipos de diferentes instâncias, podendo ser divididos em outros três grupos: <strong>Primitivos</strong>, <strong>Múltiplos</strong> e <strong>Coleções</strong>. No tipo <strong>primitivo</strong> temos os seguintes objetos:</p>
 <ul>
 <li><p>Ponto (POINT): Um ponto é um objeto 0-dimensional que representa uma localização simples para coordenadas espaciais, sendo composto por um par ordenado de coordenadas (x,y) associados a um sistema de referências espaciais.</p></li>
 <li><p>Linha (LINESTRING): É composto por um conjunto de pontos interpolados linearmente onde cada par consecutivo de pontos define um segmento de linha, ou seja um LINESTRING é exatamente a interpolação entre dois pontos ou um conjunto de pontos.</p></li>
@@ -435,59 +418,59 @@ Figure 1.6: Hierarquia da OGC Simple Feature simplificada
 </div>
 <p>Existe uma diferença significativa para os tipos de dados de <strong>geometry</strong> e <strong>geography</strong>, os dois se comportam de maneira semelhante porém algumas diferenças importantes devem ser levadas em consideração. Existem tipos de medidas para dados espaciais, dentre estes tipos de medidas podemos destacar as medidas de sistema planar (terra plana) e os sistemas elipsoidal (terra redonda), onde as medidas de distância e áreas possuem variações que devem ser levadas em consideração para obtenção de medidas mais precisas. Assim como as medidas para os dados espaciais é importante determinar a orientação dos dados espaciais, em sistemas planares a orientação do anel do polígono não é um fator importante, já para sistemas elipsoidais um polígono pode ter valores ambíguos caso a sua orientação não seja definida.</p>
 </div>
-<div id="relacionamentos-espaciais-nomeados" class="section level2">
-<h2><span class="header-section-number">1.6</span> Relacionamentos espaciais nomeados</h2>
-<p>Realizar a caracterização do relacionamento entre os objetos espaciais permite a criação de contextos semânticos sobre estes <span class="citation">(Câmara et al. 2005)</span> e assim seja possível a extração de informações relevantes <span class="citation">(Ferreira 2010)</span>.</p>
-<p>É tido que, existem alguns tipos de relacionamentos entre os objetos que podem ser utilizados para tal caracterização, sendo eles, topológicos, métricos e de ordem <span class="citation">(Câmara et al. 2005)</span>. Os relacionamentos métricos representam relações que tratam especificamente de área de distância entre objetos. Já os de ordem representam a forma com que um objeto está disposto ao outro. Os topográficos consideram os relacionamentos de interseção entre os objetos.</p>
-<p>Todos os tipos citados anteriormente serão tratados em algum momento durante esta documentação, porém nesta seção as relações topográficas terão uma enfase especial, isto já que, diferente das demais, apresenta uma estrutura própria para seus relacionamentos e ainda, segundo <span class="citation">Bogorny and Iochpe (2001)</span>, representa a forma de relação espacial mais utilizada, já que esta faz analogias diretas a como percebemos a espacialidade do mundo real.</p>
-<!-- 
-http://sertie.fct.unesp.br/wp-content/uploads/2017/10/17-Relacionamentos-topol%C3%B3gicos.pdf
--->
-<p>Desta forma, as subseções abaixo apresentam um pouco mais sobre os relacionamentos topográficos, também denominados de relacionamentos espaciais nomeados, uma vez que, possuem uma definição formal, que vai desde sua nomenclatura até as formas de representação.</p>
-<div id="relacionamentos-espaciais" class="section level3">
-<h3><span class="header-section-number">1.6.1</span> Relacionamentos espaciais</h3>
-<p>Esta subseção busca de forma simples, apresentar a definição formal dos relacionamentos espaciais nomeados. Em um segundo momento, na documentação do Python, R e PostGIS deste material há exemplos de aplicações de tais relacionamentos.</p>
-<p>Para o entendimento destes relacionamentos, vamos começar fazendo a definição das regiões das geometrias, assunto base para o entendimento das formas de relação, para isto, veja a Figura abaixo.</p>
-<center>
-<img src="res/1_intro/regioes_geometricas.svg" />
-</center>
-<p>Perceba que, para cada uma das principais geometrias há um conjunto de três definições. O interior refere-se diretamente a área interna da geometria, enquanto que a fronteira representa somente o contorno da área e o exterior sendo toda área que não é preenchida pela geometria.</p>
-<p>Certo, vejamos agora, alguns tipos de relacionamentos espaciais:</p>
-<ul>
-<li><strong>contains</strong> - Verifica se a geométria B contêm A;</li>
-<li><strong>equal</strong> - Verifica se duas geométrias são iguais.</li>
-</ul>
-<p>Porém, somente ao ler a descrição de cada um dos métodos de relacionamentos apresentados acima é possível perceber um problema. O que significa dizer que a geometria B contém A ? Ou mesmo, o que torna as geometrias iguais ?</p>
-<p>Por conta destas questões que cada um destes métodos possui uma definição formal, que como citado anteriormente, evita qualquer tipo de múltiplas interpretações, mas como esta definição pode ser feita ? Para este problema <span class="citation">Bogorny and Iochpe (2001)</span> indica que diversas abordagens podem ser aplicadas, porém é comum a aplicação de matrizes de interseção, descrevendo o comportamento de cada região da geometria nos métodos de relacionamento.</p>
-<p><span class="citation">Câmara et al. (2005)</span> define que para casos simples pode ser utilizada a chamada Matriz de 4-Interseções, que define 8 relações espaciais nomeadas e descreve o que cada uma dessas operações leva em consideração. A Matriz de operações é apresentada abaixo.</p>
-<div class="figure" style="text-align: center"><span id="fig:figm4"></span>
-<img src="res/1_intro/matriz_4.PNG" alt="Matriz 4-Interseções Fronteira (∂); interior (°); exterior (-); vazio (∅); não vazio (¬∅)  - Fonte: @egenhofermdifelicepclementinie1994" width="50%" />
-<p class="caption">
-Figure 1.7: Matriz 4-Interseções Fronteira (∂); interior (°); exterior (-); vazio (∅); não vazio (¬∅) - Fonte: <span class="citation">EGENHOFER, DI FELICE, and CLEMENTINI (1994)</span>
-</p>
+<div id="relacionamentos-espaciais" class="section level2">
+<h2><span class="header-section-number">1.6</span> Relacionamentos espaciais</h2>
+<p>Além da definição dos tipos geométricos, o OGC-SFS define também operações para a manipulação e uso desses. Dentre as operações definidas existem um conjunto delas que merece uma atenção especial, os operadores topológicos, com esses é possível realizar testes de relacionamento espacial entre os objetos geométricos. Na especificação da OGC-SFS, esses operadores topológicos utilizam como base a matriz de 9 intersecções estendida dimensionalmente.</p>
+<div id="matriz-de-9-interseções-estendida-dimensionalmente" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Matriz de 9-Interseções Estendida dimensionalmente</h3>
+<p>A matriz de nove intersecções extendida dimensionalmente (<strong>DE-9IM</strong>) tem como objetivo apresentar um método para os relacionamentos topológicos entre objetos geométricos, este modelo considera o resultado da interseção entre as fronteiras, interiores e exteriores de duas geometrias <span class="citation">(QUEIROZ and CÂMARA 2005)</span>. A matriz é apresentada abaixo</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Interior(B)</th>
+<th align="center">Fronteira(B)</th>
+<th>Exterior(B)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Interior(A)</td>
+<td align="center"><span class="math inline">\(I(A) \cap I(B)\)</span></td>
+<td align="center"><span class="math inline">\(I(A) \cap F(B)\)</span></td>
+<td><span class="math inline">\(I(A) \cap E(B)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Fronteira(A)</td>
+<td align="center"><span class="math inline">\(F(A) \cap I(B)\)</span></td>
+<td align="center"><span class="math inline">\(F(A) \cap F(B)\)</span></td>
+<td><span class="math inline">\(F(A) \cap E(B)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Exterior(A)</td>
+<td align="center"><span class="math inline">\(E(A) \cap I(B)\)</span></td>
+<td align="center"><span class="math inline">\(E(A) \cap F(B)\)</span></td>
+<td><span class="math inline">\(E(A) \cap E(B)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Com base nestes testes de intersecção faz-se a construção dos operadores de relacionamento especificados na OGC-SFS.</p>
 </div>
-<p>O ponto importante da Figura apresentada acima é que, para cada um dos métodos que estão sendo apresentados, há exatamente o que ele considera, por exemplo, vejamos o método <strong>contains</strong>, que indica se uma geometria está ou não contida em outra. Neste método existem quatro cenários possíveis. No primeiro, é considerado se as fronteiras (∂) estão se cruzando, e caso estejam não é considerado que uma contém a outra. O segundo caso verifica se o interior (°) de uma geometria está em outro, e caso esteja é considerado que uma está contida em outra.</p>
-<p>Veja que interessante! Através de uma definição simples e direta já foi possível perceber os possíveis casos de cada método.</p>
-<p>Há casos em que a Matriz de 4-Interseções não é o suficiente para fazer as representações <span class="citation">(Câmara et al. 2005)</span>, para estes casos outros modelos podem ser utilizados, como é o caso da Matriz de 9-Interseções Dimensionalmente estendidas, apresentada na seção seguinte a esta.</p>
-</div>
-<div id="restricoes-espaciais" class="section level3">
-<h3><span class="header-section-number">1.6.2</span> Restrições espaciais</h3>
-<p>Em certos casos, o fenômeno que está sendo representado pelos dados espaciais faz com que sejam necessários a aplicação de regras e restrições específicas sobre os mesmos <span class="citation">(Bogorny and Iochpe 2001)</span>. Esta regra também é aplicável no contexto dos relacionamentos espaciais.</p>
-<p>Por exemplo, o método <strong>disjoint</strong> pode ser aplicado considerando qualquer par de geometrias, enquanto que o método <strong>overleap</strong> só pode ser aplicado a pares do mesmo tipo, como por exemplo geometrias de linhas com outras linhas <span class="citation">(Câmara et al. 2005)</span>.</p>
-<p>Caso você fique interessado e deseja uma descrição completa de todas estas restrições, não deixe de consultar o material de <code>Banco de dados geográficos</code>, disponibilizado pelo INPE.</p>
-</div>
-</div>
-<div id="matriz-de-9-intersecoes-estendida-dimensionalmente" class="section level2">
-<h2><span class="header-section-number">1.7</span> Matriz de 9-Interseções Estendida dimensionalmente</h2>
-<p>O modelo de novo intersecções dimensionalmente estendido (<strong>DE9IM</strong>) tem como objetivo apresentar um método para os relacionamentos topológicos entre objetos geométricos, este modelo considera o resultado da interseção entre as fronteiras, interiores e exteriores de duas geometrias <span class="citation">(QUEIROZ and CÂMARA 2005)</span>. A DE9IM é uma extensão da matriz de 4-interseções onde oito relações topológicas binárias são consideradas, estas operações representam a interseção entre as fronteiras e o interior de duas geometrias <span class="citation">(Egenhofer and Herring 1990)</span>.</p>
-<p>A definição dos relacionamentos topológicos para a <strong>DE9IM</strong> visa cobrir as operações entre objetos mais complexos, por exemplo, operações entre ilhas e separações. Para isso se faz necessário estender a matriz de 4-Interseções e levar em consideração o exterior das geometrias. Para este novo modelo, o resultado da interseção entre as fronteiras, interiores e exteriores são avaliados e os valores de operações vazias ou não-vazias também é considerado, pois em alguns casos é necessário considerar as dimensões de interseções não vazias, no modelo da Figura x, são consideradas operações entre (Interior, Fronteira e Exterior) de dois objetos A e B onde o resultado das operações contempla um conjunto de 52 relacionamentos topológicos entre os objetos, sendo que que tais relacionamentos podem ser agrupados em cinco operações mais gerais: <strong>touch</strong> (toca), <strong>in</strong> (dentro), <strong>cross</strong> (cruza), <strong>overlap</strong> (sobrepõem) e <strong>disjoint</strong> (disjunto).</p>
-<div class="figure" style="text-align: center"><span id="fig:fig112"></span>
-<img src="res/1_intro/NINE_INTER.png" alt="Matriz de 9-Interseções relacionando duas regiões entre objetos - Fonte: [@egenhofer1991point]" width="50%" />
-<p class="caption">
-Figure 1.8: Matriz de 9-Interseções relacionando duas regiões entre objetos - Fonte: <span class="citation">(Egenhofer and Franzosa 1991)</span>
-</p>
-</div>
+<div id="relacionamentos-espaciais-nomeados" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Relacionamentos espaciais nomeados</h3>
+<p>Com base na sobrecarga de comportamentos específicos da <strong>DE-9IM</strong>, a OGC-SFS define um conjunto de 8 operadores com nomes bem definidos, de modo que, o comportamento gerado por esses sob a <strong>DE-9IM</strong> já tem um padrão determinado, o que evita ter de trabalhar diretamente com a manipulação da matriz.</p>
+<p>Os operadores definidos são:</p>
+<p><span class="math inline">\(Equals(Geometry, Geometry) \to bool\)</span>: Verifica se duas geometrias são espacialmente iguais</p>
+<p><span class="math inline">\(Disjoint(Geometry, Geometry) \to bool\)</span>: Verifica se duas geometrias não possuem qualquer tipo de relação espacial</p>
+<p><span class="math inline">\(Touches(Geometry, Geometry) \to bool\)</span>: Indica se duas geometrias se tocam</p>
+<p><span class="math inline">\(Crosses(Geometry, Geometry) \to bool\)</span>: Verifica se duas geometrias se cruzam</p>
+<p><span class="math inline">\(Within(Geometry, Geometry) \to bool\)</span>: Verifica se a primeira geometria está dentro da segunda</p>
+<p><span class="math inline">\(Contains(Geometry, Geometry) \to bool\)</span>: Este operador é o inverso do <code>Within</code>, verificando se a primeira geometria contém a segunda</p>
+<p><span class="math inline">\(Overlaps(Geometry, Geometry) \to bool\)</span>: Verifica se duas geometrias se sobrepõem</p>
+<p><span class="math inline">\(Intersects(Geometry, Geometry) \to bool\)</span>: Verifica se duas geometrias tem algum tipo de relacionamento espacial</p>
+<p>Com a utilização desses operadores bem definidos, muitas operações em Sistemas de Informação Geográficas são realizadas. Há muito mais para ver, aqui apenas apresentamos os conceitos gerais, para que você tenha uma ideia de tudo que está por trás das operações que são realizadas no curso. Se quiser se aprofundar, o <a href="https://cap-349.github.io/index.html">material da disciplina de Bancos de Dados Geográficos</a> é aberto e cobre por completo cada um desses assuntos.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -501,11 +484,13 @@ Figure 1.8: Matriz de 9-Interseções relacionando duas regiões entre objetos -
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -513,12 +498,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -530,6 +514,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -546,7 +534,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
