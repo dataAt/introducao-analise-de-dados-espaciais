@@ -5,7 +5,7 @@ cligj==0.5.0
 cycler==0.10.0
 descartes==1.1.0
 Fiona==1.8.13
-geopandas==0.6.2
+geopandas==1.1.2
 kiwisolver==1.1.0
 matplotlib==3.0.3
 munch==2.5.0
